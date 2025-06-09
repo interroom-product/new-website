@@ -188,13 +188,6 @@ export default function NewServiceOfferings() {
             </CardContent>
           </Card>
         </div>
-
-        {/* Trust Elements */}
-        <div className="text-center mt-12">
-          <p className="text-gray-500 text-sm">
-            ✅ 30-day money-back guarantee on standalone services • ✅ Success guarantee on bundle • ✅ No hidden fees
-          </p>
-        </div>
       </div>
     </section>
   )

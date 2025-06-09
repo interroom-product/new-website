@@ -206,7 +206,7 @@ export default function ServicesPage() {
             {/* Portal Screenshot */}
             <div className="rounded-xl overflow-hidden shadow-glow">
               <img
-                src="/placeholder.svg?height=600&width=800"
+                src="/images/client-portal-dashboard.png"
                 alt="InterRoom Client Portal Dashboard"
                 className="w-full h-auto"
               />
