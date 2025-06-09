@@ -8,23 +8,24 @@ export default function CompanyLogos() {
 
   const companies = [
     {
-      name: "Netflix",
-      logo: "netflix",
-      url: "https://assets.turbologo.com/blog/en/2019/08/19085031/netflix-short-version-logo.png",
+      name: "Android",
+      logo: "android",
+      url: "https://sjc.microlink.io/JyIEMGCwFrof7b8l2xZoXZ3jYI2N-TciQ83KYNp0vDwRUdWzqH0W2GRrpb70hpH4IhwdoUH6yf1DIE5vOhMdLA.jpeg",
     },
     {
-      name: "Microsoft",
-      logo: "microsoft",
+      name: "OpenAI",
+      logo: "openai",
+      url: "https://sjc.microlink.io/NICHZNGoa5OXNZSe_vbPvnBF_vsRKohygJksQkGIKLr0kGeLaFgcAGtGqpKTAqGHYxDho-IIJ6ToR0Qsut7rnw.jpeg",
     },
     {
-      name: "Doordash",
-      logo: "doordash",
-      url: "https://logosandtypes.com/wp-content/uploads/2020/12/doordash.svg",
+      name: "Omada",
+      logo: "omada",
+      url: "https://www.logggos.club/logos/omada.svg",
     },
     {
-      name: "Meta",
-      logo: "meta",
-      url: "https://static.xx.fbcdn.net/rsrc.php/y9/r/tL_v571NdZ0.svg",
+      name: "Riverlane",
+      logo: "riverlane",
+      url: "https://www.logggos.club/logos/riverlane.svg",
     },
   ]
 
@@ -46,52 +47,13 @@ export default function CompanyLogos() {
             onMouseEnter={() => setHoveredLogo(company.logo)}
             onMouseLeave={() => setHoveredLogo(null)}
           >
-            {company.logo === "netflix" && (
-              <img
-                src={company.url || "/placeholder.svg"}
-                alt="Netflix"
-                className={`h-full w-auto transition-all duration-300 ${
-                  hoveredLogo === company.logo ? "filter-none" : "filter grayscale opacity-70"
-                }`}
-              />
-            )}
-
-            {company.logo === "microsoft" && (
-              <svg
-                className={`h-full w-auto transition-all duration-300 ${
-                  hoveredLogo === company.logo ? "filter-none" : "filter grayscale opacity-70"
-                }`}
-                viewBox="0 0 120 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="3.5" y="3.5" width="16" height="16" fill="#F25022" />
-                <rect x="20.5" y="3.5" width="16" height="16" fill="#7FBA00" />
-                <rect x="3.5" y="20.5" width="16" height="16" fill="#00A4EF" />
-                <rect x="20.5" y="20.5" width="16" height="16" fill="#FFB900" />
-              </svg>
-            )}
-
-            {company.logo === "doordash" && (
-              <img
-                src={company.url || "/placeholder.svg"}
-                alt="Doordash"
-                className={`h-full w-auto transition-all duration-300 ${
-                  hoveredLogo === company.logo ? "filter-none" : "filter grayscale opacity-70"
-                }`}
-              />
-            )}
-
-            {company.logo === "meta" && (
-              <img
-                src={company.url || "/placeholder.svg"}
-                alt="Meta"
-                className={`h-full w-auto transition-all duration-300 ${
-                  hoveredLogo === company.logo ? "filter-none" : "filter grayscale opacity-70"
-                }`}
-              />
-            )}
-
+            <img
+              src={company.url || "/placeholder.svg"}
+              alt={company.name}
+              className={`h-full w-auto transition-all duration-300 ${
+                hoveredLogo === company.logo ? "filter-none" : "filter grayscale opacity-70"
+              }`}
+            />
             <span className="sr-only">{company.name}</span>
           </motion.div>
         ))}

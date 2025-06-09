@@ -1,6 +1,20 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Brain, FileText, Mic, Clock, Star, CheckCircle, Users, Shield } from "lucide-react"
+import {
+  ArrowRight,
+  Brain,
+  FileText,
+  Mic,
+  Clock,
+  Star,
+  CheckCircle,
+  Users,
+  Shield,
+  LayoutDashboard,
+  Bell,
+  BarChartIcon as ChartBar,
+  MessageSquare,
+} from "lucide-react"
 import Link from "next/link"
 import ResultsTicker from "@/components/results-ticker"
 
@@ -174,6 +188,84 @@ export default function ServicesPage() {
                 </Card>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Portal Showcase Section */}
+      <section className="py-16 px-4 bg-ir-neutral-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-ir-neutral-800 mb-4">Track Your Progress in the Client Portal</h2>
+            <p className="text-lg text-gray-600 font-light">
+              Every service includes access to our comprehensive client portal
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Portal Screenshot */}
+            <div className="rounded-xl overflow-hidden shadow-glow">
+              <img
+                src="/placeholder.svg?height=600&width=800"
+                alt="InterRoom Client Portal Dashboard"
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Portal Features */}
+            <div className="space-y-8">
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-ir-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <LayoutDashboard className="w-6 h-6 text-ir-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ir-neutral-800 mb-2">Comprehensive Dashboard</h3>
+                  <p className="text-gray-600">
+                    Track all your job applications, interviews, and offers in one centralized location. Get a
+                    bird's-eye view of your entire job search progress.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-ir-accent/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <Bell className="w-6 h-6 text-ir-accent" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ir-neutral-800 mb-2">Real-time Notifications</h3>
+                  <p className="text-gray-600">
+                    Receive instant alerts when we submit applications, when employers respond, or when it's time to
+                    prepare for interviews.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-ir-secondary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <ChartBar className="w-6 h-6 text-ir-secondary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ir-neutral-800 mb-2">Detailed Analytics</h3>
+                  <p className="text-gray-600">
+                    View response rates, interview conversion metrics, and other key performance indicators to
+                    understand what's working in your job search.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-ir-success/10 flex items-center justify-center mr-4 flex-shrink-0">
+                  <MessageSquare className="w-6 h-6 text-ir-success" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-ir-neutral-800 mb-2">Direct Communication</h3>
+                  <p className="text-gray-600">
+                    Message your coach or application manager directly through the portal. All your communications,
+                    documents, and feedback in one secure place.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
