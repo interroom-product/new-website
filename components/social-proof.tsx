@@ -75,11 +75,11 @@ export default function SocialProof() {
   }
 
   return (
-    <section className="py-20 px-4 bg-ir-neutral-100">
+    <section className="py-20 px-4 bg-ir-off-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-ir-neutral-800 mb-3">Success Stories</h2>
-          <p className="text-lg text-gray-600 font-light">See how we've helped others land their dream jobs</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-ir-off-black mb-3">Success Stories</h2>
+          <p className="text-lg text-ir-charcoal font-light">See how we've helped others land their dream jobs</p>
         </div>
 
         {/* Minimalist Testimonial Carousel */}
@@ -90,7 +90,7 @@ export default function SocialProof() {
                 <button
                   key={index}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? "bg-ir-primary w-6" : "bg-ir-neutral-300"
+                    index === currentIndex ? "bg-ir-primary w-6" : "bg-ir-periwinkle"
                   }`}
                   onClick={() => {
                     if (isPlaying !== null) {
@@ -104,21 +104,31 @@ export default function SocialProof() {
             </div>
 
             <div className="flex gap-2">
-              <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" onClick={prevSlide}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full h-8 w-8 text-ir-charcoal hover:bg-ir-periwinkle"
+                onClick={prevSlide}
+              >
                 <ChevronLeft className="h-4 w-4" />
                 <span className="sr-only">Previous</span>
               </Button>
-              <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" onClick={nextSlide}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full h-8 w-8 text-ir-charcoal hover:bg-ir-periwinkle"
+                onClick={nextSlide}
+              >
                 <ChevronRight className="h-4 w-4" />
                 <span className="sr-only">Next</span>
               </Button>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-xl shadow-soft">
+          <div className="overflow-hidden rounded-xl shadow-soft border border-ir-periwinkle">
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Video Side */}
-              <div className="relative aspect-video md:aspect-square bg-ir-neutral-200">
+              <div className="relative aspect-video md:aspect-square bg-ir-pastel">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIndex}
@@ -144,7 +154,7 @@ export default function SocialProof() {
                         style={{ backgroundImage: `url(${videoTestimonials[currentIndex].thumbnail})` }}
                         onClick={() => playVideo(currentIndex)}
                       >
-                        <div className="w-14 h-14 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center transition-transform transform hover:scale-110 shadow-soft">
+                        <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-transform transform hover:scale-110 shadow-soft">
                           <Play className="w-6 h-6 text-ir-primary ml-1" />
                         </div>
                       </div>
@@ -154,16 +164,16 @@ export default function SocialProof() {
               </div>
 
               {/* Text Side */}
-              <div className="bg-ir-neutral-100 p-6 md:p-8 flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-ir-neutral-800 mb-3">{videoTestimonials[currentIndex].title}</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+              <div className="bg-ir-off-white p-6 md:p-8 flex flex-col justify-center border-l border-ir-periwinkle">
+                <h3 className="text-xl font-bold text-ir-off-black mb-3">{videoTestimonials[currentIndex].title}</h3>
+                <p className="text-ir-charcoal mb-4 text-sm leading-relaxed">
                   "InterRoom's approach was refreshingly different. They didn't just help with my resume—they completely
                   transformed my job search strategy and helped me land interviews at companies I never thought
                   possible."
                 </p>
                 <div>
-                  <p className="text-ir-neutral-800 font-medium">{videoTestimonials[currentIndex].author}</p>
-                  <p className="text-gray-600 text-sm">{videoTestimonials[currentIndex].company}</p>
+                  <p className="text-ir-off-black font-medium">{videoTestimonials[currentIndex].author}</p>
+                  <p className="text-ir-charcoal text-sm">{videoTestimonials[currentIndex].company}</p>
                 </div>
               </div>
             </div>

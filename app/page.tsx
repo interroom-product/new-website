@@ -7,7 +7,7 @@ import CostOfJobSeekingCalculator from "@/components/cost-of-job-seeking-calcula
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-ir-neutral-100">
+    <main className="min-h-screen bg-ir-off-white">
       <HeroSection />
       <SocialProof />
       <CostOfJobSeekingCalculator />

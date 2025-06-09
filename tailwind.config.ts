@@ -20,30 +20,30 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // InterRoom Brand Colors - Updated Palette
-        "ir-primary": "#9458FA", // Royal Purple
-        "ir-secondary": "#5E4B8B", // Indigo Gray
-        "ir-accent": "#20D6B5", // Soft Teal
-        "ir-neutral-100": "#FFFFFF", // Pure White
-        "ir-neutral-200": "#F3F0FC", // Soft Lilac
-        "ir-neutral-300": "#D6D3E8", // Light Gray
-        "ir-neutral-800": "#1F1A2E", // Charcoal Black
-        "ir-warning": "#FF6B5A", // Coral Red
-        "ir-success": "#4FD187", // Emerald Green
+        // InterRoom Brand Colors - 2025 Palette
+        "ir-primary": "#9458FA", // Primary Purple
+        "ir-medium": "#AD88FD", // Medium Purple
+        "ir-periwinkle": "#E5DDFF", // Periwinkle
+        "ir-pastel": "#F6F3FF", // Pastel Purple
+        "ir-neutral-grape": "#C8B3FF", // Neutral Grape
+        "ir-charcoal": "#44403C", // Charcoal
+        "ir-off-white": "#FCFBF7", // Off White
+        "ir-warm-stone": "#F0ECE8", // Warm Stone
+        "ir-dark-stone": "#A8A29E", // Dark Stone (derived)
+        "ir-off-black": "#292524", // Off Black
 
-        // Legacy colors - keeping for backward compatibility
-        "ir-medium": "#AD88FD",
-        "ir-neutral": "#C8B3FF",
-        "ir-periwinkle": "#E5DDFF",
-        "ir-pastel": "#F6F3FF",
-        "ir-off-white": "#FCFBF7",
-        "ir-warm-stone": "#F0ECE8",
-        "ir-dark-stone": "#A8A29E",
-        "ir-charcoal": "#44403C",
-        "ir-off-black": "#292524",
-        "ir-light": "#F8F9FC",
-        "ir-dark": "#1A1A2E",
-        "ir-info": "#58FAE5",
+        // Legacy colors for backward compatibility
+        "ir-secondary": "#AD88FD", // Maps to Medium Purple
+        "ir-accent": "#C8B3FF", // Maps to Neutral Grape
+        "ir-neutral-100": "#FCFBF7", // Maps to Off White
+        "ir-neutral-200": "#F6F3FF", // Maps to Pastel Purple
+        "ir-neutral-300": "#E5DDFF", // Maps to Periwinkle
+        "ir-neutral-800": "#292524", // Maps to Off Black
+        "ir-warning": "#FF6B5A", // Coral Red (keeping for alerts)
+        "ir-success": "#4FD187", // Emerald Green (keeping for success states)
+        "ir-light": "#F6F3FF", // Maps to Pastel Purple
+        "ir-dark": "#44403C", // Maps to Charcoal
+        "ir-info": "#C8B3FF", // Maps to Neutral Grape
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
