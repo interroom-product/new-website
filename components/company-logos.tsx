@@ -8,9 +8,9 @@ export default function CompanyLogos() {
 
   const companies = [
     {
-      name: "Android",
-      logo: "android",
-      url: "https://sjc.microlink.io/JyIEMGCwFrof7b8l2xZoXZ3jYI2N-TciQ83KYNp0vDwRUdWzqH0W2GRrpb70hpH4IhwdoUH6yf1DIE5vOhMdLA.jpeg",
+      name: "Webflow",
+      logo: "webflow",
+      url: "https://www.logggos.club/logos/webflow.svg",
     },
     {
       name: "OpenAI",
@@ -31,7 +31,7 @@ export default function CompanyLogos() {
 
   return (
     <div className="mt-8 mb-16">
-      <p className="text-sm text-gray-400 mb-6">Our clients have landed roles at</p>
+      <p className="text-sm text-ir-charcoal mb-6">Our clients have landed roles at</p>
 
       <motion.div
         className="flex justify-center items-center gap-10 md:gap-16"
@@ -42,7 +42,7 @@ export default function CompanyLogos() {
         {companies.map((company) => (
           <motion.div
             key={company.name}
-            className="relative h-8 md:h-10"
+            className="relative h-8 md:h-10 flex items-center"
             whileHover={{ scale: 1.05 }}
             onMouseEnter={() => setHoveredLogo(company.logo)}
             onMouseLeave={() => setHoveredLogo(null)}
@@ -50,9 +50,10 @@ export default function CompanyLogos() {
             <img
               src={company.url || "/placeholder.svg"}
               alt={company.name}
-              className={`h-full w-auto transition-all duration-300 ${
+              className={`h-full w-auto max-w-none transition-all duration-300 ${
                 hoveredLogo === company.logo ? "filter-none" : "filter grayscale opacity-70"
               }`}
+              style={{ height: "2.5rem" }} // Consistent height for all logos
             />
             <span className="sr-only">{company.name}</span>
           </motion.div>
