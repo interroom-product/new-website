@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, MapPin, Calendar, ArrowRight } from "lucide-react" // Added ArrowRight for consistency
-import Link from "next/link" // Added Link for CTA
+import { Star, MapPin, Calendar, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export default function CoachesPage() {
   const coaches = [
@@ -77,17 +77,14 @@ export default function CoachesPage() {
 
   return (
     <div className="min-h-screen bg-white pt-20">
-      {" "}
-      {/* Changed background to white */}
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Every Top Performer Has a Coach</h1>{" "}
-          {/* Changed text color */}
-          <p className="text-xl text-gray-600 mb-8">Here's yours — ex-FAANG professionals who've been in your shoes</p>{" "}
-          {/* Changed text color */}
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Every Top Performer Has a Coach</h1>
+          <p className="text-xl text-gray-600 mb-8">Here's yours — industry professionals who've been in your shoes</p>
         </div>
       </section>
+
       {/* Filter Section */}
       <section className="px-4 mb-12">
         <div className="max-w-6xl mx-auto">
@@ -98,8 +95,8 @@ export default function CoachesPage() {
                 variant={specialty === "All" ? "default" : "outline"}
                 className={
                   specialty === "All"
-                    ? "bg-ir-primary hover:bg-ir-primary/90 text-white" // Updated button styles
-                    : "border-gray-300 text-gray-700 hover:bg-gray-100" // Updated button styles
+                    ? "bg-ir-primary hover:bg-ir-primary/90 text-white"
+                    : "border-gray-300 text-gray-700 hover:bg-gray-100"
                 }
               >
                 {specialty}
@@ -108,6 +105,7 @@ export default function CoachesPage() {
           </div>
         </div>
       </section>
+
       {/* Coaches Grid */}
       <section className="px-4 pb-20">
         <div className="max-w-6xl mx-auto">
@@ -115,7 +113,7 @@ export default function CoachesPage() {
             {coaches.map((coach, index) => (
               <Card
                 key={index}
-                className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" // Updated card styles
+                className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <CardContent className="p-6">
                   {/* Coach Image */}
@@ -126,79 +124,76 @@ export default function CoachesPage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
+
                   {/* Coach Info */}
                   <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{coach.name}</h3> {/* Changed text color */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{coach.name}</h3>
                     <p className="text-ir-primary font-semibold mb-2">{coach.title}</p>
-                    <p className="text-gray-600 text-sm mb-3">{coach.experience}</p> {/* Changed text color */}
+                    <p className="text-gray-600 text-sm mb-3">{coach.experience}</p>
                   </div>
+
                   {/* Rating */}
                   <div className="flex items-center justify-center mb-4">
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="text-gray-900 font-semibold ml-1">{coach.rating}</span>{" "}
-                      {/* Changed text color */}
-                      <span className="text-gray-600 text-sm ml-1">({coach.reviews} reviews)</span>{" "}
-                      {/* Changed text color */}
+                      <span className="text-gray-900 font-semibold ml-1">{coach.rating}</span>
+                      <span className="text-gray-600 text-sm ml-1">({coach.reviews} reviews)</span>
                     </div>
                   </div>
+
                   {/* Specialties */}
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-2 justify-center">
                       {coach.specialties.slice(0, 2).map((specialty, idx) => (
                         <span key={idx} className="px-2 py-1 bg-ir-pastel/50 text-ir-primary text-xs rounded-full">
-                          {" "}
-                          {/* Updated specialty tag styles */}
                           {specialty}
                         </span>
                       ))}
                       {coach.specialties.length > 2 && (
                         <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                          {" "}
-                          {/* Updated specialty tag styles */}+{coach.specialties.length - 2} more
+                          +{coach.specialties.length - 2} more
                         </span>
                       )}
                     </div>
                   </div>
+
                   {/* Stats */}
-                  <p className="text-center text-ir-primary text-sm font-semibold mb-4">{coach.stats}</p>{" "}
-                  {/* Changed text color */}
+                  <p className="text-center text-ir-primary text-sm font-semibold mb-4">{coach.stats}</p>
+
                   {/* Bio */}
-                  <p className="text-gray-600 text-sm text-center mb-6 leading-relaxed">{coach.bio}</p>{" "}
-                  {/* Changed text color */}
-                  {/* Removed "Book Session" CTA */}
-                  <Link href="/quiz">
-                    {" "}
-                    {/* Added a link to quiz for general CTA */}
-                    <Button className="w-full bg-ir-primary hover:bg-ir-primary/90 text-white">
-                      Get Started
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
+                  <p className="text-gray-600 text-sm text-center mb-6 leading-relaxed">{coach.bio}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {/* Single CTA at bottom of page */}
+          <div className="mt-16 text-center">
+            <Link href="/quiz">
+              <Button
+                size="lg"
+                className="bg-ir-primary hover:bg-ir-primary/90 text-white px-8 py-6 text-lg font-medium rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                Get Matched With Your Coach
+                <ArrowRight className="ml-3 w-5 h-5" />
+              </Button>
+            </Link>
+            <p className="text-gray-500 text-sm mt-4">No credit card required • Success-based pricing</p>
+          </div>
         </div>
       </section>
+
       {/* Coach Philosophy Section */}
       <section className="py-20 px-4 bg-ir-pastel/30">
-        {" "}
-        {/* Changed background */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">What Makes Our Coaches Different</h2>{" "}
-          {/* Changed text color */}
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">What Makes Our Coaches Different</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-ir-primary/20 to-ir-medium/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                {" "}
-                {/* Updated gradient */}
-                <Star className="w-8 h-8 text-ir-primary" /> {/* Updated icon color */}
+                <Star className="w-8 h-8 text-ir-primary" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Been There, Done That</h3> {/* Changed text color */}
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Been There, Done That</h3>
               <p className="text-gray-600">
-                {" "}
-                {/* Changed text color */}
                 All our coaches have walked the path you're on. They've been through the interviews, negotiations, and
                 career transitions.
               </p>
@@ -206,28 +201,20 @@ export default function CoachesPage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-ir-medium/20 to-ir-neutral/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                {" "}
-                {/* Updated gradient */}
-                <MapPin className="w-8 h-8 text-ir-medium" /> {/* Updated icon color */}
+                <MapPin className="w-8 h-8 text-ir-medium" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Inside Knowledge</h3> {/* Changed text color */}
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Inside Knowledge</h3>
               <p className="text-gray-600">
-                {" "}
-                {/* Changed text color */}
                 They know what hiring managers actually look for, having been on both sides of the interview table.
               </p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-ir-neutral/20 to-ir-periwinkle/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                {" "}
-                {/* Updated gradient */}
-                <Calendar className="w-8 h-8 text-ir-neutral" /> {/* Updated icon color */}
+                <Calendar className="w-8 h-8 text-ir-neutral" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Proven Results</h3> {/* Changed text color */}
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Proven Results</h3>
               <p className="text-gray-600">
-                {" "}
-                {/* Changed text color */}
                 Track record of helping professionals land roles at top companies with significant salary increases.
               </p>
             </div>

@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Brain, FileText, Mic, TrendingUp, Clock, Target, DollarSign } from "lucide-react"
 import Link from "next/link"
+import ResultsTicker from "@/components/results-ticker"
 
 export default function ServicesPage() {
   return (
@@ -56,6 +57,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Results Ticker */}
+      <ResultsTicker />
 
       {/* Section 2: Core Services Grid - Updated */}
       <section className="py-20 px-4">

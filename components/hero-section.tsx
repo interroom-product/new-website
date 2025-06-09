@@ -1,75 +1,58 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import CompanyLogos from "@/components/company-logos"
 
 export default function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Minimal background with gradient shapes */}
-      <div className="absolute inset-0">
-        {/* Subtle gradient orbs - no floating icons */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-ir-primary/8 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-gradient-radial from-ir-medium/6 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-gradient-radial from-ir-neutral/4 to-transparent rounded-full blur-3xl" />
-      </div>
+    <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ir-pastel/30 to-white pointer-events-none" />
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div
-          className={`transition-all duration-1000 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          {/* Simplified headline */}
-          <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
-            Your Job Search,{" "}
+      <div className="container px-4 mx-auto relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center bg-ir-primary/10 text-ir-primary px-4 py-2 rounded-full mb-6">
+            <span className="text-sm font-medium">Humans + AI</span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Your Dedicated Career Team,{" "}
             <span className="bg-gradient-to-r from-ir-primary to-ir-medium bg-clip-text text-transparent">
-              Automated
+              Supercharged by Smart Technology
             </span>
           </h1>
 
-          {/* Short subhead only */}
-          <p className="text-2xl md:text-3xl text-gray-600 mb-16 font-light leading-relaxed">
-            We handle the applications, you handle the interviews.
+          {/* Subheadline */}
+          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+            We handle your job search from start to finish. You focus on interviews. Pay only when you get hired.
           </p>
 
-          {/* Prominent CTA */}
-          <div className="mb-20">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Link href="/quiz">
               <Button
                 size="lg"
-                className="bg-ir-primary hover:bg-ir-primary/90 text-white px-12 py-6 text-xl font-medium rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="bg-ir-primary hover:bg-ir-primary/90 text-white px-8 py-6 text-lg font-medium rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
               >
                 Get Started Free
-                <ArrowRight className="ml-3 w-6 h-6" />
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <p className="text-gray-500 text-sm mt-4">No credit card required</p>
-          </div>
-        </div>
-
-        {/* Trust bar moved lower and hidden on mobile */}
-        <div className="hidden md:block">
-          <p className="text-gray-400 text-sm mb-6">Trusted by job seekers at</p>
-          <div className="flex justify-center items-center gap-12 opacity-50">
-            {["Google", "Meta", "Apple", "Netflix", "Microsoft"].map((company, index) => (
-              <div
-                key={company}
-                className="text-lg font-medium text-gray-600"
-                style={{ animationDelay: `${index * 100}ms` }}
+            <Link href="/services">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-gray-300 text-gray-700 hover:bg-gray-100 px-8 py-6 text-lg font-medium rounded-2xl transition-all duration-300 w-full sm:w-auto"
               >
-                {company}
-              </div>
-            ))}
+                See How It Works
+              </Button>
+            </Link>
           </div>
+
+          {/* Company Logos */}
+          <CompanyLogos />
         </div>
       </div>
     </section>

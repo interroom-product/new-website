@@ -1,5 +1,4 @@
 import HeroSection from "@/components/hero-section"
-import GrowthGraphSection from "@/components/growth-graph-section"
 import WorkflowSteps from "@/components/workflow-steps"
 import ServiceCards from "@/components/service-cards"
 import SocialProof from "@/components/social-proof"
@@ -11,11 +10,10 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
-      <GrowthGraphSection />
+      <SocialProof />
       <CostOfJobSeekingCalculator />
       <WorkflowSteps />
       <ServiceCards />
-      <SocialProof />
       <ExitCTA />
       <StickyQuizCTA />
     </main>
