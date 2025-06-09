@@ -20,13 +20,16 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // InterRoom Brand Colors - Updated
-        "ir-primary": "#9458FA", // Purple
-        "ir-accent": "#FA586D", // Pink/Red
-        "ir-success": "#BEFA58", // Green
-        "ir-info": "#58FAE5", // Teal
-        "ir-light": "#F8F9FC",
-        "ir-dark": "#1A1A2E",
+        // InterRoom Brand Colors - Updated Palette
+        "ir-primary": "#9458FA", // Royal Purple
+        "ir-secondary": "#5E4B8B", // Indigo Gray
+        "ir-accent": "#20D6B5", // Soft Teal
+        "ir-neutral-100": "#FFFFFF", // Pure White
+        "ir-neutral-200": "#F3F0FC", // Soft Lilac
+        "ir-neutral-300": "#D6D3E8", // Light Gray
+        "ir-neutral-800": "#1F1A2E", // Charcoal Black
+        "ir-warning": "#FF6B5A", // Coral Red
+        "ir-success": "#4FD187", // Emerald Green
 
         // Legacy colors - keeping for backward compatibility
         "ir-medium": "#AD88FD",
@@ -38,6 +41,9 @@ const config: Config = {
         "ir-dark-stone": "#A8A29E",
         "ir-charcoal": "#44403C",
         "ir-off-black": "#292524",
+        "ir-light": "#F8F9FC",
+        "ir-dark": "#1A1A2E",
+        "ir-info": "#58FAE5",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

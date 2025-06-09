@@ -21,11 +21,11 @@ export default function ServiceCards() {
     },
     {
       icon: FileText,
-      title: "Resume Rewrite",
-      description: "Professional resume tailored to your target roles, ATS-optimized.",
+      title: "Resume Rewrite & LinkedIn Optimization",
+      description: "Professional resume and LinkedIn profile tailored to your target roles, ATS-optimized.",
       price: "Pay only when you get hired",
       features: ["ATS-optimized", "Industry keywords", "LinkedIn optimization"],
-      color: "from-ir-accent to-ir-info",
+      color: "from-ir-accent to-ir-secondary",
     },
     {
       icon: MessageSquare,
@@ -33,16 +33,16 @@ export default function ServiceCards() {
       description: "Interview prep, personal branding, and career clarity from expert coaches.",
       price: "Pay only when you get hired",
       features: ["Mock interviews", "Personal branding", "Career strategy"],
-      color: "from-ir-info to-ir-primary",
+      color: "from-ir-secondary to-ir-primary",
     },
   ]
 
   return (
-    <section className="py-24 px-4 bg-ir-light">
+    <section className="py-24 px-4 bg-ir-neutral-200">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Our Suite of Services</h2>
-          <p className="text-lg text-gray-500 font-light">Everything you need to land your dream job</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-ir-neutral-800 mb-3">Our Suite of Services</h2>
+          <p className="text-lg text-gray-600 font-light">Everything you need to land your dream job</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -56,7 +56,7 @@ export default function ServiceCards() {
                 key={index}
                 className={`relative overflow-hidden transition-all duration-500 transform ${
                   isHovered ? "scale-102 shadow-glow" : "scale-100 shadow-soft"
-                } bg-white border-0 rounded-xl cursor-pointer group`}
+                } bg-ir-neutral-100 border-0 rounded-xl cursor-pointer group`}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => setShowPricing(isPricingVisible ? null : index)}
@@ -72,7 +72,7 @@ export default function ServiceCards() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <h3 className="text-lg font-bold text-ir-neutral-800 mb-3">{service.title}</h3>
 
                   {/* Description */}
                   <p className="text-gray-600 mb-5 text-sm leading-relaxed">{service.description}</p>
@@ -95,7 +95,7 @@ export default function ServiceCards() {
 
                   {/* CTA */}
                   <Link href="/quiz">
-                    <Button className="w-full bg-gray-50 hover:bg-ir-primary hover:text-white text-gray-700 rounded-full transition-all duration-300 text-sm">
+                    <Button className="w-full bg-ir-neutral-200 hover:bg-ir-primary hover:text-white text-ir-neutral-800 rounded-full transition-all duration-300 text-sm">
                       Learn More
                     </Button>
                   </Link>

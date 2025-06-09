@@ -10,13 +10,13 @@ export default function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-10 w-40 h-40 rounded-full bg-ir-primary/5 blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-10 w-60 h-60 rounded-full bg-ir-accent/5 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-ir-info/5 blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-ir-secondary/5 blur-3xl"></div>
       </div>
 
       <div className="container px-4 mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold text-ir-neutral-800 mb-6 leading-tight">
             Where Personal Coaching Meets{" "}
             <span className="bg-gradient-to-r from-ir-primary to-ir-accent bg-clip-text text-transparent">
               Intelligent Automation
@@ -43,14 +43,30 @@ export default function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-gray-200 text-gray-700 hover:bg-gray-50 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 w-full sm:w-auto"
+                className="border-ir-neutral-300 text-ir-neutral-800 hover:bg-ir-neutral-200 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 w-full sm:w-auto"
               >
                 See Our Services
               </Button>
             </Link>
           </div>
 
-          {/* Company Logos */}
+          {/* Stats - moved up */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-ir-neutral-200 p-6 rounded-xl text-center shadow-soft">
+              <div className="text-3xl font-bold text-ir-primary mb-2">+44%</div>
+              <p className="text-ir-neutral-800">Average Salary Increase</p>
+            </div>
+            <div className="bg-ir-neutral-200 p-6 rounded-xl text-center shadow-soft">
+              <div className="text-3xl font-bold text-ir-accent mb-2">8%</div>
+              <p className="text-ir-neutral-800">Interview Response Rate</p>
+            </div>
+            <div className="bg-ir-neutral-200 p-6 rounded-xl text-center shadow-soft">
+              <div className="text-3xl font-bold text-ir-secondary mb-2">2x</div>
+              <p className="text-ir-neutral-800">Faster Job Placement</p>
+            </div>
+          </div>
+
+          {/* Company Logos - moved down */}
           <CompanyLogos />
         </div>
       </div>

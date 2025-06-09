@@ -75,11 +75,11 @@ export default function SocialProof() {
   }
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-ir-neutral-100">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Success Stories</h2>
-          <p className="text-lg text-gray-500 font-light">See how we've helped others land their dream jobs</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-ir-neutral-800 mb-3">Success Stories</h2>
+          <p className="text-lg text-gray-600 font-light">See how we've helped others land their dream jobs</p>
         </div>
 
         {/* Minimalist Testimonial Carousel */}
@@ -90,7 +90,7 @@ export default function SocialProof() {
                 <button
                   key={index}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? "bg-ir-primary w-6" : "bg-gray-200"
+                    index === currentIndex ? "bg-ir-primary w-6" : "bg-ir-neutral-300"
                   }`}
                   onClick={() => {
                     if (isPlaying !== null) {
@@ -118,7 +118,7 @@ export default function SocialProof() {
           <div className="overflow-hidden rounded-xl shadow-soft">
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Video Side */}
-              <div className="relative aspect-video md:aspect-square bg-gray-100">
+              <div className="relative aspect-video md:aspect-square bg-ir-neutral-200">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIndex}
@@ -154,35 +154,19 @@ export default function SocialProof() {
               </div>
 
               {/* Text Side */}
-              <div className="bg-white p-6 md:p-8 flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{videoTestimonials[currentIndex].title}</h3>
+              <div className="bg-ir-neutral-100 p-6 md:p-8 flex flex-col justify-center">
+                <h3 className="text-xl font-bold text-ir-neutral-800 mb-3">{videoTestimonials[currentIndex].title}</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                   "InterRoom's approach was refreshingly different. They didn't just help with my resume—they completely
                   transformed my job search strategy and helped me land interviews at companies I never thought
                   possible."
                 </p>
                 <div>
-                  <p className="text-gray-800 font-medium">{videoTestimonials[currentIndex].author}</p>
-                  <p className="text-gray-500 text-sm">{videoTestimonials[currentIndex].company}</p>
+                  <p className="text-ir-neutral-800 font-medium">{videoTestimonials[currentIndex].author}</p>
+                  <p className="text-gray-600 text-sm">{videoTestimonials[currentIndex].company}</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
-          <div className="bg-ir-light p-6 rounded-xl text-center shadow-soft">
-            <div className="text-3xl font-bold text-ir-primary mb-2">+44%</div>
-            <p className="text-gray-600">Average Salary Increase</p>
-          </div>
-          <div className="bg-ir-light p-6 rounded-xl text-center shadow-soft">
-            <div className="text-3xl font-bold text-ir-accent mb-2">8%</div>
-            <p className="text-gray-600">Interview Response Rate</p>
-          </div>
-          <div className="bg-ir-light p-6 rounded-xl text-center shadow-soft">
-            <div className="text-3xl font-bold text-ir-info mb-2">2x</div>
-            <p className="text-gray-600">Faster Job Placement</p>
           </div>
         </div>
       </div>

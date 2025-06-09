@@ -21,7 +21,7 @@ export default function ResultsTicker() {
       trend: "Across all industries",
     },
     {
-      icon: <Users className="w-5 h-5 text-ir-info" />,
+      icon: <Users className="w-5 h-5 text-ir-secondary" />,
       label: "Clients Placed This Month",
       value: "47",
       trend: "Average time: 6 weeks",
@@ -43,17 +43,17 @@ export default function ResultsTicker() {
   }, [metrics.length])
 
   return (
-    <section className="py-8 px-4 bg-ir-light">
+    <section className="py-8 px-4 bg-ir-neutral-200">
       <div className="max-w-5xl mx-auto">
-        <div className="bg-white rounded-xl p-5 shadow-soft">
+        <div className="bg-ir-neutral-100 rounded-xl p-5 shadow-soft">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-ir-light rounded-full flex items-center justify-center mr-3 shadow-sm">
+              <div className="w-8 h-8 bg-ir-neutral-200 rounded-full flex items-center justify-center mr-3 shadow-sm">
                 <div className="w-4 h-4 bg-ir-primary/10 rounded-full flex items-center justify-center">
                   <div className="w-2 h-2 bg-ir-primary rounded-full animate-pulse"></div>
                 </div>
               </div>
-              <div className="text-xs font-medium text-gray-500">LIVE RESULTS</div>
+              <div className="text-xs font-medium text-gray-600">LIVE RESULTS</div>
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
@@ -61,7 +61,7 @@ export default function ResultsTicker() {
                 <button
                   key={idx}
                   className={`w-1.5 h-1.5 rounded-full transition-all ${
-                    idx === currentIndex ? "bg-ir-primary w-3" : "bg-gray-200"
+                    idx === currentIndex ? "bg-ir-primary w-3" : "bg-ir-neutral-300"
                   }`}
                   onClick={() => setCurrentIndex(idx)}
                   aria-label={`View metric ${idx + 1}`}
@@ -82,23 +82,23 @@ export default function ResultsTicker() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="w-10 h-10 bg-ir-light rounded-full flex items-center justify-center mr-3 shadow-sm">
+                    <div className="w-10 h-10 bg-ir-neutral-200 rounded-full flex items-center justify-center mr-3 shadow-sm">
                       {metrics[currentIndex].icon}
                     </div>
                     <div>
-                      <p className="text-gray-500 text-xs">{metrics[currentIndex].label}</p>
+                      <p className="text-gray-600 text-xs">{metrics[currentIndex].label}</p>
                       <div className="flex items-baseline">
-                        <h3 className="text-2xl font-bold text-gray-900 mr-2">{metrics[currentIndex].value}</h3>
+                        <h3 className="text-2xl font-bold text-ir-neutral-800 mr-2">{metrics[currentIndex].value}</h3>
                         <span className="text-xs text-ir-primary">{metrics[currentIndex].trend}</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="hidden md:block">
-                    <div className="bg-ir-light px-3 py-1 rounded-full shadow-sm">
+                    <div className="bg-ir-neutral-200 px-3 py-1 rounded-full shadow-sm">
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-ir-success rounded-full mr-1.5"></div>
-                        <span className="text-xs font-medium text-gray-500">Updated in real-time</span>
+                        <span className="text-xs font-medium text-gray-600">Updated in real-time</span>
                       </div>
                     </div>
                   </div>

@@ -6,10 +6,10 @@ import Link from "next/link"
 
 export default function ExitCTA() {
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-ir-neutral-100">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready to Transform Your Job Search?</h2>
-        <p className="text-lg text-gray-500 mb-10 font-light">
+        <h2 className="text-3xl md:text-4xl font-bold text-ir-neutral-800 mb-4">Ready to Transform Your Job Search?</h2>
+        <p className="text-lg text-gray-600 mb-10 font-light">
           Join thousands who've accelerated their careers with InterRoom
         </p>
 
@@ -23,7 +23,7 @@ export default function ExitCTA() {
           </Button>
         </Link>
 
-        <p className="text-gray-400 mt-5 text-sm">No credit card required • 30-day money-back guarantee</p>
+        <p className="text-gray-500 mt-5 text-sm">No credit card required • 30-day money-back guarantee</p>
       </div>
     </section>
   )
