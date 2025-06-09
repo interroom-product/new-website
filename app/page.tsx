@@ -1,5 +1,4 @@
 import HeroSection from "@/components/hero-section"
-import WorkflowSteps from "@/components/workflow-steps"
 import ServiceCards from "@/components/service-cards"
 import SocialProof from "@/components/social-proof"
 import ExitCTA from "@/components/exit-cta"
@@ -12,7 +11,6 @@ export default function HomePage() {
       <HeroSection />
       <SocialProof />
       <CostOfJobSeekingCalculator />
-      <WorkflowSteps />
       <ServiceCards />
       <ExitCTA />
       <StickyQuizCTA />
