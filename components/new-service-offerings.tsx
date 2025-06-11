@@ -6,6 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Search, FileText, MessageSquare, Star, CheckCircle } from "lucide-react"
 import Link from "next/link"
 
+const serviceDetailPages = {
+  "job-applications": "/services/job-applications",
+  "resume-linkedin": "/services/resume-linkedin",
+  coaching: "/services/coaching",
+}
+
 export default function NewServiceOfferings() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
@@ -61,7 +67,7 @@ export default function NewServiceOfferings() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-ir-neutral-200">
+    <section id="services-section" className="py-24 px-4 bg-ir-neutral-200">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-ir-neutral-800 mb-3">Choose Your Service</h2>
@@ -117,12 +123,22 @@ export default function NewServiceOfferings() {
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  <Link href={`/start?service=${service.serviceId}`}>
-                    <Button className="w-full bg-ir-primary hover:bg-ir-primary/90 text-white rounded-full transition-all duration-300 text-sm">
-                      Purchase Service
-                    </Button>
-                  </Link>
+                  {/* CTA Buttons */}
+                  <div className="space-y-2">
+                    <Link href={serviceDetailPages[service.serviceId as keyof typeof serviceDetailPages]}>
+                      <Button
+                        variant="outline"
+                        className="w-full border-ir-primary text-ir-primary hover:bg-ir-primary hover:text-white rounded-full transition-all duration-300 text-sm"
+                      >
+                        Learn More
+                      </Button>
+                    </Link>
+                    <Link href={`/start?service=${service.serviceId}`}>
+                      <Button className="w-full bg-ir-primary hover:bg-ir-primary/90 text-white rounded-full transition-all duration-300 text-sm">
+                        Purchase Service
+                      </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             )

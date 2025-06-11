@@ -98,13 +98,6 @@ export default function ServicesPage() {
       {/* Core Services Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-ir-neutral-800 mb-4">Core Services</h2>
-            <p className="text-lg text-gray-600 font-light">
-              Professional services with fixed pricing and immediate delivery
-            </p>
-          </div>
-
           <div className="space-y-8">
             {coreServices.map((service, index) => {
               const Icon = service.icon

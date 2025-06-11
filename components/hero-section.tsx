@@ -1,7 +1,10 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import CompanyLogos from "@/components/company-logos"
+import ResultsTicker from "@/components/results-ticker" // Import the ResultsTicker
 
 export default function HeroSection() {
   return (
@@ -39,15 +42,17 @@ export default function HeroSection() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Link href="/services">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-ir-charcoal text-ir-charcoal hover:bg-ir-periwinkle px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 w-full sm:w-auto"
-              >
-                See Our Services
-              </Button>
-            </Link>
+            <button
+              onClick={() => {
+                const servicesSection = document.getElementById("services-section")
+                if (servicesSection) {
+                  servicesSection.scrollIntoView({ behavior: "smooth" })
+                }
+              }}
+              className="border-ir-charcoal text-ir-charcoal hover:bg-ir-periwinkle px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 w-full sm:w-auto"
+            >
+              See Our Services
+            </button>
           </div>
 
           {/* Stats - moved up */}
@@ -57,12 +62,14 @@ export default function HeroSection() {
               <p className="text-ir-charcoal">Average Salary Increase</p>
             </div>
             <div className="bg-ir-pastel p-6 rounded-xl text-center shadow-soft border border-ir-periwinkle">
-              <div className="text-3xl font-bold text-ir-neutral-grape mb-2">8%</div>
-              <p className="text-ir-charcoal">Interview Response Rate</p>
-            </div>
-            <div className="bg-ir-pastel p-6 rounded-xl text-center shadow-soft border border-ir-periwinkle">
               <div className="text-3xl font-bold text-ir-medium mb-2">2x</div>
               <p className="text-ir-charcoal">Faster Job Placement</p>
+            </div>
+            {/* Live Results Ticker as a card */}
+            <div className="bg-ir-pastel p-6 rounded-xl text-center shadow-soft border border-ir-periwinkle flex items-center justify-center min-h-[140px]">
+              {" "}
+              {/* Increased min-height for the card */}
+              <ResultsTicker />
             </div>
           </div>
 
