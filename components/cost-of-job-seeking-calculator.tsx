@@ -7,16 +7,21 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Briefcase, Clock, Sparkles } from "lucide-react"
 import Link from "next/link"
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts"
+// Removed ChartContainer import - using direct ResponsiveContainer instead
 
 export default function CostOfJobSeekingCalculator() {
   const [desiredSalary, setDesiredSalary] = useState<number>(80000)
   const [showResults, setShowResults] = useState<boolean>(true) // Show by default for engagement
+  const [oneYearLoss, setOneYearLoss] = useState<number>(0)
+  const [oneYearNetGain, setOneYearNetGain] = useState<number>(0)
 
   // Calculation results
   const [bimonthlyPaycheck, setBimonthlyPaycheck] = useState<number>(0)
   const [sixMonthLoss, setSixMonthLoss] = useState<number>(0)
   const [interRoomPlacementLoss, setInterRoomPlacementLoss] = useState<number>(0)
   const [netGain, setNetGain] = useState<number>(0)
+  const [chartData, setChartData] = useState<any[]>([])
 
   const calculateFinancialImpact = () => {
     const salary = desiredSalary
@@ -36,11 +41,42 @@ export default function CostOfJobSeekingCalculator() {
     const interRoomLost = paycheck * 3
     const netGainWithInterRoom = sixMonthsLost - interRoomLost
 
+    // Calculate total income lost over 12 months (24 paychecks)
+    const twelveMonthsLost = paycheck * 24
+    const netGainWithInterRoomOneYear = twelveMonthsLost - interRoomLost
+
     setBimonthlyPaycheck(paycheck)
     setSixMonthLoss(sixMonthsLost)
     setInterRoomPlacementLoss(interRoomLost)
     setNetGain(netGainWithInterRoom)
+    setOneYearLoss(twelveMonthsLost)
+    setOneYearNetGain(netGainWithInterRoomOneYear)
 
+    const chartData = [
+      {
+        name: "With InterRoom",
+        value: netGain,
+        fullYearValue: netGainWithInterRoomOneYear,
+        color: "#4FD187", // Green
+        type: "gain",
+      },
+      {
+        name: "6-Month Search",
+        value: -sixMonthLoss,
+        fullYearValue: -sixMonthLoss,
+        color: "#FF6B5A", // Orange/Red
+        type: "loss",
+      },
+      {
+        name: "12-Month Search",
+        value: -oneYearLoss,
+        fullYearValue: -oneYearLoss,
+        color: "#DC2626", // Darker Red
+        type: "loss",
+      },
+    ]
+
+    setChartData(chartData)
     setShowResults(true)
   }
 
@@ -128,59 +164,110 @@ export default function CostOfJobSeekingCalculator() {
               {/* Right Column: Dynamic Results */}
               <div className="lg:col-span-3 p-6 md:p-8 bg-ir-off-white">
                 {showResults && (
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Scenario without InterRoom */}
-                    <div className="bg-ir-warning/10 rounded-xl p-5 shadow-soft space-y-4 border-2 border-ir-warning/20">
-                      <div className="flex items-center mb-1">
-                        <div className="w-8 h-8 rounded-full bg-ir-warning/20 flex items-center justify-center mr-3">
-                          <Clock className="w-4 h-4 text-ir-warning" />
+                  <div className="space-y-6">
+                    {/* Existing comparison cards */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Scenario without InterRoom */}
+                      <div className="bg-ir-warning/10 rounded-xl p-5 shadow-soft space-y-4 border-2 border-ir-warning/20">
+                        <div className="flex items-center mb-1">
+                          <div className="w-8 h-8 rounded-full bg-ir-warning/20 flex items-center justify-center mr-3">
+                            <Clock className="w-4 h-4 text-ir-warning" />
+                          </div>
+                          <h4 className="text-base font-semibold text-ir-off-black">Typical 6-Month Search</h4>
                         </div>
-                        <h4 className="text-base font-semibold text-ir-off-black">Typical 6-Month Search</h4>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs text-ir-warning font-bold uppercase tracking-wide">
-                          POTENTIAL INCOME LOST
-                        </p>
-                        <div className="text-3xl md:text-4xl font-bold text-ir-warning mb-2">
-                          -{formatCurrency(sixMonthLoss)}
-                        </div>
-                        <p className="text-ir-charcoal text-xs mb-3">
-                          Based on 12 missed paychecks of {formatCurrency(bimonthlyPaycheck)}
-                        </p>
-                        <div className="bg-ir-warning/10 rounded-lg p-3 border border-ir-warning/20">
-                          <p className="text-xs text-ir-warning font-medium">
-                            💸 {getOpportunityCostExample(sixMonthLoss)}
+                        <div className="text-center">
+                          <p className="text-xs text-ir-warning font-bold uppercase tracking-wide">
+                            POTENTIAL INCOME LOST
                           </p>
+                          <div className="text-3xl md:text-4xl font-bold text-ir-warning mb-2">
+                            -{formatCurrency(sixMonthLoss)}
+                          </div>
+                          <p className="text-ir-charcoal text-xs mb-3">
+                            Based on 12 missed paychecks of {formatCurrency(bimonthlyPaycheck)}
+                          </p>
+                          <div className="bg-ir-warning/10 rounded-lg p-3 border border-ir-warning/20">
+                            <p className="text-xs text-ir-warning font-medium">
+                              💸 {getOpportunityCostExample(sixMonthLoss)}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Scenario with InterRoom */}
+                      <div className="bg-ir-success/10 rounded-xl p-5 shadow-soft space-y-4 border-2 border-ir-success/20 relative overflow-hidden">
+                        {/* Sparkle decoration */}
+                        <div className="absolute top-2 right-2">
+                          <Sparkles className="w-4 h-4 text-ir-success/30" />
+                        </div>
+
+                        <div className="flex items-center mb-1">
+                          <div className="w-8 h-8 rounded-full bg-ir-success/20 flex items-center justify-center mr-3">
+                            <Sparkles className="w-4 h-4 text-ir-success" />
+                          </div>
+                          <h4 className="text-base font-semibold text-ir-off-black">With InterRoom (6 Weeks)</h4>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-xs text-ir-success font-bold uppercase tracking-wide">
+                            POTENTIAL INCOME GAINED
+                          </p>
+                          <div className="text-3xl md:text-4xl font-bold text-ir-success mb-2">
+                            +{formatCurrency(netGain)}
+                          </div>
+                          <p className="text-ir-charcoal text-xs mb-3">By getting hired 4.5 months faster</p>
+                          <div className="bg-ir-success/10 rounded-lg p-3 border border-ir-success/20">
+                            <p className="text-xs text-ir-success font-medium">
+                              ✨ That's money in your pocket, not lost opportunity
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Scenario with InterRoom */}
-                    <div className="bg-ir-success/10 rounded-xl p-5 shadow-soft space-y-4 border-2 border-ir-success/20 relative overflow-hidden">
-                      {/* Sparkle decoration */}
-                      <div className="absolute top-2 right-2">
-                        <Sparkles className="w-4 h-4 text-ir-success/30" />
+                    {/* New Bar Chart Visualization */}
+                    <div className="bg-white rounded-xl p-6 shadow-soft border border-ir-periwinkle">
+                      <h4 className="text-lg font-semibold text-ir-off-black mb-4 text-center">
+                        Financial Impact Comparison for {formatCurrency(desiredSalary)} Salary
+                      </h4>
+                      <div className="h-[300px] w-full">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                            <XAxis
+                              dataKey="name"
+                              tick={{ fontSize: 12, fill: "#6B7280" }}
+                              angle={-45}
+                              textAnchor="end"
+                              height={80}
+                            />
+                            <YAxis
+                              tick={{ fontSize: 12, fill: "#6B7280" }}
+                              tickFormatter={(value) => formatCurrency(Math.abs(value))}
+                            />
+                            <Tooltip
+                              formatter={(value) => [
+                                `${value >= 0 ? "+" : ""}${formatCurrency(value)}`,
+                                value >= 0 ? "Income Gained" : "Income Lost",
+                              ]}
+                              labelStyle={{ color: "#374151", fontWeight: "bold" }}
+                              contentStyle={{
+                                backgroundColor: "white",
+                                border: "1px solid #E5E7EB",
+                                borderRadius: "8px",
+                                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                              }}
+                            />
+                            <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                              {chartData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.color} />
+                              ))}
+                            </Bar>
+                          </BarChart>
+                        </ResponsiveContainer>
                       </div>
-
-                      <div className="flex items-center mb-1">
-                        <div className="w-8 h-8 rounded-full bg-ir-success/20 flex items-center justify-center mr-3">
-                          <Sparkles className="w-4 h-4 text-ir-success" />
-                        </div>
-                        <h4 className="text-base font-semibold text-ir-off-black">With InterRoom (6 Weeks)</h4>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs text-ir-success font-bold uppercase tracking-wide">
-                          POTENTIAL INCOME GAINED
+                      <div className="mt-4 text-center">
+                        <p className="text-sm text-ir-charcoal">
+                          💡 The longer your job search takes, the more money you lose in opportunity cost
                         </p>
-                        <div className="text-3xl md:text-4xl font-bold text-ir-success mb-2">
-                          +{formatCurrency(netGain)}
-                        </div>
-                        <p className="text-ir-charcoal text-xs mb-3">By getting hired 4.5 months faster</p>
-                        <div className="bg-ir-success/10 rounded-lg p-3 border border-ir-success/20">
-                          <p className="text-xs text-ir-success font-medium">
-                            ✨ That's money in your pocket, not lost opportunity
-                          </p>
-                        </div>
                       </div>
                     </div>
 
