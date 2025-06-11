@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import CompanyLogos from "@/components/company-logos"
-import ResultsTicker from "@/components/results-ticker" // Import the ResultsTicker
+import ResultsTicker from "@/components/results-ticker"
 
 export default function HeroSection() {
   return (
@@ -55,25 +55,47 @@ export default function HeroSection() {
             </button>
           </div>
 
-          {/* Stats - moved up */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-ir-pastel p-6 rounded-xl text-center shadow-soft border border-ir-periwinkle">
-              <div className="text-3xl font-bold text-ir-primary mb-2">+44%</div>
-              <p className="text-ir-charcoal">Average Salary Increase</p>
+          {/* Before & After Metrics */}
+          <div className="mb-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {/* Average Salary Increase */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-ir-periwinkle p-6">
+                <h3 className="text-lg font-semibold text-ir-off-black mb-4">Average Salary Increase</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500 mb-1">Before InterRoom</div>
+                    <div className="text-2xl font-bold text-red-500">+8%</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500 mb-1">With InterRoom</div>
+                    <div className="text-2xl font-bold text-green-500">+44%</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Job Search Duration */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-ir-periwinkle p-6">
+                <h3 className="text-lg font-semibold text-ir-off-black mb-4">Job Search Duration</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500 mb-1">Typical Search</div>
+                    <div className="text-2xl font-bold text-red-500">6-12 mo</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-gray-500 mb-1">With InterRoom</div>
+                    <div className="text-2xl font-bold text-green-500">8 weeks</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-ir-pastel p-6 rounded-xl text-center shadow-soft border border-ir-periwinkle">
-              <div className="text-3xl font-bold text-ir-medium mb-2">2x</div>
-              <p className="text-ir-charcoal">Faster Job Placement</p>
-            </div>
-            {/* Live Results Ticker as a card */}
-            <div className="bg-ir-pastel p-6 rounded-xl text-center shadow-soft border border-ir-periwinkle flex items-center justify-center min-h-[140px]">
-              {" "}
-              {/* Increased min-height for the card */}
+
+            {/* Live Results Ticker Bar */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-ir-periwinkle p-4">
               <ResultsTicker />
             </div>
           </div>
 
-          {/* Company Logos - moved down */}
+          {/* Company Logos */}
           <CompanyLogos />
         </div>
       </div>

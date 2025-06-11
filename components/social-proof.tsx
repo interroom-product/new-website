@@ -12,10 +12,10 @@ export default function SocialProof() {
 
   const videoTestimonials = [
     {
-      id: "cuEY5oeFA8A",
-      title: "How InterRoom helped me land my dream job",
-      author: "Michael Ta",
-      company: "Senior Product Manager at Google",
+      id: "PzDb7nMZS5M",
+      title: "How InterRoom transformed my career search",
+      author: "Jared Malakouti",
+      company: "Tech Professional",
       thumbnail: "/placeholder.svg?height=400&width=600",
     },
     {
