@@ -1,110 +1,61 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
-import { Input } from "@/components/ui/input"
+import { useState, useEffect } from "react"
+import { Slider } from "@/components/ui/slider"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts"
-import { ArrowRight, Briefcase, Home, ShoppingCart, Shield, Clock, DollarSign, TrendingUp, Percent } from "lucide-react"
+import { ArrowRight, Briefcase, Clock, Sparkles } from "lucide-react"
 import Link from "next/link"
 
-// Enhanced constants with more precise data
-const AVERAGE_JOB_SEARCH_DURATION_MONTHS = 5.5
-const DEFAULT_HEALTH_INSURANCE_PREMIUM = 791
-const INTEROOM_JOB_SEARCH_REDUCTION_FACTOR = 0.4
-const INTEROOM_SALARY_INCREASE_PERCENTAGE = 0.11
-const INTEROOM_FEE_PERCENTAGE = 0.055
-
-interface CalculationResults {
-  totalFinancialImpactWithoutInteroom: number
-  totalExpensesWithoutInteroom: number
-  lostIncomeWithoutInteroom: number
-  totalFinancialImpactWithInteroom: number
-  totalExpensesWithInteroom: number
-  lostIncomeWithInteroom: number
-  salaryIncreaseAmount: number
-  interoomFeeAmount: number
-  netBenefitWithInteroom: number
-  newJobSearchDurationMonths: number
-  negotiatedSalaryWithInteroom: number
-}
-
 export default function CostOfJobSeekingCalculator() {
-  const [desiredSalary, setDesiredSalary] = useState<string>("80000")
-  const [monthlyRent, setMonthlyRent] = useState<string>("2500")
-  const [otherExpenses, setOtherExpenses] = useState<string>("1000")
-  const [healthInsurance, setHealthInsurance] = useState<string>(DEFAULT_HEALTH_INSURANCE_PREMIUM.toString())
-  const [showResults, setShowResults] = useState<boolean>(false)
-  const [animateChart, setAnimateChart] = useState<boolean>(false)
+  const [desiredSalary, setDesiredSalary] = useState<number>(80000)
+  const [showResults, setShowResults] = useState<boolean>(true) // Show by default for engagement
+  const [oneYearLoss, setOneYearLoss] = useState<number>(0)
+  const [oneYearNetGain, setOneYearNetGain] = useState<number>(0)
 
-  const [results, setResults] = useState<CalculationResults | null>(null)
+  // Calculation results
+  const [bimonthlyPaycheck, setBimonthlyPaycheck] = useState<number>(0)
+  const [sixMonthLoss, setSixMonthLoss] = useState<number>(0)
+  const [interRoomPlacementLoss, setInterRoomPlacementLoss] = useState<number>(0)
+  const [netGain, setNetGain] = useState<number>(0)
 
   const calculateFinancialImpact = () => {
-    const salary = Number.parseFloat(desiredSalary) || 0
-    const rent = Number.parseFloat(monthlyRent) || 0
-    const other = Number.parseFloat(otherExpenses) || 0
-    const insurance = Number.parseFloat(healthInsurance) || 0
+    const salary = desiredSalary
 
     if (salary <= 0) {
       setShowResults(false)
-      setResults(null)
       return
     }
 
-    // --- Without Interoom ---
-    const totalMonthlyExpensesUser = rent + other + insurance
-    const monthlySalaryUser = salary / 12
+    // Calculate bimonthly paycheck (salary / 24)
+    const paycheck = salary / 24
 
-    const totalExpenses_WithoutInteroom = totalMonthlyExpensesUser * AVERAGE_JOB_SEARCH_DURATION_MONTHS
-    const lostIncome_WithoutInteroom = monthlySalaryUser * AVERAGE_JOB_SEARCH_DURATION_MONTHS
-    const totalFinancialImpact_WithoutInteroom = totalExpenses_WithoutInteroom + lostIncome_WithoutInteroom
+    // Calculate total income lost over 6 months (12 paychecks)
+    const sixMonthsLost = paycheck * 12
 
-    // --- With Interoom ---
-    const newJobSearchDurationMonths_WithInteroom =
-      AVERAGE_JOB_SEARCH_DURATION_MONTHS * (1 - INTEROOM_JOB_SEARCH_REDUCTION_FACTOR)
-    const totalExpenses_WithInteroom = totalMonthlyExpensesUser * newJobSearchDurationMonths_WithInteroom
-    const lostIncome_WithInteroom = monthlySalaryUser * newJobSearchDurationMonths_WithInteroom
+    // Calculate income lost with InterRoom's average 6-week placement (1.5 months = 3 paychecks)
+    const interRoomLost = paycheck * 3
+    const netGainWithInterRoom = sixMonthsLost - interRoomLost
 
-    const negotiatedSalary_WithInteroom = salary * (1 + INTEROOM_SALARY_INCREASE_PERCENTAGE)
-    const salaryIncreaseAmount_WithInteroom = negotiatedSalary_WithInteroom - salary
-    const interoomFeeAmount_WithInteroom = negotiatedSalary_WithInteroom * INTEROOM_FEE_PERCENTAGE
+    // Calculate total income lost over 12 months (24 paychecks)
+    const twelveMonthsLost = paycheck * 24
+    const netGainWithInterRoomOneYear = twelveMonthsLost - interRoomLost
 
-    const totalFinancialImpact_WithInteroom =
-      totalExpenses_WithInteroom + lostIncome_WithInteroom + interoomFeeAmount_WithInteroom
+    setBimonthlyPaycheck(paycheck)
+    setSixMonthLoss(sixMonthsLost)
+    setInterRoomPlacementLoss(interRoomLost)
+    setNetGain(netGainWithInterRoom)
+    setOneYearLoss(twelveMonthsLost)
+    setOneYearNetGain(netGainWithInterRoomOneYear)
 
-    const netBenefit_WithInteroom =
-      totalFinancialImpact_WithoutInteroom - totalFinancialImpact_WithInteroom + salaryIncreaseAmount_WithInteroom
-
-    setResults({
-      totalFinancialImpactWithoutInteroom: totalFinancialImpact_WithoutInteroom,
-      totalExpensesWithoutInteroom: totalExpenses_WithoutInteroom,
-      lostIncomeWithoutInteroom: lostIncome_WithoutInteroom,
-      totalFinancialImpactWithInteroom: totalFinancialImpact_WithInteroom,
-      totalExpensesWithInteroom: totalExpenses_WithInteroom,
-      lostIncomeWithInteroom: lostIncome_WithInteroom,
-      salaryIncreaseAmount: salaryIncreaseAmount_WithInteroom,
-      interoomFeeAmount: interoomFeeAmount_WithInteroom,
-      netBenefitWithInteroom: netBenefit_WithInteroom,
-      newJobSearchDurationMonths: newJobSearchDurationMonths_WithInteroom,
-      negotiatedSalaryWithInteroom: negotiatedSalary_WithInteroom,
-    })
     setShowResults(true)
-
-    // Trigger chart animation
-    setTimeout(() => setAnimateChart(true), 100)
   }
 
-  // Recalculate when inputs change
+  // Recalculate when salary changes
   useEffect(() => {
-    setAnimateChart(false)
-    if (Number.parseFloat(desiredSalary) > 0) {
-      calculateFinancialImpact()
-    } else {
-      setShowResults(false)
-      setResults(null)
-    }
-  }, [desiredSalary, monthlyRent, otherExpenses, healthInsurance])
+    calculateFinancialImpact()
+  }, [desiredSalary])
 
   const formatCurrency = (value: number) => {
     return value.toLocaleString("en-US", {
@@ -115,272 +66,167 @@ export default function CostOfJobSeekingCalculator() {
     })
   }
 
-  const chartData = useMemo(() => {
-    if (!results) return []
-    return [
-      {
-        name: "Financial Impact",
-        "Without Interoom": -results.totalFinancialImpactWithoutInteroom,
-        "With Interoom": -results.totalFinancialImpactWithInteroom,
-      },
-    ]
-  }, [results])
+  const getOpportunityCostExample = (amount: number) => {
+    if (amount >= 80000) return "That's a Tesla Model 3"
+    if (amount >= 60000) return "That's a down payment on a house"
+    if (amount >= 40000) return "That's 2 years of rent in most cities"
+    if (amount >= 20000) return "That's a luxury vacation around the world"
+    return "That's a significant financial opportunity"
+  }
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-white to-ir-pastel/20">
+    <section className="py-24 px-4 bg-slate-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">The True Cost of Your Job Search</h2>
-          <p className="text-xl text-gray-600 font-light">
-            See how Interoom can impact your bottom line. Enter your details below.
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">Don't Let Your Job Search Cost You</h2>
+          <p className="text-lg text-slate-600 font-light">
+            See how much income you could lose during an extended job search
           </p>
         </div>
 
-        {/* Unified Glass Container */}
-        <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden">
+        {/* Interactive Calculator */}
+        <Card className="shadow-lg border border-slate-200 bg-white rounded-xl overflow-hidden">
           <CardContent className="p-0">
-            <div className="grid lg:grid-cols-2">
-              {/* Left Column: Streamlined Inputs */}
-              <div className="p-8 md:p-12 bg-gray-50/70 backdrop-blur-sm">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-8">Your Financial Details</h3>
+            <div className="grid lg:grid-cols-5">
+              {/* Left Column: Input Slider */}
+              <div className="lg:col-span-2 p-6 md:p-8 bg-slate-50">
+                <h3 className="text-xl font-semibold text-slate-800 mb-4">Calculate Your Financial Opportunity</h3>
+                <p className="text-sm text-slate-600 mb-8">
+                  The average job search takes 6 months. Use the slider to see how that impacts your income.
+                </p>
 
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
-                  <div className="space-y-8">
-                    <div>
+                <div className="bg-white rounded-xl p-6 shadow-md border border-slate-200">
+                  <div className="space-y-6">
+                    <div className="space-y-4">
                       <Label
                         htmlFor="desiredSalary"
-                        className="text-sm font-medium text-gray-700 flex items-center mb-3"
+                        className="text-sm font-medium text-slate-800 flex items-center mb-2"
                       >
-                        <Briefcase className="w-4 h-4 mr-2 text-ir-primary" />
-                        Desired Annual Salary
+                        <Briefcase className="w-4 h-4 mr-2 text-blue-600" />
+                        Desired Annual Salary:
+                        <span className="font-bold text-blue-600 ml-2">{formatCurrency(desiredSalary)}</span>
                       </Label>
-                      <Input
-                        id="desiredSalary"
-                        type="number"
-                        value={desiredSalary}
-                        onChange={(e) => setDesiredSalary(e.target.value)}
-                        placeholder="e.g., 80000"
-                        className="rounded-xl border-gray-200 focus:border-ir-primary focus:ring-ir-primary/20 text-lg py-3"
-                      />
+                      <div className="px-2">
+                        <Slider
+                          defaultValue={[80000]}
+                          value={[desiredSalary]}
+                          max={300000}
+                          min={40000}
+                          step={5000}
+                          onValueChange={(value) => setDesiredSalary(value[0])}
+                          className="w-full"
+                        />
+                        <div className="flex justify-between text-xs text-slate-500 mt-2">
+                          <span>$40K</span>
+                          <span>$300K</span>
+                        </div>
+                      </div>
                     </div>
 
-                    <div>
-                      <Label htmlFor="monthlyRent" className="text-sm font-medium text-gray-700 flex items-center mb-3">
-                        <Home className="w-4 h-4 mr-2 text-ir-primary" />
-                        Monthly Rent/Mortgage
-                      </Label>
-                      <Input
-                        id="monthlyRent"
-                        type="number"
-                        value={monthlyRent}
-                        onChange={(e) => setMonthlyRent(e.target.value)}
-                        placeholder="e.g., 2500"
-                        className="rounded-xl border-gray-200 focus:border-ir-primary focus:ring-ir-primary/20 text-lg py-3"
-                      />
-                    </div>
-
-                    <div>
-                      <Label
-                        htmlFor="otherExpenses"
-                        className="text-sm font-medium text-gray-700 flex items-center mb-3"
-                      >
-                        <ShoppingCart className="w-4 h-4 mr-2 text-ir-primary" />
-                        Other Monthly Living Expenses
-                      </Label>
-                      <Input
-                        id="otherExpenses"
-                        type="number"
-                        value={otherExpenses}
-                        onChange={(e) => setOtherExpenses(e.target.value)}
-                        placeholder="e.g., 1000"
-                        className="rounded-xl border-gray-200 focus:border-ir-primary focus:ring-ir-primary/20 text-lg py-3"
-                      />
-                    </div>
-
-                    <div>
-                      <Label
-                        htmlFor="healthInsurance"
-                        className="text-sm font-medium text-gray-700 flex items-center mb-3"
-                      >
-                        <Shield className="w-4 h-4 mr-2 text-ir-primary" />
-                        Monthly Health Insurance Premium
-                      </Label>
-                      <Input
-                        id="healthInsurance"
-                        type="number"
-                        value={healthInsurance}
-                        onChange={(e) => setHealthInsurance(e.target.value)}
-                        placeholder={`e.g., $${DEFAULT_HEALTH_INSURANCE_PREMIUM} (Avg. COBRA cost)`}
-                        className="rounded-xl border-gray-200 focus:border-ir-primary focus:ring-ir-primary/20 text-lg py-3"
-                      />
+                    <div className="pt-4 border-t border-slate-200">
+                      <p className="text-xs text-slate-500">
+                        *Calculations are based on the industry average 6-month job search vs. InterRoom's average
+                        6-week placement time.
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Storytelling-Driven Results */}
-              <div className="p-8 md:p-12 bg-white">
-                {showResults && results ? (
-                  <div className="space-y-10">
-                    {/* Hero Metrics */}
-                    <div className="grid grid-cols-2 gap-6">
-                      {/* Hero Card 1 */}
-                      <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 shadow-sm border border-green-200">
-                        <h4 className="text-sm font-medium text-green-700 mb-2">Your Net Gain</h4>
-                        <div className="text-3xl md:text-4xl font-bold text-green-600 mb-1">
-                          +{formatCurrency(results.netBenefitWithInteroom)}
+              {/* Right Column: Dynamic Results */}
+              <div className="lg:col-span-3 p-6 md:p-8 bg-white">
+                {showResults && (
+                  <div className="space-y-6">
+                    {/* Comparison cards */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Scenario without InterRoom */}
+                      <div className="bg-red-50 rounded-xl p-5 shadow-md space-y-4 border-2 border-red-100">
+                        <div className="flex items-center mb-1">
+                          <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                            <Clock className="w-4 h-4 text-red-600" />
+                          </div>
+                          <h4 className="text-base font-semibold text-slate-800">Typical 6-Month Search</h4>
                         </div>
-                        <p className="text-sm text-green-600">With Interoom</p>
+                        <div className="text-center">
+                          <p className="text-xs text-red-600 font-bold uppercase tracking-wide">
+                            POTENTIAL INCOME LOST
+                          </p>
+                          <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
+                            -{formatCurrency(sixMonthLoss)}
+                          </div>
+                          <p className="text-slate-600 text-xs mb-3">
+                            Based on 12 missed paychecks of {formatCurrency(bimonthlyPaycheck)}
+                          </p>
+                          <div className="bg-red-100 rounded-lg p-3 border border-red-200">
+                            <p className="text-xs text-red-700 font-medium">
+                              💸 {getOpportunityCostExample(sixMonthLoss)}
+                            </p>
+                          </div>
+                        </div>
                       </div>
 
-                      {/* Hero Card 2 */}
-                      <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 shadow-sm border border-red-200">
-                        <h4 className="text-sm font-medium text-red-700 mb-2">Potential Loss</h4>
-                        <div className="text-3xl md:text-4xl font-bold text-red-600 mb-1">
-                          -{formatCurrency(results.totalFinancialImpactWithoutInteroom)}
+                      {/* Scenario with InterRoom */}
+                      <div className="bg-green-50 rounded-xl p-5 shadow-md space-y-4 border-2 border-green-100 relative overflow-hidden">
+                        {/* Sparkle decoration */}
+                        <div className="absolute top-2 right-2">
+                          <Sparkles className="w-4 h-4 text-green-400" />
                         </div>
-                        <p className="text-sm text-red-600">Without Interoom</p>
-                      </div>
-                    </div>
 
-                    {/* Detailed Breakdown */}
-                    <div className="bg-gray-50/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Detailed Breakdown</h4>
-                      <ul className="space-y-4">
-                        <li className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 rounded-full bg-ir-primary/10 flex items-center justify-center mr-3">
-                              <Clock className="w-4 h-4 text-ir-primary" />
-                            </div>
-                            <span className="text-gray-700">Job Search Duration</span>
+                        <div className="flex items-center mb-1">
+                          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                            <Sparkles className="w-4 h-4 text-green-600" />
                           </div>
-                          <div className="text-right">
-                            <span className="font-medium text-ir-primary">
-                              {results.newJobSearchDurationMonths.toFixed(1)} months
-                            </span>
-                            <span className="text-gray-500 text-sm block">
-                              vs {AVERAGE_JOB_SEARCH_DURATION_MONTHS} months
-                            </span>
+                          <h4 className="text-base font-semibold text-slate-800">With InterRoom (6 Weeks)</h4>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-xs text-green-600 font-bold uppercase tracking-wide">
+                            POTENTIAL INCOME GAINED
+                          </p>
+                          <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+                            +{formatCurrency(netGain)}
                           </div>
-                        </li>
-                        <li className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 rounded-full bg-ir-primary/10 flex items-center justify-center mr-3">
-                              <DollarSign className="w-4 h-4 text-ir-primary" />
-                            </div>
-                            <span className="text-gray-700">Total Expenses</span>
+                          <p className="text-slate-600 text-xs mb-3">By getting hired 4.5 months faster</p>
+                          <div className="bg-green-100 rounded-lg p-3 border border-green-200">
+                            <p className="text-xs text-green-700 font-medium">
+                              ✨ That's money in your pocket, not lost opportunity
+                            </p>
                           </div>
-                          <div className="text-right">
-                            <span className="font-medium text-ir-primary">
-                              -{formatCurrency(results.totalExpensesWithInteroom)}
-                            </span>
-                            <span className="text-gray-500 text-sm block">
-                              vs -{formatCurrency(results.totalExpensesWithoutInteroom)}
-                            </span>
-                          </div>
-                        </li>
-                        <li className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 rounded-full bg-ir-primary/10 flex items-center justify-center mr-3">
-                              <TrendingUp className="w-4 h-4 text-ir-primary" />
-                            </div>
-                            <span className="text-gray-700">Salary Boost (Year 1)</span>
-                          </div>
-                          <div className="text-right">
-                            <span className="font-medium text-green-600">
-                              +{formatCurrency(results.salaryIncreaseAmount)}
-                            </span>
-                            <span className="text-gray-500 text-sm block">11% gain</span>
-                          </div>
-                        </li>
-                        <li className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 rounded-full bg-ir-primary/10 flex items-center justify-center mr-3">
-                              <Percent className="w-4 h-4 text-ir-primary" />
-                            </div>
-                            <span className="text-gray-700">Interoom Fee</span>
-                          </div>
-                          <div className="text-right">
-                            <span className="font-medium text-gray-700">
-                              -{formatCurrency(results.interoomFeeAmount)}
-                            </span>
-                            <span className="text-gray-500 text-sm block">5.5% of new salary</span>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-
-                    {/* Bar Chart */}
-                    <div className="bg-gray-50/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-                        Net Financial Impact Comparison
-                      </h4>
-                      <div className="h-[200px] w-full">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart data={chartData} margin={{ top: 20, right: 20, left: 20, bottom: 20 }}>
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-                            <XAxis dataKey="name" tickLine={false} axisLine={false} tick={false} />
-                            <YAxis
-                              tickFormatter={(value) => formatCurrency(value)}
-                              domain={["dataMin", 0]}
-                              tickLine={false}
-                              axisLine={false}
-                            />
-                            <Bar
-                              name="Without Interoom"
-                              dataKey="Without Interoom"
-                              fill="#ef4444"
-                              radius={[8, 8, 0, 0]}
-                              animationDuration={animateChart ? 1000 : 0}
-                            />
-                            <Bar
-                              name="With Interoom"
-                              dataKey="With Interoom"
-                              fill="#22c55e"
-                              radius={[8, 8, 0, 0]}
-                              animationDuration={animateChart ? 1200 : 0}
-                              animationDelay={animateChart ? 200 : 0}
-                            />
-                          </BarChart>
-                        </ResponsiveContainer>
+                        </div>
                       </div>
                     </div>
 
                     {/* CTA */}
-                    <Link href="/quiz" className="block">
-                      <Button
-                        size="lg"
-                        className="w-full bg-ir-primary hover:bg-ir-primary/90 text-white text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
-                      >
-                        Secure Your Savings
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                      </Button>
-                    </Link>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center h-full bg-gray-50/70 backdrop-blur-sm rounded-2xl p-12 text-center min-h-[600px]">
-                    <div className="w-16 h-16 bg-ir-primary/10 rounded-full flex items-center justify-center mb-6">
-                      <Briefcase className="w-8 h-8 text-ir-primary" />
+                    <div className="md:col-span-2 mt-6">
+                      <div className="text-center mb-4">
+                        <p className="text-sm text-slate-600">
+                          <strong>The choice is clear:</strong> Keep losing money with a long job search, or invest in
+                          getting hired faster.
+                        </p>
+                      </div>
+                      <Link href="/quiz" className="block">
+                        <Button
+                          size="lg"
+                          className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]"
+                        >
+                          Stop Losing Money - Get Started Free
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Button>
+                      </Link>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-700 mb-2">See Your Personalized Results</h3>
-                    <p className="text-gray-600">
-                      Enter your desired salary to see your cost breakdown and potential savings.
-                    </p>
                   </div>
                 )}
               </div>
             </div>
-
-            {/* Trust-Building Footnote */}
-            <div className="px-8 md:px-12 py-6 border-t border-gray-200">
-              <p className="text-sm text-gray-500 leading-relaxed">
-                *Calculations are estimates. Assumes a 5.5-month average job search (U.S. BLS) and a $
-                {DEFAULT_HEALTH_INSURANCE_PREMIUM} average monthly health insurance cost (KFF). Salary boost and time
-                saved are based on Interoom client averages.
-              </p>
-            </div>
           </CardContent>
         </Card>
+
+        {/* Additional Context */}
+        <div className="text-center mt-8">
+          <p className="text-sm text-slate-600">
+            💡 <strong>Pro tip:</strong> The longer you wait to start your job search optimization, the more money
+            you're leaving on the table.
+          </p>
+        </div>
       </div>
     </section>
   )
