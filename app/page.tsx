@@ -1,21 +1,21 @@
 import HeroSection from "@/components/hero-section"
+import GrowthGraphSection from "@/components/growth-graph-section"
 import WorkflowSteps from "@/components/workflow-steps"
-import NewServiceOfferings from "@/components/new-service-offerings"
-import CostOfJobSeekingCalculator from "@/components/cost-of-job-seeking-calculator"
+import ServiceCards from "@/components/service-cards"
 import SocialProof from "@/components/social-proof"
-import CoachesTeaser from "@/components/coaches-teaser"
 import ExitCTA from "@/components/exit-cta"
 import StickyQuizCTA from "@/components/sticky-quiz-cta"
+import CostOfJobSeekingCalculator from "@/components/cost-of-job-seeking-calculator"
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main className="min-h-screen bg-white">
       <HeroSection />
-      <WorkflowSteps />
-      <NewServiceOfferings />
+      <GrowthGraphSection />
       <CostOfJobSeekingCalculator />
+      <WorkflowSteps />
+      <ServiceCards />
       <SocialProof />
-      <CoachesTeaser />
       <ExitCTA />
       <StickyQuizCTA />
     </main>

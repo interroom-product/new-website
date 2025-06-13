@@ -1,102 +1,75 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import CompanyLogos from "@/components/company-logos"
-import ResultsTicker from "@/components/results-ticker"
 
 export default function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
-    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-ir-off-white">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-10 w-40 h-40 rounded-full bg-ir-primary/10 blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-10 w-60 h-60 rounded-full bg-ir-neutral-grape/10 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-ir-medium/10 blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Minimal background with gradient shapes */}
+      <div className="absolute inset-0">
+        {/* Subtle gradient orbs - no floating icons */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-ir-primary/8 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-gradient-radial from-ir-medium/6 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-gradient-radial from-ir-neutral/4 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container px-4 mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold text-ir-off-black mb-6 leading-tight">
-            Where Personal Coaching Meets{" "}
-            <span className="bg-gradient-to-r from-ir-primary to-ir-neutral-grape bg-clip-text text-transparent">
-              Intelligent Automation
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div
+          className={`transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {/* Simplified headline */}
+          <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
+            Your Job Search,{" "}
+            <span className="bg-gradient-to-r from-ir-primary to-ir-medium bg-clip-text text-transparent">
+              Automated
             </span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-xl text-ir-charcoal mb-10 max-w-3xl mx-auto font-light">
-            We handle your job search from start to finish. You focus on interviews. Pay only when you get hired.
+          {/* Short subhead only */}
+          <p className="text-2xl md:text-3xl text-gray-600 mb-16 font-light leading-relaxed">
+            We handle the applications, you handle the interviews.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          {/* Prominent CTA */}
+          <div className="mb-20">
             <Link href="/quiz">
               <Button
                 size="lg"
-                className="bg-ir-primary hover:bg-ir-primary/90 text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-soft hover:shadow-glow w-full sm:w-auto"
+                className="bg-ir-primary hover:bg-ir-primary/90 text-white px-12 py-6 text-xl font-medium rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 Get Started Free
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-3 w-6 h-6" />
               </Button>
             </Link>
-            <button
-              onClick={() => {
-                const servicesSection = document.getElementById("services-section")
-                if (servicesSection) {
-                  servicesSection.scrollIntoView({ behavior: "smooth" })
-                }
-              }}
-              className="border-ir-charcoal text-ir-charcoal hover:bg-ir-periwinkle px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 w-full sm:w-auto"
-            >
-              See Our Services
-            </button>
+            <p className="text-gray-500 text-sm mt-4">No credit card required</p>
           </div>
+        </div>
 
-          {/* Before & After Metrics */}
-          <div className="mb-8">
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {/* Average Salary Increase */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-ir-periwinkle p-6">
-                <h3 className="text-lg font-semibold text-ir-off-black mb-4">Average Salary Increase</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500 mb-1">Before InterRoom</div>
-                    <div className="text-2xl font-bold text-red-500">+8%</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500 mb-1">With InterRoom</div>
-                    <div className="text-2xl font-bold text-green-500">+44%</div>
-                  </div>
-                </div>
+        {/* Trust bar moved lower and hidden on mobile */}
+        <div className="hidden md:block">
+          <p className="text-gray-400 text-sm mb-6">Trusted by job seekers at</p>
+          <div className="flex justify-center items-center gap-12 opacity-50">
+            {["Google", "Meta", "Apple", "Netflix", "Microsoft"].map((company, index) => (
+              <div
+                key={company}
+                className="text-lg font-medium text-gray-600"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {company}
               </div>
-
-              {/* Job Search Duration */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-ir-periwinkle p-6">
-                <h3 className="text-lg font-semibold text-ir-off-black mb-4">Job Search Duration</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500 mb-1">Typical Search</div>
-                    <div className="text-2xl font-bold text-red-500">6-12 mo</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500 mb-1">With InterRoom</div>
-                    <div className="text-2xl font-bold text-green-500">8 weeks</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Live Results Ticker Bar */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-ir-periwinkle p-4">
-              <ResultsTicker />
-            </div>
+            ))}
           </div>
-
-          {/* Company Logos */}
-          <CompanyLogos />
         </div>
       </div>
     </section>

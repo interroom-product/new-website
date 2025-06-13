@@ -25,7 +25,7 @@ export default function StickyQuizCTA() {
       <Link href="/quiz">
         <Button
           size="lg"
-          className="bg-ir-primary hover:bg-ir-primary/90 text-white px-5 py-2.5 rounded-full shadow-soft hover:shadow-glow transition-all duration-300 transform hover:scale-105"
+          className="bg-ir-primary hover:bg-ir-primary/90 text-white px-6 py-3 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
         >
           Get Started
           <ArrowRight className="ml-2 w-4 h-4" />
