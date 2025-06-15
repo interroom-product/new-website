@@ -14,12 +14,15 @@ export default function ServicePackages() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative">
+            <div className="absolute top-0 left-0 bg-green-600 text-white text-xs font-medium px-3 py-1 rounded-br-lg rounded-tl-lg">
+              ONE-TIME FEE
+            </div>
             <CardHeader className="pb-4">
-              <CardTitle className="text-2xl">Job Outsourcing + Resume Rewrite</CardTitle>
+              <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
               <CardDescription className="text-slate-600 mt-2">
-                Let us handle the job hunt while you stay focused. Get both services individually or bundle them
-                together with a simple pay-as-you-go model—no commitments, just results.
+                Resume Rewrite + Autopilot Job Applications with a simple one-time fee model—no commitments, just
+                results.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -28,19 +31,19 @@ export default function ServicePackages() {
                   <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                     <Check className="h-4 w-4 text-violet-600" />
                   </div>
-                  <span>Personalized job search strategy</span>
+                  <span>Signal-boosting resume & LinkedIn optimization</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                     <Check className="h-4 w-4 text-violet-600" />
                   </div>
-                  <span>AI + human optimized resume</span>
+                  <span>Automated job application system</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                     <Check className="h-4 w-4 text-violet-600" />
                   </div>
-                  <span>Pay-as-you-go flexibility</span>
+                  <span>Weekly progress reports</span>
                 </li>
               </ul>
               <Button variant="outline" className="w-full">
@@ -56,8 +59,8 @@ export default function ServicePackages() {
             <CardHeader className="pb-4">
               <CardTitle className="text-2xl">Full Support Package</CardTitle>
               <CardDescription className="text-slate-600 mt-2">
-                Job Outsourcing + Resume Rewrite + Personalized Coaching. This option is success-based, meaning we only
-                get paid when you land the right role at the right salary. Your success is our success.
+                Job Outsourcing + Resume Rewrite + Elite Coaching. This option is success-based, meaning we only get
+                paid when you land the right role at the right salary. Your success is our success.
               </CardDescription>
             </CardHeader>
             <CardContent>

@@ -2,22 +2,26 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
-import Services from "@/components/services"
+import LogoStrip from "@/components/logo-strip" // Import the new LogoStrip component
+import ServiceHub from "@/components/service-hub"
 import Comparison from "@/components/comparison"
 import Testimonials from "@/components/testimonials"
 import Faq from "@/components/faq"
 import Coaches from "@/components/coaches"
 import Footer from "@/components/footer"
+import Calculator from "@/components/calculator"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <Services />
+      <LogoStrip /> {/* New LogoStrip section */}
+      <Calculator />
+      <ServiceHub />
       <Comparison />
-      <Testimonials />
       <Coaches />
+      <Testimonials />
       <Faq />
       <section className="py-20 px-4 bg-gradient-to-r from-violet-50 to-violet-100">
         <div className="container mx-auto text-center">

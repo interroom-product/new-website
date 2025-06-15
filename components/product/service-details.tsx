@@ -14,9 +14,9 @@ export default function ServiceDetails() {
 
         <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 mb-12">
-            <TabsTrigger value="job-outsourcing">Job Outsourcing</TabsTrigger>
-            <TabsTrigger value="resume-rewrite">Resume Rewrite</TabsTrigger>
-            <TabsTrigger value="personalized-coaching">Personalized Coaching</TabsTrigger>
+            <TabsTrigger value="job-outsourcing">Autopilot Job Application System</TabsTrigger>
+            <TabsTrigger value="resume-rewrite">Signal-Boosting Resume & Profile</TabsTrigger>
+            <TabsTrigger value="personalized-coaching">Elite 1:1 Interview Simulation</TabsTrigger>
           </TabsList>
 
           <TabsContent value="job-outsourcing">
@@ -31,10 +31,10 @@ export default function ServiceDetails() {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-medium mb-4">The job search and applications, done for you</h3>
+                <h3 className="text-2xl font-medium mb-4">Automated applications and tracking, done for you</h3>
                 <p className="text-slate-600 mb-6">
                   Do you really want to spend hours on job applications every week? Let us handle the search while you
-                  focus on something more productive—or just more fun.
+                  focus on something more productive—or just more fun. Track progress via your client portal.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -62,6 +62,9 @@ export default function ServiceDetails() {
                     </div>
                   </li>
                 </ul>
+                <button className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600">
+                  Purchase This Service
+                </button>
               </div>
             </div>
           </TabsContent>
@@ -78,7 +81,7 @@ export default function ServiceDetails() {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-medium mb-4">Make your resume impossible to ignore</h3>
+                <h3 className="text-2xl font-medium mb-4">Make your profile impossible to ignore</h3>
                 <p className="text-slate-600 mb-6">
                   AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
                   resume, beat the bots, and grab recruiters' attention.
@@ -110,6 +113,9 @@ export default function ServiceDetails() {
                     </div>
                   </li>
                 </ul>
+                <button className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600">
+                  Purchase This Service
+                </button>
               </div>
             </div>
           </TabsContent>
@@ -126,7 +132,7 @@ export default function ServiceDetails() {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-medium mb-4">A dedicated team helping you get hired</h3>
+                <h3 className="text-2xl font-medium mb-4">Train with industry veterans for interview mastery</h3>
                 <p className="text-slate-600 mb-6">
                   The right prep changes everything. With a dedicated team in your corner, we tailor coaching to your
                   needs so you can land the best offer possible.
@@ -157,6 +163,9 @@ export default function ServiceDetails() {
                     </div>
                   </li>
                 </ul>
+                <button className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600">
+                  Purchase This Service
+                </button>
               </div>
             </div>
           </TabsContent>

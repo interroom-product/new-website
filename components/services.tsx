@@ -11,15 +11,15 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 lg:col-span-1">
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
               <Search className="h-6 w-6 text-violet-600" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Job Sourcing</h3>
+            <h3 className="text-xl font-medium mb-2">Job Sourcing & Applications</h3>
             <p className="text-slate-600 text-sm">
-              Humans & AI work together to curate you a perfect target list of hundreds of relevant listed and unlisted
-              roles.
+              Humans & AI work together to curate you a perfect target list of hundreds of relevant roles and handle all
+              applications for you.
             </p>
           </div>
 
@@ -37,20 +37,10 @@ export default function Services() {
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
               <MessageSquare className="h-6 w-6 text-violet-600" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Interview Prep</h3>
+            <h3 className="text-xl font-medium mb-2">Interview Coaching</h3>
             <p className="text-slate-600 text-sm">
-              Your dedicated coach will help you prepare for all upcoming interviews (including mock question & weekly
-              check-ins).
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 lg:col-span-1">
-            <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
-              <FileText className="h-6 w-6 text-violet-600" />
-            </div>
-            <h3 className="text-xl font-medium mb-2">Application Submission</h3>
-            <p className="text-slate-600 text-sm">
-              Worry about one less thing. Our team will apply to all selected jobs on your behalf.
+              Your dedicated coach will help you prepare for all upcoming interviews with personalized coaching and mock
+              sessions.
             </p>
           </div>
 
@@ -58,7 +48,7 @@ export default function Services() {
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
               <MessageSquare className="h-6 w-6 text-violet-600" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Offer Negotiation</h3>
+            <h3 className="text-xl font-medium mb-2">Salary Negotiation</h3>
             <p className="text-slate-600 text-sm">
               Our experts will ensure you're getting the top range of total compensation package for all your offers.
             </p>
