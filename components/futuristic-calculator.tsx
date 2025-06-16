@@ -105,12 +105,6 @@ export default function FuturisticCalculator() {
                   </div>
                 </div>
 
-                {/* Pay Frequency */}
-                <div>
-                  <Label className="text-lg font-medium mb-3 block text-gray-200">Pay Frequency</Label>
-                  <div className="text-xl font-bold text-gray-300">Bimonthly</div> {/* Fixed to Bimonthly */}
-                </div>
-
                 {/* Search Duration */}
                 <div>
                   <Label className="text-lg font-medium mb-3 block text-gray-200">
