@@ -2,22 +2,22 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
-import LogoStrip from "@/components/logo-strip" // Import the new LogoStrip component
+import LogoStrip from "@/components/logo-strip"
 import ServiceHub from "@/components/service-hub"
 import Comparison from "@/components/comparison"
 import Testimonials from "@/components/testimonials"
 import Faq from "@/components/faq"
 import Coaches from "@/components/coaches"
 import Footer from "@/components/footer"
-import Calculator from "@/components/calculator"
+import FuturisticCalculator from "@/components/futuristic-calculator"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <LogoStrip /> {/* New LogoStrip section */}
-      <Calculator />
+      <LogoStrip />
+      <FuturisticCalculator />
       <ServiceHub />
       <Comparison />
       <Coaches />
