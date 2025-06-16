@@ -49,7 +49,7 @@ export default function ServiceHub() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Link href="/product">
+                  <Link href="/services">
                     <Button
                       variant="outline"
                       className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
@@ -82,7 +82,7 @@ export default function ServiceHub() {
                   {hoveredCard === "autopilot" && (
                     <div className="mb-4 rounded-lg overflow-hidden border border-violet-200 animate-in fade-in-0 duration-300">
                       <Image
-                        src="/placeholder.svg?height=200&width=300"
+                        src="/images/job-applications-portal.png"
                         alt="Client Portal Preview"
                         width={300}
                         height={200}
@@ -93,7 +93,7 @@ export default function ServiceHub() {
                       </div>
                     </div>
                   )}
-                  <Link href="/product">
+                  <Link href="/services">
                     <Button
                       variant="outline"
                       className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
@@ -117,7 +117,7 @@ export default function ServiceHub() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Link href="/product">
+                  <Link href="/services">
                     <Button
                       variant="outline"
                       className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
@@ -160,7 +160,7 @@ export default function ServiceHub() {
                       <span className="text-sm">Weekly progress reports</span>
                     </li>
                   </ul>
-                  <Link href="/product">
+                  <Link href="/services">
                     <Button variant="outline" className="w-full">
                       View Package <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -203,7 +203,7 @@ export default function ServiceHub() {
                       <span className="text-sm">Salary negotiation support</span>
                     </li>
                   </ul>
-                  <Link href="/product">
+                  <Link href="/services">
                     <Button className="w-full bg-violet-600 hover:bg-violet-700">
                       View Package <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
