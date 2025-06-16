@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Star } from "lucide-react" // Import Star icon
 import Link from "next/link"
 
 export default function Hero() {
@@ -35,6 +35,13 @@ export default function Hero() {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
+            </div>
+            {/* 5-star rating display */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gray-900/70 backdrop-blur-sm p-4 flex items-center justify-center gap-1 text-yellow-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-current" />
+              ))}
+              <span className="ml-2 text-white text-sm font-medium">5.0 Rating</span>
             </div>
           </div>
         </div>
