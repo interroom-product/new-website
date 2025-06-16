@@ -25,12 +25,16 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            <div className="aspect-[4/3] bg-violet-100 rounded-xl overflow-hidden">
-              <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="Professional working on laptop"
-                className="w-full h-full object-cover"
-              />
+            <div className="aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/PzDb7nMZS5M?si=VkCnuEV9a7Qd-p8p"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
