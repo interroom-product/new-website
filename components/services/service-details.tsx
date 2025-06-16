@@ -23,8 +23,8 @@ export default function ServiceDetails() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="rounded-xl overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Person typing on laptop"
+                  src="/images/job-applications-portal.png" // Corrected path here
+                  alt="Job applications dashboard showing submitted applications"
                   width={600}
                   height={400}
                   className="object-cover w-full h-full"
