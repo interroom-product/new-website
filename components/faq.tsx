@@ -55,6 +55,28 @@ export default function Faq() {
                 needs.
               </AccordionContent>
             </AccordionItem>
+
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-left">
+                What fields do you support?
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4 text-slate-600">
+                We provide services and support for a wide range of fields, including:
+                <ul className="list-disc pl-5 mt-2 space-y-1">
+                  <li>Marketing</li>
+                  <li>Data Science</li>
+                  <li>Customer Support</li>
+                  <li>Partnerships</li>
+                  <li>Finance</li>
+                  <li>Data Analytics</li>
+                  <li>Engineering</li>
+                  <li>Product</li>
+                  <li>Design</li>
+                  <li>Operations</li>
+                  <li>Sales</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </div>
