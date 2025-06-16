@@ -36,12 +36,12 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center space-x-8">
           <Link
-            href="/product"
+            href="/services"
             className={`text-sm font-medium ${
-              pathname === "/product" ? "text-violet-600" : "text-slate-700 hover:text-violet-600"
+              pathname === "/services" ? "text-violet-600" : "text-slate-700 hover:text-violet-600"
             } transition-colors`}
           >
-            Product
+            Services
           </Link>
           <Link
             href="/coaches"
@@ -70,10 +70,10 @@ export default function Navbar() {
           <SheetContent side="right">
             <div className="flex flex-col space-y-6 mt-10">
               <Link
-                href="/product"
-                className={`text-lg font-medium ${pathname === "/product" ? "text-violet-600" : ""}`}
+                href="/services"
+                className={`text-lg font-medium ${pathname === "/services" ? "text-violet-600" : ""}`}
               >
-                Product
+                Services
               </Link>
               <Link
                 href="/coaches"
