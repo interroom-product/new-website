@@ -5,14 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { DollarSign, Zap, Briefcase, TrendingDown, ArrowRight, Calculator } from "lucide-react"
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts"
+import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis, Tooltip } from "recharts"
 
 export default function FuturisticCalculator() {
   const [desiredSalary, setDesiredSalary] = useState(120000)
-  const [payFrequency, setPayFrequency] = useState("bimonthly")
-  const [searchDuration, setSearchDuration] = useState(6) // months
+  const [payFrequency] = useState("bimonthly") // Fixed to bimonthly
+  const [searchDuration, setSearchDuration] = useState(6) // months, max 12
 
   const [paycheckValue, setPaycheckValue] = useState(0)
   const [lostIncome, setLostIncome] = useState(0)
@@ -22,41 +21,43 @@ export default function FuturisticCalculator() {
     icon: Zap,
   })
 
-  const payFrequencies = [
-    { value: "bimonthly", label: "Bimonthly (24/year)", divisor: 24 },
-    { value: "monthly", label: "Monthly (12/year)", divisor: 12 },
-    { value: "weekly", label: "Weekly (52/year)", divisor: 52 },
-  ]
+  // Only bimonthly is relevant for calculation, but keep structure for divisor
+  const payFrequencies = [{ value: "bimonthly", label: "Bimonthly (24/year)", divisor: 24 }]
 
   useEffect(() => {
     const selectedFreq = payFrequencies.find((f) => f.value === payFrequency)
     const calculatedPaycheckValue = desiredSalary / (selectedFreq?.divisor || 24)
 
     // Calculate lost income (opportunity cost)
-    const paychecksLost =
-      payFrequency === "bimonthly"
-        ? searchDuration * 2
-        : payFrequency === "monthly"
-          ? searchDuration
-          : searchDuration * 4.33 // approximate weeks per month
+    const paychecksLost = searchDuration * 2 // Always bimonthly
     const calculatedLostIncome = calculatedPaycheckValue * paychecksLost
 
     setPaycheckValue(calculatedPaycheckValue)
     setLostIncome(calculatedLostIncome)
 
-    // Update stress level based on duration
-    if (searchDuration >= 12)
+    // Update stress level based on duration (now max 12 months)
+    if (searchDuration >= 10)
       setStressLevel({ text: "Extremely Discouraged", color: "text-red-400", icon: TrendingDown })
-    else if (searchDuration >= 9) setStressLevel({ text: "Feeling Burnt Out", color: "text-orange-400", icon: Zap })
-    else if (searchDuration >= 6) setStressLevel({ text: "High & Fatigued", color: "text-yellow-400", icon: Zap })
-    else if (searchDuration >= 3) setStressLevel({ text: "Getting Concerned", color: "text-amber-400", icon: Zap })
+    else if (searchDuration >= 7) setStressLevel({ text: "Feeling Burnt Out", color: "text-orange-400", icon: Zap })
+    else if (searchDuration >= 4) setStressLevel({ text: "High & Fatigued", color: "text-yellow-400", icon: Zap })
+    else if (searchDuration >= 2) setStressLevel({ text: "Getting Concerned", color: "text-amber-400", icon: Zap })
     else setStressLevel({ text: "Focused & Optimistic", color: "text-cyan-400", icon: Zap })
   }, [desiredSalary, payFrequency, searchDuration])
 
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(value)
 
-  const chartData = [{ name: "Financials", "Expected Annual Salary": desiredSalary, "Lost Income": lostIncome }]
+  const maxPaychecksForChart = 12 * 2 // Max 12 months * 2 bimonthly paychecks
+  const paychecksLostForChart = searchDuration * 2
+  const chartValue = (paychecksLostForChart / maxPaychecksForChart) * 100
+
+  const chartData = [
+    {
+      name: "Lost Income",
+      value: chartValue,
+      fill: stressLevel.color.replace("text-", "").replace("-400", "-500").replace("-500", "-600"),
+    },
+  ]
 
   const StressIcon = stressLevel.icon
 
@@ -107,18 +108,7 @@ export default function FuturisticCalculator() {
                 {/* Pay Frequency */}
                 <div>
                   <Label className="text-lg font-medium mb-3 block text-gray-200">Pay Frequency</Label>
-                  <Select value={payFrequency} onValueChange={setPayFrequency}>
-                    <SelectTrigger className="bg-gray-700 border-violet-500/30 text-white">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-violet-500/30">
-                      {payFrequencies.map((freq) => (
-                        <SelectItem key={freq.value} value={freq.value} className="text-white hover:bg-violet-600">
-                          {freq.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <div className="text-xl font-bold text-gray-300">Bimonthly</div> {/* Fixed to Bimonthly */}
                 </div>
 
                 {/* Search Duration */}
@@ -128,7 +118,7 @@ export default function FuturisticCalculator() {
                   </Label>
                   <Slider
                     min={1}
-                    max={18}
+                    max={12} // Changed max to 12 months
                     step={1}
                     value={[searchDuration]}
                     onValueChange={(val) => setSearchDuration(val[0])}
@@ -136,7 +126,7 @@ export default function FuturisticCalculator() {
                   />
                   <div className="flex justify-between text-sm text-gray-400 mt-2">
                     <span>1 month</span>
-                    <span>18 months</span>
+                    <span>12 months</span>
                   </div>
                 </div>
               </CardContent>
@@ -150,36 +140,43 @@ export default function FuturisticCalculator() {
                 <CardTitle className="text-2xl font-bold text-cyan-400">Financial Impact & Breakdown</CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-6">
-                <div className="h-64 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={chartData} layout="vertical" margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                      <XAxis type="number" hide />
-                      <YAxis type="category" dataKey="name" hide />
-                      <Tooltip
-                        formatter={(value: number) => formatCurrency(value)}
-                        cursor={{ fill: "rgba(139, 92, 246, 0.1)" }}
-                        contentStyle={{
-                          backgroundColor: "rgba(31, 41, 55, 0.9)",
-                          border: "1px solid rgba(139, 92, 246, 0.3)",
-                          borderRadius: "0.5rem",
-                          color: "white",
-                        }}
-                      />
-                      <Legend
-                        wrapperStyle={{
-                          paddingTop: "20px",
-                        }}
-                      />
-                      <Bar dataKey="Lost Income" stackId="a" fill="#ef4444" radius={[4, 4, 4, 4]} barSize={40} />
-                      <Bar
-                        dataKey="Expected Annual Salary"
-                        stackId="a"
-                        fill="#22c55e"
-                        radius={[4, 4, 4, 4]}
-                        barSize={40}
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
+                <div className="h-64 w-full flex items-center justify-center">
+                  <div className="w-64 h-64 relative">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <RadialBarChart
+                        innerRadius="80%"
+                        outerRadius="100%"
+                        data={chartData}
+                        startAngle={90}
+                        endAngle={-270}
+                      >
+                        <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+                        <RadialBar
+                          background
+                          dataKey="value"
+                          cornerRadius={10}
+                          angleAxisId={0}
+                          fill={stressLevel.color.replace("text-", "").replace("-400", "-500").replace("-500", "-600")}
+                        />
+                        <Tooltip
+                          formatter={(value: number) => `${value.toFixed(1)}%`}
+                          contentStyle={{
+                            backgroundColor: "rgba(31, 41, 55, 0.9)",
+                            border: "1px solid rgba(139, 92, 246, 0.3)",
+                            borderRadius: "0.5rem",
+                            color: "white",
+                          }}
+                        />
+                      </RadialBarChart>
+                    </ResponsiveContainer>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                      <p className="text-sm text-gray-400">Lost Income</p>
+                      <p className="text-3xl font-bold text-violet-400 tracking-tighter">
+                        {formatCurrency(lostIncome)}
+                      </p>
+                      <p className="text-sm text-gray-400 mt-1">({chartValue.toFixed(1)}% of max)</p>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="space-y-4 pt-4 border-t border-violet-500/20">
@@ -188,9 +185,7 @@ export default function FuturisticCalculator() {
                       <DollarSign className="h-5 w-5 text-green-400" />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">
-                        Your {payFrequency.charAt(0).toUpperCase() + payFrequency.slice(1)} Paycheck
-                      </p>
+                      <p className="text-gray-400 text-sm">Your Bimonthly Paycheck</p>
                       <p className="text-xl font-bold text-green-400">{formatCurrency(paycheckValue)}</p>
                     </div>
                   </div>
