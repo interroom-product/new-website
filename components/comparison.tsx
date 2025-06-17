@@ -46,7 +46,7 @@ export default function Comparison() {
           <div className="bg-gradient-to-br from-slate-800/60 to-red-900/20 p-10 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
             <div className="flex items-center gap-3 mb-8">
               <TrendingDown className="w-6 h-6 text-red-400" />
-              <h3 className="text-xl font-semibold text-red-300">Without InterRoom: The Costly Wait</h3>
+              <h3 className="text-xl font-semibold text-red-300">Without InterRoom</h3>
             </div>
 
             <div className="space-y-8">
@@ -102,7 +102,7 @@ export default function Comparison() {
 
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <Zap className="w-6 h-6 text-cyan-400" />
-              <h3 className="text-xl font-semibold text-cyan-300">With InterRoom: Rapid Results</h3>
+              <h3 className="text-xl font-semibold text-cyan-300">With InterRoom</h3>
             </div>
 
             <div className="space-y-8 relative z-10">

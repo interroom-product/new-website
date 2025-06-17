@@ -27,7 +27,7 @@ export default function Services() {
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
               <FileText className="h-6 w-6 text-violet-600" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Resume & LinkedIn Overhaul</h3>
+            <h3 className="text-xl font-medium mb-2">Resume Revamp & LinkedIn Overhaul</h3>
             <p className="text-slate-600 text-sm">
               We'll guide you in getting your resume and LinkedIn presence in tip top shape.
             </p>

@@ -15,7 +15,7 @@ export default function ServiceDetails() {
         <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 mb-12">
             <TabsTrigger value="job-outsourcing">Autopilot Job Application System</TabsTrigger>
-            <TabsTrigger value="resume-rewrite">Signal-Boosting Resume & Profile</TabsTrigger>
+            <TabsTrigger value="resume-rewrite">Resume Revamp & LinkedIn Overhaul</TabsTrigger>
             <TabsTrigger value="personalized-coaching">Elite 1:1 Interview Simulation</TabsTrigger>
           </TabsList>
 

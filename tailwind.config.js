@@ -64,6 +64,14 @@ module.exports = {
           900: "#4c1d95",
           950: "#2e1065",
         },
+        // Custom InterRoom colors
+        "ir-primary": "#7c3aed", // violet-600
+        "ir-accent": "#a78bfa", // violet-400
+        "ir-secondary": "#ddd6fe", // violet-200
+        "ir-neutral-100": "#f8fafc", // slate-50
+        "ir-neutral-200": "#f1f5f9", // slate-100
+        "ir-neutral-700": "#334155", // slate-700
+        "ir-neutral-800": "#1e293b", // slate-800
       },
       borderRadius: {
         lg: "var(--radius)",

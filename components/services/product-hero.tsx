@@ -24,12 +24,12 @@ export default function ProductHero() {
             <p className="text-sm text-gray-600">Applied for you monthly</p>
           </div>
           <div className="flex flex-col items-center text-ir-neutral-700">
-            <CheckCircle className="w-8 h-8 text-ir-accent mb-2" />
+            <CheckCircle className="w-8 h-8 text-ir-primary mb-2" />
             <span className="font-semibold text-lg">ATS Optimized</span>
             <p className="text-sm text-gray-600">Resumes & profiles</p>
           </div>
           <div className="flex flex-col items-center text-ir-neutral-700">
-            <CheckCircle className="w-8 h-8 text-ir-secondary mb-2" />
+            <CheckCircle className="w-8 h-8 text-ir-primary mb-2" />
             <span className="font-semibold text-lg">Expert Coaching</span>
             <p className="text-sm text-gray-600">Personalized interview prep</p>
           </div>
@@ -37,7 +37,7 @@ export default function ProductHero() {
 
         <Button
           size="lg"
-          className="bg-ir-primary hover:bg-ir-primary/90 text-white px-10 py-4 rounded-full text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          className="bg-violet-600 hover:bg-violet-700 text-white px-10 py-4 rounded-full text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         >
           Get Started Today <ArrowRight className="ml-3 h-6 w-6" />
         </Button>

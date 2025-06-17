@@ -43,7 +43,7 @@ export default function ServiceHub() {
                   <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
                     <FileText className="h-6 w-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <CardTitle className="text-xl">Signal-Boosting Resume & Profile</CardTitle>
+                  <CardTitle className="text-xl">Resume Revamp & LinkedIn Overhaul</CardTitle>
                   <CardDescription className="text-slate-600">
                     We re-engineer your resume and LinkedIn to bypass automated filters and captivate human recruiters.
                   </CardDescription>

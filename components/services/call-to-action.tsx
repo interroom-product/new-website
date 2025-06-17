@@ -13,7 +13,7 @@ export default function CallToAction() {
           <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
             Schedule a Free Consultation <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-          <Button size="lg" variant="outline" className="border-slate-300">
+          <Button size="lg" className="bg-slate-700 hover:bg-slate-800 text-white">
             View Our Packages
           </Button>
         </div>
