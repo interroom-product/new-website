@@ -25,8 +25,8 @@ export default function CoachesHero() {
             <div className="aspect-[4/3] bg-violet-100 rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/20 to-transparent"></div>
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.07.42%E2%80%AFPM-lGAsRcny1eVQGAn9lnTEYwwU2GwQK3.png"
-                alt="Coach and client interaction"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%2814%29-aKWj9yjRLrsNR1as8wqIWpBpmTeIRM.png"
+                alt="Professional woman working at a desk"
                 className="w-full h-full object-cover"
               />
             </div>
