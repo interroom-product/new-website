@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Star } from "lucide-react" // Import Star icon
+import { ArrowRight, Star } from "lucide-react"
 import Link from "next/link"
 
 export default function Hero() {
@@ -24,24 +24,30 @@ export default function Hero() {
               </Link>
             </div>
           </div>
-          <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            <div className="aspect-video">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/PzDb7nMZS5M?si=VkCnuEV9a7Qd-p8p"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
+          <div className="space-y-4">
+            <div className="relative rounded-xl overflow-hidden shadow-2xl">
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/PzDb7nMZS5M?si=VkCnuEV9a7Qd-p8p"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
-            {/* 5-star rating display */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gray-900/70 backdrop-blur-sm p-4 flex items-center justify-center gap-1 text-yellow-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-current" />
-              ))}
-              <span className="ml-2 text-white text-sm font-medium">5.0 Rating</span>
+            {/* 5-star rating display moved below video */}
+            <div className="flex items-center justify-center gap-2 text-yellow-400 bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-current drop-shadow-sm" />
+                ))}
+              </div>
+              <span className="text-slate-800 font-semibold text-lg">5.0</span>
+              <span className="text-slate-600 font-medium">•</span>
+              <span className="text-slate-600 font-medium">200+ Reviews</span>
             </div>
           </div>
         </div>

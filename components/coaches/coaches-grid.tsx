@@ -8,7 +8,7 @@ const coaches = [
     name: "Allison Burkett",
     role: "Program Management",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.08.06%E2%80%AFPM-S8PRaGNxfBhCXDuaAOtCuRnNe83bfY.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/allison_edited_edited.jpg-YL3P5wjQxCOLby7SUntBbZYYlaKbJ8.jpeg",
     companies: ["Meta", "Microsoft", "Lyft"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -22,8 +22,7 @@ const coaches = [
     id: 2,
     name: "DK Lee",
     role: "Data Science / Analytics",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.08.06%E2%80%AFPM-S8PRaGNxfBhCXDuaAOtCuRnNe83bfY.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg",
     companies: ["Rippling", "Opendoor", "Coinbase"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -37,8 +36,7 @@ const coaches = [
     id: 3,
     name: "Janice Bae",
     role: "Product Management",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.07.58%E2%80%AFPM-RQZVosojHKSFTLbVUpMN9mz35VOYei.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janice%20photo-wZMSUo0kc33SV0I6bxikLkbEXwq6Gi.jpeg",
     companies: ["DocuSign", "Instacart", "LinkedIn"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -53,7 +51,7 @@ const coaches = [
     name: "William Cha, PhD",
     role: "Data Science",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.07.58%E2%80%AFPM-RQZVosojHKSFTLbVUpMN9mz35VOYei.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/William_Cha_edited.jpg-tPLMjIinhrrzb9BpSc93qO76QCMBD4.jpeg",
     companies: ["Notion", "Microsoft", "Tableau"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -67,8 +65,7 @@ const coaches = [
     id: 5,
     name: "Sara Tashakorinia",
     role: "Product Strategy",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.08.25%E2%80%AFPM-z6cIlRKdvkiwm6LiBZLEm4IoB3sqG4.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-IXvsW80z0HhtA93OnjW4WsQgcwMH2r.jpeg",
     companies: ["Masterclass", "Figma", "Godly"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -83,7 +80,7 @@ const coaches = [
     name: "Nate Porras",
     role: "Product Management",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.08.25%E2%80%AFPM-z6cIlRKdvkiwm6LiBZLEm4IoB3sqG4.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nate_Porras_edited.jpg-ubUrZPUzVnvlJHHxgBYChPhtsZ0xFn.jpeg",
     companies: ["Samsung", "Level Home", "Wyze"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -97,8 +94,7 @@ const coaches = [
     id: 7,
     name: "Ashutosh Goel",
     role: "Software Engineering",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.08.13%E2%80%AFPM-sr3WEuUArwretX3VRiFSd5Qf4hzEKB.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ashu-MmDn9a6PLuK3zoynr6UXR5sAPwfC7t.jpeg",
     companies: ["Meta", "Microsoft", "Brex"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -112,8 +108,7 @@ const coaches = [
     id: 8,
     name: "Kat Dai",
     role: "Business Operations / Strategy / Chief of Staff",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-05-09%20at%204.08.13%E2%80%AFPM-sr3WEuUArwretX3VRiFSd5Qf4hzEKB.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kat-4va8k274q1RRuRiBvZE7U78FDcrfrf.jpeg",
     companies: ["Opendoor", "Coinbase", "Uber"],
     companyLogos: [
       "/placeholder.svg?height=30&width=30",
@@ -143,7 +138,12 @@ export default function CoachesGrid() {
               className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
             >
               <div className="aspect-[3/4] relative">
-                <img src={coach.image || "/placeholder.svg"} alt={coach.name} className="w-full h-full object-cover" />
+                <img
+                  src={coach.image || "/placeholder.svg"}
+                  alt={coach.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-4 text-white">
                   <h3 className="text-xl font-medium">{coach.name}</h3>

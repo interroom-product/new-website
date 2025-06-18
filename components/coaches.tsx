@@ -46,16 +46,36 @@ export default function Coaches() {
 
           <div className="grid grid-cols-3 gap-4">
             <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative">
-              <Image src="/placeholder.svg?height=200&width=200" alt="Coach" fill className="object-cover" />
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janice%20photo-wZMSUo0kc33SV0I6bxikLkbEXwq6Gi.jpeg"
+                alt="Janice - Product Management Coach"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative col-span-2 row-span-2">
-              <Image src="/placeholder.svg?height=400&width=400" alt="Coach" fill className="object-cover" />
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg"
+                alt="DK - Data Science Coach"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative">
-              <Image src="/placeholder.svg?height=200&width=200" alt="Coach" fill className="object-cover" />
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ashu-MmDn9a6PLuK3zoynr6UXR5sAPwfC7t.jpeg"
+                alt="Ashu - Software Engineering Coach"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative col-span-2">
-              <Image src="/placeholder.svg?height=200&width=400" alt="Coach" fill className="object-cover" />
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nate_Porras_edited.jpg-ubUrZPUzVnvlJHHxgBYChPhtsZ0xFn.jpeg"
+                alt="Nate - Product Management Coach"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

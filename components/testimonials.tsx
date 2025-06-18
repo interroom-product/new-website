@@ -7,42 +7,36 @@ import { Button } from "@/components/ui/button"
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const maxIndex = 4 // Number of testimonials - 1
+  const maxIndex = 3 // Updated to 4 testimonials - 1
 
   const testimonials = [
     {
       name: "Gabriela Tylenda",
       role: "Visual Designer",
       company: "Meta",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GabiTylenda-BKNMv4shC3uS7boFm7VOQzfObkI3UR.jpeg",
       logo: "/placeholder.svg?height=30&width=30",
     },
     {
       name: "Sarah Tashakorina",
       role: "Director of Product",
       company: "Masterclass",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-u7XhrxPrfUZhsGx1nfz2ZMQhHUV0jQ.jpeg",
       logo: "/placeholder.svg?height=30&width=30",
     },
     {
       name: "Jared Malakouti",
       role: "Senior Customer Success Manager",
       company: "Divert",
-      image: "/placeholder.svg?height=100&width=100",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jared%20photo-modIlHaH6mofZxigY0hV57Hh5MHGJg.jpeg",
       logo: "/placeholder.svg?height=30&width=30",
     },
     {
       name: "Leila Bremner",
       role: "Senior Strategic Operations Manager",
       company: "Uber",
-      image: "/placeholder.svg?height=100&width=100",
-      logo: "/placeholder.svg?height=30&width=30",
-    },
-    {
-      name: "Mark Johnson",
-      role: "Senior Software Engineer",
-      company: "Stripe",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Leila-swcpm6AQ5LNHk10lLxqRJNUOucMb31.jpeg",
       logo: "/placeholder.svg?height=30&width=30",
     },
   ]
@@ -78,7 +72,7 @@ export default function Testimonials() {
                           alt={testimonial.name}
                           width={100}
                           height={100}
-                          className="object-cover"
+                          className="object-cover w-full h-full"
                         />
                       </div>
                       <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white p-1 shadow-md">
