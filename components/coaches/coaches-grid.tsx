@@ -1,7 +1,6 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
 const coaches = [
@@ -11,11 +10,11 @@ const coaches = [
     role: "Program Management",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/allison_edited_edited.jpg-YL3P5wjQxCOLby7SUntBbZYYlaKbJ8.jpeg",
-    companies: ["Meta", "Microsoft", "Lyft"],
+    companies: ["Meta", "Salesforce", "Lyft"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/placeholder.svg?height=30&width=30", // Will use Meta logo from testimonials
+      "/images/salesforce-logo.jpeg",
+      "/images/lyft-logo.png",
     ],
     bio: "Allison has over 10+ years of experience in Program Management and has spent the last 5 years at Meta leading cross-functional teams.",
     detailedBio:
@@ -29,11 +28,11 @@ const coaches = [
     name: "DK Lee",
     role: "Data Science / Analytics",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg",
-    companies: ["Rippling", "Opendoor", "Coinbase"],
+    companies: ["Rippling", "Capital One", "Opendoor"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/placeholder.svg?height=30&width=30", // Will use Rippling logo from landing page
+      "/images/capital-one-logo.png",
+      "/images/opendoor-logo.jpeg",
     ],
     bio: "Over 10+ years of experience in risk modeling, pricing and credit at Rippling, Opendoor and Coinbase.",
     detailedBio:
@@ -47,12 +46,8 @@ const coaches = [
     name: "Janice Bae",
     role: "Product Management",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janice%20photo-wZMSUo0kc33SV0I6bxikLkbEXwq6Gi.jpeg",
-    companies: ["DocuSign", "Instacart", "LinkedIn"],
-    companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-    ],
+    companies: ["DocuSign", "Premise", "LinkedIn"],
+    companyLogos: ["/images/docusign-logo.svg", "/images/premise-logo.webp", "/images/linkedin-logo-blue-small.png"],
     bio: "Janice is currently a Senior Product Manager at DocuSign who pivoted into Product Management from consulting.",
     detailedBio:
       "Janice is currently a Senior Product Manager at DocuSign who pivoted into Product Management through her MBA at MIT Sloan. Previously she held roles in Growth Marketing and Ops at an SF-based startup called Premise Data and at LinkedIn through a rotational program. She brings a unique perspective combining consulting, operations, and product strategy.",
@@ -78,24 +73,6 @@ const coaches = [
     specialties: ["Data Science", "Machine Learning", "AI"],
     linkedin: "https://www.linkedin.com/in/williamcha/",
     funFact: "William published 15+ research papers during his PhD!",
-  },
-  {
-    id: 5,
-    name: "Sara Tashakorinia",
-    role: "Product Strategy",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-IXvsW80z0HhtA93OnjW4WsQgcwMH2r.jpeg",
-    companies: ["Masterclass", "Figma", "Godly"],
-    companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-    ],
-    bio: "Over 10+ years of experience as a Product Leader and Strategist with roots in Design and Product Management.",
-    detailedBio:
-      "Over 10+ years of experience as a Product Leader and Strategist with roots in Design and Product Management. Sara has worked at Masterclass, Figma, and Godly, where she led product strategy for creative tools and educational platforms. Her unique background combines design thinking with strategic product planning, making her an expert in user-centered product development.",
-    specialties: ["Product Strategy", "Design", "Leadership"],
-    linkedin: "https://www.linkedin.com/in/saratashakorinia/",
-    funFact: "Sara speaks four languages fluently!",
   },
   {
     id: 6,
@@ -168,71 +145,76 @@ export default function CoachesGrid() {
   }
 
   return (
-    <section className="py-20 px-4 bg-slate-50">
+    <section className="py-20 px-4 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium mb-4">Meet Our Expert Coaches</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-light mb-4 text-slate-800">Meet Our Expert Coaches</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto font-light">
             Our coaches bring years of industry experience from top companies to help you navigate your career journey.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 auto-rows-fr">
           {coaches.map((coach) => (
             <div
               key={coach.id}
-              className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full"
+              className="group relative backdrop-blur-sm bg-white/70 rounded-2xl border border-white/50 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full overflow-hidden"
             >
-              <div className="aspect-[3/4] relative flex-shrink-0">
+              {/* Subtle gradient overlay for glass effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-slate-50/20 pointer-events-none rounded-2xl"></div>
+
+              <div className="aspect-[3/4] relative flex-shrink-0 overflow-hidden rounded-t-2xl">
                 <img
                   src={coach.image || "/placeholder.svg"}
                   alt={coach.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4 text-white">
-                  <h3 className="text-xl font-medium">{coach.name}</h3>
-                  <p className="text-white/80">{coach.role}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <h3 className="text-xl font-medium mb-1">{coach.name}</h3>
+                  <p className="text-white/90 font-light">{coach.role}</p>
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col flex-grow">
-                {/* Company logos - fixed height */}
-                <div className="flex space-x-2 mb-4 h-6">
+              <div className="p-6 flex flex-col flex-grow relative z-10">
+                {/* Company logos - more spaced and elegant */}
+                <div className="flex space-x-3 mb-5 h-8">
                   {coach.companies.map((company, index) => (
                     <div
                       key={index}
-                      className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0"
+                      className="h-8 w-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-sm border border-white/50 p-1"
                     >
                       <img
                         src={coach.companyLogos[index] || "/placeholder.svg"}
                         alt={company}
-                        className="h-4 w-4 object-contain"
+                        className="max-h-6 max-w-6 object-contain"
                       />
                     </div>
                   ))}
                 </div>
 
-                {/* Description - flexible height */}
-                <div className="flex-grow mb-4">
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                {/* Description - more breathing room */}
+                <div className="flex-grow mb-5">
+                  <p className="text-slate-600 text-sm leading-relaxed font-light">
                     {expandedCoaches.has(coach.id) ? coach.detailedBio : coach.bio}
                   </p>
 
                   {expandedCoaches.has(coach.id) && coach.funFact && (
-                    <p className="text-slate-600 text-sm font-medium mt-3 leading-relaxed">Fun Fact: {coach.funFact}</p>
+                    <p className="text-slate-600 text-sm font-normal mt-4 leading-relaxed bg-violet-50/50 backdrop-blur-sm rounded-lg p-3 border border-violet-100/50">
+                      <span className="text-violet-700 font-medium">Fun Fact:</span> {coach.funFact}
+                    </p>
                   )}
                 </div>
 
-                {/* Skills - standardized layout with minimum height */}
-                <div className="mb-4 min-h-[2.5rem]">
+                {/* Skills - lighter, more refined badges */}
+                <div className="mb-6 min-h-[2.5rem]">
                   <div className="flex flex-wrap gap-2">
                     {coach.specialties.map((specialty, index) => (
                       <Badge
                         key={index}
                         variant="outline"
-                        className="bg-violet-50 text-violet-700 border-violet-200 text-xs px-2 py-1 whitespace-nowrap"
+                        className="bg-white/60 backdrop-blur-sm text-slate-700 border-slate-200/50 text-xs px-3 py-1 whitespace-nowrap font-light hover:bg-white/80 transition-colors"
                       >
                         {specialty}
                       </Badge>
@@ -240,22 +222,22 @@ export default function CoachesGrid() {
                   </div>
                 </div>
 
-                {/* Buttons - always at bottom */}
+                {/* Buttons - minimalistic design */}
                 <div className="flex justify-between items-center mt-auto pt-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="text-violet-600 border-violet-200 hover:bg-violet-50 flex-shrink-0"
+                  <button
+                    className="text-slate-600 text-sm font-light hover:text-violet-600 transition-colors duration-200 relative group/btn"
                     onClick={() => toggleExpanded(coach.id)}
                   >
                     {expandedCoaches.has(coach.id) ? "Read Less" : "Read More"}
-                  </Button>
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-violet-600 transition-all duration-200 group-hover/btn:w-full"></span>
+                  </button>
+
                   <button
-                    className="flex-shrink-0 hover:opacity-80 transition-opacity"
+                    className="opacity-80 hover:opacity-100 transition-opacity duration-200 p-1 rounded-lg hover:bg-white/50 backdrop-blur-sm"
                     onClick={() => window.open(coach.linkedin, "_blank")}
                     aria-label={`View ${coach.name}'s LinkedIn profile`}
                   >
-                    <img src="/images/linkedin-logo-blue.png" alt="LinkedIn" className="h-8 w-8 object-contain" />
+                    <img src="/images/linkedin-logo-blue-small.png" alt="LinkedIn" className="h-6 w-6 object-contain" />
                   </button>
                 </div>
               </div>
@@ -263,8 +245,10 @@ export default function CoachesGrid() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Button className="bg-violet-600 hover:bg-violet-700">View All Coaches</Button>
+        <div className="mt-16 text-center">
+          <button className="bg-white/70 backdrop-blur-sm border border-white/50 text-slate-700 px-8 py-3 rounded-full font-light hover:bg-white/90 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+            View All Coaches
+          </button>
         </div>
       </div>
     </section>
