@@ -114,10 +114,10 @@ export default function Footer() {
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-500 text-sm mb-4 md:mb-0">© 2025 InterRoom. All rights reserved.</p>
           <div className="flex space-x-6">
-            <Link href="#" className="text-slate-500 hover:text-violet-600 text-sm">
+            <Link href="/privacy" className="text-slate-500 hover:text-violet-600 text-sm">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-slate-500 hover:text-violet-600 text-sm">
+            <Link href="/terms" className="text-slate-500 hover:text-violet-600 text-sm">
               Terms of Service
             </Link>
             <Link href="#" className="text-slate-500 hover:text-violet-600 text-sm">

@@ -46,7 +46,7 @@ export default function Comparison() {
           <div className="bg-gradient-to-br from-slate-800/60 to-red-900/20 p-10 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
             <div className="flex items-center gap-3 mb-8">
               <TrendingDown className="w-6 h-6 text-red-400" />
-              <h3 className="text-xl font-semibold text-red-300">Without InterRoom</h3>
+              <h3 className="text-3xl font-black text-red-300">Without InterRoom</h3>
             </div>
 
             <div className="space-y-8">
@@ -54,7 +54,7 @@ export default function Comparison() {
                 <div className="flex items-center gap-4 mb-3">
                   <Clock className="w-8 h-8 text-red-400" />
                   <div>
-                    <div className="text-5xl font-black mb-1 text-red-300">Lost Income</div>
+                    <div className="text-4xl font-black mb-1 text-red-300">Lost Income</div>
                     <div className="w-full bg-red-900/30 rounded-full h-2">
                       <div className="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full w-4/5"></div>
                     </div>
@@ -69,7 +69,7 @@ export default function Comparison() {
                 <div className="flex items-center gap-4 mb-3">
                   <Users className="w-8 h-8 text-orange-400" />
                   <div>
-                    <div className="text-5xl font-black mb-1 text-orange-300">Low Interview Rate</div>
+                    <div className="text-4xl font-black mb-1 text-orange-300">Low Interview Rate</div>
                     <div className="w-full bg-orange-900/30 rounded-full h-2">
                       <div className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full w-1/12"></div>
                     </div>
@@ -84,7 +84,7 @@ export default function Comparison() {
                 <div className="flex items-center gap-4 mb-3">
                   <TrendingDown className="w-8 h-8 text-slate-400" />
                   <div>
-                    <div className="text-5xl font-black mb-1 text-slate-300">Stagnant Salaries</div>
+                    <div className="text-4xl font-black mb-1 text-slate-300">Stagnant Salaries</div>
                     <div className="w-full bg-slate-700/30 rounded-full h-2">
                       <div className="bg-gradient-to-r from-slate-500 to-slate-600 h-2 rounded-full w-2/12"></div>
                     </div>
@@ -102,7 +102,7 @@ export default function Comparison() {
 
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <Zap className="w-6 h-6 text-cyan-400" />
-              <h3 className="text-xl font-semibold text-cyan-300">With InterRoom</h3>
+              <h3 className="text-3xl font-black text-cyan-300">With InterRoom</h3>
             </div>
 
             <div className="space-y-8 relative z-10">
@@ -110,7 +110,7 @@ export default function Comparison() {
                 <div className="flex items-center gap-4 mb-3">
                   <Target className="w-8 h-8 text-green-400" />
                   <div>
-                    <div className="text-5xl font-black mb-1 text-green-300">Faster Offers</div>
+                    <div className="text-4xl font-black mb-1 text-green-300">Faster Offers</div>
                     <div className="w-full bg-green-900/30 rounded-full h-2">
                       <div className="bg-gradient-to-r from-green-400 to-cyan-400 h-2 rounded-full w-1/3"></div>
                     </div>
@@ -125,7 +125,7 @@ export default function Comparison() {
                 <div className="flex items-center gap-4 mb-3">
                   <Users className="w-8 h-8 text-cyan-400" />
                   <div>
-                    <div className="text-5xl font-black mb-1 text-cyan-300">Higher Interview Rate</div>
+                    <div className="text-4xl font-black mb-1 text-cyan-300">Higher Interview Rate</div>
                     <div className="w-full bg-cyan-900/30 rounded-full h-2">
                       <div className="bg-gradient-to-r from-cyan-400 to-violet-400 h-2 rounded-full w-2/3"></div>
                     </div>
@@ -141,7 +141,7 @@ export default function Comparison() {
                 <div className="flex items-center gap-4 mb-3">
                   <TrendingUp className="w-8 h-8 text-violet-400" />
                   <div>
-                    <div className="text-6xl font-black mb-1 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                    <div className="text-4xl font-black mb-1 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
                       Next Level Comp
                     </div>
                     <div className="w-full bg-violet-900/30 rounded-full h-3">
@@ -149,7 +149,7 @@ export default function Comparison() {
                     </div>
                   </div>
                 </div>
-                <p className="text-slate-200 font-medium text-base leading-relaxed ml-12">
+                <p className="text-slate-200 font-medium text-sm leading-relaxed ml-12">
                   Our average salary bump of <span className="text-violet-300 font-bold">44%</span> proves you don't
                   move laterally, <span className="text-cyan-300 font-bold">you move up</span>.
                 </p>

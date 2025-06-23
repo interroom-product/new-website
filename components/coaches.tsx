@@ -44,7 +44,7 @@ export default function Coaches() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janice%20photo-wZMSUo0kc33SV0I6bxikLkbEXwq6Gi.jpeg"
@@ -53,7 +53,7 @@ export default function Coaches() {
                 className="object-cover"
               />
             </div>
-            <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative col-span-2 row-span-2">
+            <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg"
                 alt="DK - Data Science Coach"
@@ -69,7 +69,7 @@ export default function Coaches() {
                 className="object-cover"
               />
             </div>
-            <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative col-span-2">
+            <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nate_Porras_edited.jpg-ubUrZPUzVnvlJHHxgBYChPhtsZ0xFn.jpeg"
                 alt="Nate - Product Management Coach"
