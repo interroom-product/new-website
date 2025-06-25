@@ -7,10 +7,10 @@ export default function TermsPage() {
       <Navbar />
       <main className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-medium mb-8 text-center">Terms & Conditions</h1>
+          <h1 className="text-4xl md:text-5xl font-medium mb-8 text-slate-800">Terms & Conditions</h1>
 
-          <div className="prose prose-lg max-w-none">
-            <p className="text-slate-600 mb-8">
+          <div className="prose prose-slate max-w-none">
+            <p className="text-lg text-slate-600 mb-8">
               Welcome to InterRoom provided by InterRoom, LLC. (the "Company"). By using and other online tools and
               services provided by the Company (the "Services") you agree to comply with and be bound by the following
               terms and conditions of use. Please review these terms and conditions carefully. If you do not agree to
@@ -58,6 +58,7 @@ export default function TermsPage() {
               <p className="text-slate-600 mb-4">
                 By using the Platform, you will need to create an account. You represent and warrant that:
               </p>
+
               <ol className="list-decimal pl-6 space-y-2 text-slate-600">
                 <li>all registration information you submit will be true,</li>
                 <li>
@@ -79,6 +80,7 @@ export default function TermsPage() {
                 <li>you will not use the Platform for any illegal or unauthorized purpose; and</li>
                 <li>your use of the Platform will not violate any applicable law or regulation.</li>
               </ol>
+
               <p className="text-slate-600 mt-4">
                 If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right
                 to suspend or terminate your account and refuse any and all current or future use of the Platform (or
@@ -95,6 +97,7 @@ export default function TermsPage() {
                 usernames and passwords, with any other individual or entity. Your account access is personal and
                 non-transferable.
               </p>
+
               <p className="text-slate-600">
                 Sharing your account credentials with others or allowing unauthorized access to your account is strictly
                 prohibited. You acknowledge that such actions can compromise the security and integrity of your account
@@ -186,12 +189,14 @@ export default function TermsPage() {
                 YOUR SITE USE, OR THE CONTENT, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. YOUR SOLE REMEDY FOR
                 DISSATISFACTION WITH THE SITE AND/OR CONTENT IS TO CEASE ALL OF YOUR USE OF THE SERVICES AND THE SITE.
               </p>
+
               <p className="text-slate-600 mb-4">
                 You may have additional rights under certain laws (including consumer laws) which do not allow the
                 exclusion of implied warranties, or the exclusion or limitation of certain damages. If these laws apply
                 to you, the exclusions or limitations in this Agreement that directly conflict with such laws may not
                 apply to you.
               </p>
+
               <p className="text-slate-600">
                 If any portion of the limitation on liability articulated herein is found to be invalid or unenforceable
                 for any reason, our aggregate liability in any matter arising out of or related to the use of the
@@ -255,7 +260,7 @@ export default function TermsPage() {
 
             <section className="mb-8">
               <h2 className="text-2xl font-medium mb-4 text-slate-800">18. Refund Policy</h2>
-              <p className="text-slate-600">
+              <p className="text-slate-600 mb-4">
                 To request a refund and cancel your subscription, you will need to reach out to our support team at{" "}
                 <a href="mailto:admin@interroom.me" className="text-violet-600 hover:text-violet-700">
                   admin@interroom.me
@@ -266,7 +271,8 @@ export default function TermsPage() {
                 refunds for the current month. However, your subscription will be terminated for the subsequent months,
                 and no further charges will be incurred unless you resubscribe.
               </p>
-              <p className="text-slate-600 mt-4">
+
+              <p className="text-slate-600">
                 InterRoom reserves the right to update or modify this prorated refund policy at any time without prior
                 notice. You understand and agree that any refunds available are solely for the current month's
                 subscription fee and are not applicable to previous months. The refunds will be processed using the

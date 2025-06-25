@@ -3,8 +3,13 @@ import { ArrowRight, Clock, TrendingDown, Users, TrendingUp, Zap, Target } from 
 
 export default function Comparison() {
   return (
-    <section className="py-20 px-4 bg-slate-900 text-white">
-      <div className="container mx-auto">
+    <section className="py-20 px-4 bg-slate-900 text-white relative overflow-hidden">
+      {/* Enhanced background with subtle glass effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-violet-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.08),transparent_50%)]"></div>
+
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium mb-4 text-violet-300">
             Your Job Search is Broken. Here's How We Fix It.
@@ -16,19 +21,24 @@ export default function Comparison() {
         </div>
 
         <div className="max-w-5xl mx-auto mb-16 flex flex-col items-center space-y-8">
-          {/* Visual: Typical Job Search */}
+          {/* Enhanced Visual: Typical Job Search */}
           <div
-            className="relative w-full max-w-xl h-20 bg-white/10 rounded-full flex items-center justify-between px-8 backdrop-blur-sm shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
-            style={{ boxShadow: "inset 0 2px 5px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.3)" }}
+            className="relative w-full max-w-xl h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-between px-8 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 border border-white/10"
+            style={{
+              boxShadow:
+                "inset 0 2px 5px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05)",
+            }}
           >
             <span className="text-white/80 font-black text-xl md:text-2xl">8-12 MONTHS</span>
             <span className="text-white/60 text-lg md:text-xl font-medium">Typical Search</span>
           </div>
 
-          {/* Visual: With InterRoom - Positioned to show "move up" */}
+          {/* Enhanced Visual: With InterRoom */}
           <div
-            className="relative w-full max-w-md h-20 bg-gradient-to-r from-violet-500/50 to-cyan-400/50 rounded-full flex items-center justify-between px-8 backdrop-blur-sm shadow-xl transform -translate-y-8 md:-translate-y-12 transition-all duration-300 hover:shadow-2xl hover:scale-105"
-            style={{ boxShadow: "0 8px 30px rgba(139, 92, 246, 0.7)" }}
+            className="relative w-full max-w-md h-20 bg-gradient-to-r from-violet-500/50 to-cyan-400/50 backdrop-blur-md rounded-full flex items-center justify-between px-8 shadow-xl transform -translate-y-8 md:-translate-y-12 transition-all duration-500 hover:shadow-2xl hover:scale-105 border border-violet-400/20"
+            style={{
+              boxShadow: "0 8px 30px rgba(139, 92, 246, 0.7), inset 0 1px 0 rgba(255,255,255,0.1)",
+            }}
           >
             <span className="text-white font-black text-2xl md:text-3xl">2-4 MONTHS</span>
             <span className="text-white/90 text-lg md:text-xl font-medium">With InterRoom</span>
@@ -43,20 +53,24 @@ export default function Comparison() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-slate-800/60 to-red-900/20 p-10 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-            <div className="flex items-center gap-3 mb-8">
+          {/* Enhanced Without InterRoom Card */}
+          <div className="bg-gradient-to-br from-slate-800/70 to-red-900/30 backdrop-blur-lg p-10 rounded-2xl border border-slate-700/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-0 border border-red-500/10 rounded-2xl pointer-events-none"></div>
+
+            <div className="flex items-center gap-3 mb-8 relative z-10">
               <TrendingDown className="w-6 h-6 text-red-400" />
               <h3 className="text-3xl font-black text-red-300">Without InterRoom</h3>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-8 relative z-10">
               <div className="group">
                 <div className="flex items-center gap-4 mb-3">
                   <Clock className="w-8 h-8 text-red-400" />
                   <div>
                     <div className="text-4xl font-black mb-1 text-red-300">Lost Income</div>
-                    <div className="w-full bg-red-900/30 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full w-4/5"></div>
+                    <div className="w-full bg-red-900/30 backdrop-blur-sm rounded-full h-2 border border-red-800/20">
+                      <div className="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full w-4/5 shadow-sm"></div>
                     </div>
                   </div>
                 </div>
@@ -70,8 +84,8 @@ export default function Comparison() {
                   <Users className="w-8 h-8 text-orange-400" />
                   <div>
                     <div className="text-4xl font-black mb-1 text-orange-300">Low Interview Rate</div>
-                    <div className="w-full bg-orange-900/30 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full w-1/12"></div>
+                    <div className="w-full bg-orange-900/30 backdrop-blur-sm rounded-full h-2 border border-orange-800/20">
+                      <div className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full w-1/12 shadow-sm"></div>
                     </div>
                   </div>
                 </div>
@@ -85,8 +99,8 @@ export default function Comparison() {
                   <TrendingDown className="w-8 h-8 text-slate-400" />
                   <div>
                     <div className="text-4xl font-black mb-1 text-slate-300">Stagnant Salaries</div>
-                    <div className="w-full bg-slate-700/30 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-slate-500 to-slate-600 h-2 rounded-full w-2/12"></div>
+                    <div className="w-full bg-slate-700/30 backdrop-blur-sm rounded-full h-2 border border-slate-600/20">
+                      <div className="bg-gradient-to-r from-slate-500 to-slate-600 h-2 rounded-full w-2/12 shadow-sm"></div>
                     </div>
                   </div>
                 </div>
@@ -97,8 +111,10 @@ export default function Comparison() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-violet-900/40 to-cyan-900/20 p-10 rounded-2xl border border-violet-700/30 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-cyan-500/5 pointer-events-none"></div>
+          {/* Enhanced With InterRoom Card */}
+          <div className="bg-gradient-to-br from-violet-900/50 to-cyan-900/30 backdrop-blur-lg p-10 rounded-2xl border border-violet-700/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/8 to-cyan-500/8 pointer-events-none"></div>
+            <div className="absolute inset-0 border border-violet-400/15 rounded-2xl pointer-events-none"></div>
 
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <Zap className="w-6 h-6 text-cyan-400" />
@@ -111,8 +127,8 @@ export default function Comparison() {
                   <Target className="w-8 h-8 text-green-400" />
                   <div>
                     <div className="text-4xl font-black mb-1 text-green-300">Faster Offers</div>
-                    <div className="w-full bg-green-900/30 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-green-400 to-cyan-400 h-2 rounded-full w-1/3"></div>
+                    <div className="w-full bg-green-900/30 backdrop-blur-sm rounded-full h-2 border border-green-800/20">
+                      <div className="bg-gradient-to-r from-green-400 to-cyan-400 h-2 rounded-full w-1/3 shadow-sm"></div>
                     </div>
                   </div>
                 </div>
@@ -126,8 +142,8 @@ export default function Comparison() {
                   <Users className="w-8 h-8 text-cyan-400" />
                   <div>
                     <div className="text-4xl font-black mb-1 text-cyan-300">Higher Interview Rate</div>
-                    <div className="w-full bg-cyan-900/30 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-cyan-400 to-violet-400 h-2 rounded-full w-2/3"></div>
+                    <div className="w-full bg-cyan-900/30 backdrop-blur-sm rounded-full h-2 border border-cyan-800/20">
+                      <div className="bg-gradient-to-r from-cyan-400 to-violet-400 h-2 rounded-full w-2/3 shadow-sm"></div>
                     </div>
                   </div>
                 </div>
@@ -144,12 +160,12 @@ export default function Comparison() {
                     <div className="text-4xl font-black mb-1 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
                       Next Level Comp
                     </div>
-                    <div className="w-full bg-violet-900/30 rounded-full h-3">
+                    <div className="w-full bg-violet-900/30 backdrop-blur-sm rounded-full h-3 border border-violet-800/20">
                       <div className="bg-gradient-to-r from-violet-400 to-cyan-400 h-3 rounded-full w-11/12 shadow-lg shadow-violet-500/50"></div>
                     </div>
                   </div>
                 </div>
-                <p className="text-slate-200 font-medium text-sm leading-relaxed ml-12">
+                <p className="text-slate-200 font-medium text-base leading-relaxed ml-12">
                   Our average salary bump of <span className="text-violet-300 font-bold">44%</span> proves you don't
                   move laterally, <span className="text-cyan-300 font-bold">you move up</span>.
                 </p>
@@ -166,7 +182,7 @@ export default function Comparison() {
           </p>
           <Button
             asChild
-            className="h-12 px-10 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-lg shadow-violet-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/40 hover:scale-105"
+            className="h-12 px-10 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-lg shadow-violet-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/40 hover:scale-105 backdrop-blur-sm border border-violet-400/20"
           >
             <a href="/#calculator">
               Calculate Your Potential Savings

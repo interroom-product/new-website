@@ -15,18 +15,14 @@ export default function Testimonials() {
       role: "Visual Designer",
       company: "Meta",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GabiTylenda-BKNMv4shC3uS7boFm7VOQzfObkI3UR.jpeg",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Meta_lockup_positive%20primary_RGB-2Smrd3aPwSadlBPlSw72VDFeNWV8ax.svg",
-      logoStyle: "bg-white p-2",
-      logoClass: "object-contain",
+      logo: "/placeholder.svg?height=30&width=30",
     },
     {
       name: "Sarah Tashakorina",
       role: "Director of Product",
-      company: "Lucid",
+      company: "Masterclass",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-u7XhrxPrfUZhsGx1nfz2ZMQhHUV0jQ.jpeg",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/idUyFW4Pi0_1750706167666-FjuCP07g0FMyG298opooawXFd5u2E8.png",
-      logoStyle: "bg-black p-1.5",
-      logoClass: "object-contain",
+      logo: "/placeholder.svg?height=30&width=30",
     },
     {
       name: "Jared Malakouti",
@@ -34,18 +30,14 @@ export default function Testimonials() {
       company: "Divert",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jared%20photo-modIlHaH6mofZxigY0hV57Hh5MHGJg.jpeg",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cropped-Divert_Favicon-BRASOJWJy4XEIF3zxA2wfoQOi17N1W.webp",
-      logoStyle: "bg-transparent p-0",
-      logoClass: "object-cover rounded-full",
+      logo: "/placeholder.svg?height=30&width=30",
     },
     {
       name: "Leila Bremner",
       role: "Senior Strategic Operations Manager",
       company: "Uber",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Leila-swcpm6AQ5LNHk10lLxqRJNUOucMb31.jpeg",
-      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Rider%20App%20Icon_Android_Circle-dD7G4ckU1VVpFTjD6UG8lzNkqgnVKz.svg",
-      logoStyle: "bg-black p-1.5",
-      logoClass: "object-contain",
+      logo: "/placeholder.svg?height=30&width=30",
     },
   ]
 
@@ -83,15 +75,13 @@ export default function Testimonials() {
                           className="object-cover w-full h-full"
                         />
                       </div>
-                      <div
-                        className={`absolute -bottom-1 -right-1 h-12 w-12 rounded-full ${testimonial.logoStyle} shadow-lg border-2 border-white flex items-center justify-center overflow-hidden`}
-                      >
+                      <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white p-1 shadow-md">
                         <Image
                           src={testimonial.logo || "/placeholder.svg"}
-                          alt={`${testimonial.company} logo`}
-                          width={32}
-                          height={32}
-                          className={`w-full h-full ${testimonial.logoClass}`}
+                          alt={testimonial.company}
+                          width={30}
+                          height={30}
+                          className="object-contain"
                         />
                       </div>
                     </div>
@@ -99,8 +89,7 @@ export default function Testimonials() {
                     <p className="text-slate-600 mb-6">{testimonial.role}</p>
                     <p className="text-slate-700 italic">
                       "InterRoom transformed my job search. Their personalized approach helped me land my dream role at{" "}
-                      <span className="font-semibold text-slate-800">{testimonial.company}</span> with a significant pay
-                      increase, all within 6 weeks."
+                      {testimonial.company} with a significant pay increase, all within 6 weeks."
                     </p>
                   </div>
                 </div>

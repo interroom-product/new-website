@@ -7,10 +7,10 @@ export default function PrivacyPage() {
       <Navbar />
       <main className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-medium mb-8 text-center">Privacy Policy</h1>
+          <h1 className="text-4xl md:text-5xl font-medium mb-8 text-slate-800">Privacy Policy</h1>
 
-          <div className="prose prose-lg max-w-none">
-            <p className="text-slate-600 mb-8">
+          <div className="prose prose-slate max-w-none">
+            <p className="text-lg text-slate-600 mb-8">
               Thank you for choosing to be part of our community at InterRoom LLC., doing business as InterRoom
               ("InterRoom", "we", "us", or "our"). We are committed to protecting your personal information and your
               right to privacy. This Privacy Policy explains how we collect, use, and share your information when you
@@ -34,6 +34,7 @@ export default function PrivacyPage() {
               <p className="text-slate-600 mb-4">
                 We collect the following types of information from you when you use our Service:
               </p>
+
               <ul className="list-disc pl-6 space-y-2 text-slate-600">
                 <li>
                   <strong>Account information:</strong> Full name, email address, home address, social media info,
@@ -108,6 +109,7 @@ export default function PrivacyPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-medium mb-4 text-slate-800">6. Who Has Access to the Information</h2>
               <p className="text-slate-600 mb-4">We may share your information with:</p>
+
               <ul className="list-disc pl-6 space-y-2 text-slate-600">
                 <li>
                   <strong>Third-Party Service Providers:</strong> Companies that assist in providing career coaching, AI
@@ -130,10 +132,11 @@ export default function PrivacyPage() {
                 This collaboration is critical for augmenting the performance and individualization of our services.
                 Here are the essential details:
               </p>
-              <div className="space-y-4 text-slate-600">
+
+              <div className="space-y-4">
                 <div>
-                  <h3 className="font-medium text-slate-800 mb-2">Types of Data Shared:</h3>
-                  <p>
+                  <h3 className="text-lg font-medium text-slate-800 mb-2">Types of Data Shared:</h3>
+                  <p className="text-slate-600">
                     The data disclosed may comprise, but is not limited to, account information (such as full name,
                     email address, and password), user-generated content (including resume details, employment history,
                     educational background, and skills), usage data (encompassing service interaction, visited pages,
@@ -142,9 +145,10 @@ export default function PrivacyPage() {
                     queries and, when provided, job-related emails).
                   </p>
                 </div>
+
                 <div>
-                  <h3 className="font-medium text-slate-800 mb-2">Purpose of Data Sharing:</h3>
-                  <p>
+                  <h3 className="text-lg font-medium text-slate-800 mb-2">Purpose of Data Sharing:</h3>
+                  <p className="text-slate-600">
                     The objective of this data sharing is to train and refine the AI models, thereby enhancing their
                     capability in assisting users with resume creation, cover letter drafting, LinkedIn messaging, and
                     job application optimization. This results in a more tailored and efficient user experience.
@@ -154,17 +158,19 @@ export default function PrivacyPage() {
                     optional and aims to augment the user experience with our offerings.
                   </p>
                 </div>
+
                 <div>
-                  <h3 className="font-medium text-slate-800 mb-2">User Consent:</h3>
-                  <p>
+                  <h3 className="text-lg font-medium text-slate-800 mb-2">User Consent:</h3>
+                  <p className="text-slate-600">
                     User agrees and acknowledges that by using the services provided by InterRoom, Data will be shared
                     with third-party AI tools. User provides InterRoom with consent to share the User Data with
                     third-party AI tools in connection with the services described herein.
                   </p>
                 </div>
+
                 <div>
-                  <h3 className="font-medium text-slate-800 mb-2">Data Security and Privacy:</h3>
-                  <p>
+                  <h3 className="text-lg font-medium text-slate-800 mb-2">Data Security and Privacy:</h3>
+                  <p className="text-slate-600">
                     The third-party AI tools with which data is shared are meticulously selected based on their
                     adherence to our stringent standards of data security and privacy. We continuously monitor these
                     tools to ensure compliance, guaranteeing that your data is managed with the highest level of care
