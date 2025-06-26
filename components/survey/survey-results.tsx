@@ -111,6 +111,21 @@ export default function SurveyResults() {
           cta: "Get Combo Package",
           highlight: false,
         }
+      case "coaching":
+        return {
+          title: "Coaching Sessions",
+          description: "Perfect for professionals who want personalized career guidance and interview preparation.",
+          features: [
+            "1-on-1 career coaching sessions",
+            "Interview preparation and practice",
+            "Career strategy development",
+            "Resume and LinkedIn review",
+            "Salary negotiation guidance",
+          ],
+          price: "Per session pricing",
+          cta: "Book Coaching Session",
+          highlight: false,
+        }
       default:
         return null
     }
@@ -170,12 +185,24 @@ export default function SurveyResults() {
                 )}
               </div>
 
-              <Button
-                size="lg"
-                className={`w-full ${details.highlight ? "bg-violet-600 hover:bg-violet-700" : "bg-slate-900 hover:bg-slate-800"}`}
-              >
-                {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              {recommendation.type === "bundle" ? (
+                <a
+                  href="https://calendly.com/interroom/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
+                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+              ) : (
+                <Link href="/services" className="w-full">
+                  <Button size="lg" className="w-full bg-slate-900 hover:bg-slate-800">
+                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              )}
             </div>
 
             <div className="text-center pt-4 border-t">
@@ -186,7 +213,7 @@ export default function SurveyResults() {
                     Retake Survey
                   </Button>
                 </Link>
-                <Link href="/product">
+                <Link href="/services">
                   <Button variant="outline" size="sm">
                     View All Services
                   </Button>

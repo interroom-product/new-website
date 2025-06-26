@@ -56,17 +56,30 @@ export default function SurveyForm() {
 
   const processRecommendation = (data: SurveyData) => {
     // Check Bundle disqualifiers
-    const isDisqualified =
+    let isDisqualified =
       data.visaSponsorship === "yes" ||
-      ["Operations", "HR / People / Recruiting"].includes(data.department) ||
+      ["Operations", "HR / People / Recruiting", "IT", "Business Operations / Ops"].includes(data.department) ||
       data.jobTitle.toLowerCase().includes("vp") ||
       data.jobTitle.toLowerCase().includes("head") ||
       data.jobTitle.toLowerCase().includes("chief") ||
       data.jobTitle.toLowerCase().includes("founder") ||
       data.jobTitle.toLowerCase().includes("project manager") ||
       data.jobTitle.toLowerCase().includes("program manager") ||
-      ["<$80K", "$80K–$99K"].includes(data.compensation) ||
-      ["0–2 years", "21+ years"].includes(data.experience)
+      ["<$100K"].includes(data.compensation) ||
+      ["0–2 years", "16–20 years", "21+ years"].includes(data.experience)
+
+    // Location based disqualifier
+    const highSupplyDepartments = [
+      "Product",
+      "Engineering / Tech",
+      "Sales / Business Development",
+      "Marketing",
+      "Data / Analytics",
+      "Design / UX",
+    ]
+    if (data.location === "Remote" && !highSupplyDepartments.includes(data.department)) {
+      isDisqualified = true
+    }
 
     if (isDisqualified) {
       // Route based on support type
@@ -74,6 +87,8 @@ export default function SurveyForm() {
         return { type: "resume", title: "Resume Rewrite Service" }
       } else if (data.supportType.includes("Help applying to jobs") && data.supportType.length === 1) {
         return { type: "outsourcing", title: "Job Outsourcing Service" }
+      } else if (data.supportType.includes("Coaching Sessions") && data.supportType.length === 1) {
+        return { type: "coaching", title: "Coaching Sessions" }
       } else {
         return { type: "combo", title: "Combo Package (Resume + Job Outsourcing)" }
       }
@@ -178,6 +193,8 @@ export default function SurveyForm() {
                     <SelectItem value="Finance">Finance</SelectItem>
                     <SelectItem value="Operations">Operations</SelectItem>
                     <SelectItem value="HR / People / Recruiting">HR / People / Recruiting</SelectItem>
+                    <SelectItem value="IT">IT</SelectItem>
+                    <SelectItem value="Business Operations / Ops">Business Operations / Ops</SelectItem>
                     <SelectItem value="Other">Other</SelectItem>
                   </SelectContent>
                 </Select>
@@ -229,24 +246,24 @@ export default function SurveyForm() {
                   className="mt-2"
                 >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="<$80K" id="comp1" />
-                    <Label htmlFor="comp1">Less than $80K</Label>
+                    <RadioGroupItem value="<$100K" id="comp1" />
+                    <Label htmlFor="comp1">Less than $100K</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="$80K–$99K" id="comp2" />
-                    <Label htmlFor="comp2">$80K–$99K</Label>
+                    <RadioGroupItem value="$100K–$125K" id="comp2" />
+                    <Label htmlFor="comp2">$100K–$125K</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="$100K–$129K" id="comp3" />
-                    <Label htmlFor="comp3">$100K–$129K</Label>
+                    <RadioGroupItem value="$126K–$149K" id="comp3" />
+                    <Label htmlFor="comp3">$126K–$149K</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="$130K–$159K" id="comp4" />
-                    <Label htmlFor="comp4">$130K–$159K</Label>
+                    <RadioGroupItem value="$150K–$200K" id="comp4" />
+                    <Label htmlFor="comp4">$150K–$200K</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="$160K+" id="comp5" />
-                    <Label htmlFor="comp5">$160K+</Label>
+                    <RadioGroupItem value="$201K+" id="comp5" />
+                    <Label htmlFor="comp5">$201K+</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -297,27 +314,31 @@ export default function SurveyForm() {
               <div>
                 <Label>Type of Support (Select all that apply)</Label>
                 <div className="mt-2 space-y-3">
-                  {["End-to-end job search help", "Resume help", "Help applying to jobs", "I'm not sure yet"].map(
-                    (option) => (
-                      <div key={option} className="flex items-center space-x-2">
-                        <Checkbox
-                          id={option}
-                          checked={surveyData.supportType.includes(option)}
-                          onCheckedChange={(checked) => {
-                            if (checked) {
-                              updateSurveyData("supportType", [...surveyData.supportType, option])
-                            } else {
-                              updateSurveyData(
-                                "supportType",
-                                surveyData.supportType.filter((item) => item !== option),
-                              )
-                            }
-                          }}
-                        />
-                        <Label htmlFor={option}>{option}</Label>
-                      </div>
-                    ),
-                  )}
+                  {[
+                    "End-to-end job search help",
+                    "Resume help",
+                    "Help applying to jobs",
+                    "Coaching Sessions",
+                    "I'm not sure yet",
+                  ].map((option) => (
+                    <div key={option} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={option}
+                        checked={surveyData.supportType.includes(option)}
+                        onCheckedChange={(checked) => {
+                          if (checked) {
+                            updateSurveyData("supportType", [...surveyData.supportType, option])
+                          } else {
+                            updateSurveyData(
+                              "supportType",
+                              surveyData.supportType.filter((item) => item !== option),
+                            )
+                          }
+                        }}
+                      />
+                      <Label htmlFor={option}>{option}</Label>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
