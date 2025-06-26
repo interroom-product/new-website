@@ -1,6 +1,4 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
@@ -99,15 +97,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          <div>
-            <h3 className="font-medium mb-4">Subscribe to our newsletter</h3>
-            <p className="text-slate-600 mb-4">Get the latest job search tips and insights delivered to your inbox.</p>
-            <div className="flex space-x-2">
-              <Input placeholder="Your email" className="bg-white" />
-              <Button className="bg-violet-600 hover:bg-violet-700 shrink-0">Subscribe</Button>
-            </div>
           </div>
         </div>
 
