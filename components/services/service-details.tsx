@@ -3,16 +3,79 @@
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useState } from "react"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Copy, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Copy, Check } from "lucide-react"
+
+// Simple modal component to avoid Dialog issues
+function PurchaseModal({
+  isOpen,
+  onClose,
+  onCopyEmail,
+  emailCopied,
+}: {
+  isOpen: boolean
+  onClose: () => void
+  onCopyEmail: () => void
+  emailCopied: boolean
+}) {
+  if (!isOpen) return null
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Backdrop */}
+      <div className="fixed inset-0 bg-black/50" onClick={onClose} />
+
+      {/* Modal */}
+      <div className="relative bg-white rounded-lg shadow-lg max-w-md w-full mx-4 p-6">
+        {/* Close button */}
+        <button onClick={onClose} className="absolute right-4 top-4 text-gray-400 hover:text-gray-600">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {/* Content */}
+        <div className="mb-6">
+          <h3 className="text-xl font-medium text-slate-800 mb-4">Ready to Get Started?</h3>
+          <p className="text-slate-600 leading-relaxed">
+            That's great! We're putting the final touches on our automated checkout system.
+            <br />
+            <br />
+            In the meantime, please send a quick email to{" "}
+            <span className="font-medium text-violet-600">ash@interroom.me</span> with the name of the service you're
+            interested in, and we'll get you set up right away.
+            <br />
+            <br />
+            We can't wait to work with you!
+          </p>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col gap-3">
+          <Button
+            onClick={onCopyEmail}
+            className="bg-violet-600 hover:bg-violet-700 text-white flex items-center justify-center gap-2"
+          >
+            {emailCopied ? (
+              <>
+                <Check className="h-4 w-4" />
+                Email Copied!
+              </>
+            ) : (
+              <>
+                <Copy className="h-4 w-4" />
+                Copy Email Address
+              </>
+            )}
+          </Button>
+          <Button variant="outline" onClick={onClose} className="border-slate-300 text-slate-700 hover:bg-slate-50">
+            Close
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function ServiceDetails() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -25,21 +88,38 @@ export default function ServiceDetails() {
       setTimeout(() => setCopiedEmail(false), 2000)
     } catch (err) {
       console.error("Failed to copy email:", err)
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement("textarea")
+      textArea.value = "ash@interroom.me"
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand("copy")
+      document.body.removeChild(textArea)
+      setCopiedEmail(true)
+      setTimeout(() => setCopiedEmail(false), 2000)
     }
   }
 
-  return (
-    <section className="py-20 px-4 bg-white">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium mb-4">Our Services</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Explore our comprehensive services designed to streamline your job search process.
-          </p>
-        </div>
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
 
-        {/* Move Dialog to wrap the entire Tabs section */}
-        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setCopiedEmail(false)
+  }
+
+  return (
+    <>
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-medium mb-4">Our Services</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Explore our comprehensive services designed to streamline your job search process.
+            </p>
+          </div>
+
           <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
             <TabsList className="grid w-full grid-cols-3 mb-12">
               <TabsTrigger value="job-outsourcing">Job Outsourcing</TabsTrigger>
@@ -90,11 +170,12 @@ export default function ServiceDetails() {
                       </div>
                     </li>
                   </ul>
-                  <DialogTrigger asChild>
-                    <Button className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600">
-                      Purchase This Service
-                    </Button>
-                  </DialogTrigger>
+                  <Button
+                    onClick={openModal}
+                    className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                  >
+                    Purchase This Service
+                  </Button>
                 </div>
               </div>
             </TabsContent>
@@ -143,11 +224,12 @@ export default function ServiceDetails() {
                       </div>
                     </li>
                   </ul>
-                  <DialogTrigger asChild>
-                    <Button className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600">
-                      Purchase This Service
-                    </Button>
-                  </DialogTrigger>
+                  <Button
+                    onClick={openModal}
+                    className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                  >
+                    Purchase This Service
+                  </Button>
                 </div>
               </div>
             </TabsContent>
@@ -195,60 +277,26 @@ export default function ServiceDetails() {
                       </div>
                     </li>
                   </ul>
-                  <DialogTrigger asChild>
-                    <Button className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600">
-                      Purchase This Service
-                    </Button>
-                  </DialogTrigger>
+                  <Button
+                    onClick={openModal}
+                    className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                  >
+                    Purchase This Service
+                  </Button>
                 </div>
               </div>
             </TabsContent>
           </Tabs>
+        </div>
+      </section>
 
-          {/* DialogContent moved outside of Tabs to ensure it's always rendered */}
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle className="text-xl font-medium text-slate-800">Ready to Get Started?</DialogTitle>
-              <DialogDescription className="text-slate-600 mt-4 leading-relaxed">
-                That's great! We're putting the final touches on our automated checkout system.
-                <br />
-                <br />
-                In the meantime, please send a quick email to{" "}
-                <span className="font-medium text-violet-600">ash@interroom.me</span> with the name of the service
-                you're interested in, and we'll get you set up right away.
-                <br />
-                <br />
-                We can't wait to work with you!
-              </DialogDescription>
-            </DialogHeader>
-            <div className="flex flex-col gap-3 mt-6">
-              <Button
-                onClick={handleCopyEmail}
-                className="bg-violet-600 hover:bg-violet-700 text-white flex items-center justify-center gap-2"
-              >
-                {copiedEmail ? (
-                  <>
-                    <Check className="h-4 w-4" />
-                    Email Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-4 w-4" />
-                    Copy Email Address
-                  </>
-                )}
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setIsModalOpen(false)}
-                className="border-slate-300 text-slate-700 hover:bg-slate-50"
-              >
-                Close
-              </Button>
-            </div>
-          </DialogContent>
-        </Dialog>
-      </div>
-    </section>
+      {/* Modal */}
+      <PurchaseModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onCopyEmail={handleCopyEmail}
+        emailCopied={copiedEmail}
+      />
+    </>
   )
 }
