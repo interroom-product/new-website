@@ -187,7 +187,7 @@ export default function SurveyResults() {
 
               {recommendation.type === "bundle" ? (
                 <a
-                  href="https://calendly.com/interroom/consultation"
+                  href="https://calendly.com/ash-rjc/intro-call-with-interroom"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
