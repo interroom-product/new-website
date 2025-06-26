@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export default function CallToAction() {
   return (
@@ -9,14 +10,11 @@ export default function CallToAction() {
         <p className="text-slate-600 max-w-2xl mx-auto mb-8">
           Join professionals who've transformed their job search with our proven system and expert guidance.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
-            Schedule a Free Consultation <ArrowRight className="ml-2 h-4 w-4" />
+        <Link href="/survey">
+          <Button size="lg" className="bg-violet-600 hover:bg-violet-700 px-8">
+            See If You Qualify <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-          <Button size="lg" className="bg-slate-700 hover:bg-slate-800 text-white">
-            View Our Packages
-          </Button>
-        </div>
+        </Link>
       </div>
     </section>
   )

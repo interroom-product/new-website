@@ -205,20 +205,23 @@ export default function FuturisticCalculator() {
                     </div>
                   </div>
                 </div>
-
-                <div className="pt-6 border-t border-violet-500/20">
-                  <Link href="/services">
-                    <Button
-                      size="lg"
-                      className="w-full bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-lg font-bold"
-                    >
-                      Optimize My Job Search <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                </div>
               </CardContent>
             </Card>
           </div>
+        </div>
+
+        {/* Moved CTA below the two boxes */}
+        <div className="mt-12 text-center">
+          <div className="w-full max-w-2xl mx-auto h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent mb-8"></div>
+          <p className="text-slate-300 mb-8 text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+            Ready to stop waiting and start earning? See if you qualify for our personalized support.
+          </p>
+          <Link href="/services">
+            <Button className="h-12 px-10 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-lg shadow-violet-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/40 hover:scale-105 backdrop-blur-sm border border-violet-400/20">
+              Optimize My Job Search
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

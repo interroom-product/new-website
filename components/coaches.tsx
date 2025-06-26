@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
+import Link from "next/link"
 
 export default function Coaches() {
   return (
@@ -39,9 +40,11 @@ export default function Coaches() {
                 </div>
               </li>
             </ul>
-            <Button className="bg-violet-600 hover:bg-violet-700">
-              Browse Coaches <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="/coaches">
+              <Button className="bg-violet-600 hover:bg-violet-700">
+                Browse Coaches <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-4">

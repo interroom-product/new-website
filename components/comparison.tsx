@@ -178,12 +178,12 @@ export default function Comparison() {
         <div className="text-center mt-16">
           <div className="w-full max-w-2xl mx-auto h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent mb-8"></div>
           <p className="text-slate-300 mb-8 text-lg font-medium leading-relaxed max-w-2xl mx-auto">
-            Ready to stop waiting and start earning? Calculate your potential savings and see if you qualify for our
+            Ready to stop waiting and start earning? Take our quick assessment to see if you qualify for our
             personalized support.
           </p>
-          <Link href="/services">
+          <Link href="/survey">
             <Button className="h-12 px-10 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-lg shadow-violet-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/40 hover:scale-105 backdrop-blur-sm border border-violet-400/20">
-              Calculate Your Potential Savings
+              Start Saving Time & Money
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
