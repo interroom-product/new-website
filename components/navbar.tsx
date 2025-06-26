@@ -56,10 +56,6 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <div className="hidden md:block">
-          <Button className="bg-violet-600 hover:bg-violet-700">Get Started</Button>
-        </div>
-
         <Sheet>
           <SheetTrigger asChild className="md:hidden">
             <Button variant="outline" size="icon">
@@ -84,7 +80,6 @@ export default function Navbar() {
               <Link href="#" className="text-lg font-medium">
                 FAQ
               </Link>
-              <Button className="mt-4 bg-violet-600 hover:bg-violet-700">Get Started</Button>
             </div>
           </SheetContent>
         </Sheet>

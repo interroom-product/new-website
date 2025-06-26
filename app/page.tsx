@@ -10,6 +10,7 @@ import Faq from "@/components/faq"
 import Coaches from "@/components/coaches"
 import Footer from "@/components/footer"
 import FuturisticCalculator from "@/components/futuristic-calculator"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -29,9 +30,11 @@ export default function Home() {
           <p className="text-slate-600 max-w-2xl mx-auto mb-8">
             Join thousands of professionals who've accelerated their careers with InterRoom's personalized approach.
           </p>
-          <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
-            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link href="/survey">
+            <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
       <Footer />

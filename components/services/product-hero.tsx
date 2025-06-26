@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
+import Link from "next/link"
 
 export default function ProductHero() {
   return (
@@ -35,12 +36,14 @@ export default function ProductHero() {
           </div>
         </div>
 
-        <Button
-          size="lg"
-          className="bg-violet-600 hover:bg-violet-700 text-white px-10 py-4 rounded-full text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-        >
-          Get Started Today <ArrowRight className="ml-3 h-6 w-6" />
-        </Button>
+        <Link href="/survey">
+          <Button
+            size="lg"
+            className="bg-violet-600 hover:bg-violet-700 text-white px-10 py-4 rounded-full text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            Get Started Today <ArrowRight className="ml-3 h-6 w-6" />
+          </Button>
+        </Link>
       </div>
     </section>
   )

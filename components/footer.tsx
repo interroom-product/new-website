@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-50 pt-16 pb-8 px-4">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <div className="h-8 w-8 rounded bg-violet-600 flex items-center justify-center text-white font-medium">
@@ -35,37 +35,6 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </div>
-          </div>
-
-          <div>
-            <h3 className="font-medium mb-4">Services</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Job Sourcing
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Resume Rewrite
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Interview Prep
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Application Submission
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Offer Negotiation
-                </Link>
-              </li>
-            </ul>
           </div>
 
           <div>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { DollarSign, Zap, Briefcase, TrendingDown, ArrowRight, Calculator } from "lucide-react"
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis, Tooltip } from "recharts"
+import Link from "next/link"
 
 export default function FuturisticCalculator() {
   const [desiredSalary, setDesiredSalary] = useState(120000)
@@ -206,12 +207,14 @@ export default function FuturisticCalculator() {
                 </div>
 
                 <div className="pt-6 border-t border-violet-500/20">
-                  <Button
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-lg font-bold"
-                  >
-                    Optimize My Job Search <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
+                  <Link href="/services">
+                    <Button
+                      size="lg"
+                      className="w-full bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-lg font-bold"
+                    >
+                      Optimize My Job Search <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

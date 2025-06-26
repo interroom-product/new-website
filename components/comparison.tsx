@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Clock, TrendingDown, Users, TrendingUp, Zap, Target } from "lucide-react"
+import Link from "next/link"
 
 export default function Comparison() {
   return (
@@ -180,15 +181,12 @@ export default function Comparison() {
             Ready to stop waiting and start earning? Calculate your potential savings and see if you qualify for our
             personalized support.
           </p>
-          <Button
-            asChild
-            className="h-12 px-10 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-lg shadow-violet-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/40 hover:scale-105 backdrop-blur-sm border border-violet-400/20"
-          >
-            <a href="/#calculator">
+          <Link href="/services">
+            <Button className="h-12 px-10 bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white font-semibold text-lg shadow-lg shadow-violet-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/40 hover:scale-105 backdrop-blur-sm border border-violet-400/20">
               Calculate Your Potential Savings
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

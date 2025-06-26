@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Check } from "lucide-react"
+import Link from "next/link"
 
 export default function ServicePackages() {
   return (
@@ -46,9 +47,6 @@ export default function ServicePackages() {
                   <span>Weekly progress reports</span>
                 </li>
               </ul>
-              <Button variant="outline" className="w-full">
-                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </CardContent>
           </Card>
 
@@ -84,11 +82,21 @@ export default function ServicePackages() {
                   <span>Success-based payment model</span>
                 </li>
               </ul>
-              <Button className="w-full bg-violet-600 hover:bg-violet-700">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Unified CTA Section */}
+        <div className="text-center mt-12">
+          <p className="text-slate-600 mb-6 text-lg">Ready to find out which package is right for you?</p>
+          <Link href="/survey">
+            <Button size="lg" className="bg-violet-600 hover:bg-violet-700 px-8">
+              Take Our Quick Assessment <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+          <p className="text-sm text-slate-500 mt-3">
+            Complete our 2-minute survey to get a personalized recommendation
+          </p>
         </div>
       </div>
     </section>
