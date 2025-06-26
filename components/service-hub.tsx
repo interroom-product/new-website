@@ -1,17 +1,13 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, FileText, Zap, Target, CheckCircle, XCircle } from "lucide-react" // Import CheckCircle and XCircle
+import { ArrowRight, FileText, Zap, Target, CheckCircle, XCircle } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function ServiceHub() {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
-
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-white to-violet-50/30">
       <div className="container mx-auto">
@@ -53,7 +49,7 @@ export default function ServiceHub() {
                   <Link href="/services">
                     <Button
                       variant="outline"
-                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
+                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300 bg-transparent"
                     >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -62,15 +58,8 @@ export default function ServiceHub() {
               </Card>
 
               {/* Autopilot Job Application System */}
-              <Card
-                className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 group relative overflow-hidden flex flex-col"
-                onMouseEnter={() => setHoveredCard("autopilot")}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br from-violet-600/10 to-violet-800/10 transition-opacity duration-300 ${hoveredCard === "autopilot" ? "opacity-100" : "opacity-0"}`}
-                />
-                <CardHeader className="pb-4 relative z-10 flex-grow">
+              <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 group flex flex-col">
+                <CardHeader className="pb-4 flex-grow">
                   <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
                     <Zap className="h-6 w-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
                   </div>
@@ -80,25 +69,11 @@ export default function ServiceHub() {
                     interview.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="relative z-10 mt-auto">
-                  {hoveredCard === "autopilot" && (
-                    <div className="mb-4 rounded-lg overflow-hidden border border-violet-200 animate-in fade-in-0 duration-300">
-                      <Image
-                        src="/images/job-applications-portal.png"
-                        alt="Client Portal Preview"
-                        width={300}
-                        height={200}
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="p-2 bg-white/90 backdrop-blur-sm">
-                        <p className="text-xs text-slate-600">Preview: Your personalized client portal</p>
-                      </div>
-                    </div>
-                  )}
+                <CardContent className="mt-auto">
                   <Link href="/services">
                     <Button
                       variant="outline"
-                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
+                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300 bg-transparent"
                     >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -122,7 +97,7 @@ export default function ServiceHub() {
                   <Link href="/services">
                     <Button
                       variant="outline"
-                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
+                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300 bg-transparent"
                     >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
