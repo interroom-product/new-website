@@ -156,7 +156,7 @@ export default function CoachesGrid() {
       id: 9,
       name: "Steve Kalush",
       role: "Sales / Solution Engineering",
-      image: "/placeholder.svg?height=400&width=300&text=Steve+Kalush",
+      image: "/images/coaches/steve.jpeg",
       companies: ["CoreLogic", "Salesforce", "Blend"],
       companyLogos: [
         "/images/logos/corelogic-logo.svg",
@@ -175,7 +175,7 @@ export default function CoachesGrid() {
       id: 10,
       name: "Ingrid Chang",
       role: "Marketing",
-      image: "/placeholder.svg?height=400&width=300&text=Ingrid+Chang",
+      image: "/images/coaches/ingrid.jpeg",
       companies: ["ClassPass", "Postmates", "Yousician"],
       companyLogos: [
         "/images/logos/classpass-logo.svg",
@@ -193,7 +193,7 @@ export default function CoachesGrid() {
       id: 11,
       name: "Steph (Krivitzky) Lusby",
       role: "Design",
-      image: "/placeholder.svg?height=400&width=300&text=Steph+Lusby",
+      image: "/images/coaches/stephanie.jpeg",
       companies: ["Novo", "AMEX", "Brex"],
       companyLogos: [
         "/images/logos/novo-logo.svg",
@@ -211,7 +211,7 @@ export default function CoachesGrid() {
       id: 12,
       name: "Zach Marks",
       role: "Sales / Sales Engineering",
-      image: "/placeholder.svg?height=400&width=300&text=Zach+Marks",
+      image: "/images/coaches/zach-marks.jpeg",
       companies: ["Reach Security", "Palo Alto Networks", "Expanse"],
       companyLogos: [
         "/images/logos/reach-security-logo.png",
@@ -229,7 +229,7 @@ export default function CoachesGrid() {
       id: 13,
       name: "Iman Sadooghi, PhD",
       role: "Software Engineering",
-      image: "/placeholder.svg?height=400&width=300&text=Iman+Sadooghi",
+      image: "/images/coaches/iman.jpeg",
       companies: ["Box", "Bank of America", "Bloomberg"],
       companyLogos: [
         "/images/logos/box-logo.svg",
