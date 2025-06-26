@@ -73,7 +73,7 @@ export default function FuturisticCalculator() {
             Job Search Financial Impact Calculator
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Visualize the true opportunity cost of a prolonged job search and its impact on your financial well-being.
+            Hidden Cost of Job Search: See exactly how much each month of searching really costs you.
           </p>
         </div>
 

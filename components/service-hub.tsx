@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, FileText, Zap, Target } from "lucide-react"
+import { ArrowRight, FileText, Zap, Target, CheckCircle, XCircle } from "lucide-react" // Import CheckCircle and XCircle
 import Link from "next/link"
 import Image from "next/image"
 
@@ -45,7 +45,8 @@ export default function ServiceHub() {
                   </div>
                   <CardTitle className="text-xl">Resume Revamp & LinkedIn Overhaul</CardTitle>
                   <CardDescription className="text-slate-600">
-                    We re-engineer your resume and LinkedIn to bypass automated filters and captivate human recruiters.
+                    AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
+                    resume and LinkedIn, beat the bots, and grab recruiters’ attention.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -75,7 +76,8 @@ export default function ServiceHub() {
                   </div>
                   <CardTitle className="text-xl">Autopilot Job Application System</CardTitle>
                   <CardDescription className="text-slate-600">
-                    Our system handles the applications and tracking, freeing you to focus on the win: the interview.
+                    Our system finds and applies for jobs for you in one place, freeing you to focus on the win: the
+                    interview.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="relative z-10">
@@ -110,10 +112,10 @@ export default function ServiceHub() {
                   <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
                     <Target className="h-6 w-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <CardTitle className="text-xl">Elite 1:1 Interview Simulation</CardTitle>
+                  <CardTitle className="text-xl">Personalized Coaching</CardTitle>
                   <CardDescription className="text-slate-600">
-                    Train with industry veterans to master behavioral stories and dominate case studies from FAANG and
-                    beyond.
+                    The right prep changes everything. With a dedicated team in your corner, we tailor coaching to your
+                    needs so you can get real feedback and land the best offer possible.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -148,16 +150,20 @@ export default function ServiceHub() {
                 <CardContent>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">Signal-boosting resume & LinkedIn optimization</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">Job Outsourcing</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">Automated job application system</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">Resume Rewrite and LinkedIn Optimization</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">Weekly progress reports</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">InterRoom Chat Support</span>
+                    </li>
+                    <li className="flex items-center">
+                      <XCircle className="h-5 w-5 text-red-500 mr-3 shrink-0" />
+                      <span className="text-sm text-slate-500 line-through">Personalized Coaching</span>
                     </li>
                   </ul>
                   <Link href="/services">
@@ -187,20 +193,20 @@ export default function ServiceHub() {
                 <CardContent>
                   <ul className="space-y-3 mb-6">
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">Everything in Accelerator Bundle</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">Job Outsourcing</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">1:1 interview coaching with industry veterans</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">Resume Rewrite and LinkedIn Optimization</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">FAANG-level interview preparation</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">InterRoom Chat Support</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-2 w-2 bg-violet-600 rounded-full mr-3" />
-                      <span className="text-sm">Salary negotiation support</span>
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                      <span className="text-sm">Personalized Coaching</span>
                     </li>
                   </ul>
                   <Link href="/services">

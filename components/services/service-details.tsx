@@ -14,16 +14,16 @@ export default function ServiceDetails() {
 
         <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 mb-12">
-            <TabsTrigger value="job-outsourcing">Autopilot Job Application System</TabsTrigger>
-            <TabsTrigger value="resume-rewrite">Resume Revamp & LinkedIn Overhaul</TabsTrigger>
-            <TabsTrigger value="personalized-coaching">Elite 1:1 Interview Simulation</TabsTrigger>
+            <TabsTrigger value="job-outsourcing">Job Outsourcing</TabsTrigger>
+            <TabsTrigger value="resume-rewrite">Resume Rewrite and Linkedin Optimization</TabsTrigger>
+            <TabsTrigger value="personalized-coaching">Interview Coaching</TabsTrigger>
           </TabsList>
 
           <TabsContent value="job-outsourcing">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="rounded-xl overflow-hidden">
                 <Image
-                  src="/images/job-applications-portal.png" // Corrected path here
+                  src="/images/job-applications-portal.png"
                   alt="Job applications dashboard showing submitted applications"
                   width={600}
                   height={400}
