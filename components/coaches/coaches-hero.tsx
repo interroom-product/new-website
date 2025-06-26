@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link" // Import Link
 
 export default function CoachesHero() {
   return (
@@ -17,9 +18,11 @@ export default function CoachesHero() {
             <p className="text-slate-600 mb-8">
               Our coaches bring industry expertise and personalized guidance to help you land your dream job.
             </p>
-            <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
-              Meet Your Coach <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="/survey" passHref>
+              <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
+                Find Your Perfect Match <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
             <div className="aspect-[4/3] bg-violet-100 rounded-xl overflow-hidden">
