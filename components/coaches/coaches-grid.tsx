@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { ChevronDown, ChevronUp } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const coaches = [
   {
@@ -11,15 +12,11 @@ const coaches = [
     role: "Program Management",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/allison_edited_edited.jpg-YL3P5wjQxCOLby7SUntBbZYYlaKbJ8.jpeg",
-    companies: ["Meta", "Microsoft", "Lyft"],
-    companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-    ],
-    bio: "Allison has over 10+ years of experience in Program Management and has spent the last 5 years at Meta leading cross-functional teams.",
+    companies: ["Meta", "Salesforce", "Lyft"],
+    companyLogos: ["/images/logos/meta-logo.svg", "/images/logos/salesforce-logo.svg", "/images/logos/lyft-logo.png"],
+    bio: "Allison has been a Product Program Manager at Meta for 5+ years, leading cross-functional teams across various product initiatives.",
     expandedBio:
-      "Allison has over 10+ years of experience in Program Management and has spent the last 5 years at Meta leading cross-functional teams across various product initiatives. Prior to Meta, she held senior program management roles at Microsoft and Lyft, where she specialized in scaling operations and driving strategic initiatives. Her expertise spans technical program management, cross-functional leadership, and agile methodologies in fast-paced tech environments.",
+      "Allison has been a Product Program Manager at Meta for 5+ years, leading cross-functional teams across various product initiatives. Prior to Meta, she held program positions at Salesforce and Lyft, and also worked in the Oil & Gas industry. Her expertise spans technical program management, cross-functional leadership, and agile methodologies in fast-paced tech environments.",
     specialties: ["Program Management", "Cross-functional Leadership", "Tech Industry"],
     funFact: "Allison is an avid rock climber and has climbed in over 15 countries!",
     linkedin: "https://www.linkedin.com/in/allisonburkett/",
@@ -29,16 +26,16 @@ const coaches = [
     name: "DK Lee",
     role: "Data Science / Analytics",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg",
-    companies: ["Rippling", "Opendoor", "Coinbase"],
+    companies: ["Rippling", "Opendoor", "Capital One"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/images/logos/rippling-logo.jpeg",
+      "/images/logos/opendoor-logo.svg",
+      "/images/logos/capital-one-logo.png",
     ],
-    bio: "Over 10+ years of experience in risk modeling, pricing and credit at Rippling, Opendoor and Coinbase.",
+    bio: "DK has extensive experience in risk modeling and credit, including leading risk management at Opendoor and credit risk modeling at Rippling.",
     expandedBio:
-      "DK has over 10+ years of experience in data science and analytics, specializing in risk modeling, pricing strategies, and credit analysis. Currently at Rippling, he leads data science initiatives for financial products. His previous experience at Opendoor involved developing sophisticated pricing models for real estate transactions, while at Coinbase he focused on risk assessment and fraud detection systems. DK excels at translating complex data insights into actionable business strategies.",
-    specialties: ["Data Science", "Risk Modeling", "Analytics"],
+      "DK has extensive experience in risk modeling, pricing strategies, and credit analysis across multiple high-growth companies. He led risk management at Opendoor, focusing on sophisticated pricing models for real estate transactions. At Rippling, he specialized in credit risk modeling for financial products. His earlier experience at Capital One involved risk modeling and credit positions. DK excels at translating complex data insights into actionable business strategies.",
+    specialties: ["Data Science", "Risk Modeling", "Credit Analysis"],
     funFact: "DK is a coffee enthusiast who roasts his own beans and has visited coffee farms in 8 countries!",
     linkedin: "https://www.linkedin.com/in/dklee/",
   },
@@ -47,15 +44,15 @@ const coaches = [
     name: "Janice Bae",
     role: "Product Management",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janice%20photo-wZMSUo0kc33SV0I6bxikLkbEXwq6Gi.jpeg",
-    companies: ["DocuSign", "Instacart", "LinkedIn"],
+    companies: ["DocuSign", "LinkedIn", "Premise Data"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/images/logos/docusign-logo.svg",
+      "/images/linkedin-logo.png",
+      "/images/logos/premise-data-logo.webp",
     ],
     bio: "Janice is currently a Senior Product Manager at DocuSign who pivoted into Product Management from consulting.",
     expandedBio:
-      "Janice is currently a Senior Product Manager at DocuSign who pivoted into Product Management through her MBA at MIT Sloan. Previously she held roles in Growth Marketing and Ops at an SF-based startup called Premise Data and at LinkedIn through a rotational program. Her unique background combines analytical thinking from consulting with hands-on product experience, making her particularly effective at driving product strategy and execution in fast-growing companies.",
+      "Janice is currently a Senior Product Manager at DocuSign who pivoted into Product Management through her MBA at MIT Sloan. Previously she held Growth Marketing & Operations roles at Premise Data, an SF-based startup, and participated in a rotational program at LinkedIn. Her unique background combines analytical thinking from consulting with hands-on product experience, making her particularly effective at driving product strategy and execution in fast-growing companies.",
     specialties: ["Product Management", "Product Strategy", "SaaS"],
     funFact: "Janice recently got married!",
     linkedin: "https://www.linkedin.com/in/janicebae/",
@@ -66,16 +63,16 @@ const coaches = [
     role: "Data Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/William_Cha_edited.jpg-tPLMjIinhrrzb9BpSc93qO76QCMBD4.jpeg",
-    companies: ["Notion", "Microsoft", "Tableau"],
+    companies: ["Notion", "Salesforce", "Slack"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/images/logos/notion-logo.svg",
+      "/images/logos/salesforce-logo.svg",
+      "/images/logos/slack-logo.png",
     ],
-    bio: "William has over 10+ years of experience and is currently a Data Scientist at Notion, specializing in machine learning and AI.",
+    bio: "William is currently a Data Scientist at Notion focusing on Sales Growth, with previous experience at Salesforce, Slack, and Coursera.",
     expandedBio:
-      "William has over 10+ years of experience and is currently a Data Scientist at Notion, specializing in machine learning and AI applications for productivity tools. He holds a PhD in Computer Science and has previously worked at Microsoft Research and Tableau, where he developed advanced analytics platforms and machine learning models. His expertise spans deep learning, natural language processing, and building scalable ML systems that serve millions of users.",
-    specialties: ["Data Science", "Machine Learning", "AI"],
+      "William is currently a Data Scientist at Notion with a focus on Sales Growth analytics. He holds a PhD in Computer Science and has previously worked at Salesforce, Slack, Coursera, and ShopKick, where he developed advanced analytics platforms and machine learning models. His expertise spans deep learning, natural language processing, and building scalable ML systems that serve millions of users.",
+    specialties: ["Data Science", "Machine Learning", "Sales Analytics"],
     funFact: "William speaks 4 languages fluently and loves learning about different cultures through food!",
     linkedin: "https://www.linkedin.com/in/williamcha/",
   },
@@ -84,16 +81,12 @@ const coaches = [
     name: "Sara Tashakorinia",
     role: "Product Strategy",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-IXvsW80z0HhtA93OnjW4WsQgcwMH2r.jpeg",
-    companies: ["Masterclass", "Figma", "Godly"],
-    companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-    ],
-    bio: "Over 10+ years of experience as a Product Leader and Strategist with roots in Design and Product Management.",
+    companies: ["Lucid", "Alt", "Lookout"],
+    companyLogos: ["/images/logos/lucid-logo.svg", "/images/logos/alt-logo.png", "/images/logos/lookout-logo.svg"],
+    bio: "Sara is currently a Principal Product Manager at Lucid, focusing on cloud, data engineering, and ML platforms.",
     expandedBio:
-      "Sara has over 10+ years of experience as a Product Leader and Strategist with deep roots in Design and Product Management. Currently at Masterclass, she leads product strategy for creator tools and platform growth. Her previous experience at Figma involved shaping the product vision for collaborative design tools, while at Godly she focused on building design systems and user experience frameworks. Sara's unique combination of design thinking and strategic product management makes her invaluable for companies looking to build user-centric products.",
-    specialties: ["Product Strategy", "Design", "Leadership"],
+      "Sara is currently a Principal Product Manager at Lucid, where she focuses on cloud infrastructure, data engineering, and ML platforms. Her previous experience includes product roles at startups Alt and Lookout, where she specialized in building scalable product solutions. Sara's expertise combines deep technical understanding with strategic product management, making her invaluable for companies looking to build data-driven and ML-powered products.",
+    specialties: ["Product Strategy", "Cloud Platforms", "ML/Data Engineering"],
     funFact: "Sara is a talented photographer and has had her work featured in several art galleries!",
     linkedin: "https://www.linkedin.com/in/saratashakorinia/",
   },
@@ -103,16 +96,16 @@ const coaches = [
     role: "Product Management",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nate_Porras_edited.jpg-ubUrZPUzVnvlJHHxgBYChPhtsZ0xFn.jpeg",
-    companies: ["Samsung", "Level Home", "Wyze"],
+    companies: ["Samsung", "Level Home", "Brilliant"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/images/logos/samsung-logo.png",
+      "/images/logos/level-logo.png",
+      "/images/logos/brilliant-logo.png",
     ],
-    bio: "Nate has 7+ years in Product Management across multiple IoT startups like Level Home and Wyze.",
+    bio: "Nate is currently a Senior Product Manager at Samsung, with previous experience at IoT startups Level Home and Brilliant Smart Home.",
     expandedBio:
-      "Nate has 7+ years in Product Management across multiple IoT startups and established companies. Currently at Samsung, he leads product development for smart home devices and IoT ecosystems. His experience at Level Home involved launching innovative smart lock products, while at Wyze he managed the product roadmap for affordable smart home cameras and sensors. Nate specializes in hardware-software integration and bringing complex IoT products from concept to market.",
-    specialties: ["Product Management", "IoT", "Hardware"],
+      "Nate is currently a Senior Product Manager at Samsung, where he leads product development for smart home devices and IoT ecosystems. His previous experience includes product roles at IoT startups Level Home and Brilliant Smart Home, where he launched innovative smart lock products and managed product roadmaps for smart home devices. Nate specializes in hardware-software integration and bringing complex IoT products from concept to market.",
+    specialties: ["Product Management", "IoT", "Smart Home"],
     funFact: "Nate built his own smart home from scratch and loves tinkering with the latest IoT gadgets!",
     linkedin: "https://www.linkedin.com/in/nateporras/",
   },
@@ -121,16 +114,16 @@ const coaches = [
     name: "Ashutosh Goel",
     role: "Software Engineering",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ashu-MmDn9a6PLuK3zoynr6UXR5sAPwfC7t.jpeg",
-    companies: ["Meta", "Microsoft", "Brex"],
+    companies: ["Meta", "Whisper.ai", "Brilliant"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/images/logos/meta-logo.svg",
+      "/images/logos/whisper-ai-logo.png",
+      "/images/logos/brilliant-logo.png",
     ],
-    bio: "Ashu has 10+ years as a Software Engineer and currently works at Meta. Previously he was at Microsoft and Brex.",
+    bio: "Ashutosh is currently a Software Engineer at Meta, with previous experience at AI and IoT startups Whisper.ai and Brilliant Smart Home.",
     expandedBio:
-      "Ashutosh has 10+ years as a Software Engineer and currently works at Meta on infrastructure and distributed systems. His experience spans full-stack development, system architecture, and leading engineering teams. At Microsoft, he worked on Azure cloud services, while at Brex he built fintech infrastructure and payment systems. Ashu is particularly skilled at designing scalable systems that handle millions of users and complex technical challenges in high-growth environments.",
-    specialties: ["Software Engineering", "Full Stack", "System Design"],
+      "Ashutosh is currently a Software Engineer at Meta working on infrastructure and distributed systems. His experience spans full-stack development, system architecture, and leading engineering teams. Previously, he worked as an engineer at AI startup Whisper.ai and IoT startup Brilliant Smart Home, where he built innovative AI-powered and smart home solutions. Ashu is particularly skilled at designing scalable systems and working with cutting-edge technologies.",
+    specialties: ["Software Engineering", "AI/ML", "IoT Systems"],
     funFact: "Ashu is a chess master and regularly competes in tournaments around the Bay Area!",
     linkedin: "https://www.linkedin.com/in/ashutoshgoel/",
   },
@@ -139,16 +132,16 @@ const coaches = [
     name: "Kat Dai",
     role: "Business Operations / Strategy / Chief of Staff",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kat-4va8k274q1RRuRiBvZE7U78FDcrfrf.jpeg",
-    companies: ["Opendoor", "Coinbase", "Uber"],
+    companies: ["Divvy Homes", "Opendoor", "McKinsey"],
     companyLogos: [
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
-      "/placeholder.svg?height=30&width=30",
+      "/images/logos/divvyhomes-logo.jpeg",
+      "/images/logos/opendoor-logo.svg",
+      "/images/logos/mckinsey-logo.svg",
     ],
-    bio: "Over 7+ years of experience in business operations and strategy. She has worked at Opendoor, Coinbase, and Uber.",
+    bio: "Kat has extensive experience in business operations and strategy, including Revenue Operations at Divvy Homes and consulting at McKinsey.",
     expandedBio:
-      "Kat has over 7+ years of experience in business operations and strategy across high-growth tech companies. Currently serving as Chief of Staff at Opendoor, she previously held strategic operations roles at Coinbase and Uber, where she led cross-functional initiatives and drove operational excellence. Her expertise includes strategic planning, process optimization, and executive support in fast-paced startup environments. Kat excels at translating executive vision into actionable operational strategies.",
-    specialties: ["Business Operations", "Strategy", "Chief of Staff"],
+      "Kat has extensive experience in business operations and strategy across high-growth tech companies and consulting. She served as Revenue Operations lead at Divvy Homes, held Customer Experience roles at Opendoor, and worked as a Consultant at McKinsey focusing on enterprise tech and DEI strategy. Her expertise includes strategic planning, process optimization, and executive support in fast-paced startup environments. Kat excels at translating executive vision into actionable operational strategies.",
+    specialties: ["Business Operations", "Revenue Operations", "Strategy Consulting"],
     funFact: "Kat is a marathon runner and has completed races on all 7 continents!",
     linkedin: "https://www.linkedin.com/in/katdai/",
   },
@@ -156,6 +149,102 @@ const coaches = [
 
 export default function CoachesGrid() {
   const [expandedCoaches, setExpandedCoaches] = useState<Set<number>>(new Set())
+  const [showMoreCoaches, setShowMoreCoaches] = useState(false)
+
+  const additionalCoaches = [
+    {
+      id: 9,
+      name: "Steve Kalush",
+      role: "Sales / Solution Engineering",
+      image: "/placeholder.svg?height=400&width=300&text=Steve+Kalush",
+      companies: ["CoreLogic", "Salesforce", "Blend"],
+      companyLogos: [
+        "/images/logos/corelogic-logo.svg",
+        "/images/logos/salesforce-logo.svg",
+        "/images/logos/blend-logo.png",
+      ],
+      bio: "Steve is currently at CoreLogic with extensive leadership and IC experience at Salesforce and Blend.",
+      expandedBio:
+        "Steve is currently at CoreLogic, bringing extensive experience in sales and solution engineering. He has held both leadership and individual contributor roles at Salesforce and Blend, where he specialized in enterprise sales, solution architecture, and customer success. His expertise spans complex B2B sales cycles, technical solution design, and building strong customer relationships in the fintech and real estate technology sectors.",
+      specialties: ["Sales Engineering", "Enterprise Sales", "Solution Architecture"],
+      funFact:
+        "Steve is passionate about mentoring young professionals and has helped over 50 people advance their careers!",
+      linkedin: "https://www.linkedin.com/in/stevekalush/",
+    },
+    {
+      id: 10,
+      name: "Ingrid Chang",
+      role: "Marketing",
+      image: "/placeholder.svg?height=400&width=300&text=Ingrid+Chang",
+      companies: ["ClassPass", "Postmates", "Yousician"],
+      companyLogos: [
+        "/images/logos/classpass-logo.svg",
+        "/placeholder.svg?height=30&width=30&text=Postmates",
+        "/images/logos/yousician-logo.png",
+      ],
+      bio: "Ingrid leads global lifecycle marketing at ClassPass, with previous growth marketing experience at Postmates and Yousician.",
+      expandedBio:
+        "Ingrid leads global lifecycle marketing at ClassPass, where she drives user engagement and retention across multiple markets. Her previous experience includes growth marketing roles at Postmates, where she focused on user acquisition and retention strategies, and at Yousician, where she developed marketing campaigns for language learning products. Ingrid specializes in data-driven marketing, customer lifecycle management, and scaling marketing operations globally.",
+      specialties: ["Lifecycle Marketing", "Growth Marketing", "Global Marketing"],
+      funFact: "Ingrid speaks 5 languages and has lived in 4 different countries!",
+      linkedin: "https://www.linkedin.com/in/ingridchang/",
+    },
+    {
+      id: 11,
+      name: "Steph (Krivitzky) Lusby",
+      role: "Design",
+      image: "/placeholder.svg?height=400&width=300&text=Steph+Lusby",
+      companies: ["Novo", "AMEX", "Brex"],
+      companyLogos: [
+        "/images/logos/novo-logo.svg",
+        "/images/logos/american-express-logo.png",
+        "/images/logos/brex-logo.png",
+      ],
+      bio: "Steph leads brand and product design at Novo, with previous design leadership experience at AMEX, Brex, and various agencies.",
+      expandedBio:
+        "Steph leads brand and product design at Novo, where she shapes the visual identity and user experience for small business banking. Her extensive background includes design leadership and creative director roles at American Express, Brex, advertising agencies, Fortune 500 companies, and tech startups. She specializes in brand strategy, product design, and building design systems that scale across multiple touchpoints and platforms.",
+      specialties: ["Brand Design", "Product Design", "Design Leadership"],
+      funFact: "Steph is an accomplished painter and has exhibited her artwork in galleries across the US!",
+      linkedin: "https://www.linkedin.com/in/stephlusby/",
+    },
+    {
+      id: 12,
+      name: "Zach Marks",
+      role: "Sales / Sales Engineering",
+      image: "/placeholder.svg?height=400&width=300&text=Zach+Marks",
+      companies: ["Reach Security", "Palo Alto Networks", "Expanse"],
+      companyLogos: [
+        "/images/logos/reach-security-logo.png",
+        "/images/logos/palo-alto-networks-logo.svg",
+        "/placeholder.svg?height=30&width=30&text=Expanse",
+      ],
+      bio: "Zach is now at Reach Security (AI & Cybersecurity startup), with previous experience in penetration testing and pre/post-sales at Expanse.",
+      expandedBio:
+        "Zach is currently at Reach Security, an AI & Cybersecurity startup, where he applies his extensive cybersecurity expertise. His background includes working as a penetration tester for global banks and handling pre- and post-sales at Expanse (which was acquired by Palo Alto Networks). Zach specializes in cybersecurity solutions, threat assessment, and helping enterprises understand and mitigate security risks through technical sales and solution engineering.",
+      specialties: ["Cybersecurity", "Sales Engineering", "Penetration Testing"],
+      funFact: "Zach is a certified ethical hacker and enjoys participating in cybersecurity competitions!",
+      linkedin: "https://www.linkedin.com/in/zachmarks/",
+    },
+    {
+      id: 13,
+      name: "Iman Sadooghi, PhD",
+      role: "Software Engineering",
+      image: "/placeholder.svg?height=400&width=300&text=Iman+Sadooghi",
+      companies: ["Box", "Bank of America", "Bloomberg"],
+      companyLogos: [
+        "/images/logos/box-logo.svg",
+        "/images/logos/bank-of-america-logo.png",
+        "/images/logos/bloomberg-logo.svg",
+      ],
+      bio: "Iman has extensive experience in backend, big data, and distributed systems at Box, Bank of America Merrill Lynch, and Bloomberg.",
+      expandedBio:
+        "Iman holds a PhD and has extensive experience in backend engineering, big data, and distributed systems across major financial and technology companies. His roles at Box, Bank of America Merrill Lynch, and Bloomberg involved building large-scale systems that handle massive amounts of data and transactions. Iman specializes in distributed systems architecture, big data processing, and building robust backend infrastructure for mission-critical applications.",
+      specialties: ["Backend Engineering", "Distributed Systems", "Big Data"],
+      funFact:
+        "Iman has published research papers in distributed systems and enjoys teaching algorithms to aspiring engineers!",
+      linkedin: "https://www.linkedin.com/in/imansadooghi/",
+    },
+  ]
 
   const toggleExpanded = (coachId: number) => {
     const newExpanded = new Set(expandedCoaches)
@@ -166,6 +255,8 @@ export default function CoachesGrid() {
     }
     setExpandedCoaches(newExpanded)
   }
+
+  const allCoaches = showMoreCoaches ? [...coaches, ...additionalCoaches] : coaches
 
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-slate-50 via-white to-violet-50/30">
@@ -178,7 +269,7 @@ export default function CoachesGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 auto-rows-fr">
-          {coaches.map((coach) => {
+          {allCoaches.map((coach) => {
             const isExpanded = expandedCoaches.has(coach.id)
             return (
               <div
@@ -204,16 +295,55 @@ export default function CoachesGrid() {
                 </div>
 
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex space-x-3 mb-5 h-8">
+                  <div className="flex space-x-4 mb-6 justify-center">
                     {coach.companies.map((company, index) => (
                       <div
                         key={index}
-                        className="h-8 w-8 rounded-xl bg-white/60 backdrop-blur-sm border border-white/40 flex items-center justify-center shadow-sm"
+                        className="h-16 w-16 rounded-full bg-white shadow-lg border-2 border-white/80 flex items-center justify-center p-2 hover:scale-110 transition-transform duration-300"
                       >
                         <img
                           src={coach.companyLogos[index] || "/placeholder.svg"}
                           alt={company}
-                          className="h-5 w-5 object-contain"
+                          className={cn(
+                            "w-full h-full object-contain transition-transform duration-300",
+                            coach.companyLogos[index] === "/images/logos/docusign-logo.svg" && "h-full w-auto p-0.5",
+                            coach.companyLogos[index] === "/images/logos/lyft-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/opendoor-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/premise-data-logo.webp" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/capital-one-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/salesforce-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/rippling-logo.jpeg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/microsoft-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/notion-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/slack-logo.png" &&
+                              "w-full h-auto p-1 filter invert",
+                            coach.companyLogos[index] === "/images/logos/coursera-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/shopkick-logo.png" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/alt-logo.png" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/lookout-logo.svg" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/samsung-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/level-logo.png" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/brilliant-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/whisper-ai-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/mckinsey-logo.svg" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/divvyhomes-logo.jpeg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/corelogic-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/blend-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/classpass-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/yousician-logo.png" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/novo-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/american-express-logo.png" &&
+                              "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/brex-logo.png" && "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/reach-security-logo.png" &&
+                              "w-full h-auto p-1",
+                            coach.companyLogos[index] === "/images/logos/palo-alto-networks-logo.svg" &&
+                              "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/box-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/bank-of-america-logo.png" &&
+                              "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/bloomberg-logo.svg" && "w-full h-auto p-1",
+                          )}
                         />
                       </div>
                     ))}
@@ -301,9 +431,21 @@ export default function CoachesGrid() {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="bg-white/70 backdrop-blur-sm border border-white/50 text-violet-700 font-light px-8 py-3 rounded-xl hover:bg-white/90 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            View All Coaches
-          </button>
+          {!showMoreCoaches ? (
+            <button
+              onClick={() => setShowMoreCoaches(true)}
+              className="bg-white/70 backdrop-blur-sm border border-white/50 text-violet-700 font-light px-8 py-3 rounded-xl hover:bg-white/90 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              View More Coaches
+            </button>
+          ) : (
+            <button
+              onClick={() => setShowMoreCoaches(false)}
+              className="bg-white/70 backdrop-blur-sm border border-white/50 text-violet-700 font-light px-8 py-3 rounded-xl hover:bg-white/90 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              Show Less Coaches
+            </button>
+          )}
         </div>
       </div>
     </section>

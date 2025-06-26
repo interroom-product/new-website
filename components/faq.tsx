@@ -30,8 +30,9 @@ export default function Faq() {
                 What are your fees?
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-4 text-slate-600">
-                Our pricing is transparent and based on the services you need. We offer flexible packages designed to
-                fit different career stages and goals. Contact us for a personalized quote.
+                We don't charge you anything until you sign your offer. This helps align incentives across the board and
+                allows us to commit our resources towards finding you your perfect role. Once you get your offer, we
+                charge a small percentage of your first year salary to cover our fees.
               </AccordionContent>
             </AccordionItem>
 
@@ -40,8 +41,10 @@ export default function Faq() {
                 How do you guarantee job placement?
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-4 text-slate-600">
-                While we can't guarantee specific job placements, our track record speaks for itself. We've helped 90%
-                of our clients secure positions within 2 months, with an average compensation increase of 44%.
+                Our tech-enabled processes and expansive networks enable us to find hundreds of incredible (and in some
+                cases, unlisted) roles that could be good fits for you. We only work with candidates whom we genuinely
+                believe we can help. If for any reason we're unable to find you a role within 6 months, we will provide
+                you with the option to terminate the contract with $0 charged.
               </AccordionContent>
             </AccordionItem>
 
@@ -50,31 +53,9 @@ export default function Faq() {
                 Do you work with candidates from all industries?
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-4 text-slate-600">
-                Yes, we work with professionals across various industries, with particular expertise in tech, finance,
-                marketing, and creative fields. Our coaches have diverse backgrounds to match your specific industry
-                needs.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="px-6 py-4 text-lg font-medium text-left">
-                What fields do you support?
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-4 text-slate-600">
-                We provide services and support for a wide range of fields, including:
-                <ul className="list-disc pl-5 mt-2 space-y-1">
-                  <li>Marketing</li>
-                  <li>Data Science</li>
-                  <li>Customer Support</li>
-                  <li>Partnerships</li>
-                  <li>Finance</li>
-                  <li>Data Analytics</li>
-                  <li>Engineering</li>
-                  <li>Product</li>
-                  <li>Design</li>
-                  <li>Operations</li>
-                  <li>Sales</li>
-                </ul>
+                Yes, we're industry agnostic -- our expansive network of coaches would be more than happy to assist you
+                in finding your next job, whether you're interested in software engineering, product management, visual
+                design, business development or other niche roles.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

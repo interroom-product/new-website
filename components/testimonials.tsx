@@ -15,14 +15,14 @@ export default function Testimonials() {
       role: "Visual Designer",
       company: "Meta",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GabiTylenda-BKNMv4shC3uS7boFm7VOQzfObkI3UR.jpeg",
-      logo: "/placeholder.svg?height=30&width=30",
+      logo: "/images/logos/meta-logo.svg",
     },
     {
       name: "Sarah Tashakorina",
       role: "Director of Product",
-      company: "Masterclass",
+      company: "Lucid",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-u7XhrxPrfUZhsGx1nfz2ZMQhHUV0jQ.jpeg",
-      logo: "/placeholder.svg?height=30&width=30",
+      logo: "/images/logos/lucid-logo.svg",
     },
     {
       name: "Jared Malakouti",
@@ -30,14 +30,14 @@ export default function Testimonials() {
       company: "Divert",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jared%20photo-modIlHaH6mofZxigY0hV57Hh5MHGJg.jpeg",
-      logo: "/placeholder.svg?height=30&width=30",
+      logo: "/images/logos/divert-logo.png",
     },
     {
       name: "Leila Bremner",
       role: "Senior Strategic Operations Manager",
       company: "Uber",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Leila-swcpm6AQ5LNHk10lLxqRJNUOucMb31.jpeg",
-      logo: "/placeholder.svg?height=30&width=30",
+      logo: "/images/logos/uber-logo.svg",
     },
   ]
 
@@ -75,14 +75,32 @@ export default function Testimonials() {
                           className="object-cover w-full h-full"
                         />
                       </div>
-                      <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white p-1 shadow-md">
-                        <Image
-                          src={testimonial.logo || "/placeholder.svg"}
-                          alt={testimonial.company}
-                          width={30}
-                          height={30}
-                          className="object-contain"
-                        />
+                      <div className="absolute -bottom-1 -right-1 h-12 w-12 rounded-lg bg-white shadow-lg border-2 border-white flex items-center justify-center overflow-hidden">
+                        <div
+                          className={`flex items-center justify-center ${
+                            testimonial.company === "Divert"
+                              ? "w-full h-full p-1"
+                              : testimonial.company === "Uber"
+                                ? "w-full h-full p-1.5"
+                                : "w-full h-full p-1.5"
+                          }`}
+                        >
+                          <Image
+                            src={testimonial.logo || "/placeholder.svg"}
+                            alt={`${testimonial.company} logo`}
+                            width={32}
+                            height={32}
+                            className={`object-contain ${
+                              testimonial.company === "Divert"
+                                ? "w-full h-auto scale-110"
+                                : testimonial.company === "Uber"
+                                  ? "w-full h-full scale-105"
+                                  : testimonial.company === "Lucid"
+                                    ? "w-full h-auto filter brightness-0"
+                                    : "w-full h-auto"
+                            }`}
+                          />
+                        </div>
                       </div>
                     </div>
                     <h3 className="text-xl font-medium">{testimonial.name}</h3>
