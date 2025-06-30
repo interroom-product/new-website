@@ -147,7 +147,7 @@ export default function OfferingsHub() {
                 {/* Accelerator Bundle */}
                 <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative">
                   <div className="absolute top-0 left-0 bg-green-600 text-white text-xs font-medium px-3 py-1 rounded-br-lg rounded-tl-lg">
-                    ONE-TIME FEE
+                    Pay as you go
                   </div>
                   <CardHeader className="pb-4">
                     <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
