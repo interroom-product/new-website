@@ -78,17 +78,22 @@ const coaches = [
   },
   {
     id: 5,
-    name: "Sara Tashakorinia",
-    role: "Product Strategy",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sara-IXvsW80z0HhtA93OnjW4WsQgcwMH2r.jpeg",
-    companies: ["Lucid", "Alt", "Lookout"],
-    companyLogos: ["/images/logos/lucid-logo.svg", "/images/logos/alt-logo.png", "/images/logos/lookout-logo.svg"],
-    bio: "Sara is currently a Principal Product Manager at Lucid, focusing on cloud, data engineering, and ML platforms.",
+    name: "Nishant",
+    role: "Sales / Sales Engineering",
+    image: "/images/coaches/nishant.jpeg",
+    companies: ["Salesforce", "Brex", "Mercury"],
+    companyLogos: [
+      "/images/logos/salesforce-logo.svg",
+      "/images/logos/brex-logo.png",
+      "/placeholder.svg?height=30&width=30&text=Mercury",
+    ],
+    bio: "Nishant worked at Salesforce for over 11 years, winning Sales Engineer of the year and then becoming an AE and VP of Sales.",
     expandedBio:
-      "Sara is currently a Principal Product Manager at Lucid, where she focuses on cloud infrastructure, data engineering, and ML platforms. Her previous experience includes product roles at startups Alt and Lookout, where she specialized in building scalable product solutions. Sara's expertise combines deep technical understanding with strategic product management, making her invaluable for companies looking to build data-driven and ML-powered products.",
-    specialties: ["Product Strategy", "Cloud Platforms", "ML/Data Engineering"],
-    funFact: "Sara is a talented photographer and has had her work featured in several art galleries!",
-    linkedin: "https://www.linkedin.com/in/saratashakorinia/",
+      "Nishant worked at Salesforce for over 11 years, where he won Sales Engineer of the year and progressed to become an Account Executive and VP of Sales. His exceptional track record in sales engineering and leadership has made him a sought-after advisor and investor. He currently serves as a GTM advisor to Pipeline.ai and is an angel investor in high-growth companies including Brex, Mercury, and Anduril. His expertise spans technical sales, sales leadership, and go-to-market strategy for enterprise software companies.",
+    specialties: ["Sales Engineering", "Sales Leadership", "Go-to-Market Strategy"],
+    funFact:
+      "Nishant is an angel investor who has backed some of the most innovative fintech and defense tech companies!",
+    linkedin: "https://www.linkedin.com/in/nishant/",
   },
   {
     id: 6,
