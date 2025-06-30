@@ -106,23 +106,13 @@ export default function Testimonials() {
                           height={128}
                           className="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg"
                         />
-                        <div className="absolute -bottom-2 -right-2 h-16 w-16 rounded-full bg-white shadow-lg border-2 border-white/80 flex items-center justify-center">
+                        <div className="absolute -bottom-4 -right-4 h-20 w-20 rounded-2xl bg-white shadow-xl border-2 border-slate-100 flex items-center justify-center p-2">
                           <Image
                             src={testimonial.logo || "/placeholder.svg"}
                             alt={`${testimonial.company} logo`}
-                            width={40}
-                            height={40}
-                            className={`object-contain transition-transform duration-300 ${
-                              testimonial.logo === "/images/logos/lucid-logo.svg"
-                                ? "p-1"
-                                : testimonial.logo === "/images/logos/intercom-logo.svg"
-                                  ? "p-1.5"
-                                  : testimonial.logo === "/images/logos/uber-logo.svg"
-                                    ? "p-1.5"
-                                    : testimonial.logo === "/images/logos/meta-logo.svg"
-                                      ? "p-2"
-                                      : "p-2"
-                            }`}
+                            width={50}
+                            height={50}
+                            className="object-contain"
                           />
                         </div>
                       </div>
