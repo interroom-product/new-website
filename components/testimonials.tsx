@@ -112,7 +112,17 @@ export default function Testimonials() {
                             alt={`${testimonial.company} logo`}
                             width={40}
                             height={40}
-                            className="object-contain p-2"
+                            className={`object-contain transition-transform duration-300 ${
+                              testimonial.logo === "/images/logos/lucid-logo.svg"
+                                ? "p-1"
+                                : testimonial.logo === "/images/logos/intercom-logo.svg"
+                                  ? "p-1.5"
+                                  : testimonial.logo === "/images/logos/uber-logo.svg"
+                                    ? "p-1.5"
+                                    : testimonial.logo === "/images/logos/meta-logo.svg"
+                                      ? "p-2"
+                                      : "p-2"
+                            }`}
                           />
                         </div>
                       </div>
