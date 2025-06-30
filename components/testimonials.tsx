@@ -12,6 +12,8 @@ const testimonials = [
     company: "Intercom",
     image: "/images/testimonials/jared.jpeg",
     logo: "/images/logos/intercom-logo.svg",
+    // Added a class to handle the black logo and add specific padding
+    logoClassName: "p-2 filter brightness-0",
     content:
       "I was skeptical at first, especially since I was only looking for specific Climate Tech roles. I took a shot since they don't get paid until you do, and after 6 weeks, I landed the exact role I'd been looking for. My only regret is not starting sooner. Highly recommend!",
   },
@@ -22,6 +24,8 @@ const testimonials = [
     company: "Meta",
     image: "/images/testimonials/gabriela.jpeg",
     logo: "/images/logos/meta-logo.svg",
+    // Added specific padding
+    logoClassName: "p-3",
     content:
       "After searching for over a year, InterRoom helped me land a new role in just 3.5 weeks! They showed me how much I was underselling myself, and with their support, I nailed the second interview and got the offer. A huge shoutout to the team!",
   },
@@ -32,6 +36,8 @@ const testimonials = [
     company: "Lucid",
     image: "/images/testimonials/sara.jpeg",
     logo: "/images/logos/lucid-logo.svg",
+    // Added specific padding
+    logoClassName: "p-2",
     content:
       "InterRoom was instrumental in a tough market. Their expertise in startups and data helped me focus my search and refine my resume. With their real-time coaching, my interview rate tripled, leading to a fully remote Director role in just 3.5 months! Their support was invaluable!",
   },
@@ -42,6 +48,8 @@ const testimonials = [
     company: "Uber",
     image: "/images/testimonials/leila.jpeg",
     logo: "/images/logos/uber-logo.svg",
+    // Added specific padding for the wide logo
+    logoClassName: "p-3.5",
     content:
       "I landed the job that was top of my list within 6 weeks with InterRoom! After searching for 7 months on my own, they helped me negotiate a $20k increase to my overall comp. I plan to use them for regular career coaching in the future.",
   },
@@ -98,7 +106,8 @@ export default function Testimonials() {
                 <div key={testimonial.id} className="w-full flex-shrink-0">
                   <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-white/50 p-8 md:p-12 mx-4">
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                      <div className="relative flex-shrink-0">
+                      {/* --- START: MODIFIED SECTION --- */}
+                      <div className="relative flex-shrink-0 w-32 h-32 md:w-36 md:h-36">
                         <Image
                           src={testimonial.image || "/placeholder.svg"}
                           alt={testimonial.name}
@@ -106,26 +115,19 @@ export default function Testimonials() {
                           height={128}
                           className="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg"
                         />
-                        <div className="absolute -bottom-4 -right-4 h-20 w-20 rounded-2xl bg-white shadow-xl border-2 border-slate-100 flex items-center justify-center p-2">
+                        <div className="absolute -bottom-2 -right-2 h-16 w-16 rounded-xl bg-white shadow-lg border-2 border-slate-100 flex items-center justify-center">
                           <Image
                             src={testimonial.logo || "/placeholder.svg"}
                             alt={`${testimonial.company} logo`}
-                            width={50}
-                            height={50}
-                            className={`object-contain ${
-                              testimonial.logo === "/images/logos/intercom-logo.svg"
-                                ? "p-1"
-                                : testimonial.logo === "/images/logos/uber-logo.svg"
-                                  ? "p-1"
-                                  : testimonial.logo === "/images/logos/lucid-logo.svg"
-                                    ? "p-2"
-                                    : testimonial.logo === "/images/logos/meta-logo.svg"
-                                      ? "p-2"
-                                      : "p-2"
+                            width={48}
+                            height={48}
+                            className={`object-contain transition-transform duration-300 w-full h-full ${
+                              testimonial.logoClassName || ""
                             }`}
                           />
                         </div>
                       </div>
+                      {/* --- END: MODIFIED SECTION --- */}
 
                       <div className="flex-1 text-center md:text-left">
                         <blockquote className="text-lg md:text-xl text-slate-700 font-light leading-relaxed mb-6">
