@@ -98,7 +98,7 @@ export default function OfferingsHub() {
                   <CardHeader className="pb-4">
                     <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
                     <CardDescription className="text-slate-600 mt-2">
-                      Job Outsourcing + Resume Write + Linkedin Optimization
+                      Job Outsourcing + Resume Write & Linkedin Optimization
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -119,7 +119,7 @@ export default function OfferingsHub() {
                         <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                           <Check className="h-4 w-4 text-violet-600" />
                         </div>
-                        <span>Weekly progress reports</span>
+                        <span>Access to InterRoom Client Portal 1.0</span>
                       </li>
                     </ul>
                   </CardContent>
@@ -339,17 +339,6 @@ export default function OfferingsHub() {
               </div>
             </TabsContent>
           </Tabs>
-
-          <div className="text-center mt-16">
-            <p className="text-slate-600 mb-6">
-              Not sure which option is right for you? Let's talk about your specific needs.
-            </p>
-            <Link href="/survey">
-              <Button variant="outline" size="lg">
-                Take Our Assessment <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
