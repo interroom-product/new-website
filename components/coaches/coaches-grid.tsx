@@ -8,47 +8,14 @@ import { cn } from "@/lib/utils"
 const coaches = [
   {
     id: 1,
-    name: "Allison Burkett",
-    role: "Program Management",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/allison_edited_edited.jpg-YL3P5wjQxCOLby7SUntBbZYYlaKbJ8.jpeg",
-    companies: ["Meta", "Salesforce", "Lyft"],
-    companyLogos: ["/images/logos/meta-logo.svg", "/images/logos/salesforce-logo.svg", "/images/logos/lyft-logo.png"],
-    bio: "Allison has been a Product Program Manager at Meta for 5+ years, leading cross-functional teams across various product initiatives.",
-    expandedBio:
-      "Allison has been a Product Program Manager at Meta for 5+ years, leading cross-functional teams across various product initiatives. Prior to Meta, she held program positions at Salesforce and Lyft, and also worked in the Oil & Gas industry. Her expertise spans technical program management, cross-functional leadership, and agile methodologies in fast-paced tech environments.",
-    specialties: ["Program Management", "Cross-functional Leadership", "Tech Industry"],
-    funFact: "Allison is an avid rock climber and has climbed in over 15 countries!",
-    linkedin: "https://www.linkedin.com/in/allisonburkett/",
-  },
-  {
-    id: 2,
-    name: "DK Lee",
-    role: "Data Science / Analytics",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg",
-    companies: ["Rippling", "Opendoor", "Capital One"],
-    companyLogos: [
-      "/images/logos/rippling-logo.jpeg",
-      "/images/logos/opendoor-logo.svg",
-      "/images/logos/capital-one-logo.png",
-    ],
-    bio: "DK has extensive experience in risk modeling and credit, including leading risk management at Opendoor and credit risk modeling at Rippling.",
-    expandedBio:
-      "DK has extensive experience in risk modeling, pricing strategies, and credit analysis across multiple high-growth companies. He led risk management at Opendoor, focusing on sophisticated pricing models for real estate transactions. At Rippling, he specialized in credit risk modeling for financial products. His earlier experience at Capital One involved risk modeling and credit positions. DK excels at translating complex data insights into actionable business strategies.",
-    specialties: ["Data Science", "Risk Modeling", "Credit Analysis"],
-    funFact: "DK is a coffee enthusiast who roasts his own beans and has visited coffee farms in 8 countries!",
-    linkedin: "https://www.linkedin.com/in/dklee/",
-  },
-  {
-    id: 3,
     name: "Janice Bae",
     role: "Product Management",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janice%20photo-wZMSUo0kc33SV0I6bxikLkbEXwq6Gi.jpeg",
-    companies: ["DocuSign", "LinkedIn", "Premise Data"],
+    companies: ["DocuSign", "Premise Data", "LinkedIn"],
     companyLogos: [
       "/images/logos/docusign-logo.svg",
-      "/images/linkedin-logo.png",
       "/images/logos/premise-data-logo.webp",
+      "/images/linkedin-logo.png",
     ],
     bio: "Janice is currently a Senior Product Manager at DocuSign who pivoted into Product Management from consulting.",
     expandedBio:
@@ -58,7 +25,7 @@ const coaches = [
     linkedin: "https://www.linkedin.com/in/janicebae/",
   },
   {
-    id: 4,
+    id: 2,
     name: "William Cha, PhD",
     role: "Data Science",
     image:
@@ -77,7 +44,76 @@ const coaches = [
     linkedin: "https://www.linkedin.com/in/williamcha/",
   },
   {
+    id: 3,
+    name: "Allison Burkett",
+    role: "Program Management",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/allison_edited_edited.jpg-YL3P5wjQxCOLby7SUntBbZYYlaKbJ8.jpeg",
+    companies: ["Meta", "Salesforce", "Lyft"],
+    companyLogos: ["/images/logos/meta-logo.svg", "/images/logos/salesforce-logo.svg", "/images/logos/lyft-logo.png"],
+    bio: "Allison has been a Product Program Manager at Meta for 5+ years, leading cross-functional teams across various product initiatives.",
+    expandedBio:
+      "Allison has been a Product Program Manager at Meta for 5+ years, leading cross-functional teams across various product initiatives. Prior to Meta, she held program positions at Salesforce and Lyft, and also worked in the Oil & Gas industry. Her expertise spans technical program management, cross-functional leadership, and agile methodologies in fast-paced tech environments.",
+    specialties: ["Program Management", "Cross-functional Leadership", "Tech Industry"],
+    funFact: "Allison is an avid rock climber and has climbed in over 15 countries!",
+    linkedin: "https://www.linkedin.com/in/allisonburkett/",
+  },
+  {
+    id: 4,
+    name: "Ashutosh Goel",
+    role: "Software Engineering",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ashu-MmDn9a6PLuK3zoynr6UXR5sAPwfC7t.jpeg",
+    companies: ["Meta", "Whisper.ai", "Brilliant"],
+    companyLogos: [
+      "/images/logos/meta-logo.svg",
+      "/images/logos/whisper-ai-logo.png",
+      "/images/logos/brilliant-logo.png",
+    ],
+    bio: "Ashutosh is currently a Software Engineer at Meta, with previous experience at AI and IoT startups Whisper.ai and Brilliant Smart Home.",
+    expandedBio:
+      "Ashutosh is currently a Software Engineer at Meta working on infrastructure and distributed systems. His experience spans full-stack development, system architecture, and leading engineering teams. Previously, he worked as an engineer at AI startup Whisper.ai and IoT startup Brilliant Smart Home, where he built innovative AI-powered and smart home solutions. Ashu is particularly skilled at designing scalable systems and working with cutting-edge technologies.",
+    specialties: ["Software Engineering", "AI/ML", "IoT Systems"],
+    funFact: "Ashu is a chess master and regularly competes in tournaments around the Bay Area!",
+    linkedin: "https://www.linkedin.com/in/ashutoshgoel/",
+  },
+  {
     id: 5,
+    name: "DK Lee",
+    role: "Data Science / Analytics",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg",
+    companies: ["Rippling", "Opendoor", "Capital One"],
+    companyLogos: [
+      "/images/logos/rippling-logo.jpeg",
+      "/images/logos/opendoor-logo.svg",
+      "/images/logos/capital-one-logo.png",
+    ],
+    bio: "DK has extensive experience in risk modeling and credit, including leading risk management at Opendoor and credit risk modeling at Rippling.",
+    expandedBio:
+      "DK has extensive experience in risk modeling, pricing strategies, and credit analysis across multiple high-growth companies. He led risk management at Opendoor, focusing on sophisticated pricing models for real estate transactions. At Rippling, he specialized in credit risk modeling for financial products. His earlier experience at Capital One involved risk modeling and credit positions. DK excels at translating complex data insights into actionable business strategies.",
+    specialties: ["Data Science", "Risk Modeling", "Credit Analysis"],
+    funFact: "DK is a coffee enthusiast who roasts his own beans and has visited coffee farms in 8 countries!",
+    linkedin: "https://www.linkedin.com/in/dklee/",
+  },
+  {
+    id: 6,
+    name: "Kat Dai",
+    role: "Business Operations / Strategy / Chief of Staff",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kat-4va8k274q1RRuRiBvZE7U78FDcrfrf.jpeg",
+    companies: ["Divvy Homes", "Opendoor", "McKinsey"],
+    companyLogos: [
+      "/images/logos/divvyhomes-logo.jpeg",
+      "/images/logos/opendoor-logo.svg",
+      "/images/logos/mckinsey-logo.svg",
+    ],
+    bio: "Kat has extensive experience in business operations and strategy, including Revenue Operations at Divvy Homes and consulting at McKinsey.",
+    expandedBio:
+      "Kat has extensive experience in business operations and strategy across high-growth tech companies and consulting. She served as Revenue Operations lead at Divvy Homes, held Customer Experience roles at Opendoor, and worked as a Consultant at McKinsey focusing on enterprise tech and DEI strategy. Her expertise includes strategic planning, process optimization, and executive support in fast-paced startup environments. Kat excels at translating executive vision into actionable operational strategies.",
+    specialties: ["Business Operations", "Revenue Operations", "Strategy Consulting"],
+    funFact: "Kat is a marathon runner and has completed races on all 7 continents!",
+    linkedin: "https://www.linkedin.com/in/katdai/",
+  },
+  {
+    id: 7,
     name: "Nishant",
     role: "Sales / Sales Engineering",
     image: "/images/coaches/nishant.jpeg",
@@ -96,16 +132,16 @@ const coaches = [
     linkedin: "https://www.linkedin.com/in/nishant/",
   },
   {
-    id: 6,
+    id: 8,
     name: "Nate Porras",
     role: "Product Management",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nate_Porras_edited.jpg-ubUrZPUzVnvlJHHxgBYChPhtsZ0xFn.jpeg",
-    companies: ["Samsung", "Level Home", "Brilliant"],
+    companies: ["Samsung", "Brilliant", "Level Home"],
     companyLogos: [
       "/images/logos/samsung-logo.png",
-      "/images/logos/level-logo.png",
       "/images/logos/brilliant-logo.png",
+      "/images/logos/level-logo.png",
     ],
     bio: "Nate is currently a Senior Product Manager at Samsung, with previous experience at IoT startups Level Home and Brilliant Smart Home.",
     expandedBio:
@@ -113,42 +149,6 @@ const coaches = [
     specialties: ["Product Management", "IoT", "Smart Home"],
     funFact: "Nate built his own smart home from scratch and loves tinkering with the latest IoT gadgets!",
     linkedin: "https://www.linkedin.com/in/nateporras/",
-  },
-  {
-    id: 7,
-    name: "Ashutosh Goel",
-    role: "Software Engineering",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ashu-MmDn9a6PLuK3zoynr6UXR5sAPwfC7t.jpeg",
-    companies: ["Meta", "Whisper.ai", "Brilliant"],
-    companyLogos: [
-      "/images/logos/meta-logo.svg",
-      "/images/logos/whisper-ai-logo.png",
-      "/images/logos/brilliant-logo.png",
-    ],
-    bio: "Ashutosh is currently a Software Engineer at Meta, with previous experience at AI and IoT startups Whisper.ai and Brilliant Smart Home.",
-    expandedBio:
-      "Ashutosh is currently a Software Engineer at Meta working on infrastructure and distributed systems. His experience spans full-stack development, system architecture, and leading engineering teams. Previously, he worked as an engineer at AI startup Whisper.ai and IoT startup Brilliant Smart Home, where he built innovative AI-powered and smart home solutions. Ashu is particularly skilled at designing scalable systems and working with cutting-edge technologies.",
-    specialties: ["Software Engineering", "AI/ML", "IoT Systems"],
-    funFact: "Ashu is a chess master and regularly competes in tournaments around the Bay Area!",
-    linkedin: "https://www.linkedin.com/in/ashutoshgoel/",
-  },
-  {
-    id: 8,
-    name: "Kat Dai",
-    role: "Business Operations / Strategy / Chief of Staff",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kat-4va8k274q1RRuRiBvZE7U78FDcrfrf.jpeg",
-    companies: ["Divvy Homes", "Opendoor", "McKinsey"],
-    companyLogos: [
-      "/images/logos/divvyhomes-logo.jpeg",
-      "/images/logos/opendoor-logo.svg",
-      "/images/logos/mckinsey-logo.svg",
-    ],
-    bio: "Kat has extensive experience in business operations and strategy, including Revenue Operations at Divvy Homes and consulting at McKinsey.",
-    expandedBio:
-      "Kat has extensive experience in business operations and strategy across high-growth tech companies and consulting. She served as Revenue Operations lead at Divvy Homes, held Customer Experience roles at Opendoor, and worked as a Consultant at McKinsey focusing on enterprise tech and DEI strategy. Her expertise includes strategic planning, process optimization, and executive support in fast-paced startup environments. Kat excels at translating executive vision into actionable operational strategies.",
-    specialties: ["Business Operations", "Revenue Operations", "Strategy Consulting"],
-    funFact: "Kat is a marathon runner and has completed races on all 7 continents!",
-    linkedin: "https://www.linkedin.com/in/katdai/",
   },
 ]
 
@@ -159,43 +159,6 @@ export default function CoachesGrid() {
   const additionalCoaches = [
     {
       id: 9,
-      name: "Steve Kalush",
-      role: "Sales / Solution Engineering",
-      image: "/images/coaches/steve.jpeg",
-      companies: ["CoreLogic", "Salesforce", "Blend"],
-      companyLogos: [
-        "/images/logos/corelogic-logo.svg",
-        "/images/logos/salesforce-logo.svg",
-        "/images/logos/blend-logo.png",
-      ],
-      bio: "Steve is currently at CoreLogic with extensive leadership and IC experience at Salesforce and Blend.",
-      expandedBio:
-        "Steve is currently at CoreLogic, bringing extensive experience in sales and solution engineering. He has held both leadership and individual contributor roles at Salesforce and Blend, where he specialized in enterprise sales, solution architecture, and customer success. His expertise spans complex B2B sales cycles, technical solution design, and building strong customer relationships in the fintech and real estate technology sectors.",
-      specialties: ["Sales Engineering", "Enterprise Sales", "Solution Architecture"],
-      funFact:
-        "Steve is passionate about mentoring young professionals and has helped over 50 people advance their careers!",
-      linkedin: "https://www.linkedin.com/in/stevekalush/",
-    },
-    {
-      id: 10,
-      name: "Ingrid Chang",
-      role: "Marketing",
-      image: "/images/coaches/ingrid.jpeg",
-      companies: ["ClassPass", "Postmates", "Yousician"],
-      companyLogos: [
-        "/images/logos/classpass-logo.svg",
-        "/placeholder.svg?height=30&width=30&text=Postmates",
-        "/images/logos/yousician-logo.png",
-      ],
-      bio: "Ingrid leads global lifecycle marketing at ClassPass, with previous growth marketing experience at Postmates and Yousician.",
-      expandedBio:
-        "Ingrid leads global lifecycle marketing at ClassPass, where she drives user engagement and retention across multiple markets. Her previous experience includes growth marketing roles at Postmates, where she focused on user acquisition and retention strategies, and at Yousician, where she developed marketing campaigns for language learning products. Ingrid specializes in data-driven marketing, customer lifecycle management, and scaling marketing operations globally.",
-      specialties: ["Lifecycle Marketing", "Growth Marketing", "Global Marketing"],
-      funFact: "Ingrid speaks 5 languages and has lived in 4 different countries!",
-      linkedin: "https://www.linkedin.com/in/ingridchang/",
-    },
-    {
-      id: 11,
       name: "Steph (Krivitzky) Lusby",
       role: "Design",
       image: "/images/coaches/stephanie.jpeg",
@@ -213,7 +176,26 @@ export default function CoachesGrid() {
       linkedin: "https://www.linkedin.com/in/stephlusby/",
     },
     {
-      id: 12,
+      id: 10,
+      name: "Steve Kalush",
+      role: "Sales / Solution Engineering",
+      image: "/images/coaches/steve.jpeg",
+      companies: ["Blend", "CoreLogic", "Salesforce"],
+      companyLogos: [
+        "/images/logos/blend-logo.png",
+        "/images/logos/corelogic-logo.svg",
+        "/images/logos/salesforce-logo.svg",
+      ],
+      bio: "Steve is currently at CoreLogic with extensive leadership and IC experience at Salesforce and Blend.",
+      expandedBio:
+        "Steve is currently at CoreLogic, bringing extensive experience in sales and solution engineering. He has held both leadership and individual contributor roles at Salesforce and Blend, where he specialized in enterprise sales, solution architecture, and customer success. His expertise spans complex B2B sales cycles, technical solution design, and building strong customer relationships in the fintech and real estate technology sectors.",
+      specialties: ["Sales Engineering", "Enterprise Sales", "Solution Architecture"],
+      funFact:
+        "Steve is passionate about mentoring young professionals and has helped over 50 people advance their careers!",
+      linkedin: "https://www.linkedin.com/in/stevekalush/",
+    },
+    {
+      id: 11,
       name: "Zach Marks",
       role: "Sales / Sales Engineering",
       image: "/images/coaches/zach-marks.jpeg",
@@ -229,6 +211,24 @@ export default function CoachesGrid() {
       specialties: ["Cybersecurity", "Sales Engineering", "Penetration Testing"],
       funFact: "Zach is a certified ethical hacker and enjoys participating in cybersecurity competitions!",
       linkedin: "https://www.linkedin.com/in/zachmarks/",
+    },
+    {
+      id: 12,
+      name: "Ingrid Chang",
+      role: "Marketing",
+      image: "/images/coaches/ingrid.jpeg",
+      companies: ["ClassPass", "Yousician", "Postmates"],
+      companyLogos: [
+        "/images/logos/classpass-logo.svg",
+        "/images/logos/yousician-logo.png",
+        "/placeholder.svg?height=30&width=30&text=Postmates",
+      ],
+      bio: "Ingrid leads global lifecycle marketing at ClassPass, with previous growth marketing experience at Postmates and Yousician.",
+      expandedBio:
+        "Ingrid leads global lifecycle marketing at ClassPass, where she drives user engagement and retention across multiple markets. Her previous experience includes growth marketing roles at Postmates, where she focused on user acquisition and retention strategies, and at Yousician, where she developed marketing campaigns for language learning products. Ingrid specializes in data-driven marketing, customer lifecycle management, and scaling marketing operations globally.",
+      specialties: ["Lifecycle Marketing", "Growth Marketing", "Global Marketing"],
+      funFact: "Ingrid speaks 5 languages and has lived in 4 different countries!",
+      linkedin: "https://www.linkedin.com/in/ingridchang/",
     },
     {
       id: 13,
