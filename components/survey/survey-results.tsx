@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ArrowRight, CheckCircle, Star } from "lucide-react"
 import Link from "next/link"
 
@@ -15,6 +16,7 @@ interface Recommendation {
 export default function SurveyResults() {
   const [recommendation, setRecommendation] = useState<Recommendation | null>(null)
   const [loading, setLoading] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const storedRecommendation = localStorage.getItem("recommendation")
@@ -135,6 +137,8 @@ export default function SurveyResults() {
 
   if (!details) return null
 
+  const isBundle = recommendation.type === "bundle"
+
   return (
     <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-violet-50 to-white min-h-screen">
       <div className="container mx-auto max-w-3xl">
@@ -177,7 +181,7 @@ export default function SurveyResults() {
                   <p className="text-sm text-slate-600">Pricing</p>
                   <p className="text-lg font-medium">{details.price}</p>
                 </div>
-                {recommendation.type === "bundle" && (
+                {isBundle && (
                   <div className="text-right">
                     <p className="text-sm text-slate-600">Success Rate</p>
                     <p className="text-lg font-medium text-violet-600">90% within 2 months</p>
@@ -185,23 +189,75 @@ export default function SurveyResults() {
                 )}
               </div>
 
-              {recommendation.type === "bundle" ? (
-                <a
-                  href="https://calendly.com/ash-rjc/intro-call-with-interroom"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full"
-                >
-                  <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
-                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
+              {/* Layout A: Bundle Package */}
+              {isBundle ? (
+                <div className="space-y-3">
+                  <a
+                    href="https://calendly.com/ash-rjc/intro-call-with-interroom"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                  >
+                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
+                      {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+
+                  <div className="text-center">
+                    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                      <DialogTrigger asChild>
+                        <button className="text-violet-600 hover:text-violet-700 underline text-sm">
+                          Or, apply directly
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+                        <DialogHeader className="p-6 pb-0">
+                          <DialogTitle>Apply for Our Services</DialogTitle>
+                        </DialogHeader>
+                        <div className="px-6 pb-6 h-[70vh]">
+                          <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
+                            width="100%"
+                            height="100%"
+                            frameBorder="0"
+                            marginHeight={0}
+                            marginWidth={0}
+                            className="rounded-lg"
+                          >
+                            Loading…
+                          </iframe>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </div>
               ) : (
-                <Link href="/services" className="w-full">
-                  <Button size="lg" className="w-full bg-slate-900 hover:bg-slate-800">
-                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                /* Layout B: A La Carte Services */
+                <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                  <DialogTrigger asChild>
+                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
+                      {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+                    <DialogHeader className="p-6 pb-0">
+                      <DialogTitle>Apply for Our Services</DialogTitle>
+                    </DialogHeader>
+                    <div className="px-6 pb-6 h-[70vh]">
+                      <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
+                        width="100%"
+                        height="100%"
+                        frameBorder="0"
+                        marginHeight={0}
+                        marginWidth={0}
+                        className="rounded-lg"
+                      >
+                        Loading…
+                      </iframe>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               )}
             </div>
 
@@ -223,7 +279,7 @@ export default function SurveyResults() {
           </CardContent>
         </Card>
 
-        {recommendation.type === "bundle" && (
+        {isBundle && (
           <div className="mt-8 text-center">
             <Card className="bg-violet-50 border-violet-200">
               <CardContent className="pt-6">
