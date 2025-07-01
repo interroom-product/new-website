@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ArrowRight, CheckCircle, Star } from "lucide-react"
 import Link from "next/link"
 
@@ -203,72 +202,30 @@ export default function SurveyResults() {
                     </Button>
                   </a>
 
-                  {/* Secondary CTA - Apply Directly Link */}
+                  {/* Secondary CTA - Direct Google Form Link */}
                   <div className="text-center">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <button className="text-violet-600 hover:text-violet-700 underline text-sm font-medium transition-colors duration-200 cursor-pointer">
-                          Or, apply directly
-                        </button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] h-[85vh] p-0 overflow-hidden">
-                        <DialogHeader className="p-6 pb-4 border-b bg-white">
-                          <DialogTitle className="text-xl font-semibold text-gray-900">
-                            Apply for Our Services
-                          </DialogTitle>
-                        </DialogHeader>
-                        <div className="flex-1 p-6 pt-4 overflow-hidden bg-white">
-                          <div className="w-full h-full rounded-lg overflow-hidden border border-gray-200">
-                            <iframe
-                              src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
-                              width="100%"
-                              height="100%"
-                              frameBorder="0"
-                              marginHeight={0}
-                              marginWidth={0}
-                              className="w-full h-full"
-                              title="Application Form"
-                              loading="lazy"
-                            >
-                              Loading application form...
-                            </iframe>
-                          </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                    <a
+                      href="https://forms.gle/LN5ufYhqQVRpA2RC9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-violet-600 hover:text-violet-700 underline text-sm font-medium transition-colors duration-200"
+                    >
+                      Or, apply directly
+                    </a>
                   </div>
                 </div>
               ) : (
                 /* Layout B: A La Carte Services */
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700 text-white">
-                      {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-6xl w-[95vw] max-h-[95vh] h-[85vh] p-0 overflow-hidden">
-                    <DialogHeader className="p-6 pb-4 border-b bg-white">
-                      <DialogTitle className="text-xl font-semibold text-gray-900">Apply for Our Services</DialogTitle>
-                    </DialogHeader>
-                    <div className="flex-1 p-6 pt-4 overflow-hidden bg-white">
-                      <div className="w-full h-full rounded-lg overflow-hidden border border-gray-200">
-                        <iframe
-                          src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
-                          width="100%"
-                          height="100%"
-                          frameBorder="0"
-                          marginHeight={0}
-                          marginWidth={0}
-                          className="w-full h-full"
-                          title="Application Form"
-                          loading="lazy"
-                        >
-                          Loading application form...
-                        </iframe>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <a
+                  href="https://forms.gle/LN5ufYhqQVRpA2RC9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700 text-white">
+                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
               )}
             </div>
 
