@@ -113,9 +113,6 @@ export default function ServiceHub() {
               <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 flex flex-col">
                 <CardHeader className="pb-4 flex-grow">
                   <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
-                  <CardDescription className="text-slate-600 mt-2">
-                    Job Outsourcing + Resume Rewrite & Linkedin Optimization
-                  </CardDescription>
                   <div className="mt-4">
                     <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
                       Pay as you go
@@ -151,9 +148,6 @@ export default function ServiceHub() {
                 </div>
                 <CardHeader className="pb-4 flex-grow">
                   <CardTitle className="text-2xl">Full Support Package</CardTitle>
-                  <CardDescription className="text-slate-600 mt-2">
-                    Resume + Applications + Elite Coaching
-                  </CardDescription>
                   <div className="mt-4">
                     <Badge variant="outline" className="bg-violet-50 text-violet-700 border-violet-200">
                       Success-Based Model

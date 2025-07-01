@@ -40,13 +40,15 @@ export default function ScrollingLogoStrip({
     const animate = () => {
       if (direction === "left") {
         currentPosition -= speed / 60
+        // Use modulo for seamless looping
         if (currentPosition <= -containerWidth) {
-          currentPosition = 0
+          currentPosition = currentPosition % containerWidth
         }
       } else {
         currentPosition += speed / 60
+        // Use modulo for seamless looping
         if (currentPosition >= containerWidth) {
-          currentPosition = 0
+          currentPosition = currentPosition % containerWidth
         }
       }
 
@@ -85,7 +87,14 @@ export default function ScrollingLogoStrip({
   const getLogoHeight = (logoAlt: string) => {
     // Wide logos that need slightly more height for visual balance
     const wideLogos = ["Meta", "Amazon", "Stripe", "Workiva", "Zipline"]
-    return wideLogos.includes(logoAlt) ? 42 : 35
+    // Standard height logos (including Google, Intercom, and Notion)
+    const standardLogos = ["Google", "Intercom", "Notion"]
+
+    if (wideLogos.includes(logoAlt)) {
+      return 42
+    } else {
+      return 35
+    }
   }
 
   return (

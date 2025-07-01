@@ -38,7 +38,7 @@ function PurchaseModal({
             src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
             width="100%"
             height="100%"
-            frameBorder="0"
+            frameBorder={0}
             marginHeight={0}
             marginWidth={0}
           >
@@ -98,8 +98,7 @@ export default function OfferingsHub() {
                   <CardHeader className="pb-4">
                     <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
                     <CardDescription className="text-slate-600 mt-2">
-                      Resume Rewrite + Autopilot Job Applications with a simple one-time fee model—no commitments, just
-                      results.
+                      Job Outsourcing + Resume Write & Linkedin Optimization
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -120,7 +119,7 @@ export default function OfferingsHub() {
                         <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                           <Check className="h-4 w-4 text-violet-600" />
                         </div>
-                        <span>Weekly progress reports</span>
+                        <span>Access to InterRoom Client Portal 1.0</span>
                       </li>
                     </ul>
                   </CardContent>
@@ -134,8 +133,9 @@ export default function OfferingsHub() {
                   <CardHeader className="pb-4">
                     <CardTitle className="text-2xl">Full Support Package</CardTitle>
                     <CardDescription className="text-slate-600 mt-2">
-                      Job Outsourcing + Resume Rewrite + Elite Coaching. This option is success-based, meaning we only
-                      get paid when you land the right role at the right salary. Your success is our success.
+                      Job Outsourcing + Resume Rewrite & Linkedin Optimization + Career Coaching. This option is
+                      success-based, meaning we only get paid when you land the right role at the right salary. Your
+                      success is our success.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -234,13 +234,18 @@ export default function OfferingsHub() {
 
                 {/* Resume Rewrite */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="rounded-xl overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="Person writing on paper"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                    <iframe
+                      src="/animations/linkedin-inbox.html"
+                      style={{
+                        width: "100%",
+                        height: "510px",
+                        border: "none",
+                        transform: "scale(1.0)",
+                        transformOrigin: "top left",
+                      }}
+                      title="LinkedIn Inbox Animation"
+                      scrolling="no"
                     />
                   </div>
                   <div>
@@ -287,13 +292,18 @@ export default function OfferingsHub() {
 
                 {/* Interview Coaching */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="rounded-xl overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="Video call coaching session"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                    <iframe
+                      src="/animations/confidence-meter.html"
+                      style={{
+                        width: "100%",
+                        height: "450px",
+                        border: "none",
+                        transform: "scale(1.0)",
+                        transformOrigin: "top left",
+                      }}
+                      title="Confidence Meter Animation"
+                      scrolling="no"
                     />
                   </div>
                   <div>
@@ -339,17 +349,6 @@ export default function OfferingsHub() {
               </div>
             </TabsContent>
           </Tabs>
-
-          <div className="text-center mt-16">
-            <p className="text-slate-600 mb-6">
-              Not sure which option is right for you? Let's talk about your specific needs.
-            </p>
-            <Link href="/survey">
-              <Button variant="outline" size="lg">
-                Take Our Assessment <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 

@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
-              Job Searching is Broken. We Fixed It.
+              Experts and AI guiding you through a personalized job search
             </h1>
             <p className="text-slate-600 text-lg mb-8 max-w-lg">
               InterRoom is your job search team, handling everything from finding and applying to jobs for you to
@@ -47,7 +47,9 @@ export default function Hero() {
               </div>
               <span className="text-slate-800 font-semibold text-lg">5.0</span>
               <span className="text-slate-600 font-medium">•</span>
-              <span className="text-slate-600 font-medium">200+ Reviews</span>
+              <span className="text-slate-600 font-medium">
+                Our clients get hired 3x faster than the industry average.
+              </span>
             </div>
           </div>
         </div>
