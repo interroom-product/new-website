@@ -20,7 +20,7 @@ interface ScrollingLogoStripProps {
 
 export default function ScrollingLogoStrip({
   logos,
-  speed = 50,
+  speed = 25,
   direction = "left",
   pauseOnHover = true,
 }: ScrollingLogoStripProps) {
@@ -30,17 +30,16 @@ export default function ScrollingLogoStrip({
     const scrollContainer = scrollRef.current
     if (!scrollContainer) return
 
-    // Duplicate logos to create seamless loop
     const scrollContent = scrollContainer.querySelector(".scroll-content") as HTMLElement
     if (!scrollContent) return
 
     let animationId: number
     let currentPosition = 0
-    const containerWidth = scrollContent.scrollWidth / 2 // Half because we duplicate content
+    const containerWidth = scrollContent.scrollWidth / 2
 
     const animate = () => {
       if (direction === "left") {
-        currentPosition -= speed / 60 // 60fps
+        currentPosition -= speed / 60
         if (currentPosition <= -containerWidth) {
           currentPosition = 0
         }
@@ -64,7 +63,6 @@ export default function ScrollingLogoStrip({
     }
   }, [speed, direction])
 
-  // Handle pause on hover
   const handleMouseEnter = () => {
     if (pauseOnHover && scrollRef.current) {
       const scrollContent = scrollRef.current.querySelector(".scroll-content") as HTMLElement
@@ -83,31 +81,34 @@ export default function ScrollingLogoStrip({
     }
   }
 
+  // Function to get special sizing for logos that need visual weight adjustment
+  const getLogoHeight = (logoAlt: string) => {
+    // Wide logos that need slightly more height for visual balance
+    const wideLogos = ["Meta", "Amazon", "Stripe", "Workiva", "Zipline"]
+    return wideLogos.includes(logoAlt) ? 42 : 35
+  }
+
   return (
     <div
       ref={scrollRef}
-      className="w-full overflow-hidden bg-white py-8"
+      className="w-full overflow-hidden bg-white py-10"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="scroll-content flex items-center space-x-12 md:space-x-16 lg:space-x-20">
+      <div className="scroll-content flex items-center" style={{ gap: "4rem" }}>
         {/* First set of logos */}
         {logos.map((logo, index) => (
           <div
             key={`first-${index}`}
-            className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:opacity-100 opacity-60 group cursor-pointer"
-            style={{
-              width: "140px",
-              height: "60px",
-              minWidth: "140px",
-            }}
+            className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:opacity-100 opacity-70 group cursor-pointer"
+            style={{ width: "120px", minWidth: "120px" }}
           >
             <Image
               src={logo.src || "/placeholder.svg"}
               alt={logo.alt}
-              width={140}
-              height={60}
-              className={`object-contain w-full h-full group-hover:opacity-100 transition-opacity duration-300 ${logo.className || ""}`}
+              width={120}
+              height={getLogoHeight(logo.alt)}
+              className="object-contain w-auto grayscale group-hover:grayscale-0 transition-all duration-300 hover:scale-105"
               loading="lazy"
             />
           </div>
@@ -116,19 +117,15 @@ export default function ScrollingLogoStrip({
         {logos.map((logo, index) => (
           <div
             key={`second-${index}`}
-            className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:opacity-100 opacity-60 group cursor-pointer"
-            style={{
-              width: "140px",
-              height: "60px",
-              minWidth: "140px",
-            }}
+            className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:opacity-100 opacity-70 group cursor-pointer"
+            style={{ width: "120px", minWidth: "120px" }}
           >
             <Image
               src={logo.src || "/placeholder.svg"}
               alt={logo.alt}
-              width={140}
-              height={60}
-              className={`object-contain w-full h-full group-hover:opacity-100 transition-opacity duration-300 ${logo.className || ""}`}
+              width={120}
+              height={getLogoHeight(logo.alt)}
+              className="object-contain w-auto grayscale group-hover:grayscale-0 transition-all duration-300 hover:scale-105"
               loading="lazy"
             />
           </div>
