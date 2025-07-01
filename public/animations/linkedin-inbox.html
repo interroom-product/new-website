@@ -22,9 +22,9 @@
         overflow: hidden;
       }
       .inbox-container {
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
         width: 100%;
         max-width: 480px;
         overflow: hidden;
@@ -82,6 +82,7 @@
         position: relative;
         transform: translateX(100%);
         opacity: 0;
+        background: white;
       }
       .message.show {
         animation: slideIn 0.6s ease-out forwards;
