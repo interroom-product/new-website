@@ -47,7 +47,9 @@ export default function Hero() {
               </div>
               <span className="text-slate-800 font-semibold text-lg">5.0</span>
               <span className="text-slate-600 font-medium">•</span>
-              <span className="text-slate-600 font-medium">200+ Reviews</span>
+              <span className="text-slate-600 font-medium">
+                Our clients get hired 3x faster than the industry average.
+              </span>
             </div>
           </div>
         </div>

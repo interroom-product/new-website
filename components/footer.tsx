@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { Instagram, Linkedin, Youtube } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -19,20 +19,16 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
+                <Youtube className="h-5 w-5" />
+                <span className="sr-only">TikTok</span>
               </Link>
             </div>
           </div>
@@ -41,28 +37,13 @@ export default function Footer() {
             <h3 className="font-medium mb-4">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
                 <Link href="/coaches" className="text-slate-600 hover:text-violet-600 transition-colors">
                   Coaches
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
                   Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
-                  Contact
                 </Link>
               </li>
             </ul>

@@ -40,13 +40,15 @@ export default function ScrollingLogoStrip({
     const animate = () => {
       if (direction === "left") {
         currentPosition -= speed / 60
+        // Use modulo for seamless looping
         if (currentPosition <= -containerWidth) {
-          currentPosition = 0
+          currentPosition = currentPosition % containerWidth
         }
       } else {
         currentPosition += speed / 60
+        // Use modulo for seamless looping
         if (currentPosition >= containerWidth) {
-          currentPosition = 0
+          currentPosition = currentPosition % containerWidth
         }
       }
 
