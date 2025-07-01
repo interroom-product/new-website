@@ -10,40 +10,40 @@ const testimonials = [
     name: "Jared Malakouti",
     role: "Senior Product Manager",
     company: "Intercom",
-    image: "/placeholder.svg?height=128&width=128&text=Jared",
+    image: "/images/testimonials/jared.jpeg",
     logo: "/images/logos/intercom-logo.svg",
     content:
-      "The team at Interroom helped me land my dream job at Intercom. Their personalized approach and industry expertise made all the difference in my job search.",
+      "I was skeptical at first, especially since I was only looking for specific Climate Tech roles. I took a shot since they don't get paid until you do, and after 6 weeks, I landed the exact role I'd been looking for. My only regret is not starting sooner. Highly recommend!",
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    role: "Software Engineer",
+    name: "Gabriela Tylenda",
+    role: "Visual Designer",
     company: "Meta",
-    image: "/placeholder.svg?height=128&width=128&text=Sarah",
+    image: "/images/testimonials/gabriela.jpeg",
     logo: "/images/logos/meta-logo.svg",
     content:
-      "I was struggling to get interviews at top tech companies. Interroom's resume optimization and interview coaching helped me secure multiple offers, including one at Meta.",
+      "After searching for over a year, InterRoom helped me land a new role in just 3.5 weeks! They showed me how much I was underselling myself, and with their support, I nailed the second interview and got the offer. A huge shoutout to the team!",
   },
   {
     id: 3,
-    name: "Michael Rodriguez",
-    role: "Data Scientist",
+    name: "Sarah Tashakorina",
+    role: "Director of Product",
     company: "Lucid",
-    image: "/placeholder.svg?height=128&width=128&text=Michael",
+    image: "/images/testimonials/sara.jpeg",
     logo: "/images/logos/lucid-logo.svg",
     content:
-      "The job application automation service saved me countless hours. I was able to apply to 100+ positions while focusing on interview preparation. Highly recommend!",
+      "InterRoom was instrumental in a tough market. Their expertise in startups and data helped me focus my search and refine my resume. With their real-time coaching, my interview rate tripled, leading to a fully remote Director role in just 3.5 months! Their support was invaluable!",
   },
   {
     id: 4,
-    name: "Leila Patel",
-    role: "Product Marketing Manager",
+    name: "Leila Bremner",
+    role: "Senior Strategic Operations Manager",
     company: "Uber",
-    image: "/placeholder.svg?height=128&width=128&text=Leila",
+    image: "/images/testimonials/leila.jpeg",
     logo: "/images/logos/uber-logo.svg",
     content:
-      "Interroom's coaching helped me transition from a startup to Uber. Their insights into big tech culture and interview processes were invaluable.",
+      "I landed the job that was top of my list within 6 weeks with InterRoom! After searching for 7 months on my own, they helped me negotiate a $20k increase to my overall comp. I plan to use them for regular career coaching in the future.",
   },
 ]
 
@@ -99,37 +99,21 @@ export default function Testimonials() {
                   <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-white/50 p-8 md:p-12 mx-4">
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                       <div className="relative flex-shrink-0">
-                        <div className="relative">
+                        <Image
+                          src={testimonial.image || "/placeholder.svg"}
+                          alt={testimonial.name}
+                          width={128}
+                          height={128}
+                          className="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg"
+                        />
+                        <div className="absolute -bottom-2 -right-2 h-16 w-16 rounded-full bg-white shadow-lg border-2 border-white/80 flex items-center justify-center overflow-hidden">
                           <Image
-                            src={testimonial.image || "/placeholder.svg"}
-                            alt={testimonial.name}
-                            width={128}
-                            height={128}
-                            className="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg"
+                            src={testimonial.logo || "/placeholder.svg"}
+                            alt={`${testimonial.company} logo`}
+                            width={56}
+                            height={56}
+                            className="object-contain w-14 h-14 transition-transform duration-300"
                           />
-                          <div className="absolute -bottom-2 -right-2 h-16 w-16 rounded-full bg-white shadow-lg border-2 border-white/80 flex items-center justify-center">
-                            <div
-                              className={cn(
-                                "w-full h-full flex items-center justify-center",
-                                testimonial.company === "Intercom" && "w-full h-full",
-                                testimonial.company === "Uber" && "w-full h-full",
-                              )}
-                            >
-                              <Image
-                                src={testimonial.logo || "/placeholder.svg"}
-                                alt={`${testimonial.company} logo`}
-                                width={40}
-                                height={40}
-                                className={cn(
-                                  "object-contain",
-                                  testimonial.company === "Meta" && "w-full h-full p-2",
-                                  testimonial.company === "Lucid" && "w-full h-full p-2",
-                                  testimonial.company === "Intercom" && "w-full h-full",
-                                  testimonial.company === "Uber" && "w-full h-full",
-                                )}
-                              />
-                            </div>
-                          </div>
                         </div>
                       </div>
 

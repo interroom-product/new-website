@@ -135,6 +135,8 @@ export default function SurveyResults() {
 
   if (!details) return null
 
+  const isBundle = recommendation.type === "bundle"
+
   return (
     <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-violet-50 to-white min-h-screen">
       <div className="container mx-auto max-w-3xl">
@@ -177,7 +179,7 @@ export default function SurveyResults() {
                   <p className="text-sm text-slate-600">Pricing</p>
                   <p className="text-lg font-medium">{details.price}</p>
                 </div>
-                {recommendation.type === "bundle" && (
+                {isBundle && (
                   <div className="text-right">
                     <p className="text-sm text-slate-600">Success Rate</p>
                     <p className="text-lg font-medium text-violet-600">90% within 2 months</p>
@@ -185,23 +187,45 @@ export default function SurveyResults() {
                 )}
               </div>
 
-              {recommendation.type === "bundle" ? (
+              {/* Layout A: Bundle Package */}
+              {isBundle ? (
+                <div className="space-y-4">
+                  {/* Primary CTA - Calendly Link */}
+                  <a
+                    href="https://calendly.com/ash-rjc/intro-call-with-interroom"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full"
+                  >
+                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700 text-white">
+                      {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+
+                  {/* Secondary CTA - Direct Google Form Link */}
+                  <div className="text-center">
+                    <a
+                      href="https://forms.gle/LN5ufYhqQVRpA2RC9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-violet-600 hover:text-violet-700 underline text-sm font-medium transition-colors duration-200"
+                    >
+                      Or, apply directly
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                /* Layout B: A La Carte Services */
                 <a
-                  href="https://calendly.com/ash-rjc/intro-call-with-interroom"
+                  href="https://forms.gle/LN5ufYhqQVRpA2RC9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full"
+                  className="block w-full"
                 >
-                  <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
+                  <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700 text-white">
                     {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
-              ) : (
-                <Link href="/services" className="w-full">
-                  <Button size="lg" className="w-full bg-slate-900 hover:bg-slate-800">
-                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
               )}
             </div>
 
@@ -223,7 +247,7 @@ export default function SurveyResults() {
           </CardContent>
         </Card>
 
-        {recommendation.type === "bundle" && (
+        {isBundle && (
           <div className="mt-8 text-center">
             <Card className="bg-violet-50 border-violet-200">
               <CardContent className="pt-6">

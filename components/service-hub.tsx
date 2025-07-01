@@ -114,11 +114,11 @@ export default function ServiceHub() {
                 <CardHeader className="pb-4 flex-grow">
                   <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
                   <CardDescription className="text-slate-600 mt-2">
-                    Resume Rewrite + Autopilot Job Applications
+                    Job Outsourcing + Resume Rewrite & Linkedin Optimization
                   </CardDescription>
                   <div className="mt-4">
                     <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                      One-Time Fee
+                      Pay as you go
                     </Badge>
                   </div>
                 </CardHeader>
