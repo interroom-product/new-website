@@ -98,8 +98,7 @@ export default function OfferingsHub() {
                   <CardHeader className="pb-4">
                     <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
                     <CardDescription className="text-slate-600 mt-2">
-                      Resume Rewrite + Autopilot Job Applications with a simple one-time fee model—no commitments, just
-                      results.
+                      Job Outsourcing + Resume Write + Linkedin Optimization
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -134,8 +133,9 @@ export default function OfferingsHub() {
                   <CardHeader className="pb-4">
                     <CardTitle className="text-2xl">Full Support Package</CardTitle>
                     <CardDescription className="text-slate-600 mt-2">
-                      Job Outsourcing + Resume Rewrite + Elite Coaching. This option is success-based, meaning we only
-                      get paid when you land the right role at the right salary. Your success is our success.
+                      Job Outsourcing + Resume Rewrite & Linkedin Optimization + Career Coaching. This option is
+                      success-based, meaning we only get paid when you land the right role at the right salary. Your
+                      success is our success.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

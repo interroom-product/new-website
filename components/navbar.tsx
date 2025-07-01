@@ -51,8 +51,8 @@ export default function Navbar() {
           >
             Coaches
           </Link>
-          <Link href="#" className="text-sm font-medium text-slate-700 hover:text-violet-600 transition-colors">
-            FAQ
+          <Link href="/blog" className="text-sm font-medium text-slate-700 hover:text-violet-600 transition-colors">
+            Blog
           </Link>
         </nav>
 
@@ -77,8 +77,8 @@ export default function Navbar() {
               >
                 Coaches
               </Link>
-              <Link href="#" className="text-lg font-medium">
-                FAQ
+              <Link href="/blog" className="text-lg font-medium">
+                Blog
               </Link>
             </div>
           </SheetContent>
