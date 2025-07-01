@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,7 +18,6 @@ interface Recommendation {
 export default function SurveyResults() {
   const [recommendation, setRecommendation] = useState<Recommendation | null>(null)
   const [loading, setLoading] = useState(true)
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const storedRecommendation = localStorage.getItem("recommendation")
@@ -139,6 +140,34 @@ export default function SurveyResults() {
 
   const isBundle = recommendation.type === "bundle"
 
+  // Google Form Modal Component
+  const GoogleFormModal = ({ children }: { children: React.ReactNode }) => (
+    <Dialog>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent className="max-w-5xl w-[95vw] max-h-[95vh] h-[90vh] p-0 overflow-hidden">
+        <DialogHeader className="p-6 pb-4 border-b">
+          <DialogTitle className="text-xl font-semibold">Apply for Our Services</DialogTitle>
+        </DialogHeader>
+        <div className="flex-1 p-6 pt-0 overflow-hidden">
+          <div className="w-full h-full rounded-lg overflow-hidden border">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              className="w-full h-full"
+              title="Application Form"
+            >
+              Loading…
+            </iframe>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+
   return (
     <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-violet-50 to-white min-h-screen">
       <div className="container mx-auto max-w-3xl">
@@ -191,73 +220,35 @@ export default function SurveyResults() {
 
               {/* Layout A: Bundle Package */}
               {isBundle ? (
-                <div className="space-y-3">
+                <div className="space-y-4">
+                  {/* Primary CTA - Calendly Link */}
                   <a
                     href="https://calendly.com/ash-rjc/intro-call-with-interroom"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full"
+                    className="block w-full"
                   >
-                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
+                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700 text-white">
                       {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
 
+                  {/* Secondary CTA - Apply Directly Link */}
                   <div className="text-center">
-                    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-                      <DialogTrigger asChild>
-                        <button className="text-violet-600 hover:text-violet-700 underline text-sm">
-                          Or, apply directly
-                        </button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl max-h-[90vh] p-0">
-                        <DialogHeader className="p-6 pb-0">
-                          <DialogTitle>Apply for Our Services</DialogTitle>
-                        </DialogHeader>
-                        <div className="px-6 pb-6 h-[70vh]">
-                          <iframe
-                            src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
-                            width="100%"
-                            height="100%"
-                            frameBorder="0"
-                            marginHeight={0}
-                            marginWidth={0}
-                            className="rounded-lg"
-                          >
-                            Loading…
-                          </iframe>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                    <GoogleFormModal>
+                      <button className="text-violet-600 hover:text-violet-700 underline text-sm font-medium transition-colors duration-200">
+                        Or, apply directly
+                      </button>
+                    </GoogleFormModal>
                   </div>
                 </div>
               ) : (
                 /* Layout B: A La Carte Services */
-                <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-                  <DialogTrigger asChild>
-                    <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700">
-                      {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl max-h-[90vh] p-0">
-                    <DialogHeader className="p-6 pb-0">
-                      <DialogTitle>Apply for Our Services</DialogTitle>
-                    </DialogHeader>
-                    <div className="px-6 pb-6 h-[70vh]">
-                      <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
-                        width="100%"
-                        height="100%"
-                        frameBorder="0"
-                        marginHeight={0}
-                        marginWidth={0}
-                        className="rounded-lg"
-                      >
-                        Loading…
-                      </iframe>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <GoogleFormModal>
+                  <Button size="lg" className="w-full bg-violet-600 hover:bg-violet-700 text-white">
+                    {details.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </GoogleFormModal>
               )}
             </div>
 
