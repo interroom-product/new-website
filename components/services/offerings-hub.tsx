@@ -66,18 +66,116 @@ export default function OfferingsHub() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4">Choose Your Path to Success</h2>
+            <h2 className="text-3xl md:text-4xl font-medium mb-4">Find the Right Support For You</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Whether you're looking for personalized coaching or comprehensive done-for-you services, we have the
-              perfect solution for your career goals.
+              Choose from comprehensive packages or individual services designed to accelerate your career trajectory.
             </p>
           </div>
 
-          <Tabs defaultValue="individual" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-12">
-              <TabsTrigger value="individual">Individual Services</TabsTrigger>
-              <TabsTrigger value="packages">Service Packages</TabsTrigger>
+          <Tabs defaultValue="packages" className="max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-2 mb-12 bg-white border border-slate-200">
+              <TabsTrigger
+                value="packages"
+                className="data-[state=active]:bg-violet-600 data-[state=active]:text-white"
+              >
+                Bundled Packages
+              </TabsTrigger>
+              <TabsTrigger
+                value="individual"
+                className="data-[state=active]:bg-violet-600 data-[state=active]:text-white"
+              >
+                Individual Services
+              </TabsTrigger>
             </TabsList>
+
+            <TabsContent value="packages">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {/* Accelerator Bundle */}
+                <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative">
+                  <div className="absolute top-0 left-0 bg-green-600 text-white text-xs font-medium px-3 py-1 rounded-br-lg rounded-tl-lg">
+                    Pay as you go
+                  </div>
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
+                    <CardDescription className="text-slate-600 mt-2">
+                      Resume Rewrite + Autopilot Job Applications with a simple one-time fee model—no commitments, just
+                      results.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3 mb-6">
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <Check className="h-4 w-4 text-violet-600" />
+                        </div>
+                        <span>Signal-boosting resume & LinkedIn optimization</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <Check className="h-4 w-4 text-violet-600" />
+                        </div>
+                        <span>Automated job application system</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <Check className="h-4 w-4 text-violet-600" />
+                        </div>
+                        <span>Weekly progress reports</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Full Support Package */}
+                <Card className="border border-violet-200 bg-gradient-to-br from-violet-50 to-white shadow-sm hover:shadow-md transition-shadow relative">
+                  <div className="absolute top-0 right-0 bg-violet-600 text-white text-xs font-medium px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                    RECOMMENDED
+                  </div>
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-2xl">Full Support Package</CardTitle>
+                    <CardDescription className="text-slate-600 mt-2">
+                      Job Outsourcing + Resume Rewrite + Elite Coaching. This option is success-based, meaning we only
+                      get paid when you land the right role at the right salary. Your success is our success.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3 mb-6">
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <Check className="h-4 w-4 text-violet-600" />
+                        </div>
+                        <span>All features from basic package</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <Check className="h-4 w-4 text-violet-600" />
+                        </div>
+                        <span>Dedicated interview coach</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <Check className="h-4 w-4 text-violet-600" />
+                        </div>
+                        <span>Success-based payment model</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Unified CTA Section for Packages */}
+              <div className="text-center mt-12">
+                <p className="text-slate-600 mb-6 text-lg">Ready to find out which package is right for you?</p>
+                <Link href="/survey">
+                  <Button size="lg" className="bg-violet-600 hover:bg-violet-700 px-8">
+                    Take Our Quick Assessment <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <p className="text-sm text-slate-500 mt-3">
+                  Complete our 2-minute survey to get a personalized recommendation
+                </p>
+              </div>
+            </TabsContent>
 
             <TabsContent value="individual">
               <div className="space-y-16">
@@ -98,22 +196,31 @@ export default function OfferingsHub() {
                       Do you really want to spend hours on job applications every week? Let us handle the search while
                       you focus on something more productive—or just more fun. Track progress via your client portal.
                     </p>
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-4">
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Personalized job search based on your criteria</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">1</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Targeted job search</span> based on your preferences and skills
+                        </div>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Professional application submission to 50+ companies</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">2</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Application submission</span> to both listed and unlisted roles
+                        </div>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Real-time tracking dashboard</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Weekly progress reports</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">3</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Weekly updates</span> on application status and new
+                          opportunities
+                        </div>
                       </li>
                     </ul>
                     <Button
@@ -127,28 +234,46 @@ export default function OfferingsHub() {
 
                 {/* Resume Rewrite */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="order-2 md:order-1">
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=400&width=600"
+                      alt="Person writing on paper"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div>
                     <h3 className="text-2xl font-medium mb-4">Make your profile impossible to ignore</h3>
                     <p className="text-slate-600 mb-6">
                       AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
                       resume, beat the bots, and grab recruiters' attention.
                     </p>
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-4">
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>ATS-optimized resume that passes screening systems</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">1</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">ATS optimization</span> to ensure your resume passes automated
+                          filters
+                        </div>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Professional LinkedIn profile optimization</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">2</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Achievement-focused content</span> that highlights your impact
+                        </div>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Industry-specific keyword optimization</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Cover letter template creation</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">3</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">LinkedIn profile enhancement</span> to attract recruiters
+                        </div>
                       </li>
                     </ul>
                     <Button
@@ -157,15 +282,6 @@ export default function OfferingsHub() {
                     >
                       Purchase This Service
                     </Button>
-                  </div>
-                  <div className="order-1 md:order-2 rounded-xl overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="Person writing on paper"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
-                    />
                   </div>
                 </div>
 
@@ -186,22 +302,30 @@ export default function OfferingsHub() {
                       The right prep changes everything. With a dedicated team in your corner, we tailor coaching to
                       your needs so you can land the best offer possible.
                     </p>
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-4">
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>1-on-1 coaching with industry experts</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">1</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Mock interviews</span> with industry-specific questions
+                        </div>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Mock interviews with real-time feedback</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">2</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Weekly check-ins</span> to track progress and adjust strategy
+                        </div>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Company-specific interview preparation</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Salary negotiation strategies</span>
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">3</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Salary negotiation support</span> to maximize your compensation
+                        </div>
                       </li>
                     </ul>
                     <Button
@@ -212,109 +336,6 @@ export default function OfferingsHub() {
                     </Button>
                   </div>
                 </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="packages">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Starter Package */}
-                <Card className="relative">
-                  <CardHeader>
-                    <CardTitle className="text-xl">Starter Package</CardTitle>
-                    <CardDescription>Perfect for getting started with your job search</CardDescription>
-                    <div className="text-3xl font-bold">$299</div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Resume optimization</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>LinkedIn profile update</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>1 mock interview session</span>
-                      </li>
-                    </ul>
-                    <Button onClick={openModal} className="w-full bg-violet-500 text-white hover:bg-violet-600">
-                      Get Started
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Professional Package */}
-                <Card className="relative border-violet-200 shadow-lg">
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-violet-600 text-white px-4 py-1 rounded-full text-sm">Most Popular</span>
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-xl">Professional Package</CardTitle>
-                    <CardDescription>Comprehensive support for serious job seekers</CardDescription>
-                    <div className="text-3xl font-bold">$799</div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Everything in Starter</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>25 job applications</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>3 interview coaching sessions</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Weekly progress reports</span>
-                      </li>
-                    </ul>
-                    <Button onClick={openModal} className="w-full bg-violet-600 text-white hover:bg-violet-700">
-                      Choose Professional
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Executive Package */}
-                <Card className="relative">
-                  <CardHeader>
-                    <CardTitle className="text-xl">Executive Package</CardTitle>
-                    <CardDescription>Premium service for executive-level positions</CardDescription>
-                    <div className="text-3xl font-bold">$1,499</div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Everything in Professional</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>50 job applications</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Unlimited coaching sessions</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Salary negotiation support</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>Executive search consultation</span>
-                      </li>
-                    </ul>
-                    <Button onClick={openModal} className="w-full bg-violet-500 text-white hover:bg-violet-600">
-                      Go Executive
-                    </Button>
-                  </CardContent>
-                </Card>
               </div>
             </TabsContent>
           </Tabs>
