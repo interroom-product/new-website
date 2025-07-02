@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -27,11 +28,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="h-9 w-9 rounded bg-violet-600 flex items-center justify-center text-white font-medium">
-            ir.
-          </div>
-          <span className="text-xl font-medium">InterRoom</span>
+        <Link href="/" className="flex items-center">
+          <Image src="/images/interroom-logo.png" alt="InterRoom" width={120} height={36} className="h-9 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
@@ -51,7 +49,12 @@ export default function Navbar() {
           >
             Coaches
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-slate-700 hover:text-violet-600 transition-colors">
+          <Link
+            href="/blog"
+            className={`text-sm font-medium ${
+              pathname.startsWith("/blog") ? "text-violet-600" : "text-slate-700 hover:text-violet-600"
+            } transition-colors`}
+          >
             Blog
           </Link>
         </nav>
@@ -77,7 +80,10 @@ export default function Navbar() {
               >
                 Coaches
               </Link>
-              <Link href="/blog" className="text-lg font-medium">
+              <Link
+                href="/blog"
+                className={`text-lg font-medium ${pathname.startsWith("/blog") ? "text-violet-600" : ""}`}
+              >
                 Blog
               </Link>
             </div>
