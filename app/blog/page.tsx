@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
+import Image from "next/image"
 
 const blogPosts = [
   {
@@ -8,24 +9,28 @@ const blogPosts = [
     slug: "/blog/why-are-you-leaving-your-current-job",
     excerpt:
       "Learn how to answer this crucial interview question with confidence, focusing on positive framing and future opportunities.",
+    image: "/images/blog/why-are-you-leaving-your-current-job.avif",
   },
   {
     title: 'How to Answer "What Are Your Salary Expectations?" with Confidence',
     slug: "/blog/how-to-answer-salary-expectations",
     excerpt:
       "Master the art of salary negotiation with research-backed strategies and practical examples for confident responses.",
+    image: "/images/blog/salary-expectations.avif",
   },
   {
     title: 'How to Answer "Why Do You Want to Work Here?"',
     slug: "/blog/how-to-answer-why-do-you-want-to-work-here",
     excerpt:
       "Demonstrate genuine interest and thorough research with a compelling answer that connects your goals to the company's mission.",
+    image: "/images/blog/why-work-here.avif",
   },
   {
     title: 'How to Answer "Tell Me About Yourself" in an Interview',
     slug: "/blog/how-to-answer-tell-me-about-yourself",
     excerpt:
       "Make a strong first impression with a structured, compelling elevator pitch that highlights your relevant experience and skills.",
+    image: "/images/blog/tell-me-about-yourself.avif",
   },
 ]
 
@@ -44,7 +49,16 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {blogPosts.map((post, index) => (
             <Link key={index} href={post.slug} className="group">
-              <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer border-0 shadow-md">
+              <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer border-0 shadow-md overflow-hidden">
+                <div className="aspect-video overflow-hidden">
+                  <Image
+                    src={post.image || "/placeholder.svg"}
+                    alt={post.title}
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader className="pb-4">
                   <CardTitle className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 leading-tight">
                     {post.title}
