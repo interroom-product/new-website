@@ -29,7 +29,13 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link href="/" className="flex items-center">
-          <Image src="/images/interroom-logo.png" alt="InterRoom" width={120} height={36} className="h-9 w-auto" />
+          <Image
+            src="/images/interroom-logo.png"
+            alt="InterRoom"
+            width={160}
+            height={48}
+            className="h-12 w-auto md:h-14 md:w-auto"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
@@ -67,7 +73,17 @@ export default function Navbar() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
-            <div className="flex flex-col space-y-6 mt-10">
+            <div className="flex flex-col items-center space-y-6 mt-6">
+              {/* Centered logo in mobile navigation */}
+              <Link href="/" className="flex items-center mb-4">
+                <Image
+                  src="/images/interroom-logo.png"
+                  alt="InterRoom"
+                  width={180}
+                  height={54}
+                  className="h-16 w-auto"
+                />
+              </Link>
               <Link
                 href="/services"
                 className={`text-lg font-medium ${pathname === "/services" ? "text-violet-600" : ""}`}
