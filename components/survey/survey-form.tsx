@@ -100,7 +100,7 @@ export default function SurveyForm() {
       }
     }
 
-    return { type: "bundle", title: "Full-Service Bundle Package" }
+    return { type: "bundle", title: "Full-Service Package" }
   }
 
   const updateSurveyData = (field: keyof SurveyData, value: string | string[]) => {

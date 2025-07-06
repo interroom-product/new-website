@@ -147,7 +147,7 @@ export default function ServiceHub() {
                   RECOMMENDED
                 </div>
                 <CardHeader className="pb-4 flex-grow">
-                  <CardTitle className="text-2xl">Full Support Package</CardTitle>
+                  <CardTitle className="text-2xl">Full-Service Package</CardTitle>
                   <div className="mt-4">
                     <Badge variant="outline" className="bg-violet-50 text-violet-700 border-violet-200">
                       Success-Based Model

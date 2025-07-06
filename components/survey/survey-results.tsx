@@ -103,7 +103,7 @@ export default function SurveyResults() {
     switch (type) {
       case "bundle":
         return {
-          title: "Full-Service Bundle Package",
+          title: "Full-Service Package",
           description: "You're a strong fit for our comprehensive, full-service package!",
           features: [
             "End-to-end job search management",
@@ -233,12 +233,6 @@ export default function SurveyResults() {
                     <p className="text-sm text-slate-600">Pricing</p>
                     <p className="text-lg font-medium">{details.price}</p>
                   </div>
-                  {isBundle && (
-                    <div className="text-right">
-                      <p className="text-sm text-slate-600">Success Rate</p>
-                      <p className="text-lg font-medium text-violet-600">90% within 2 months</p>
-                    </div>
-                  )}
                 </div>
 
                 {/* Layout A: Bundle Package */}
@@ -256,17 +250,7 @@ export default function SurveyResults() {
                       </Button>
                     </a>
 
-                    {/* Secondary CTA - Direct Google Form Link */}
-                    <div className="text-center">
-                      <a
-                        href="https://forms.gle/LN5ufYhqQVRpA2RC9"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-violet-600 hover:text-violet-700 underline text-sm font-medium transition-colors duration-200"
-                      >
-                        Or, apply directly
-                      </a>
-                    </div>
+                    {/* Removed "Or, apply directly" link */}
                   </div>
                 ) : (
                   /* Layout B: A La Carte Services */
@@ -293,7 +277,7 @@ export default function SurveyResults() {
                 {/* Primary CTA - Create Custom Plan */}
                 <div className="mb-4">
                   <Button onClick={openModal} size="lg" className="bg-violet-600 hover:bg-violet-700 text-white px-8">
-                    Create My Custom Plan <ArrowRight className="ml-2 h-4 w-4" />
+                    Select Another Service <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
 
