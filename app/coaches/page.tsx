@@ -1,4 +1,3 @@
-import type { Metadata } from "next"
 import CoachesHero from "@/components/coaches/coaches-hero"
 import CoachesGrid from "@/components/coaches/coaches-grid"
 import CoachingProcess from "@/components/coaches/coaching-process"
@@ -6,10 +5,6 @@ import CoachingBenefits from "@/components/coaches/coaching-benefits"
 import CallToAction from "@/components/coaches/call-to-action"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
-
-export const metadata: Metadata = {
-  title: "Coaches",
-}
 
 export default function CoachesPage() {
   return (

@@ -55,7 +55,7 @@ export default function ServicePackages() {
               RECOMMENDED
             </div>
             <CardHeader className="pb-4">
-              <CardTitle className="text-2xl">Full Support Package</CardTitle>
+              <CardTitle className="text-2xl">Full-Service Package</CardTitle>
               <CardDescription className="text-slate-600 mt-2">
                 Job Outsourcing + Resume Rewrite + Elite Coaching. This option is success-based, meaning we only get
                 paid when you land the right role at the right salary. Your success is our success.

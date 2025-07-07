@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkedIn Inbox Animation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          sans-serif;
+        background: transparent;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        overflow: hidden;
+      }
+      .inbox-container {
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+        max-width: 480px;
+        overflow: hidden;
+        position: relative;
+      }
+      .inbox-header {
+        background: #0a66c2;
+        color: white;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .linkedin-icon {
+        width: 28px;
+        height: 28px;
+        background: white;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #0a66c2;
+        font-size: 16px;
+      }
+      .inbox-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .message-count {
+        background: #ff4757;
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        margin-left: auto;
+        transform: scale(0);
+        animation: popIn 0.3s ease-out 2s forwards;
+      }
+      .messages-container {
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+      }
+      .message {
+        display: flex;
+        align-items: center;
+        padding: 16px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        position: relative;
+        transform: translateX(100%);
+        opacity: 0;
+        background: white;
+      }
+      .message.show {
+        animation: slideIn 0.6s ease-out forwards;
+      }
+      .message:hover {
+        background: #f8f9fa;
+      }
+      .company-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+        margin-right: 12px;
+        flex-shrink: 0;
+      }
+      .message-content {
+        flex: 1;
+        min-width: 0;
+      }
+      .message-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .sender-name {
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+      }
+      .company-name {
+        color: #666;
+        font-size: 12px;
+      }
+      .message-preview {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .message-time {
+        color: #999;
+        font-size: 11px;
+        margin-top: 2px;
+      }
+      .unread-dot {
+        width: 8px;
+        height: 8px;
+        background: #0a66c2;
+        border-radius: 50%;
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      @keyframes slideIn {
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes popIn {
+        to {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inbox-container">
+      <div class="inbox-header">
+        <div class="linkedin-icon">in</div>
+        <div class="inbox-title">Messages</div>
+        <div class="message-count" id="messageCount">0</div>
+      </div>
+      <div class="messages-container" id="messagesContainer"></div>
+    </div>
+    <script>
+      const messages = [
+        {
+          logo: '✓',
+          logoColor: '#10b981',
+          sender: 'JobPortal',
+          company: 'Application System',
+          preview:
+            'Thank you for your application. We have received your resume.',
+          time: '2m ago',
+          unread: false,
+        },
+        {
+          logo: 'G',
+          logoColor: '#4285f4',
+          sender: 'Sarah Chen',
+          company: 'Google',
+          preview:
+            "Hi! I came across your profile and I'm impressed by your background...",
+          time: '1h ago',
+          unread: true,
+        },
+        {
+          logo: 'M',
+          logoColor: '#00a1f1',
+          sender: 'Alex Rodriguez',
+          company: 'Microsoft',
+          preview:
+            'We have an exciting opportunity for a Senior Engineer...',
+          time: '2h ago',
+          unread: true,
+        },
+        {
+          logo: 'A',
+          logoColor: '#ff9900',
+          sender: 'Jennifer Kim',
+          company: 'Amazon',
+          preview:
+            'Your experience in cloud technologies caught our attention...',
+          time: '4h ago',
+          unread: true,
+        },
+      ];
+      function createMessageElement(message) {
+        const messageEl = document.createElement('div');
+        messageEl.className = 'message';
+        messageEl.innerHTML = `
+            <div class="company-logo" style="background: ${message.logoColor}">${message.logo}</div>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="sender-name">${message.sender}</span>
+                    <span class="company-name">${message.company}</span>
+                    ${message.unread ? '<div class="unread-dot"></div>' : ''}
+                </div>
+                <div class="message-preview">${message.preview}</div>
+                <div class="message-time">${message.time}</div>
+            </div>
+        `;
+        return messageEl;
+      }
+      function animateMessages() {
+        const container = document.getElementById('messagesContainer');
+        const messageCount = document.getElementById('messageCount');
+        container.innerHTML = '';
+        messageCount.textContent = '0';
+        messageCount.style.transform = 'scale(0)';
+        messages.forEach((message) => {
+          container.appendChild(createMessageElement(message));
+        });
+        const messageElements = container.querySelectorAll('.message');
+        let count = 0;
+        function showNextMessage(index) {
+          if (index >= messageElements.length) return;
+          setTimeout(
+            () => {
+              messageElements[index].classList.add('show');
+              if (index > 0) {
+                count++;
+                messageCount.textContent = count;
+                if (count === 1) {
+                  messageCount.style.animation = 'popIn 0.3s ease-out forwards';
+                }
+              }
+              showNextMessage(index + 1);
+            },
+            index === 0 ? 500 : 1200
+          );
+        }
+        showNextMessage(0);
+      }
+      window.addEventListener('load', () => {
+        setTimeout(animateMessages, 500);
+      });
+    </script>
+  </body>
+</html>

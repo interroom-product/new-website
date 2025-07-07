@@ -1,10 +1,9 @@
-import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
 import LogoStrip from "@/components/logo-strip"
-import ServiceHub from "@/components/service-hub"
+import ServiceHub from "@/components/service-hub" // Correctly import ServiceHub
 import Comparison from "@/components/comparison"
 import Testimonials from "@/components/testimonials"
 import Faq from "@/components/faq"
@@ -13,10 +12,6 @@ import Footer from "@/components/footer"
 import FuturisticCalculator from "@/components/futuristic-calculator"
 import Link from "next/link"
 
-export const metadata: Metadata = {
-  title: "Your All-in-One Job Search Platform",
-}
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
@@ -24,7 +19,7 @@ export default function Home() {
       <Hero />
       <LogoStrip />
       <FuturisticCalculator />
-      <ServiceHub />
+      <ServiceHub /> {/* Use the new ServiceHub component */}
       <Comparison />
       <Coaches />
       <Testimonials />
