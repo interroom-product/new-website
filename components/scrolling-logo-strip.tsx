@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
@@ -26,25 +25,60 @@ export default function ScrollingLogoStrip({
   pauseOnHover = true,
 }: ScrollingLogoStripProps) {
   return (
-    <div className={cn("w-full overflow-hidden", "group", pauseOnHover && "hover:[animation-play-state:paused]")}>
+    <div className="w-full overflow-hidden bg-transparent">
       <div
-        className={cn("flex items-center gap-16 animate-scroll", direction === "right" ? "reverse" : "")}
-        style={{ "--animation-duration": speed } as React.CSSProperties}
+        className={cn(
+          "flex items-center animate-scroll",
+          direction === "right" && "[animation-direction:reverse]",
+          pauseOnHover && "hover:[animation-play-state:paused]",
+        )}
+        style={
+          {
+            "--animation-duration": speed,
+            gap: "4rem",
+            width: "200%",
+          } as React.CSSProperties
+        }
       >
-        {/* Render the logos twice for a seamless loop */}
-        {[...logos, ...logos].map((logo, index) => (
+        {/* First set of logos */}
+        {logos.map((logo, index) => (
           <div
-            key={`${logo.alt}-${index}`}
-            className="flex-shrink-0"
-            style={{ width: `${logo.width || 85}px`, height: `${logo.height || 45}px` }}
-            aria-hidden={index >= logos.length}
+            key={`first-${logo.alt}-${index}`}
+            className="flex-shrink-0 flex items-center justify-center"
+            style={{
+              width: `${logo.width || 85}px`,
+              height: `${logo.height || 45}px`,
+              minWidth: `${logo.width || 85}px`,
+            }}
           >
             <Image
               src={logo.src || "/placeholder.svg"}
               alt={logo.alt}
               width={logo.width || 85}
               height={logo.height || 45}
-              className="object-contain w-full h-full grayscale opacity-70 transition-all duration-300 group-hover:opacity-100 hover:!opacity-100 hover:!grayscale-0 hover:!scale-110"
+              className="object-contain w-full h-full grayscale opacity-70 transition-all duration-300 hover:opacity-100 hover:grayscale-0 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+        ))}
+        {/* Duplicate set for seamless loop */}
+        {logos.map((logo, index) => (
+          <div
+            key={`second-${logo.alt}-${index}`}
+            className="flex-shrink-0 flex items-center justify-center"
+            style={{
+              width: `${logo.width || 85}px`,
+              height: `${logo.height || 45}px`,
+              minWidth: `${logo.width || 85}px`,
+            }}
+          >
+            <Image
+              src={logo.src || "/placeholder.svg"}
+              alt={logo.alt}
+              width={logo.width || 85}
+              height={logo.height || 45}
+              className="object-contain w-full h-full grayscale opacity-70 transition-all duration-300 hover:opacity-100 hover:grayscale-0 hover:scale-110"
+              loading="lazy"
             />
           </div>
         ))}
