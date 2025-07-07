@@ -29,7 +29,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/interroom-logo.png" alt="InterRoom Logo" width={144} height={36} className="h-9 w-auto" />
+          <Image src="/interroom-logo.png" alt="InterRoom Logo" width={180} height={45} className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">

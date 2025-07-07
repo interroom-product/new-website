@@ -16,7 +16,7 @@ const blogPosts = [
     title: "Why Are You Leaving Your Current Job? Best Ways to Respond in an Interview",
     description:
       "Learn how to answer this tricky interview question with confidence and turn it into an opportunity to showcase your professionalism.",
-    image: "/placeholder.svg?height=200&width=400&text=Interview+Question",
+    image: "/images/blog/why-are-you-leaving-your-current-job.avif",
     category: "Interview Tips",
     readTime: "5 min read",
   },
@@ -25,7 +25,7 @@ const blogPosts = [
     title: "How to Answer 'What Are Your Salary Expectations?' with Confidence",
     description:
       "Master the art of salary negotiation by learning how to research, prepare, and respond to salary expectation questions professionally.",
-    image: "/placeholder.svg?height=200&width=400&text=Salary+Negotiation",
+    image: "/images/blog/salary-expectations.avif",
     category: "Salary & Benefits",
     readTime: "6 min read",
   },
@@ -34,7 +34,7 @@ const blogPosts = [
     title: "How to Answer 'Why Do You Want to Work Here?'",
     description:
       "Discover how to research companies effectively and craft compelling answers that demonstrate genuine interest and cultural fit.",
-    image: "/placeholder.svg?height=200&width=400&text=Company+Research",
+    image: "/images/blog/why-work-here.avif",
     category: "Interview Tips",
     readTime: "4 min read",
   },
@@ -43,7 +43,7 @@ const blogPosts = [
     title: "How to Answer 'Tell Me About Yourself' in an Interview",
     description:
       "Master the most common interview question with proven frameworks and strategies to make a strong first impression.",
-    image: "/placeholder.svg?height=200&width=400&text=Tell+Me+About+Yourself",
+    image: "/images/blog/tell-me-about-yourself.avif",
     category: "Interview Tips",
     readTime: "5 min read",
   },
