@@ -38,7 +38,7 @@ const companyLogos = [
   },
   {
     name: "Lyft",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lyft_logo.svg/2560px-Lyft_logo.svg.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lyft%20logo-lbQnxnP33spEiFPcSaDZ4ehpKzBque.png",
     alt: "Lyft",
   },
   {
@@ -77,14 +77,19 @@ const companyLogos = [
     alt: "Tesla",
   },
   {
-    name: "Abbott",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Abbott_Logo.svg/2560px-Abbott_Logo.svg.png",
-    alt: "Abbott",
+    name: "Abbott Laboratories",
+    src: "https://blobs.vusercontent.net/blob/Abbott_Laboratories_logo-LNcgdxW2ZpY9iTRYSmvJvNrbmSHPaT.svg",
+    alt: "Abbott Laboratories",
   },
   {
     name: "Intercom",
-    src: "https://blobs.vusercontent.net/blob/intercom-icon-Hr4UpJ0kLtOixZ7ZjfwVJyN8vDdLfm.svg",
+    src: "https://blobs.vusercontent.net/blob/intercom-icon-qLFwBY7VdqGbZNUvsPWR90L8Ezz7GA.svg",
     alt: "Intercom",
+  },
+  {
+    name: "Rippling",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Rippling-ugwX8Fy2gKRZtT1RFalX9zyDHnCnI8.jpeg",
+    alt: "Rippling",
   },
   {
     name: "Capco",

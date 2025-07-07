@@ -22,7 +22,7 @@ interface ScrollingLogoStripProps {
 // Function to get special sizing for logos that need visual weight adjustment
 const getLogoSize = (logoAlt: string) => {
   // Logos that need adjusted sizing for visual consistency
-  const adjustedSizeLogos = ["Microsoft", "Slack"]
+  const adjustedSizeLogos = ["Microsoft", "Slack", "Lyft"]
 
   if (adjustedSizeLogos.includes(logoAlt)) {
     return { width: 75, height: 40 } // Slightly smaller for better visual balance
