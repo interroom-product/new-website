@@ -64,14 +64,13 @@ module.exports = {
           900: "#4c1d95",
           950: "#2e1065",
         },
-        // Custom InterRoom colors
-        "ir-primary": "#7c3aed", // violet-600
-        "ir-accent": "#a78bfa", // violet-400
-        "ir-secondary": "#ddd6fe", // violet-200
-        "ir-neutral-100": "#f8fafc", // slate-50
-        "ir-neutral-200": "#f1f5f9", // slate-100
-        "ir-neutral-700": "#334155", // slate-700
-        "ir-neutral-800": "#1e293b", // slate-800
+        "ir-primary": "#7c3aed",
+        "ir-accent": "#a78bfa",
+        "ir-secondary": "#ddd6fe",
+        "ir-neutral-100": "#f8fafc",
+        "ir-neutral-200": "#f1f5f9",
+        "ir-neutral-700": "#334155",
+        "ir-neutral-800": "#1e293b",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,17 +79,23 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
+        },
+        scroll: {
+          to: {
+            transform: "translateX(calc(-100% - 4rem))", // 4rem is the gap
+          },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        scroll: "scroll var(--animation-duration, 40s) linear infinite var(--animation-play, running)",
       },
     },
   },
