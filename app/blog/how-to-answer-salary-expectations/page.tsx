@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -36,17 +37,17 @@ export default function BlogPost() {
                 How to Answer 'What Are Your Salary Expectations?' with Confidence
               </h1>
               <div className="flex items-center text-gray-600 space-x-4">
-                <span>December 12, 2024</span>
-                <span>•</span>
                 <span>6 min read</span>
               </div>
             </header>
 
             {/* Featured Image */}
             <div className="mb-12">
-              <img
-                src="/placeholder.svg?height=400&width=800&text=Salary+Negotiation"
-                alt="Salary Negotiation"
+              <Image
+                src="/images/blog/salary-expectations.avif"
+                alt="Two men at a desk reviewing a document on a clipboard."
+                width={800}
+                height={400}
                 className="w-full h-64 md:h-96 object-cover rounded-lg"
               />
             </div>

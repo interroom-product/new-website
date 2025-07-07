@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -28,10 +29,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="h-9 w-9 rounded bg-violet-600 flex items-center justify-center text-white font-medium">
-            ir.
-          </div>
-          <span className="text-xl font-medium">InterRoom</span>
+          <Image src="/interroom-logo.png" alt="InterRoom Logo" width={144} height={36} className="h-9 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">

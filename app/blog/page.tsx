@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
+import { Clock, ArrowRight } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
@@ -19,7 +19,6 @@ const blogPosts = [
     image: "/placeholder.svg?height=200&width=400&text=Interview+Question",
     category: "Interview Tips",
     readTime: "5 min read",
-    publishDate: "Dec 15, 2024",
   },
   {
     slug: "how-to-answer-salary-expectations",
@@ -29,7 +28,6 @@ const blogPosts = [
     image: "/placeholder.svg?height=200&width=400&text=Salary+Negotiation",
     category: "Salary & Benefits",
     readTime: "6 min read",
-    publishDate: "Dec 12, 2024",
   },
   {
     slug: "how-to-answer-why-do-you-want-to-work-here",
@@ -39,7 +37,6 @@ const blogPosts = [
     image: "/placeholder.svg?height=200&width=400&text=Company+Research",
     category: "Interview Tips",
     readTime: "4 min read",
-    publishDate: "Dec 10, 2024",
   },
   {
     slug: "how-to-answer-tell-me-about-yourself",
@@ -49,7 +46,6 @@ const blogPosts = [
     image: "/placeholder.svg?height=200&width=400&text=Tell+Me+About+Yourself",
     category: "Interview Tips",
     readTime: "5 min read",
-    publishDate: "Dec 8, 2024",
   },
 ]
 
@@ -86,15 +82,9 @@ export default function BlogPage() {
                     <CardHeader>
                       <div className="flex items-center justify-between mb-2">
                         <Badge variant="secondary">{post.category}</Badge>
-                        <div className="flex items-center text-sm text-gray-500 space-x-4">
-                          <div className="flex items-center space-x-1">
-                            <Calendar className="h-4 w-4" />
-                            <span>{post.publishDate}</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <Clock className="h-4 w-4" />
-                            <span>{post.readTime}</span>
-                          </div>
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Clock className="h-4 w-4 mr-1" />
+                          <span>{post.readTime}</span>
                         </div>
                       </div>
                       <CardTitle className="text-xl group-hover:text-violet-600 transition-colors">

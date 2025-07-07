@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -36,17 +37,17 @@ export default function BlogPost() {
                 How to Answer 'Tell Me About Yourself' in an Interview
               </h1>
               <div className="flex items-center text-gray-600 space-x-4">
-                <span>December 8, 2024</span>
-                <span>•</span>
                 <span>5 min read</span>
               </div>
             </header>
 
             {/* Featured Image */}
             <div className="mb-12">
-              <img
-                src="/placeholder.svg?height=400&width=800&text=Tell+Me+About+Yourself"
-                alt="Tell Me About Yourself"
+              <Image
+                src="/images/blog/tell-me-about-yourself.avif"
+                alt="A woman smiles while talking to another person in a well-lit office."
+                width={800}
+                height={400}
                 className="w-full h-64 md:h-96 object-cover rounded-lg"
               />
             </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -36,17 +37,17 @@ export default function BlogPost() {
                 Why Are You Leaving Your Current Job? Best Ways to Respond in an Interview
               </h1>
               <div className="flex items-center text-gray-600 space-x-4">
-                <span>December 15, 2024</span>
-                <span>•</span>
                 <span>5 min read</span>
               </div>
             </header>
 
             {/* Featured Image */}
             <div className="mb-12">
-              <img
-                src="/placeholder.svg?height=400&width=800&text=Interview+Question"
-                alt="Interview Question"
+              <Image
+                src="/images/blog/why-are-you-leaving-your-current-job.avif"
+                alt="A person in a black shirt packs a box with office supplies."
+                width={800}
+                height={400}
                 className="w-full h-64 md:h-96 object-cover rounded-lg"
               />
             </div>
