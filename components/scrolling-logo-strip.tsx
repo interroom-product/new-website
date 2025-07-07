@@ -19,6 +19,18 @@ interface ScrollingLogoStripProps {
   pauseOnHover?: boolean
 }
 
+// Function to get special sizing for logos that need visual weight adjustment
+const getLogoSize = (logoAlt: string) => {
+  // Logos that need adjusted sizing for visual consistency
+  const adjustedSizeLogos = ["Microsoft", "Slack"]
+
+  if (adjustedSizeLogos.includes(logoAlt)) {
+    return { width: 75, height: 40 } // Slightly smaller for better visual balance
+  }
+
+  return { width: 85, height: 45 } // Default size
+}
+
 export default function ScrollingLogoStrip({
   logos,
   speed = "40s",
@@ -38,22 +50,25 @@ export default function ScrollingLogoStrip({
         style={{ "--animation-duration": speed } as React.CSSProperties}
       >
         {/* Render the logos twice for a seamless loop */}
-        {[...logos, ...logos].map((logo, index) => (
-          <div
-            key={`${logo.alt}-${index}`}
-            className="flex-shrink-0"
-            style={{ width: "85px" }}
-            aria-hidden={index >= logos.length}
-          >
-            <Image
-              src={logo.src || "/placeholder.svg"}
-              alt={logo.alt}
-              width={logo.width || 85}
-              height={logo.height || 45}
-              className="object-contain w-auto h-full grayscale opacity-70 transition-all duration-300 group-hover:opacity-100 hover:!opacity-100 hover:grayscale-0 hover:scale-110"
-            />
-          </div>
-        ))}
+        {[...logos, ...logos].map((logo, index) => {
+          const logoSize = getLogoSize(logo.alt)
+          return (
+            <div
+              key={`${logo.alt}-${index}`}
+              className="flex-shrink-0"
+              style={{ width: "85px" }}
+              aria-hidden={index >= logos.length}
+            >
+              <Image
+                src={logo.src || "/placeholder.svg"}
+                alt={logo.alt}
+                width={logoSize.width}
+                height={logoSize.height}
+                className="object-contain w-auto h-full grayscale opacity-70 transition-all duration-300 group-hover:opacity-100 hover:!opacity-100 hover:grayscale-0 hover:scale-110"
+              />
+            </div>
+          )
+        })}
       </div>
     </div>
   )
