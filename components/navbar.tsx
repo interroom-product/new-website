@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -28,14 +27,11 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/images/interroom-logo.png"
-            alt="InterRoom"
-            width={160}
-            height={48}
-            className="h-12 w-auto md:h-14 md:w-auto"
-          />
+        <Link href="/" className="flex items-center space-x-2">
+          <div className="h-9 w-9 rounded bg-violet-600 flex items-center justify-center text-white font-medium">
+            ir.
+          </div>
+          <span className="text-xl font-medium">InterRoom</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
@@ -55,12 +51,7 @@ export default function Navbar() {
           >
             Coaches
           </Link>
-          <Link
-            href="/blog"
-            className={`text-sm font-medium ${
-              pathname.startsWith("/blog") ? "text-violet-600" : "text-slate-700 hover:text-violet-600"
-            } transition-colors`}
-          >
+          <Link href="/blog" className="text-sm font-medium text-slate-700 hover:text-violet-600 transition-colors">
             Blog
           </Link>
         </nav>
@@ -73,17 +64,7 @@ export default function Navbar() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
-            <div className="flex flex-col items-center space-y-6 mt-6">
-              {/* Centered logo in mobile navigation */}
-              <Link href="/" className="flex items-center mb-4">
-                <Image
-                  src="/images/interroom-logo.png"
-                  alt="InterRoom"
-                  width={180}
-                  height={54}
-                  className="h-16 w-auto"
-                />
-              </Link>
+            <div className="flex flex-col space-y-6 mt-10">
               <Link
                 href="/services"
                 className={`text-lg font-medium ${pathname === "/services" ? "text-violet-600" : ""}`}
@@ -96,10 +77,7 @@ export default function Navbar() {
               >
                 Coaches
               </Link>
-              <Link
-                href="/blog"
-                className={`text-lg font-medium ${pathname.startsWith("/blog") ? "text-violet-600" : ""}`}
-              >
+              <Link href="/blog" className="text-lg font-medium">
                 Blog
               </Link>
             </div>

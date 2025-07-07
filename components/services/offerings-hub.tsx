@@ -38,7 +38,7 @@ function PurchaseModal({
             src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
             width="100%"
             height="100%"
-            frameBorder={0}
+            frameBorder="0"
             marginHeight={0}
             marginWidth={0}
           >
@@ -234,22 +234,17 @@ export default function OfferingsHub() {
 
                 {/* Resume Rewrite */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
-                    <iframe
-                      src="/animations/linkedin-inbox.html"
-                      style={{
-                        width: "100%",
-                        height: "510px",
-                        border: "none",
-                        transform: "scale(1.0)",
-                        transformOrigin: "top left",
-                      }}
-                      title="LinkedIn Inbox Animation"
-                      scrolling="no"
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=400&width=600"
+                      alt="Person writing on paper"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-medium mb-4">Resume Rewrite & LinkedIn Optimization</h3>
+                    <h3 className="text-2xl font-medium mb-4">Make your profile impossible to ignore</h3>
                     <p className="text-slate-600 mb-6">
                       AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
                       resume, beat the bots, and grab recruiters' attention.
@@ -292,22 +287,17 @@ export default function OfferingsHub() {
 
                 {/* Interview Coaching */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
-                    <iframe
-                      src="/animations/confidence-meter.html"
-                      style={{
-                        width: "100%",
-                        height: "450px",
-                        border: "none",
-                        transform: "scale(1.0)",
-                        transformOrigin: "top left",
-                      }}
-                      title="Confidence Meter Animation"
-                      scrolling="no"
+                  <div className="rounded-xl overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=400&width=600"
+                      alt="Video call coaching session"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-medium mb-4">Interview Coaching</h3>
+                    <h3 className="text-2xl font-medium mb-4">Train with industry veterans for interview mastery</h3>
                     <p className="text-slate-600 mb-6">
                       The right prep changes everything. With a dedicated team in your corner, we tailor coaching to
                       your needs so you can land the best offer possible.

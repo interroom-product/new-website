@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Instagram, Linkedin, Youtube } from "lucide-react"
 
 export default function Footer() {
@@ -8,34 +7,28 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
-            <div className="flex items-center mb-6">
-              <Image src="/images/interroom-logo.png" alt="InterRoom" width={100} height={32} className="h-8 w-auto" />
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="h-8 w-8 rounded bg-violet-600 flex items-center justify-center text-white font-medium">
+                ir.
+              </div>
+              <span className="text-lg font-medium">InterRoom</span>
             </div>
             <p className="text-slate-600 mb-6">
               Your personalized job search team, handling everything from finding and applying to jobs to coaching you
               through interviews.
             </p>
             <div className="flex space-x-4">
-              <Link
-                href="https://www.instagram.com/interroom.me/"
-                className="text-slate-400 hover:text-violet-600 transition-colors"
-              >
+              <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link
-                href="https://www.linkedin.com/company/interroom/"
-                className="text-slate-400 hover:text-violet-600 transition-colors"
-              >
+              <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link
-                href="https://www.youtube.com/@theInterRoom?app"
-                className="text-slate-400 hover:text-violet-600 transition-colors"
-              >
+              <Link href="#" className="text-slate-400 hover:text-violet-600 transition-colors">
                 <Youtube className="h-5 w-5" />
-                <span className="sr-only">YouTube</span>
+                <span className="sr-only">TikTok</span>
               </Link>
             </div>
           </div>
@@ -49,7 +42,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-slate-600 hover:text-violet-600 transition-colors">
+                <Link href="#" className="text-slate-600 hover:text-violet-600 transition-colors">
                   Blog
                 </Link>
               </li>

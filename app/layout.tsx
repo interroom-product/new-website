@@ -3,7 +3,10 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "v0 App",
+  title: {
+    default: "InterRoom",
+    template: "%s | InterRoom",
+  },
   description: "Your All-in-One Job Search Platform",
     generator: 'v0.dev'
 }

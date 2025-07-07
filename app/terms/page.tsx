@@ -1,5 +1,10 @@
+import type { Metadata } from "next"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+}
 
 export default function TermsPage() {
   return (
