@@ -24,7 +24,6 @@ interface SurveyData {
 export default function SurveyForm() {
   const router = useRouter()
   const [currentStep, setCurrentStep] = useState(1)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [surveyData, setSurveyData] = useState<SurveyData>({
     jobTitle: "",
     department: "",
@@ -42,14 +41,10 @@ export default function SurveyForm() {
       setCurrentStep(currentStep + 1)
     } else {
       // Process survey and redirect to results
-      setIsSubmitting(true)
-
-      setTimeout(() => {
-        const recommendation = processRecommendation(surveyData)
-        localStorage.setItem("surveyData", JSON.stringify(surveyData))
-        localStorage.setItem("recommendation", JSON.stringify(recommendation))
-        router.push("/survey/results")
-      }, 2000)
+      const recommendation = processRecommendation(surveyData)
+      localStorage.setItem("surveyData", JSON.stringify(surveyData))
+      localStorage.setItem("recommendation", JSON.stringify(recommendation))
+      router.push("/survey/results")
     }
   }
 
@@ -82,7 +77,6 @@ export default function SurveyForm() {
       "Data / Analytics",
       "Design / UX",
     ]
-
     if (data.location === "Remote" && !highSupplyDepartments.includes(data.department)) {
       isDisqualified = true
     }
@@ -96,11 +90,11 @@ export default function SurveyForm() {
       } else if (data.supportType.includes("Coaching Sessions") && data.supportType.length === 1) {
         return { type: "coaching", title: "Coaching Sessions" }
       } else {
-        return { type: "accelerator", title: "Accelerator Bundle" }
+        return { type: "combo", title: "Combo Package (Resume + Job Outsourcing)" }
       }
     }
 
-    return { type: "bundle", title: "Full-Service Package" }
+    return { type: "bundle", title: "Full-Service Bundle Package" }
   }
 
   const updateSurveyData = (field: keyof SurveyData, value: string | string[]) => {
@@ -126,18 +120,6 @@ export default function SurveyForm() {
       default:
         return false
     }
-  }
-
-  if (isSubmitting) {
-    return (
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-violet-50 to-white min-h-screen">
-        <div className="container mx-auto max-w-2xl text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-violet-600 mx-auto mb-6"></div>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">Analyzing your responses...</h2>
-          <p className="text-gray-600">We're finding the perfect service match for your career goals.</p>
-        </div>
-      </section>
-    )
   }
 
   return (
@@ -366,7 +348,7 @@ export default function SurveyForm() {
                 variant="outline"
                 onClick={handlePrevious}
                 disabled={currentStep === 1}
-                className="flex items-center bg-transparent"
+                className="flex items-center"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Previous
