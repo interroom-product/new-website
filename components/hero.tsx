@@ -8,17 +8,19 @@ export default function Hero() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
-              Experts and AI guiding you through a personalized job search
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold md:font-medium leading-tight mb-6">
+              Experts and AI guiding you through a <span className="text-violet-600">personalized job search</span>
             </h1>
-            <p className="text-slate-600 text-lg mb-8 max-w-lg">
+            <p className="text-slate-600 text-xl md:text-lg mb-8 max-w-lg">
               InterRoom is your job search team, handling everything from finding and applying to jobs for you to
               coaching you through interviews and offer negotiations.
             </p>
-            <p className="text-slate-600 mb-8">We're with you every step of the way in your job search.</p>
-            <div>
+            <p className="text-slate-600 mb-8 hidden md:block">
+              We're with you every step of the way in your job search.
+            </p>
+            <div className="mt-12">
               <Link href="/survey">
-                <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
+                <Button size="lg" className="w-full md:w-auto bg-violet-600 hover:bg-violet-700">
                   Unlock My Next Career Move <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
