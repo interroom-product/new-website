@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="https://www.instagram.com/interroom.co/"
+                  href="https://www.instagram.com/interroom.me?igsh=NTc4MTIwNjQ2YQ=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-white transition-colors"
@@ -73,7 +73,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.youtube.com/@InterRoom"
+                  href="https://www.youtube.com/@theInterRoom"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-white transition-colors"
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-700 mt-12 pt-8 text-center text-sm text-slate-400">
-          <p>&copy; 2024 InterRoom. All rights reserved.</p>
+          <p>© 2024 InterRoom. All rights reserved.</p>
         </div>
       </div>
     </footer>
