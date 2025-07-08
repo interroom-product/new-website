@@ -234,13 +234,18 @@ export default function OfferingsHub() {
 
                 {/* Resume Rewrite */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="rounded-xl overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="Person writing on paper"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                    <iframe
+                      src="/animations/linkedin-inbox.html"
+                      style={{
+                        width: "100%",
+                        height: "510px",
+                        border: "none",
+                        transform: "scale(1.0)",
+                        transformOrigin: "top left",
+                      }}
+                      title="LinkedIn Inbox Animation"
+                      scrolling="no"
                     />
                   </div>
                   <div>
