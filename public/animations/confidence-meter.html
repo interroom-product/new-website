@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidence Meter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .scene {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            transform: scale(0.9);
+            transform-origin: center;
+        }
+        .person {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 1s ease-in-out;
+        }
+        .person-head {
+            width: 50px;
+            height: 50px;
+            background: #4a5568;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+        }
+        .person-body {
+            width: 70px;
+            height: 100px;
+            background: #4a5568;
+            border-radius: 15px 15px 0 0;
+        }
+        .desk {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 50px;
+            background: #a0aec0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .confidence-meter {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 30px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .meter-fill {
+            height: 100%;
+            border-radius: 12px;
+            width: 20%;
+            background: linear-gradient(90deg, #e53e3e, #f6ad55);
+            transition: all 1.5s ease-in-out;
+        }
+        .meter-fill.full {
+            width: 100%;
+            background: linear-gradient(90deg, #48bb78, #38b2ac);
+        }
+        .meter-label {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .chat-bubble {
+            position: absolute;
+            background: white;
+            padding: 12px 18px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            font-size: 14px;
+            font-weight: 500;
+            color: #2d3748;
+            max-width: 200px;
+            opacity: 0;
+            transform: translateY(15px) scale(0.9);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .chat-bubble.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        #bubble1 { top: 80px; left: 20px; }
+        #bubble2 { top: 150px; right: 20px; }
+        #bubble3 { top: 100px; left: 40px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scene">
+            <div class="confidence-meter">
+                <div class="meter-label">Confidence Level</div>
+                <div class="meter-fill" id="meterFill"></div>
+            </div>
+            <div class="person" id="person">
+                <div class="person-head"></div>
+                <div class="person-body"></div>
+            </div>
+            <div class="desk"></div>
+            <div class="chat-bubble" id="bubble1">Great answer! You're on the right track. 💪</div>
+            <div class="chat-bubble" id="bubble2">Let's refine that point together.</div>
+            <div class="chat-bubble" id="bubble3">You've got this! Ready for the next challenge? 🌟</div>
+        </div>
+    </div>
+    <script>
+        function startAnimation() {
+            const meterFill = document.getElementById('meterFill');
+            const bubbles = [
+                document.getElementById('bubble1'),
+                document.getElementById('bubble2'),
+                document.getElementById('bubble3')
+            ];
+
+            // Initial State
+            meterFill.classList.remove('full');
+            meterFill.style.width = '20%';
+            bubbles.forEach(b => b.classList.remove('show'));
+
+            setTimeout(() => {
+                bubbles[0].classList.add('show');
+                meterFill.style.width = '40%';
+            }, 500);
+            setTimeout(() => {
+                bubbles[0].classList.remove('show');
+                bubbles[1].classList.add('show');
+                meterFill.style.width = '70%';
+            }, 2500);
+            setTimeout(() => {
+                bubbles[1].classList.remove('show');
+                bubbles[2].classList.add('show');
+                meterFill.classList.add('full');
+            }, 4500);
+
+            setTimeout(() => {
+                bubbles[2].classList.remove('show');
+            }, 6500);
+        }
+        startAnimation();
+        setInterval(startAnimation, 8000); // Loop the animation
+    </script>
+</body>
+</html>
