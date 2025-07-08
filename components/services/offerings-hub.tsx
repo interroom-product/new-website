@@ -292,13 +292,18 @@ export default function OfferingsHub() {
 
                 {/* Interview Coaching */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <div className="rounded-xl overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="Video call coaching session"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full"
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                    <iframe
+                      src="/animations/confidence-meter.html"
+                      style={{
+                        width: "100%",
+                        height: "450px",
+                        border: "none",
+                        transform: "scale(1.0)",
+                        transformOrigin: "top left",
+                      }}
+                      title="Confidence Meter Animation"
+                      scrolling="no"
                     />
                   </div>
                   <div>
