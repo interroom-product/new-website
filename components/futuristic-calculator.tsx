@@ -147,11 +147,11 @@ export default function FuturisticCalculator() {
                       >
                         <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
                         <RadialBar
-                          background
+                          background={{ fill: "#000000" }}
                           dataKey="value"
                           cornerRadius={10}
                           angleAxisId={0}
-                          fill={stressLevel.color.replace("text-", "").replace("-400", "-500").replace("-500", "-600")}
+                          fill="#FFFFFF"
                         />
                         <Tooltip
                           formatter={(value: number) => `${value.toFixed(1)}%`}
