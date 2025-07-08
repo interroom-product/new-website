@@ -14,7 +14,7 @@ export default function CallToAction() {
           <Link href="/survey">
             <Button
               size="lg"
-              className="bg-violet-600 hover:bg-violet-700 h-auto whitespace-normal py-3 px-6 text-center"
+              className="w-full bg-violet-600 hover:bg-violet-700 h-auto whitespace-normal py-3 px-6 text-center sm:w-auto"
             >
               Get Your Personalized Recommendation <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
