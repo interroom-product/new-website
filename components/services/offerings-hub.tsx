@@ -191,7 +191,7 @@ export default function OfferingsHub() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-medium mb-4">Automated applications and tracking, done for you</h3>
+                    <h3 className="text-2xl font-medium mb-4">Job Outsourcing</h3>
                     <p className="text-slate-600 mb-6">
                       Do you really want to spend hours on job applications every week? Let us handle the search while
                       you focus on something more productive—or just more fun. Track progress via your client portal.
@@ -249,7 +249,7 @@ export default function OfferingsHub() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-medium mb-4">Make your profile impossible to ignore</h3>
+                    <h3 className="text-2xl font-medium mb-4">Resume Rewrite and Linkedin Optimization</h3>
                     <p className="text-slate-600 mb-6">
                       AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
                       resume, beat the bots, and grab recruiters' attention.
@@ -307,7 +307,7 @@ export default function OfferingsHub() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-medium mb-4">Train with industry veterans for interview mastery</h3>
+                    <h3 className="text-2xl font-medium mb-4">Interview Coaching</h3>
                     <p className="text-slate-600 mb-6">
                       The right prep changes everything. With a dedicated team in your corner, we tailor coaching to
                       your needs so you can land the best offer possible.

@@ -58,8 +58,8 @@ export default function Coaches() {
             </div>
             <div className="aspect-square bg-violet-100 rounded-xl overflow-hidden relative">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DK.jpg-OUA9fMLf1Of9zJE4ZV6eNjZaYwao2l.jpeg"
-                alt="DK - Data Science Coach"
+                src="/images/coaches/steve.jpeg"
+                alt="Steve - Sales/Solution Engineering Coach"
                 fill
                 className="object-cover"
               />

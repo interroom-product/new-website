@@ -45,6 +45,16 @@ const testimonials = [
     content:
       "I landed the job that was top of my list within 6 weeks with InterRoom! After searching for 7 months on my own, they helped me negotiate a $20k increase to my overall comp. I plan to use them for regular career coaching in the future.",
   },
+  {
+    id: 5,
+    name: "Sarah Benson",
+    role: "Strategic Account Executive",
+    company: "DoorDash",
+    image: "/images/testimonials/sarah-benson.png",
+    logo: "/images/logos/doordash-logo.svg",
+    content:
+      "I was super skeptical of services like InterRoom at first but when I worked with them, it completely changed my mind. I was able to make quick progress in my search and they helped me get a $14K increase through negotiation!",
+  },
 ]
 
 export default function Testimonials() {
