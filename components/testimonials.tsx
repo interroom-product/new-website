@@ -50,10 +50,20 @@ const testimonials = [
     name: "Sarah Benson",
     role: "Strategic Account Executive",
     company: "DoorDash",
-    image: "/images/testimonials/sarah-benson.png",
+    image: "/images/testimonials/sarah-benson.jpeg",
     logo: "/images/logos/doordash-logo.svg",
     content:
       "I was super skeptical of services like InterRoom at first but when I worked with them, it completely changed my mind. I was able to make quick progress in my search and they helped me get a $14K increase through negotiation!",
+  },
+  {
+    id: 6,
+    name: "Matt Price",
+    role: "Senior Software Engineer",
+    company: "Stripe",
+    image: "/images/testimonials/matt-price.jpeg",
+    logo: "/images/logos/stripe-logo.svg",
+    content:
+      "InterRoom was instrumental in helping me land a new job. Not only did they source jobs that were a perfect match with what I told them I wanted, but they helped me throughout the interview process by providing interview feedback and bringing in actual interviewers like Ash for mock interviews! I was searching for my next role for months and with InterRoom I landed the role I wanted in 4 weeks! If I'm ever searching for a job in this market again, the first thing I will do is reach out to InterRoom!",
   },
 ]
 
