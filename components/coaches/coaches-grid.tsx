@@ -154,76 +154,96 @@ const coaches = [
 
 const additionalCoaches = [
   {
-    name: "Iman Gadzhi",
-    role: "Business & Entrepreneurship Coach",
-    image: "/images/coaches/iman.jpeg",
-    companies: [
-      { name: "Meta", logo: "/images/logos/meta-logo.svg" },
-      { name: "Microsoft", logo: "/images/logos/microsoft-logo.svg" },
-    ],
-    specialties: ["Business Strategy", "Leadership", "Entrepreneurship"],
-    experience: "10+ years",
-    description: "Former Meta executive with expertise in scaling businesses and developing leadership skills.",
-  },
-  {
-    name: "Steve Chen",
-    role: "Tech & Product Coach",
-    image: "/images/coaches/steve.jpeg",
-    companies: [
-      { name: "Uber", logo: "/images/logos/uber-logo.svg" },
-      { name: "Lyft", logo: "/images/logos/lyft-logo.png" },
-    ],
-    specialties: ["Product Management", "Tech Leadership", "Strategy"],
-    experience: "12+ years",
-    description: "Product leader who has built and scaled products used by millions of users.",
-  },
-  {
-    name: "Ingrid Chang",
-    role: "Operations & Strategy Coach",
-    image: "/images/coaches/ingrid.jpeg",
-    companies: [
-      { name: "Postmates", logo: "/images/logos/postmates-logo.svg" },
-      { name: "Salesforce", logo: "/images/logos/salesforce-logo.svg" },
-    ],
-    specialties: ["Operations", "Strategy", "Process Optimization"],
-    experience: "8+ years",
-    description: "Operations expert who has optimized processes and driven growth at high-growth startups.",
-  },
-  {
-    name: "Stephanie Rodriguez",
-    role: "Marketing & Growth Coach",
+    id: 9,
+    name: "Steph (Krivitzky) Lusby",
+    role: "Design",
     image: "/images/coaches/stephanie.jpeg",
-    companies: [
-      { name: "Notion", logo: "/images/logos/notion-logo.svg" },
-      { name: "Slack", logo: "/images/logos/slack-logo.png" },
+    companies: ["Novo", "AMEX", "Brex"],
+    companyLogos: [
+      "/images/logos/novo-logo.svg",
+      "/images/logos/american-express-logo.png",
+      "/images/logos/brex-logo.png",
     ],
-    specialties: ["Growth Marketing", "Brand Strategy", "Digital Marketing"],
-    experience: "9+ years",
-    description: "Growth marketing leader who has driven user acquisition and retention at top tech companies.",
+    bio: "Steph leads brand and product design at Novo, with previous design leadership experience at AMEX, Brex, and various agencies.",
+    expandedBio:
+      "Steph leads brand and product design at Novo, where she shapes the visual identity and user experience for small business banking. Her extensive background includes design leadership and creative director roles at American Express, Brex, advertising agencies, Fortune 500 companies, and tech startups. She specializes in brand strategy, product design, and building design systems that scale across multiple touchpoints and platforms.",
+    specialties: ["Brand Design", "Product Design", "Design Leadership"],
+    funFact: "Steph is an accomplished painter and has exhibited her artwork in galleries across the US!",
+    linkedin: "https://www.linkedin.com/in/stephlusby/",
   },
   {
+    id: 10,
+    name: "Steve Kalush",
+    role: "Sales / Solution Engineering",
+    image: "/images/coaches/steve.jpeg",
+    companies: ["Blend", "CoreLogic", "Salesforce"],
+    companyLogos: [
+      "/images/logos/blend-logo.png",
+      "/images/logos/corelogic-logo.svg",
+      "/images/logos/salesforce-logo.svg",
+    ],
+    bio: "Steve is currently at CoreLogic with extensive leadership and IC experience at Salesforce and Blend.",
+    expandedBio:
+      "Steve is currently at CoreLogic, bringing extensive experience in sales and solution engineering. He has held both leadership and individual contributor roles at Salesforce and Blend, where he specialized in enterprise sales, solution architecture, and customer success. His expertise spans complex B2B sales cycles, technical solution design, and building strong customer relationships in the fintech and real estate technology sectors.",
+    specialties: ["Sales Engineering", "Enterprise Sales", "Solution Architecture"],
+    funFact:
+      "Steve is passionate about mentoring young professionals and has helped over 50 people advance their careers!",
+    linkedin: "https://www.linkedin.com/in/stevekalush/",
+  },
+  {
+    id: 11,
     name: "Zach Marks",
-    role: "Finance & Investment Coach",
+    role: "Sales / Sales Engineering",
     image: "/images/coaches/zach-marks.jpeg",
-    companies: [
-      { name: "Expanse", logo: "/images/logos/expanse-logo.webp" },
-      { name: "Capital One", logo: "/images/logos/capital-one-logo.png" },
+    companies: ["Reach Security", "Palo Alto Networks", "Expanse"],
+    companyLogos: [
+      "/images/logos/reach-security-logo.png",
+      "/images/logos/palo-alto-networks-logo.svg",
+      "/images/logos/expanse-logo.webp",
     ],
-    specialties: ["Financial Planning", "Investment Strategy", "Risk Management"],
-    experience: "11+ years",
-    description: "Finance executive with deep expertise in investment strategies and financial planning.",
+    bio: "Zach is now at Reach Security (AI & Cybersecurity startup), with previous experience in penetration testing and pre/post-sales at Expanse.",
+    expandedBio:
+      "Zach is currently at Reach Security, an AI & Cybersecurity startup, where he applies his extensive cybersecurity expertise. His background includes working as a penetration tester for global banks and handling pre- and post-sales at Expanse (which was acquired by Palo Alto Networks). Zach specializes in cybersecurity solutions, threat assessment, and helping enterprises understand and mitigate security risks through technical sales and solution engineering.",
+    specialties: ["Cybersecurity", "Sales Engineering", "Penetration Testing"],
+    funFact: "Zach is a certified ethical hacker and enjoys participating in cybersecurity competitions!",
+    linkedin: "https://www.linkedin.com/in/zachmarks/",
   },
   {
-    name: "Nishant Patel",
-    role: "Data & Analytics Coach",
-    image: "/images/coaches/nishant.jpeg",
-    companies: [
-      { name: "Mercury", logo: "/images/logos/mercury-logo.svg" },
-      { name: "Bloomberg", logo: "/images/logos/bloomberg-logo.svg" },
+    id: 12,
+    name: "Ingrid Chang",
+    role: "Marketing",
+    image: "/images/coaches/ingrid.jpeg",
+    companies: ["ClassPass", "Yousician", "Postmates"],
+    companyLogos: [
+      "/images/logos/classpass-logo.svg",
+      "/images/logos/yousician-logo.png",
+      "/images/logos/postmates-logo.svg",
     ],
-    specialties: ["Data Science", "Analytics", "Machine Learning"],
-    experience: "7+ years",
-    description: "Data science leader who has built analytics platforms and ML systems at scale.",
+    bio: "Ingrid leads global lifecycle marketing at ClassPass, with previous growth marketing experience at Postmates and Yousician.",
+    expandedBio:
+      "Ingrid leads global lifecycle marketing at ClassPass, where she drives user engagement and retention across multiple markets. Her previous experience includes growth marketing roles at Postmates, where she focused on user acquisition and retention strategies, and at Yousician, where she developed marketing campaigns for language learning products. Ingrid specializes in data-driven marketing, customer lifecycle management, and scaling marketing operations globally.",
+    specialties: ["Lifecycle Marketing", "Growth Marketing", "Global Marketing"],
+    funFact: "Ingrid speaks 5 languages and has lived in 4 different countries!",
+    linkedin: "https://www.linkedin.com/in/ingridchang/",
+  },
+  {
+    id: 13,
+    name: "Iman Sadooghi, PhD",
+    role: "Software Engineering",
+    image: "/images/coaches/iman.jpeg",
+    companies: ["Box", "Bank of America", "Bloomberg"],
+    companyLogos: [
+      "/images/logos/box-logo.svg",
+      "/images/logos/bank-of-america-logo.png",
+      "/images/logos/bloomberg-logo.svg",
+    ],
+    bio: "Iman has extensive experience in backend, big data, and distributed systems at Box, Bank of America Merrill Lynch, and Bloomberg.",
+    expandedBio:
+      "Iman holds a PhD and has extensive experience in backend engineering, big data, and distributed systems across major financial and technology companies. His roles at Box, Bank of America Merrill Lynch, and Bloomberg involved building large-scale systems that handle massive amounts of data and transactions. Iman specializes in distributed systems architecture, big data processing, and building robust backend infrastructure for mission-critical applications.",
+    specialties: ["Backend Engineering", "Distributed Systems", "Big Data"],
+    funFact:
+      "Iman has published research papers in distributed systems and enjoys teaching algorithms to aspiring engineers!",
+    linkedin: "https://www.linkedin.com/in/imansadooghi/",
   },
 ]
 
@@ -241,17 +261,7 @@ export default function CoachesGrid() {
     setExpandedCoaches(newExpanded)
   }
 
-  const allCoaches = showMoreCoaches
-    ? [
-        ...coaches,
-        ...additionalCoaches.map((coach, index) => ({
-          id: coaches.length + index + 1,
-          ...coach,
-          companies: coach.companies.map((c) => c.name),
-          companyLogos: coach.companies.map((c) => c.logo),
-        })),
-      ]
-    : coaches
+  const allCoaches = showMoreCoaches ? [...coaches, ...additionalCoaches] : coaches
 
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-slate-50 via-white to-violet-50/30">
