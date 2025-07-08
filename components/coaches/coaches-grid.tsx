@@ -241,7 +241,17 @@ export default function CoachesGrid() {
     setExpandedCoaches(newExpanded)
   }
 
-  const allCoaches = showMoreCoaches ? [...coaches, ...additionalCoaches] : coaches
+  const allCoaches = showMoreCoaches
+    ? [
+        ...coaches,
+        ...additionalCoaches.map((coach, index) => ({
+          id: coaches.length + index + 1,
+          ...coach,
+          companies: coach.companies.map((c) => c.name),
+          companyLogos: coach.companies.map((c) => c.logo),
+        })),
+      ]
+    : coaches
 
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-slate-50 via-white to-violet-50/30">
