@@ -12,8 +12,11 @@ export default function CallToAction() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/survey">
-            <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-lg px-6 sm:px-8 py-4 h-auto">
-              Get Your Personalized Recommendation <ArrowRight className="ml-2 h-5 w-5" />
+            <Button
+              size="lg"
+              className="bg-violet-600 hover:bg-violet-700 h-auto whitespace-normal py-3 px-6 text-center"
+            >
+              Get Your Personalized Recommendation <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </div>
