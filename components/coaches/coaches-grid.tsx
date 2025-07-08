@@ -154,76 +154,88 @@ const coaches = [
 
 const additionalCoaches = [
   {
+    id: 9,
     name: "Iman Gadzhi",
     role: "Business & Entrepreneurship Coach",
     image: "/images/coaches/iman.jpeg",
-    companies: [
-      { name: "Meta", logo: "/images/logos/meta-logo.svg" },
-      { name: "Microsoft", logo: "/images/logos/microsoft-logo.svg" },
-    ],
+    companies: ["Meta", "Microsoft"],
+    companyLogos: ["/images/logos/meta-logo.svg", "/images/logos/microsoft-logo.svg"],
+    bio: "Former Meta executive with expertise in scaling businesses and developing leadership skills.",
+    expandedBio:
+      "Former Meta executive with expertise in scaling businesses and developing leadership skills. With over 10 years of experience in business strategy, leadership, and entrepreneurship, Iman has helped countless professionals transition into leadership roles and build successful businesses.",
     specialties: ["Business Strategy", "Leadership", "Entrepreneurship"],
-    experience: "10+ years",
-    description: "Former Meta executive with expertise in scaling businesses and developing leadership skills.",
+    funFact: "Iman has mentored over 100 entrepreneurs and helped them raise over $50M in funding!",
+    linkedin: "https://www.linkedin.com/in/iman/",
   },
   {
+    id: 10,
     name: "Steve Chen",
     role: "Tech & Product Coach",
     image: "/images/coaches/steve.jpeg",
-    companies: [
-      { name: "Uber", logo: "/images/logos/uber-logo.svg" },
-      { name: "Lyft", logo: "/images/logos/lyft-logo.png" },
-    ],
+    companies: ["Uber", "Lyft"],
+    companyLogos: ["/images/logos/uber-logo.svg", "/images/logos/lyft-logo.png"],
+    bio: "Product leader who has built and scaled products used by millions of users.",
+    expandedBio:
+      "Product leader who has built and scaled products used by millions of users. With 12+ years of experience in product management, tech leadership, and strategy, Steve has led product teams at some of the most successful tech companies in Silicon Valley.",
     specialties: ["Product Management", "Tech Leadership", "Strategy"],
-    experience: "12+ years",
-    description: "Product leader who has built and scaled products used by millions of users.",
+    funFact: "Steve has launched 5 products that reached over 1 million users each!",
+    linkedin: "https://www.linkedin.com/in/stevechen/",
   },
   {
+    id: 11,
     name: "Ingrid Chang",
     role: "Operations & Strategy Coach",
     image: "/images/coaches/ingrid.jpeg",
-    companies: [
-      { name: "Postmates", logo: "/images/logos/postmates-logo.svg" },
-      { name: "Salesforce", logo: "/images/logos/salesforce-logo.svg" },
-    ],
+    companies: ["Postmates", "Salesforce"],
+    companyLogos: ["/images/logos/postmates-logo.svg", "/images/logos/salesforce-logo.svg"],
+    bio: "Operations expert who has optimized processes and driven growth at high-growth startups.",
+    expandedBio:
+      "Operations expert who has optimized processes and driven growth at high-growth startups. With 8+ years of experience in operations, strategy, and process optimization, Ingrid has helped companies scale from startup to IPO.",
     specialties: ["Operations", "Strategy", "Process Optimization"],
-    experience: "8+ years",
-    description: "Operations expert who has optimized processes and driven growth at high-growth startups.",
+    funFact: "Ingrid has helped 3 companies achieve successful IPOs through operational excellence!",
+    linkedin: "https://www.linkedin.com/in/ingridchang/",
   },
   {
+    id: 12,
     name: "Stephanie Rodriguez",
     role: "Marketing & Growth Coach",
     image: "/images/coaches/stephanie.jpeg",
-    companies: [
-      { name: "Notion", logo: "/images/logos/notion-logo.svg" },
-      { name: "Slack", logo: "/images/logos/slack-logo.png" },
-    ],
+    companies: ["Notion", "Slack"],
+    companyLogos: ["/images/logos/notion-logo.svg", "/images/logos/slack-logo.png"],
+    bio: "Growth marketing leader who has driven user acquisition and retention at top tech companies.",
+    expandedBio:
+      "Growth marketing leader who has driven user acquisition and retention at top tech companies. With 9+ years of experience in growth marketing, brand strategy, and digital marketing, Stephanie has helped companies achieve exponential growth.",
     specialties: ["Growth Marketing", "Brand Strategy", "Digital Marketing"],
-    experience: "9+ years",
-    description: "Growth marketing leader who has driven user acquisition and retention at top tech companies.",
+    funFact: "Stephanie has driven over 10M user acquisitions across her marketing campaigns!",
+    linkedin: "https://www.linkedin.com/in/stephanierodriguez/",
   },
   {
+    id: 13,
     name: "Zach Marks",
     role: "Finance & Investment Coach",
     image: "/images/coaches/zach-marks.jpeg",
-    companies: [
-      { name: "Expanse", logo: "/images/logos/expanse-logo.webp" },
-      { name: "Capital One", logo: "/images/logos/capital-one-logo.png" },
-    ],
+    companies: ["Expanse", "Capital One"],
+    companyLogos: ["/images/logos/expanse-logo.webp", "/images/logos/capital-one-logo.png"],
+    bio: "Finance executive with deep expertise in investment strategies and financial planning.",
+    expandedBio:
+      "Finance executive with deep expertise in investment strategies and financial planning. With 11+ years of experience in financial planning, investment strategy, and risk management, Zach has helped individuals and companies optimize their financial strategies.",
     specialties: ["Financial Planning", "Investment Strategy", "Risk Management"],
-    experience: "11+ years",
-    description: "Finance executive with deep expertise in investment strategies and financial planning.",
+    funFact: "Zach has managed over $500M in investment portfolios and achieved consistent 15%+ returns!",
+    linkedin: "https://www.linkedin.com/in/zachmarks/",
   },
   {
+    id: 14,
     name: "Nishant Patel",
     role: "Data & Analytics Coach",
     image: "/images/coaches/nishant.jpeg",
-    companies: [
-      { name: "Mercury", logo: "/images/logos/mercury-logo.svg" },
-      { name: "Bloomberg", logo: "/images/logos/bloomberg-logo.svg" },
-    ],
+    companies: ["Mercury", "Bloomberg"],
+    companyLogos: ["/images/logos/mercury-logo.svg", "/images/logos/bloomberg-logo.svg"],
+    bio: "Data science leader who has built analytics platforms and ML systems at scale.",
+    expandedBio:
+      "Data science leader who has built analytics platforms and ML systems at scale. With 7+ years of experience in data science, analytics, and machine learning, Nishant has helped companies leverage data to drive business decisions.",
     specialties: ["Data Science", "Analytics", "Machine Learning"],
-    experience: "7+ years",
-    description: "Data science leader who has built analytics platforms and ML systems at scale.",
+    funFact: "Nishant has built ML models that process over 1TB of data daily and serve millions of predictions!",
+    linkedin: "https://www.linkedin.com/in/nishantpatel/",
   },
 ]
 
@@ -332,6 +344,7 @@ export default function CoachesGrid() {
                             coach.companyLogos[index] === "/images/logos/mercury-logo.svg" && "w-full h-full p-1",
                             coach.companyLogos[index] === "/images/logos/expanse-logo.webp" && "w-full h-full p-1",
                             coach.companyLogos[index] === "/images/logos/postmates-logo.svg" && "w-full h-full p-1",
+                            coach.companyLogos[index] === "/images/logos/uber-logo.svg" && "w-full h-full p-1",
                           )}
                         />
                       </div>
