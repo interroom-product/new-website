@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <Image src="/interroom-logo.png" alt="InterRoom" width={180} height={45} className="h-12 w-auto" />
+            <Image src="/icon.png" alt="InterRoom Logo" width={48} height={48} className="h-12 w-12 rounded-lg" />
             <p className="text-slate-300 text-sm">Your personalized job search team, powered by experts and AI.</p>
           </div>
 
