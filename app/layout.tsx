@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | InterRoom",
   },
   description: "Your All-in-One Job Search Platform",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
