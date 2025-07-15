@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    slug: "how-raymond-delacruz-landed-a-director-of-product-role",
+    title: "How Raymond Delacruz Landed a Director of Product Role — Without Getting Stuck in the Job Board Loop",
+    description:
+      "Discover how Raymond landed his dream Director of Product role by outsourcing his job search and focusing on what really matters.",
+    image: "/images/blog/raymond-delacruz-success-story.png",
+    category: "Success Stories",
+    readTime: "3 min read",
+  },
+  {
     slug: "why-are-you-leaving-your-current-job",
     title: "Why Are You Leaving Your Current Job? Best Ways to Respond in an Interview",
     description:
