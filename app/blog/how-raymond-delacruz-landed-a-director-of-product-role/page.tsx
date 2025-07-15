@@ -45,11 +45,12 @@ export default function BlogPost() {
             {/* Featured Image */}
             <div className="mb-12">
               <Image
-                src="/images/blog/raymond-delacruz-success-story.png"
-                alt="Professional man in business attire representing career success and leadership"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-14%20at%2018.23.59-SNhMBSxiIWin9KD4AFTvJfdesyxd0x.jpeg"
+                alt="Raymond Delacruz - Professional headshot of a smiling man in a light blue shirt"
                 width={800}
                 height={400}
                 className="w-full h-64 md:h-96 object-cover rounded-lg"
+                priority
               />
             </div>
 
