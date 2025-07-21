@@ -91,7 +91,7 @@ export default function OfferingsHub() {
             <TabsContent value="packages">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {/* Accelerator Bundle */}
-                <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative">
+                <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative flex flex-col">
                   <div className="absolute top-0 left-0 bg-green-600 text-white text-xs font-medium px-3 py-1 rounded-br-lg rounded-tl-lg">
                     Pay as you go
                   </div>
@@ -101,8 +101,8 @@ export default function OfferingsHub() {
                       Job Outsourcing + Resume Write & Linkedin Optimization
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
+                  <CardContent className="flex-grow flex flex-col">
+                    <ul className="space-y-3 mb-6 flex-grow">
                       <li className="flex items-start">
                         <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                           <Check className="h-4 w-4 text-violet-600" />
@@ -122,11 +122,16 @@ export default function OfferingsHub() {
                         <span>Access to InterRoom Client Portal 1.0</span>
                       </li>
                     </ul>
+                    <Link href="/survey">
+                      <Button variant="outline" className="w-full bg-transparent">
+                        Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
 
                 {/* Full Support Package */}
-                <Card className="border border-violet-200 bg-gradient-to-br from-violet-50 to-white shadow-sm hover:shadow-md transition-shadow relative">
+                <Card className="border border-violet-200 bg-gradient-to-br from-violet-50 to-white shadow-sm hover:shadow-md transition-shadow relative flex flex-col">
                   <div className="absolute top-0 right-0 bg-violet-600 text-white text-xs font-medium px-3 py-1 rounded-bl-lg rounded-tr-lg">
                     RECOMMENDED
                   </div>
@@ -138,8 +143,8 @@ export default function OfferingsHub() {
                       success is our success.
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
+                  <CardContent className="flex-grow flex flex-col">
+                    <ul className="space-y-3 mb-6 flex-grow">
                       <li className="flex items-start">
                         <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                           <Check className="h-4 w-4 text-violet-600" />
@@ -159,21 +164,13 @@ export default function OfferingsHub() {
                         <span>Success-based payment model</span>
                       </li>
                     </ul>
+                    <Link href="/survey">
+                      <Button className="w-full bg-violet-600 hover:bg-violet-700">
+                        Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
-              </div>
-
-              {/* Unified CTA Section for Packages */}
-              <div className="text-center mt-12">
-                <p className="text-slate-600 mb-6 text-lg">Ready to find out which package is right for you?</p>
-                <Link href="/survey">
-                  <Button size="lg" className="bg-violet-600 hover:bg-violet-700 px-8">
-                    Take Our Quick Assessment <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <p className="text-sm text-slate-500 mt-3">
-                  Complete our 2-minute survey to get a personalized recommendation
-                </p>
               </div>
             </TabsContent>
 
