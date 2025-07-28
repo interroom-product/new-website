@@ -5,12 +5,13 @@ import Link from "next/link"
 
 export default function ServicePackages() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-white to-violet-50">
+    <section className="py-20 px-4 bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium mb-4">Choose What Works for You</h2>
+          <h2 className="text-3xl md:text-4xl font-medium mb-4">Service Packages</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Select the service package that best fits your needs and career goals.
+            For comprehensive support, choose from our bundled packages that combine multiple services for maximum
+            impact on your job search.
           </p>
         </div>
 
@@ -47,6 +48,7 @@ export default function ServicePackages() {
                   <span>Weekly progress reports</span>
                 </li>
               </ul>
+              <Button className="w-full bg-violet-600 hover:bg-violet-700 text-white">Choose Accelerator Bundle</Button>
             </CardContent>
           </Card>
 
@@ -67,7 +69,7 @@ export default function ServicePackages() {
                   <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                     <Check className="h-4 w-4 text-violet-600" />
                   </div>
-                  <span>All features from basic package</span>
+                  <span>All features from Accelerator Bundle</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
@@ -79,16 +81,25 @@ export default function ServicePackages() {
                   <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                     <Check className="h-4 w-4 text-violet-600" />
                   </div>
+                  <span>Salary negotiation support</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                    <Check className="h-4 w-4 text-violet-600" />
+                  </div>
                   <span>Success-based payment model</span>
                 </li>
               </ul>
+              <Button className="w-full bg-violet-600 hover:bg-violet-700 text-white">
+                Choose Full Support Package
+              </Button>
             </CardContent>
           </Card>
         </div>
 
         {/* Unified CTA Section */}
         <div className="text-center mt-12">
-          <p className="text-slate-600 mb-6 text-lg">Ready to find out which package is right for you?</p>
+          <p className="text-slate-600 mb-6 text-lg">Not sure which option is right for you?</p>
           <Link href="/survey">
             <Button size="lg" className="bg-violet-600 hover:bg-violet-700 px-8">
               Take Our Quick Assessment <ArrowRight className="ml-2 h-4 w-4" />

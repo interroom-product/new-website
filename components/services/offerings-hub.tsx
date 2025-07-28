@@ -343,6 +343,63 @@ export default function OfferingsHub() {
                     </Button>
                   </div>
                 </div>
+
+                {/* Salary Negotiation */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                    <iframe
+                      src="/animations/salary-negotiation.html"
+                      style={{
+                        width: "100%",
+                        height: "450px",
+                        border: "none",
+                        transform: "scale(1.0)",
+                        transformOrigin: "top left",
+                      }}
+                      title="Salary Negotiation Animation"
+                      scrolling="no"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-medium mb-4">Salary Negotiation</h3>
+                    <p className="text-slate-600 mb-6">
+                      Our experts will ensure you're getting the top range of total compensation package for all your
+                      offers.
+                    </p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">1</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Negotiation strategy</span> tailored to your market and industry
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">2</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Mock negotiations</span> to build confidence
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-violet-600 text-sm font-medium">3</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Post-offer support</span> to finalize your compensation package
+                        </div>
+                      </li>
+                    </ul>
+                    <Button
+                      onClick={openModal}
+                      className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                    >
+                      Purchase This Service
+                    </Button>
+                  </div>
+                </div>
               </div>
             </TabsContent>
           </Tabs>

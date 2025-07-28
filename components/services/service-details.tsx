@@ -68,7 +68,11 @@ function PurchaseModal({
               </>
             )}
           </Button>
-          <Button variant="outline" onClick={onClose} className="border-slate-300 text-slate-700 hover:bg-slate-50">
+          <Button
+            variant="outline"
+            onClick={onClose}
+            className="border-slate-300 text-slate-700 hover:bg-slate-50 bg-transparent"
+          >
             Close
           </Button>
         </div>
@@ -111,20 +115,21 @@ export default function ServiceDetails() {
 
   return (
     <>
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4">Our Services</h2>
+            <h2 className="text-3xl md:text-4xl font-medium mb-4">Service Details</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Explore our comprehensive services designed to streamline your job search process.
+              Dive deeper into each service to understand how we can help accelerate your career journey.
             </p>
           </div>
 
           <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
-              <TabsTrigger value="job-outsourcing">Job Outsourcing</TabsTrigger>
-              <TabsTrigger value="resume-rewrite">Resume Rewrite and Linkedin Optimization</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-4 mb-12">
+              <TabsTrigger value="job-outsourcing">Job Applications</TabsTrigger>
+              <TabsTrigger value="resume-rewrite">Resume & LinkedIn</TabsTrigger>
               <TabsTrigger value="personalized-coaching">Interview Coaching</TabsTrigger>
+              <TabsTrigger value="salary-negotiation">Salary Negotiation</TabsTrigger>
             </TabsList>
 
             <TabsContent value="job-outsourcing">
@@ -144,7 +149,7 @@ export default function ServiceDetails() {
                     Do you really want to spend hours on job applications every week? Let us handle the search while you
                     focus on something more productive—or just more fun. Track progress via your client portal.
                   </p>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-6">
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-violet-600 text-sm font-medium">1</span>
@@ -172,9 +177,9 @@ export default function ServiceDetails() {
                   </ul>
                   <Button
                     onClick={openModal}
-                    className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                    className="bg-violet-600 hover:bg-violet-700 text-white py-3 px-6 rounded-md"
                   >
-                    Purchase This Service
+                    Get This Service
                   </Button>
                 </div>
               </div>
@@ -185,7 +190,7 @@ export default function ServiceDetails() {
                 <div className="rounded-xl overflow-hidden">
                   <Image
                     src="/placeholder.svg?height=400&width=600"
-                    alt="Person writing on paper"
+                    alt="Professional resume and LinkedIn profile optimization"
                     width={600}
                     height={400}
                     className="object-cover w-full h-full"
@@ -197,7 +202,7 @@ export default function ServiceDetails() {
                     AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
                     resume, beat the bots, and grab recruiters' attention.
                   </p>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-6">
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-violet-600 text-sm font-medium">1</span>
@@ -226,9 +231,9 @@ export default function ServiceDetails() {
                   </ul>
                   <Button
                     onClick={openModal}
-                    className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                    className="bg-violet-600 hover:bg-violet-700 text-white py-3 px-6 rounded-md"
                   >
-                    Purchase This Service
+                    Get This Service
                   </Button>
                 </div>
               </div>
@@ -239,7 +244,7 @@ export default function ServiceDetails() {
                 <div className="rounded-xl overflow-hidden">
                   <Image
                     src="/placeholder.svg?height=400&width=600"
-                    alt="Video call coaching session"
+                    alt="Video call coaching session with industry expert"
                     width={600}
                     height={400}
                     className="object-cover w-full h-full"
@@ -251,7 +256,7 @@ export default function ServiceDetails() {
                     The right prep changes everything. With a dedicated team in your corner, we tailor coaching to your
                     needs so you can land the best offer possible.
                   </p>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-6">
                     <li className="flex items-start">
                       <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-violet-600 text-sm font-medium">1</span>
@@ -265,7 +270,7 @@ export default function ServiceDetails() {
                         <span className="text-violet-600 text-sm font-medium">2</span>
                       </div>
                       <div>
-                        <span className="font-medium">Weekly check-ins</span> to track progress and adjust strategy
+                        <span className="font-medium">Personalized feedback</span> to improve your interview performance
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -273,15 +278,69 @@ export default function ServiceDetails() {
                         <span className="text-violet-600 text-sm font-medium">3</span>
                       </div>
                       <div>
-                        <span className="font-medium">Salary negotiation support</span> to maximize your compensation
+                        <span className="font-medium">Weekly check-ins</span> to track progress and adjust strategy
                       </div>
                     </li>
                   </ul>
                   <Button
                     onClick={openModal}
-                    className="bg-violet-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-violet-600"
+                    className="bg-violet-600 hover:bg-violet-700 text-white py-3 px-6 rounded-md"
                   >
-                    Purchase This Service
+                    Get This Service
+                  </Button>
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="salary-negotiation">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="rounded-xl overflow-hidden">
+                  <Image
+                    src="/placeholder.svg?height=400&width=600"
+                    alt="Salary negotiation strategy session"
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-medium mb-4">Maximize your earning potential</h3>
+                  <p className="text-slate-600 mb-6">
+                    Our experts will ensure you're getting the top range of total compensation package for all your
+                    offers. Don't leave money on the table.
+                  </p>
+                  <ul className="space-y-4 mb-6">
+                    <li className="flex items-start">
+                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                        <span className="text-violet-600 text-sm font-medium">1</span>
+                      </div>
+                      <div>
+                        <span className="font-medium">Market research</span> to understand your worth in the current
+                        market
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                        <span className="text-violet-600 text-sm font-medium">2</span>
+                      </div>
+                      <div>
+                        <span className="font-medium">Negotiation strategies</span> tailored to your specific situation
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
+                        <span className="text-violet-600 text-sm font-medium">3</span>
+                      </div>
+                      <div>
+                        <span className="font-medium">Total compensation analysis</span> including benefits and equity
+                      </div>
+                    </li>
+                  </ul>
+                  <Button
+                    onClick={openModal}
+                    className="bg-violet-600 hover:bg-violet-700 text-white py-3 px-6 rounded-md"
+                  >
+                    Get This Service
                   </Button>
                 </div>
               </div>
