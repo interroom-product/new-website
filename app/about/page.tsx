@@ -73,6 +73,27 @@ export default function AboutPage() {
     },
   ]
 
+  const whatWeDoFeatures = [
+    {
+      text: "Personalized job search strategy based on your specific goals and market conditions",
+    },
+    {
+      text: "Resume and LinkedIn optimization with copy that actually gets responses",
+    },
+    {
+      text: "Direct application support—we apply with you, not just advise you",
+    },
+    {
+      text: "Interview preparation with real-world practice and feedback",
+    },
+    {
+      text: "Salary negotiation support to maximize your offer",
+    },
+    {
+      text: "Ongoing accountability and emotional support throughout your search",
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -85,123 +106,6 @@ export default function AboutPage() {
             Job searching is a lonely, confusing, and draining mental grind. You're not unqualified or behind—you're
             just not supposed to do this alone.
           </p>
-        </div>
-      </section>
-
-      {/* Why InterRoom Section */}
-      <section className="py-16 px-4 bg-slate-50">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Left Column */}
-            <div className="space-y-6">
-              <p className="text-lg text-slate-700">
-                Most people try to job search alone. They binge YouTube tips, send out resume into a void, ask friends
-                for feedback, and get stuck in their heads. It's exhausting and it rarely works.
-              </p>
-
-              <blockquote className="border-l-4 border-violet-600 pl-6 py-4 bg-white rounded-r-lg">
-                <p className="text-slate-700 italic mb-4">
-                  "Anybody can watch videos or practice with a friend. But what I really needed was someone who stuck
-                  with me when I got rejected, who reminded me I'm still capable. You were like a partner getting me
-                  through the ups and downs."
-                </p>
-                <cite className="text-sm text-slate-600 font-medium">- Zeeshan, InterRoom Client</cite>
-              </blockquote>
-
-              <p className="text-lg text-slate-700 font-medium">
-                That's what InterRoom is. We don't give you generic advice. We give you a real partner in your search.
-              </p>
-
-              <blockquote className="border-l-4 border-violet-600 pl-6 py-4 bg-white rounded-r-lg">
-                <p className="text-slate-700 italic mb-4">
-                  "It's grueling, man. So many rejections. Tough interviews. But having someone believe in me every
-                  week, remind me why I started, that's what kept me going. That was the real value."
-                </p>
-                <cite className="text-sm text-slate-600 font-medium">- Zeeshan, InterRoom Client</cite>
-              </blockquote>
-            </div>
-
-            {/* Right Column */}
-            <div>
-              <Card className="bg-violet-50 border-violet-200">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold mb-6">
-                    We're not here to hype you up or give vague feedback. We're here to:
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-                      <span className="text-slate-700">Tell you what's actually holding you back</span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-                      <span className="text-slate-700">Push you forward when rejection makes you want to stop</span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-                      <span className="text-slate-700">Help you fix your resume and LinkedIn with copy that works</span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-                      <span className="text-slate-700">Apply with you, not just "advise" you</span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-                      <span className="text-slate-700">
-                        Prep you for interviews like we're on your team—because we are
-                      </span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-                      <span className="text-slate-700">Back you in salary negotiations with confidence</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Closing Message */}
-          <div className="text-center mt-16 space-y-6">
-            <p className="text-lg text-slate-700">
-              We're not a coaching platform. We're not AI. We're not charging you $10K up front like bootcamps or other
-              job services.
-            </p>
-            <p className="text-lg text-slate-700 font-medium">
-              We're real people who do the work with you until you get hired.
-            </p>
-            <p className="text-lg text-slate-700">
-              You're not unqualified. You're not behind. You're just not supposed to do this alone.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Payment Model */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-semibold mb-6">We don't get paid until you get hired.</h2>
-          <p className="text-lg text-slate-700 mb-8">
-            While other services charge thousands up front, we remove the financial stress. You only pay after you get
-            the job. We're in this with you.
-          </p>
-
-          <blockquote className="border-l-4 border-violet-600 pl-6 py-4 bg-slate-50 rounded-r-lg max-w-2xl mx-auto">
-            <p className="text-slate-700 italic mb-4">
-              "Knowing I didn't have to pay until I landed a role made the whole process easier. And in the end, I
-              almost doubled my salary."
-            </p>
-            <cite className="text-sm text-slate-600 font-medium">- Zeeshan, InterRoom Client</cite>
-          </blockquote>
-
-          <div className="mt-12 space-y-4">
-            <p className="text-lg text-slate-700">
-              You don't need more job tips. You need clarity, momentum, and a team that has your back.
-            </p>
-            <p className="text-xl font-semibold text-slate-900">
-              Welcome to InterRoom. Let's find your job and your confidence together.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -232,41 +136,20 @@ export default function AboutPage() {
       {/* What We Do */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-semibold mb-8">What We Do</h2>
+          <h2 className="text-3xl font-semibold mb-6">What We Do</h2>
+          <p className="text-lg text-slate-600 mb-12 max-w-3xl">
+            InterRoom provides personalized job search support that goes far beyond traditional career coaching. We
+            become your dedicated job search team, working alongside you every step of the way.
+          </p>
 
-          <div className="space-y-6 mb-8">
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-              <span className="text-slate-700 text-lg">
-                We surface 300,000+ roles directly from company websites jobs you won't find on LinkedIn.
-              </span>
-            </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-              <span className="text-slate-700 text-lg">
-                We pair you with a coach who's done your job before—not just someone who talks about it.
-              </span>
-            </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-              <span className="text-slate-700 text-lg">
-                We work with you every week - real feedback, no fluff, no generic advice.
-              </span>
-            </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
-              <span className="text-slate-700 text-lg">And we don't get paid until you get hired.</span>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {whatWeDoFeatures.map((feature, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                <CheckCircle className="h-5 w-5 text-violet-600 mt-1 flex-shrink-0" />
+                <span className="text-slate-700 text-lg">{feature.text}</span>
+              </div>
+            ))}
           </div>
-
-          <p className="text-lg text-slate-700 mb-6">
-            It's like having a personal trainer for your career. Someone in your corner who knows what it takes and
-            doesn't let you quit when things get hard.
-          </p>
-
-          <p className="text-lg text-slate-700 font-medium">
-            We cut through the noise, focus on what works, and help you land the right role faster.
-          </p>
         </div>
       </section>
 
