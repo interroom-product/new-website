@@ -186,7 +186,7 @@ export default function OfferingsHub() {
 
             <TabsContent value="resume-rewrite">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                <div className="rounded-xl overflow-hidden">
                   <iframe
                     src="/animations/linkedin-inbox.html"
                     style={{

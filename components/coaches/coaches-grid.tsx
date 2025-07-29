@@ -114,7 +114,7 @@ const coaches = [
   },
   {
     id: 7,
-    name: "Nishant",
+    name: "Nishant Chandra",
     role: "Sales / Sales Engineering",
     image: "/images/coaches/nishant.jpeg",
     companies: ["Salesforce", "Brex", "Mercury"],
@@ -129,7 +129,7 @@ const coaches = [
     specialties: ["Sales Engineering", "Sales Leadership", "Go-to-Market Strategy"],
     funFact:
       "Nishant is an angel investor who has backed some of the most innovative fintech and defense tech companies!",
-    linkedin: "https://www.linkedin.com/in/nishant/",
+    linkedin: "https://www.linkedin.com/in/nishant-chandra-8a280435?",
   },
   {
     id: 8,
