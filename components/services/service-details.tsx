@@ -125,11 +125,10 @@ export default function ServiceDetails() {
           </div>
 
           <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-4 mb-12">
+            <TabsList className="grid w-full grid-cols-3 mb-12">
               <TabsTrigger value="job-outsourcing">Job Applications</TabsTrigger>
               <TabsTrigger value="resume-rewrite">Resume & LinkedIn</TabsTrigger>
               <TabsTrigger value="personalized-coaching">Interview Coaching</TabsTrigger>
-              <TabsTrigger value="salary-negotiation">Salary Negotiation</TabsTrigger>
             </TabsList>
 
             <TabsContent value="job-outsourcing">
@@ -187,13 +186,18 @@ export default function ServiceDetails() {
 
             <TabsContent value="resume-rewrite">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-xl overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Professional resume and LinkedIn profile optimization"
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-full"
+                <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                  <iframe
+                    src="/animations/linkedin-inbox.html"
+                    style={{
+                      width: "100%",
+                      height: "510px",
+                      border: "none",
+                      transform: "scale(1.0)",
+                      transformOrigin: "top left",
+                    }}
+                    title="LinkedIn Inbox Animation"
+                    scrolling="no"
                   />
                 </div>
                 <div>
@@ -241,13 +245,18 @@ export default function ServiceDetails() {
 
             <TabsContent value="personalized-coaching">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-xl overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Video call coaching session with industry expert"
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-full"
+                <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
+                  <iframe
+                    src="/animations/confidence-meter.html"
+                    style={{
+                      width: "100%",
+                      height: "450px",
+                      border: "none",
+                      transform: "scale(1.0)",
+                      transformOrigin: "top left",
+                    }}
+                    title="Confidence Meter Animation"
+                    scrolling="no"
                   />
                 </div>
                 <div>
@@ -279,60 +288,6 @@ export default function ServiceDetails() {
                       </div>
                       <div>
                         <span className="font-medium">Weekly check-ins</span> to track progress and adjust strategy
-                      </div>
-                    </li>
-                  </ul>
-                  <Button
-                    onClick={openModal}
-                    className="bg-violet-600 hover:bg-violet-700 text-white py-3 px-6 rounded-md"
-                  >
-                    Get This Service
-                  </Button>
-                </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="salary-negotiation">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-xl overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Salary negotiation strategy session"
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-medium mb-4">Maximize your earning potential</h3>
-                  <p className="text-slate-600 mb-6">
-                    Our experts will ensure you're getting the top range of total compensation package for all your
-                    offers. Don't leave money on the table.
-                  </p>
-                  <ul className="space-y-4 mb-6">
-                    <li className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                        <span className="text-violet-600 text-sm font-medium">1</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Market research</span> to understand your worth in the current
-                        market
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                        <span className="text-violet-600 text-sm font-medium">2</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Negotiation strategies</span> tailored to your specific situation
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                        <span className="text-violet-600 text-sm font-medium">3</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Total compensation analysis</span> including benefits and equity
                       </div>
                     </li>
                   </ul>
