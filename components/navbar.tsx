@@ -34,6 +34,14 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center space-x-8">
           <Link
+            href="/about"
+            className={`text-sm font-medium ${
+              pathname === "/about" ? "text-violet-600" : "text-slate-700 hover:text-violet-600"
+            } transition-colors`}
+          >
+            About Us
+          </Link>
+          <Link
             href="/services"
             className={`text-sm font-medium ${
               pathname === "/services" ? "text-violet-600" : "text-slate-700 hover:text-violet-600"
@@ -63,6 +71,9 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent side="right">
             <div className="flex flex-col space-y-6 mt-10">
+              <Link href="/about" className={`text-lg font-medium ${pathname === "/about" ? "text-violet-600" : ""}`}>
+                About Us
+              </Link>
               <Link
                 href="/services"
                 className={`text-lg font-medium ${pathname === "/services" ? "text-violet-600" : ""}`}
