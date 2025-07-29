@@ -291,7 +291,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-
             <div className="text-center mt-12 pt-8 border-t border-slate-200">
               <p className="text-lg text-slate-700 mb-2">Welcome to InterRoom.</p>
               <p className="text-lg text-slate-700 font-medium">Let's find your job and your confidence together.</p>
@@ -299,7 +298,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   )

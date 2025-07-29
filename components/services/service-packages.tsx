@@ -1,6 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Check } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, CheckCircle, XCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function ServicePackages() {
@@ -15,84 +16,71 @@ export default function ServicePackages() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <Card className="border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative">
-            <div className="absolute top-0 left-0 bg-green-600 text-white text-xs font-medium px-3 py-1 rounded-br-lg rounded-tl-lg">
-              Pay as you go
-            </div>
-            <CardHeader className="pb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Accelerator Bundle */}
+          <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 flex flex-col">
+            <CardHeader className="pb-4 flex-grow">
               <CardTitle className="text-2xl">Accelerator Bundle</CardTitle>
-              <CardDescription className="text-slate-600 mt-2">
-                Resume Rewrite + Autopilot Job Applications with a simple one-time fee model—no commitments, just
-                results.
-              </CardDescription>
+              <div className="mt-4">
+                <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                  Pay as you go
+                </Badge>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="mt-auto">
               <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>Signal-boosting resume & LinkedIn optimization</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">Job Outsourcing</span>
                 </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>Automated job application system</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">Resume Rewrite and LinkedIn Optimization</span>
                 </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>Weekly progress reports</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">InterRoom Chat Support</span>
+                </li>
+                <li className="flex items-center">
+                  <XCircle className="h-5 w-5 text-red-500 mr-3 shrink-0" />
+                  <span className="text-sm text-slate-500 line-through">Interview Coaching</span>
                 </li>
               </ul>
-              <Button className="w-full bg-violet-600 hover:bg-violet-700 text-white">Choose Accelerator Bundle</Button>
             </CardContent>
           </Card>
 
-          <Card className="border border-violet-200 bg-gradient-to-br from-violet-50 to-white shadow-sm hover:shadow-md transition-shadow relative">
+          {/* Full Support Package */}
+          <Card className="border border-violet-200 bg-gradient-to-br from-violet-50 to-white shadow-sm hover:shadow-lg transition-all duration-300 relative flex flex-col">
             <div className="absolute top-0 right-0 bg-violet-600 text-white text-xs font-medium px-3 py-1 rounded-bl-lg rounded-tr-lg">
               RECOMMENDED
             </div>
-            <CardHeader className="pb-4">
+            <CardHeader className="pb-4 flex-grow">
               <CardTitle className="text-2xl">Full Support Package</CardTitle>
-              <CardDescription className="text-slate-600 mt-2">
-                Job Outsourcing + Resume Rewrite + Elite Coaching. This option is success-based, meaning we only get
-                paid when you land the right role at the right salary. Your success is our success.
-              </CardDescription>
+              <div className="mt-4">
+                <Badge variant="outline" className="bg-violet-50 text-violet-700 border-violet-200">
+                  Success-Based Model
+                </Badge>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="mt-auto">
               <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>All features from Accelerator Bundle</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">Job Outsourcing</span>
                 </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>Dedicated interview coach</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">Resume Rewrite and LinkedIn Optimization</span>
                 </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>Salary negotiation support</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">InterRoom Chat Support</span>
                 </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                    <Check className="h-4 w-4 text-violet-600" />
-                  </div>
-                  <span>Success-based payment model</span>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-sm">Interview Coaching</span>
                 </li>
               </ul>
-              <Button className="w-full bg-violet-600 hover:bg-violet-700 text-white">
-                Choose Full Support Package
-              </Button>
             </CardContent>
           </Card>
         </div>
