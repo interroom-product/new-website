@@ -1,18 +1,18 @@
 "use client"
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Check } from "lucide-react"
+import { ArrowRight, Check, X } from "lucide-react"
 import Link from "next/link"
 
 export default function ServicePackages() {
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-slate-50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium mb-4">Choose Your Package</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Select the comprehensive package that best fits your career goals and job search needs.
+            Select the support level that matches your needs and budget. Both packages include our core job search
+            services.
           </p>
         </div>
 
@@ -47,6 +47,18 @@ export default function ServicePackages() {
                     <Check className="h-4 w-4 text-violet-600" />
                   </div>
                   <span>Access to InterRoom Client Portal 1.0</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-red-100 flex items-center justify-center mr-3 mt-0.5">
+                    <X className="h-4 w-4 text-red-600" />
+                  </div>
+                  <span className="line-through text-slate-400">Dedicated interview coach</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-6 w-6 rounded-full bg-red-100 flex items-center justify-center mr-3 mt-0.5">
+                    <X className="h-4 w-4 text-red-600" />
+                  </div>
+                  <span className="line-through text-slate-400">Success-based payment model</span>
                 </li>
               </ul>
               <Link href="/survey">
@@ -102,12 +114,14 @@ export default function ServicePackages() {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <p className="text-slate-600 mb-6">
-            Not sure which package is right for you? Take our quick assessment to get a personalized recommendation.
+          <h3 className="text-2xl font-semibold mb-4">Ready to Transform Your Job Search?</h3>
+          <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+            Take our quick assessment to see which package is right for you and get started on your journey to landing
+            your dream job.
           </p>
           <Link href="/survey">
             <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
-              Take Assessment <ArrowRight className="ml-2 h-4 w-4" />
+              Take Assessment <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>
