@@ -4,10 +4,6 @@ import { CheckCircle, Users, Heart, MessageSquare, Target, Zap, Shield } from "l
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { lazy } from "react"
-
-// Lazy load heavy components if they exist
-const LazyComponent = lazy(() => import("@/components/heavy-component"))
 
 export const metadata: Metadata = {
   title: "About InterRoom - Your Job Search Partner",
