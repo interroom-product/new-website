@@ -4,7 +4,6 @@ import { useState } from "react"
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { Copy, Check } from "lucide-react"
 
 // Simple modal component to avoid Dialog issues
 function PurchaseModal({
@@ -26,7 +25,7 @@ function PurchaseModal({
       <div className="fixed inset-0 bg-black/50" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-lg shadow-lg max-w-md w-full mx-4 p-6">
+      <div className="relative bg-white rounded-lg shadow-lg max-w-2xl w-full mx-4 p-6">
         {/* Close button */}
         <button onClick={onClose} className="absolute right-4 top-4 text-gray-400 hover:text-gray-600">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,46 +34,18 @@ function PurchaseModal({
         </button>
 
         {/* Content */}
-        <div className="mb-6">
-          <h3 className="text-xl font-medium text-slate-800 mb-4">Ready to Get Started?</h3>
-          <p className="text-slate-600 leading-relaxed">
-            That's great! We're putting the final touches on our automated checkout system.
-            <br />
-            <br />
-            In the meantime, please send a quick email to{" "}
-            <span className="font-medium text-violet-600">ash@interroom.me</span> with the name of the service you're
-            interested in, and we'll get you set up right away.
-            <br />
-            <br />
-            We can't wait to work with you!
-          </p>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-col gap-3">
-          <Button
-            onClick={onCopyEmail}
-            className="bg-violet-600 hover:bg-violet-700 text-white flex items-center justify-center gap-2"
+        <div className="mb-6 w-full h-full">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
+            width="100%"
+            height="500"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            className="w-full"
           >
-            {emailCopied ? (
-              <>
-                <Check className="h-4 w-4" />
-                Email Copied!
-              </>
-            ) : (
-              <>
-                <Copy className="h-4 w-4" />
-                Copy Email Address
-              </>
-            )}
-          </Button>
-          <Button
-            variant="outline"
-            onClick={onClose}
-            className="border-slate-300 text-slate-700 hover:bg-slate-50 bg-transparent"
-          >
-            Close
-          </Button>
+            Loading…
+          </iframe>
         </div>
       </div>
     </div>
