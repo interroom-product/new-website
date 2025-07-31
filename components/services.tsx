@@ -1,4 +1,4 @@
-import { Search, FileText, MessageSquare } from "lucide-react"
+import { Search, FileText, DollarSign } from "lucide-react"
 
 export default function Services() {
   return (
@@ -11,8 +11,8 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 lg:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
               <Search className="h-6 w-6 text-violet-600" />
             </div>
@@ -23,7 +23,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 lg:col-span-1">
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
               <FileText className="h-6 w-6 text-violet-600" />
             </div>
@@ -33,20 +33,9 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 lg:col-span-1">
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
             <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
-              <MessageSquare className="h-6 w-6 text-violet-600" />
-            </div>
-            <h3 className="text-xl font-medium mb-2">Interview Coaching</h3>
-            <p className="text-slate-600 text-sm">
-              Your dedicated coach will help you prepare for all upcoming interviews with personalized coaching and mock
-              sessions.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 lg:col-span-1">
-            <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
-              <MessageSquare className="h-6 w-6 text-violet-600" />
+              <DollarSign className="h-6 w-6 text-violet-600" />
             </div>
             <h3 className="text-xl font-medium mb-2">Salary Negotiation</h3>
             <p className="text-slate-600 text-sm">

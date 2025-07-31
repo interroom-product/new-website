@@ -96,10 +96,9 @@ export default function OfferingsHub() {
           </div>
 
           <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
+            <TabsList className="grid w-full grid-cols-2 mb-12">
               <TabsTrigger value="job-outsourcing">Automated Job Outsourcing</TabsTrigger>
               <TabsTrigger value="resume-rewrite">Resume & LinkedIn Rewrite</TabsTrigger>
-              <TabsTrigger value="personalized-coaching">Interview Coaching</TabsTrigger>
             </TabsList>
 
             <TabsContent value="job-outsourcing">
@@ -201,64 +200,6 @@ export default function OfferingsHub() {
                       </div>
                       <div>
                         <span className="font-medium">LinkedIn profile enhancement</span> to attract recruiters
-                      </div>
-                    </li>
-                  </ul>
-                  <Button
-                    onClick={openModal}
-                    className="bg-violet-600 hover:bg-violet-700 text-white py-3 px-6 rounded-md"
-                  >
-                    Get This Service
-                  </Button>
-                </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="personalized-coaching">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
-                  <iframe
-                    src="/animations/confidence-meter.html"
-                    style={{
-                      width: "100%",
-                      height: "450px",
-                      border: "none",
-                      transform: "scale(1.0)",
-                      transformOrigin: "top left",
-                    }}
-                    title="Confidence Meter Animation"
-                    scrolling="no"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-medium mb-4">Train with industry veterans for interview mastery</h3>
-                  <p className="text-slate-600 mb-6">
-                    The right prep changes everything. With a dedicated team in your corner, we tailor coaching to your
-                    needs so you can land the best offer possible.
-                  </p>
-                  <ul className="space-y-4 mb-6">
-                    <li className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                        <span className="text-violet-600 text-sm font-medium">1</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Mock interviews</span> with industry-specific questions
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                        <span className="text-violet-600 text-sm font-medium">2</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Personalized feedback</span> to improve your interview performance
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-violet-100 flex items-center justify-center mr-3 mt-0.5">
-                        <span className="text-violet-600 text-sm font-medium">3</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">Weekly check-ins</span> to track progress and adjust strategy
                       </div>
                     </li>
                   </ul>

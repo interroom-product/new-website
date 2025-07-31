@@ -116,8 +116,8 @@ export default function AboutPage() {
               </div>
               <div className="relative">
                 <Image
-                  src="/images/about/interroom-collaboration.jpg"
-                  alt="A career coach and a client collaborating on a job search strategy"
+                  src="/placeholder.svg?height=400&width=500"
+                  alt="Professional team collaboration"
                   width={500}
                   height={400}
                   className="rounded-lg shadow-lg"
