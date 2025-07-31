@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CheckCircle, XCircle, ArrowRight, Users, FileText, MessageSquare, Target } from "lucide-react"
+import { CheckCircle, XCircle, ArrowRight, FileText, MessageSquare, Target } from "lucide-react"
 import Link from "next/link"
 
 export default function ServiceHub() {
@@ -23,12 +23,6 @@ export default function ServiceHub() {
       title: "Resume & LinkedIn Optimization",
       description: "Professional resume writing and LinkedIn profile optimization to get you noticed by recruiters.",
       features: ["ATS-optimized resume", "LinkedIn profile rewrite", "Cover letter templates"],
-    },
-    {
-      icon: <Users className="h-8 w-8 text-violet-600" />,
-      title: "Interview Coaching",
-      description: "One-on-one coaching sessions to help you ace your interviews and negotiate better offers.",
-      features: ["Mock interview sessions", "Behavioral question prep", "Salary negotiation guidance"],
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-violet-600" />,

@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
 // Simple modal component to avoid Dialog issues
@@ -52,7 +52,7 @@ function PurchaseModal({
   )
 }
 
-export default function OfferingsHub() {
+export default function ServiceDetails() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [copiedEmail, setCopiedEmail] = useState(false)
 
@@ -86,19 +86,19 @@ export default function OfferingsHub() {
 
   return (
     <>
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4">Find the Right Support For You</h2>
+            <h2 className="text-3xl md:text-4xl font-medium mb-4">Service Details</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Choose from comprehensive packages or individual services designed to accelerate your career trajectory.
+              Dive deeper into each service to understand how we can help accelerate your career journey.
             </p>
           </div>
 
           <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
             <TabsList className="grid w-full grid-cols-3 mb-12">
-              <TabsTrigger value="job-outsourcing">Automated Job Outsourcing</TabsTrigger>
-              <TabsTrigger value="resume-rewrite">Resume & LinkedIn Rewrite</TabsTrigger>
+              <TabsTrigger value="job-outsourcing">Job Applications</TabsTrigger>
+              <TabsTrigger value="resume-rewrite">Resume & LinkedIn</TabsTrigger>
               <TabsTrigger value="personalized-coaching">Interview Coaching</TabsTrigger>
             </TabsList>
 
@@ -157,7 +157,7 @@ export default function OfferingsHub() {
 
             <TabsContent value="resume-rewrite">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-xl overflow-hidden">
+                <div className="rounded-xl overflow-hidden border border-slate-200 shadow-lg">
                   <iframe
                     src="/animations/linkedin-inbox.html"
                     style={{
