@@ -19,7 +19,7 @@ export default function WhyInterroom() {
             {/* Left Column */}
             <div className="space-y-6">
               <p className="text-slate-700 text-lg">
-                Most people try to job search alone. They binge YouTube tips, send out resume into a void, ask friends
+                Most people try to job search alone. They binge YouTube tips, send out resumes into a void, ask friends
                 for feedback, and get stuck in their heads. It's exhausting and it rarely works.
               </p>
 

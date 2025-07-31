@@ -3,36 +3,8 @@ import Footer from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Target, Heart, MessageSquareText, Zap, Shield } from "lucide-react"
-import Image from "next/image"
 
 export default function AboutPage() {
-  const teamMembers = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO & Founder",
-      image: "/placeholder-user.jpg",
-      bio: "Former tech recruiter with 10+ years of experience helping professionals land their dream jobs.",
-    },
-    {
-      name: "Michael Chen",
-      role: "Head of Career Coaching",
-      image: "/placeholder-user.jpg",
-      bio: "Career strategist who has guided over 500 professionals to successful career transitions.",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Lead Resume Writer",
-      image: "/placeholder-user.jpg",
-      bio: "Professional writer specializing in ATS-optimized resumes that get results.",
-    },
-    {
-      name: "David Kim",
-      role: "Interview Coach",
-      image: "/placeholder-user.jpg",
-      bio: "Former hiring manager turned coach, helping candidates ace their interviews.",
-    },
-  ]
-
   const values = [
     {
       icon: <Users className="h-8 w-8 text-violet-600" />,
@@ -77,15 +49,14 @@ export default function AboutPage() {
       <section className="pt-24 pb-16 bg-gradient-to-b from-violet-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-ir-neutral-800 mb-6">
               You Don't Need More Job Tips.
               <span className="text-violet-600"> You Need a Partner.</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Founded in 2020, InterRoom has become the trusted partner for professionals seeking to accelerate their
-              careers and land their dream jobs. Our mission is to democratize access to high-quality career services
-              and make professional success achievable for everyone. We want to be the only tool job seekers need in
-              their job search.
+              We surface 300,000+ roles directly from company websites jobs you won't find on LinkedIn. We pair you with
+              a coach who's done your job before—not just someone who talks about it. We work with you every week - real
+              feedback, no fluff, no generic advice. And we don't get paid until you get hired.
             </p>
           </div>
         </div>
@@ -99,30 +70,28 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
                 <p className="text-gray-600 mb-4">
-                  InterRoom was born from a simple observation: talented professionals were struggling to navigate an
-                  increasingly complex job market. Despite having the skills and experience, many were missing out on
-                  opportunities due to outdated resumes, poor interview preparation, or lack of strategic career
-                  guidance.
+                  InterRoom was born out of frustration. During COVID, our founders were doing everything "right" and
+                  still couldn't land interviews. It wasn't until they started recording mock interviews and sending
+                  them to friends that things shifted. A few pieces of honest, tactical feedback led to real changes and
+                  real results.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Our founder, Sarah Johnson, experienced this firsthand during her own career transition. After
-                  spending months applying to jobs with little success, she realized the gap between having
-                  qualifications and effectively communicating them to employers.
+                  That's when it clicked: Most people aren't struggling because they lack talent. They're struggling
+                  because they're alone. No structure, no visibility, no one telling them what actually matters.
                 </p>
                 <p className="text-gray-600">
-                  Today, InterRoom bridges that gap for thousands of professionals, combining industry expertise with
-                  personalized coaching to deliver results that matter.
+                  We kept hearing it over and over: "Looking for a job feels like a full-time job." And most of that
+                  time? Wasted. Scrolling LinkedIn, applying to generic posts, hearing nothing back.
                 </p>
               </div>
-              <div className="relative">
-                <Image
-                  src="/images/about/interroom-collaboration.jpg"
-                  alt="A career coach and a client collaborating on a job search strategy"
-                  width={500}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
+              <blockquote className="border-l-4 border-violet-600 pl-6 py-4 bg-slate-50">
+                <p className="text-slate-700 italic mb-4">
+                  "Anybody can watch videos or practice with a friend. But what I really needed was someone who stuck
+                  with me when I got rejected, who reminded me I'm still capable. You were like a partner getting me
+                  through the ups and downs."
+                </p>
+                <cite className="text-slate-600 font-medium">- Zeeshan, InterRoom Client</cite>
+              </blockquote>
             </div>
           </div>
         </div>
@@ -148,10 +117,10 @@ export default function AboutPage() {
             </div>
             <div className="text-center space-y-4">
               <p className="text-lg text-gray-700">
-                You're not unqualified. You're not behind. You're just not supposed to do this alone.
+                This isn't about hacks. It's about clarity, execution, and consistency.
               </p>
               <p className="text-lg text-gray-700">
-                You don't need more job tips. You need clarity, momentum, and a team that has your back.
+                If you're ready to stop guessing and start landing, InterRoom is built for you.
               </p>
             </div>
           </div>
@@ -242,9 +211,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="text-center mt-12">
-              <p className="text-lg text-gray-700">
-                Welcome to InterRoom. Let's find your job and your confidence together.
-              </p>
+              <p className="text-lg text-gray-700">If you're tired of guessing, we're ready when you are.</p>
             </div>
           </div>
         </div>

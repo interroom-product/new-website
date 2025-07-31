@@ -8,7 +8,7 @@ export default function CoachesHero() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
               Every Top Performer Has a <span className="text-violet-600">Great Coach</span> By Their Side
             </h1>
             <p className="text-slate-600 text-lg mb-8 max-w-lg">

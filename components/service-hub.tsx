@@ -1,113 +1,91 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, FileText, Zap, Target, CheckCircle, XCircle } from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { CheckCircle, XCircle, ArrowRight, FileText, MessageSquare, Target } from "lucide-react"
 import Link from "next/link"
 
 export default function ServiceHub() {
+  const [activeTab, setActiveTab] = useState("individual")
+
+  const individualServices = [
+    {
+      icon: <Target className="h-8 w-8 text-violet-600" />,
+      title: "Job Outsourcing",
+      description: "We find and apply to jobs for you, targeting roles that match your skills and career goals.",
+      features: ["Personalized job matching", "Application tracking", "Weekly progress reports"],
+    },
+    {
+      icon: <FileText className="h-8 w-8 text-violet-600" />,
+      title: "Resume & LinkedIn Optimization",
+      description: "Professional resume writing and LinkedIn profile optimization to get you noticed by recruiters.",
+      features: ["ATS-optimized resume", "LinkedIn profile rewrite", "Cover letter templates"],
+    },
+    {
+      icon: <MessageSquare className="h-8 w-8 text-violet-600" />,
+      title: "Career Coaching",
+      description: "Strategic career guidance to help you navigate your professional journey with confidence.",
+      features: ["Career strategy sessions", "Goal setting & planning", "Industry insights"],
+    },
+  ]
+
+  const handleAcceleratorClick = () => {
+    // Replace with your actual Google Form URL
+    window.open("https://forms.google.com/your-form-url", "_blank", "width=600,height=700")
+  }
+
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-white to-violet-50/30">
+    <section className="py-20 px-4 bg-gradient-to-b from-white to-violet-50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium mb-4">Our Services</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Choose from individual services or comprehensive packages designed to accelerate your career trajectory.
+            Choose from individual services or comprehensive packages designed to accelerate your job search.
           </p>
         </div>
 
-        <Tabs defaultValue="individual" className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 mb-12 bg-white border border-slate-200">
-            <TabsTrigger
-              value="individual"
-              className="data-[state=active]:bg-violet-600 data-[state=active]:text-white"
-            >
-              Individual Services
-            </TabsTrigger>
-            <TabsTrigger value="bundles" className="data-[state=active]:bg-violet-600 data-[state=active]:text-white">
-              Bundled Packages
-            </TabsTrigger>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-6xl mx-auto">
+          <TabsList className="grid w-full grid-cols-2 mb-12">
+            <TabsTrigger value="individual">Individual Services</TabsTrigger>
+            <TabsTrigger value="packages">Bundled Packages</TabsTrigger>
           </TabsList>
 
           <TabsContent value="individual">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Job Outsourcing */}
-              <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 group flex flex-col">
-                <CardHeader className="pb-4 flex-grow">
-                  <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
-                    <Zap className="h-6 w-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <CardTitle className="text-xl">Job Outsourcing</CardTitle>
-                  <CardDescription className="text-slate-600">
-                    Our system finds and applies for jobs for you in one place, freeing you to focus on the win: the
-                    interview.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <Link href="/services">
-                    <Button
-                      variant="outline"
-                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300 bg-transparent"
-                    >
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              {individualServices.map((service, index) => (
+                <Card
+                  key={index}
+                  className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 flex flex-col"
+                >
+                  <CardHeader>
+                    <div className="flex items-center mb-4">
+                      {service.icon}
+                      <CardTitle className="ml-3 text-xl">{service.title}</CardTitle>
+                    </div>
+                    <p className="text-slate-600">{service.description}</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex flex-col mt-auto">
+                    <ul className="space-y-2 mb-6 flex-grow">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <CheckCircle className="h-4 w-4 text-green-500 mr-2 shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant="outline" className="w-full bg-transparent">
+                      Learn More
                     </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-
-              {/* Resume Rewrite and LinkedIn Optimization */}
-              <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 group flex flex-col">
-                <CardHeader className="pb-4 flex-grow">
-                  <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
-                    <FileText className="h-6 w-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <CardTitle className="text-xl">Resume Rewrite and LinkedIn Optimization</CardTitle>
-                  <CardDescription className="text-slate-600">
-                    AI can optimize, but humans get you hired. We mix smart tech with real expertise to sharpen your
-                    resume and LinkedIn, beat the bots, and grab recruiters' attention.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <Link href="/services">
-                    <Button
-                      variant="outline"
-                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300 bg-transparent"
-                    >
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-
-              {/* Interview Coaching */}
-              <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 group flex flex-col">
-                <CardHeader className="pb-4 flex-grow">
-                  <div className="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors duration-300">
-                    <Target className="h-6 w-6 text-violet-600 group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <CardTitle className="text-xl">Interview Coaching</CardTitle>
-                  <CardDescription className="text-slate-600">
-                    The right prep changes everything. With a dedicated team in your corner, we tailor coaching to your
-                    needs so you can get real feedback and land the best offer possible.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <Link href="/services">
-                    <Button
-                      variant="outline"
-                      className="w-full group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300 bg-transparent"
-                    >
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="bundles">
+          <TabsContent value="packages">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Accelerator Bundle */}
               <Card className="border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-violet-200 flex flex-col">
@@ -118,6 +96,9 @@ export default function ServiceHub() {
                       Pay as you go
                     </Badge>
                   </div>
+                  <p className="text-slate-600 mt-4">
+                    Perfect for professionals who want to accelerate their job search with essential services.
+                  </p>
                 </CardHeader>
                 <CardContent className="mt-auto">
                   <ul className="space-y-3 mb-6">
@@ -138,6 +119,13 @@ export default function ServiceHub() {
                       <span className="text-sm text-slate-500 line-through">Interview Coaching</span>
                     </li>
                   </ul>
+                  <Button
+                    onClick={handleAcceleratorClick}
+                    variant="outline"
+                    className="w-full bg-transparent hover:bg-violet-50"
+                  >
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -153,6 +141,9 @@ export default function ServiceHub() {
                       Success-Based Model
                     </Badge>
                   </div>
+                  <p className="text-slate-600 mt-4">
+                    Comprehensive support including interview coaching for maximum success.
+                  </p>
                 </CardHeader>
                 <CardContent className="mt-auto">
                   <ul className="space-y-3 mb-6">
@@ -173,8 +164,26 @@ export default function ServiceHub() {
                       <span className="text-sm">Interview Coaching</span>
                     </li>
                   </ul>
+                  <Link href="/survey">
+                    <Button className="w-full bg-violet-600 hover:bg-violet-700">
+                      Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Unified CTA Section */}
+            <div className="text-center mt-12">
+              <p className="text-slate-600 mb-6 text-lg">Not sure which package is right for you?</p>
+              <Link href="/survey">
+                <Button size="lg" className="bg-violet-600 hover:bg-violet-700 px-8">
+                  Take Our Quick Assessment <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <p className="text-sm text-slate-500 mt-3">
+                Complete our 2-minute survey to get a personalized recommendation
+              </p>
             </div>
           </TabsContent>
         </Tabs>
