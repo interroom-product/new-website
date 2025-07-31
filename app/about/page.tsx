@@ -3,7 +3,6 @@ import Footer from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Target, Heart, MessageSquareText, Zap, Shield } from "lucide-react"
-import Image from "next/image"
 
 export default function AboutPage() {
   const values = [
@@ -85,15 +84,14 @@ export default function AboutPage() {
                   time? Wasted. Scrolling LinkedIn, applying to generic posts, hearing nothing back.
                 </p>
               </div>
-              <div className="relative">
-                <Image
-                  src="/images/about/interroom-collaboration.jpg"
-                  alt="Professional team collaboration"
-                  width={500}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
+              <blockquote className="border-l-4 border-violet-600 pl-6 py-4 bg-slate-50">
+                <p className="text-slate-700 italic mb-4">
+                  "Anybody can watch videos or practice with a friend. But what I really needed was someone who stuck
+                  with me when I got rejected, who reminded me I'm still capable. You were like a partner getting me
+                  through the ups and downs."
+                </p>
+                <cite className="text-slate-600 font-medium">- Zeeshan, InterRoom Client</cite>
+              </blockquote>
             </div>
           </div>
         </div>
