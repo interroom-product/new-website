@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Target, Heart, MessageSquareText, Zap, Shield } from "lucide-react"
 import Image from "next/image"
-import WhyInterroom from "@/components/why-interroom"
 
 export default function AboutPage() {
   const values = [
@@ -63,8 +62,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <WhyInterroom />
 
       {/* Story Section */}
       <section className="py-16">
