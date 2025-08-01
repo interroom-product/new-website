@@ -27,8 +27,8 @@ export default function Home() {
       <ServiceHub />
       <Comparison />
       <Coaches />
-      <Faq />
       <Testimonials />
+      <Faq />
       <section className="py-20 px-4 bg-gradient-to-r from-violet-50 to-violet-100">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to transform your job search?</h2>

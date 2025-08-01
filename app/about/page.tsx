@@ -3,6 +3,7 @@ import Footer from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Target, Heart, MessageSquareText, Zap, Shield } from "lucide-react"
+import Link from "next/link"
 
 export default function AboutPage() {
   const values = [
@@ -221,21 +222,16 @@ export default function AboutPage() {
       <section className="py-16 bg-violet-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Career?</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to have a team behind you?</h2>
             <p className="text-xl text-violet-100 mb-8">
               Join thousands of professionals who have accelerated their careers with InterRoom.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary">
-                Get Started Today
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-violet-600 bg-transparent"
-              >
-                Schedule Consultation
-              </Button>
+            <div className="flex justify-center">
+              <Link href="/survey">
+                <Button size="lg" variant="secondary">
+                  Get Started Today
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

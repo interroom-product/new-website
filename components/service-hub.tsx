@@ -7,9 +7,11 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CheckCircle, XCircle, ArrowRight, FileText, MessageSquare, Target } from "lucide-react"
 import Link from "next/link"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export default function ServiceHub() {
   const [activeTab, setActiveTab] = useState("individual")
+  const [isAcceleratorModalOpen, setIsAcceleratorModalOpen] = useState(false)
 
   const individualServices = [
     {
@@ -26,16 +28,11 @@ export default function ServiceHub() {
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-violet-600" />,
-      title: "Career Coaching",
-      description: "Strategic career guidance to help you navigate your professional journey with confidence.",
-      features: ["Career strategy sessions", "Goal setting & planning", "Industry insights"],
+      title: "Interview Coaching",
+      description: "1:1 coaching and mock interviews with industry experts to help you ace every interview.",
+      features: ["Personalized interview prep", "Mock interview sessions", "Salary negotiation strategies"],
     },
   ]
-
-  const handleAcceleratorClick = () => {
-    // Replace with your actual Google Form URL
-    window.open("https://forms.google.com/your-form-url", "_blank", "width=600,height=700")
-  }
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-white to-violet-50">
@@ -76,9 +73,11 @@ export default function ServiceHub() {
                         </li>
                       ))}
                     </ul>
-                    <Button variant="outline" className="w-full bg-transparent">
-                      Learn More
-                    </Button>
+                    <Link href="/services">
+                      <Button variant="outline" className="w-full bg-transparent">
+                        Learn More
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -119,13 +118,26 @@ export default function ServiceHub() {
                       <span className="text-sm text-slate-500 line-through">Interview Coaching</span>
                     </li>
                   </ul>
-                  <Button
-                    onClick={handleAcceleratorClick}
-                    variant="outline"
-                    className="w-full bg-transparent hover:bg-violet-50"
-                  >
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <Dialog open={isAcceleratorModalOpen} onOpenChange={setIsAcceleratorModalOpen}>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full bg-transparent hover:bg-violet-50">
+                        Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
+                      <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
+                        width="640"
+                        height="1748"
+                        frameBorder="0"
+                        marginHeight="0"
+                        marginWidth="0"
+                        className="w-full"
+                      >
+                        Loading…
+                      </iframe>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
 

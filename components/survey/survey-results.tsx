@@ -166,17 +166,17 @@ export default function SurveyResults() {
         }
       case "coaching":
         return {
-          title: "Coaching Sessions",
+          title: "Interview Coaching Sessions",
           description: "Perfect for professionals who want personalized career guidance and interview preparation.",
           features: [
-            "1-on-1 career coaching sessions",
+            "1-on-1 interview coaching sessions",
             "Interview preparation and practice",
             "Career strategy development",
             "Resume and LinkedIn review",
             "Salary negotiation guidance",
           ],
           price: "Per session pricing",
-          cta: "Book Coaching Session",
+          cta: "Book Interview Coaching",
           highlight: false,
         }
       default:

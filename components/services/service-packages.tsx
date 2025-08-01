@@ -5,8 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, CheckCircle, XCircle } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export default function ServicePackages() {
+  const [isAcceleratorModalOpen, setIsAcceleratorModalOpen] = useState(false)
+
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-white to-violet-50">
       <div className="container mx-auto">
@@ -47,11 +51,26 @@ export default function ServicePackages() {
                   <span className="text-sm text-slate-500 line-through">Interview Coaching</span>
                 </li>
               </ul>
-              <Link href="/survey">
-                <Button variant="outline" className="w-full bg-transparent">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+              <Dialog open={isAcceleratorModalOpen} onOpenChange={setIsAcceleratorModalOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" className="w-full bg-transparent">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
+                  <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
+                    width="640"
+                    height="1748"
+                    frameBorder="0"
+                    marginHeight="0"
+                    marginWidth="0"
+                    className="w-full"
+                  >
+                    Loading…
+                  </iframe>
+                </DialogContent>
+              </Dialog>
             </CardContent>
           </Card>
 

@@ -2,12 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { useState } from "react"
+import Link from "next/link"
 
 export default function Hero() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   return (
     <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-violet-50 to-white">
       <div className="container mx-auto">
@@ -21,24 +18,11 @@ export default function Hero() {
           </p>
           <p className="text-slate-600 mb-12 text-lg">We're with you every step of the way in your job search.</p>
           <div className="mb-12">
-            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-              <DialogTrigger asChild>
-                <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-lg px-8 py-4 h-auto">
-                  Join the Waitlist <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden p-0">
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLScyLa08AAKV2JDQvKutQgFWOP2U6NVkSbDCvJomNxT80RzXPg/viewform?embedded=true"
-                  className="w-full h-full min-h-[600px]"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                >
-                  Loading…
-                </iframe>
-              </DialogContent>
-            </Dialog>
+            <Link href="/survey">
+              <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-lg px-8 py-4 h-auto">
+                Join the Waitlist <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

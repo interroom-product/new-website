@@ -96,7 +96,7 @@ export default function OfferingsHub() {
           </div>
 
           <Tabs defaultValue="job-outsourcing" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto sm:h-10 mb-12">
               <TabsTrigger value="job-outsourcing">Automated Job Outsourcing</TabsTrigger>
               <TabsTrigger value="resume-rewrite">Resume & LinkedIn Rewrite</TabsTrigger>
               <TabsTrigger value="personalized-coaching">Interview Coaching</TabsTrigger>
