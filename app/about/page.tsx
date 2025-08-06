@@ -2,8 +2,9 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Users, Target, Heart, MessageSquareText, Zap, Shield } from "lucide-react"
+import { Users, Target, Heart, MessageSquareText, Zap, Shield } from 'lucide-react'
 import Link from "next/link"
+import Image from "next/image"
 
 export default function AboutPage() {
   const values = [
@@ -85,14 +86,25 @@ export default function AboutPage() {
                   time? Wasted. Scrolling LinkedIn, applying to generic posts, hearing nothing back.
                 </p>
               </div>
-              <blockquote className="border-l-4 border-violet-600 pl-6 py-4 bg-slate-50">
-                <p className="text-slate-700 italic mb-4">
-                  "Anybody can watch videos or practice with a friend. But what I really needed was someone who stuck
-                  with me when I got rejected, who reminded me I'm still capable. You were like a partner getting me
-                  through the ups and downs."
-                </p>
-                <cite className="text-slate-600 font-medium">- Zeeshan, InterRoom Client</cite>
-              </blockquote>
+              <Card className="bg-slate-50 border-l-4 border-violet-600 rounded-l-none shadow-sm">
+                <CardContent className="p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                  <Image
+                    src="/images/testimonials/zeeshan.jpeg"
+                    alt="Zeeshan, InterRoom Client"
+                    width={80}
+                    height={80}
+                    className="rounded-full object-cover border-4 border-white shadow-md flex-shrink-0"
+                  />
+                  <div className="text-center sm:text-left">
+                    <p className="text-slate-700 italic mb-4">
+                      "Anybody can watch videos or practice with a friend. But what I really needed was someone who stuck
+                      with me when I got rejected, who reminded me I'm still capable. You were like a partner getting me
+                      through the ups and downs."
+                    </p>
+                    <cite className="text-slate-600 font-medium not-italic">- Zeeshan, Placed at Meta</cite>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
