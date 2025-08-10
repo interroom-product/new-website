@@ -2,7 +2,8 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Users, Target, Heart, MessageSquareText, Zap, Shield } from 'lucide-react'
+import { Badge } from "@/components/ui/badge"
+import { Users, Target, Heart, MessageSquareText, Zap, Shield } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -88,20 +89,36 @@ export default function AboutPage() {
               </div>
               <Card className="bg-slate-50 border-l-4 border-violet-600 rounded-l-none shadow-sm">
                 <CardContent className="p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                  <Image
-                    src="/images/testimonials/zeeshan.jpeg"
-                    alt="Zeeshan, InterRoom Client"
-                    width={80}
-                    height={80}
-                    className="rounded-full object-cover border-4 border-white shadow-md flex-shrink-0"
-                  />
+                  <div className="relative flex-shrink-0">
+                    <Image
+                      src="/images/testimonials/zeeshan.jpeg"
+                      alt="Zeeshan Anwar, InterRoom Client"
+                      width={80}
+                      height={80}
+                      className="h-20 w-20 rounded-full object-cover border-4 border-white shadow-md"
+                    />
+                    <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white shadow-lg border-2 border-white/80 flex items-center justify-center overflow-hidden">
+                      <Image
+                        src="/images/logos/meta-logo.svg"
+                        alt="Meta logo"
+                        width={24}
+                        height={24}
+                        className="object-contain w-5 h-5"
+                      />
+                    </div>
+                  </div>
                   <div className="text-center sm:text-left">
                     <p className="text-slate-700 italic mb-4">
-                      "Anybody can watch videos or practice with a friend. But what I really needed was someone who stuck
-                      with me when I got rejected, who reminded me I'm still capable. You were like a partner getting me
-                      through the ups and downs."
+                      "Anybody can watch videos or practice with a friend. But what I really needed was someone who
+                      stuck with me when I got rejected, who reminded me I'm still capable. You were like a partner
+                      getting me through the ups and downs."
                     </p>
-                    <cite className="text-slate-600 font-medium not-italic">- Zeeshan, Placed at Meta</cite>
+                    <div className="flex flex-col items-center sm:items-start">
+                      <cite className="text-slate-600 font-medium not-italic">- Zeeshan Anwar</cite>
+                      <Badge className="mt-2 text-xs px-2 py-1 bg-violet-100 text-violet-700 border border-violet-200">
+                        Full Accelerator Bundle
+                      </Badge>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
