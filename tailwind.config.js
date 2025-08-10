@@ -90,11 +90,18 @@ module.exports = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "slide-up": {
+          "0%": { transform: "translateY(100%)" },
+          "15%": { transform: "translateY(0%)" },
+          "85%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         scroll: "scroll var(--animation-duration, 30s) linear infinite",
+        "slide-up": "slide-up 4s ease-in-out",
       },
     },
   },
