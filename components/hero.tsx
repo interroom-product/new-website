@@ -6,11 +6,10 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const rotatingTaglines = [
-  "landing a job you actually want",
+  "landing a job you love",
   "interview and career clarity",
-  "expert coaching and real feedback",
-  "a personal team in your corner",
-  "automating job search applications",
+  "expert coaching",
+  "automated job tracking",
   "offer negotiations",
 ]
 
@@ -29,7 +28,7 @@ export default function Hero() {
     <section className="pt-32 pb-16 bg-gradient-to-b from-violet-50 to-white">
       <div className="container mx-auto px-2 sm:px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl sm:text-5xl md:text-5xl font-extrabold leading-tight md:leading-none tracking-tight mb-8 flex flex-col justify-center items-center h-40 sm:h-48 md:h-56">
+          <h1 className="text-3xl sm:text-6xl md:text-7xl font-extrabold leading-tight md:leading-none tracking-tight mb-8 flex flex-col justify-center items-center h-40 sm:h-48 md:h-56">
             <span className="px-2">Your partner on the path to</span>
 
             {/* Slide container: give extra height to avoid descender clipping */}
