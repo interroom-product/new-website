@@ -97,15 +97,6 @@ export default function AboutPage() {
                       height={80}
                       className="h-20 w-20 rounded-full object-cover border-4 border-white shadow-md"
                     />
-                    <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white shadow-lg border-2 border-white/80 flex items-center justify-center overflow-hidden">
-                      <Image
-                        src="/images/logos/meta-logo.svg"
-                        alt="Meta logo"
-                        width={24}
-                        height={24}
-                        className="object-contain w-5 h-5"
-                      />
-                    </div>
                   </div>
                   <div className="text-center sm:text-left">
                     <p className="text-slate-700 italic mb-4">
@@ -114,9 +105,25 @@ export default function AboutPage() {
                       getting me through the ups and downs."
                     </p>
                     <div className="flex flex-col items-center sm:items-start">
-                      <cite className="text-slate-600 font-medium not-italic">- Zeeshan Anwar</cite>
+                      <div className="flex items-center gap-2">
+                        <cite className="text-slate-600 font-medium not-italic">- Zeeshan Anwar</cite>
+                        <Badge
+                          className="h-8 w-8 sm:h-9 sm:w-9 rounded-full p-1.5 bg-white border border-violet-200 flex items-center justify-center shadow-sm"
+                          aria-label="Meta"
+                        >
+                          <Image
+                            src="/images/logos/meta-logo.svg"
+                            alt="Meta logo"
+                            width={24}
+                            height={24}
+                            className="h-5 w-5 sm:h-6 sm:w-6 object-contain"
+                            priority
+                          />
+                          <span className="sr-only">Meta</span>
+                        </Badge>
+                      </div>
                       <Badge className="mt-2 text-xs px-2 py-1 bg-violet-100 text-violet-700 border border-violet-200">
-                        Full Accelerator Bundle
+                        Full Support Package
                       </Badge>
                     </div>
                   </div>
