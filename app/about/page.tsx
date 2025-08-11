@@ -108,15 +108,15 @@ export default function AboutPage() {
                       <div className="flex items-center gap-2">
                         <cite className="text-slate-600 font-medium not-italic">- Zeeshan Anwar</cite>
                         <Badge
-                          className="h-8 w-8 sm:h-9 sm:w-9 rounded-full p-1.5 bg-white border border-violet-200 flex items-center justify-center shadow-sm"
+                          className="h-9 w-9 sm:h-10 sm:w-10 rounded-full p-1.5 bg-white border border-violet-200 flex items-center justify-center shadow-sm"
                           aria-label="Meta"
                         >
                           <Image
                             src="/images/logos/meta-logo.svg"
                             alt="Meta logo"
-                            width={24}
-                            height={24}
-                            className="h-5 w-5 sm:h-6 sm:w-6 object-contain"
+                            width={28}
+                            height={28}
+                            className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
                             priority
                           />
                           <span className="sr-only">Meta</span>
