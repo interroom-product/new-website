@@ -15,13 +15,24 @@ const rotatingTaglines = [
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isInitial, setIsInitial] = useState(true)
 
   useEffect(() => {
     const DURATION_MS = 4000 // must match the Tailwind animation duration
+
+    const initialTimeout = setTimeout(() => {
+      setIsInitial(false)
+      setCurrentIndex(1)
+    }, DURATION_MS)
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % rotatingTaglines.length)
     }, DURATION_MS)
-    return () => clearInterval(interval)
+
+    return () => {
+      clearTimeout(initialTimeout)
+      clearInterval(interval)
+    }
   }, [])
 
   return (
@@ -34,7 +45,9 @@ export default function Hero() {
             <div className="h-[1.4em] overflow-hidden relative w-full flex items-center justify-center text-center">
               <span
                 key={`tagline-${currentIndex}`}
-                className="text-violet-600 animate-slide-up block whitespace-nowrap absolute inset-0 flex items-center justify-center text-center"
+                className={`text-violet-600 block whitespace-nowrap absolute inset-0 flex items-center justify-center text-center ${
+                  isInitial ? "" : "animate-slide-up"
+                }`}
               >
                 {rotatingTaglines[currentIndex]}
               </span>
