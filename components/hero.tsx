@@ -15,22 +15,27 @@ const rotatingTaglines = [
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  // Start with animation disabled for the initial static render.
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
-    const DURATION_MS = 4000 // must match the Tailwind animation duration
+    const DURATION_MS = 4000 // Must match the Tailwind animation duration
 
-    const initialTimeout = setTimeout(() => {
+    // 1. After the first 4 seconds, enable the animation class for all subsequent renders.
+    // This allows the first tagline to gracefully animate out.
+    const animationTimeout = setTimeout(() => {
       setIsAnimating(true)
-      setCurrentIndex(1)
     }, DURATION_MS)
 
+    // 2. Start the interval to rotate the taglines.
+    // The first change will happen after 4 seconds, picking up the new animation class.
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % rotatingTaglines.length)
     }, DURATION_MS)
 
+    // Cleanup timers on component unmount
     return () => {
-      clearTimeout(initialTimeout)
+      clearTimeout(animationTimeout)
       clearInterval(interval)
     }
   }, [])
