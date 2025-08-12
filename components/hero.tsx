@@ -15,22 +15,16 @@ const rotatingTaglines = [
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(true)
 
   useEffect(() => {
     const DURATION_MS = 4000 // must match the Tailwind animation duration
-
-    const initialTimeout = setTimeout(() => {
-      setIsAnimating(true)
-      setCurrentIndex(1)
-    }, DURATION_MS)
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % rotatingTaglines.length)
     }, DURATION_MS)
 
     return () => {
-      clearTimeout(initialTimeout)
       clearInterval(interval)
     }
   }, [])
