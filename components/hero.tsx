@@ -31,11 +31,10 @@ export default function Hero() {
           <h1 className="text-3xl sm:text-6xl md:text-7xl font-extrabold leading-tight md:leading-none tracking-tight mb-8 flex flex-col justify-center items-center h-40 sm:h-48 md:h-56">
             <span className="px-2">Your partner on the path to</span>
 
-            {/* Slide container: give extra height to avoid descender clipping */}
-            <div className="h-[1.2em] overflow-hidden relative w-full flex items-center justify-center text-center">
+            <div className="h-[1.4em] overflow-hidden relative w-full flex items-center justify-center text-center">
               <span
-                key={currentIndex}
-                className="text-violet-600 animate-slide-up block whitespace-nowrap flex items-center justify-center text-center"
+                key={`tagline-${currentIndex}`}
+                className="text-violet-600 animate-slide-up block whitespace-nowrap absolute inset-0 flex items-center justify-center text-center"
               >
                 {rotatingTaglines[currentIndex]}
               </span>
