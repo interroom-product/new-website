@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { useEffect, useState } from "react"
 import { ArrowRight, Check, Crosshair, LockKeyhole, TrendingUp } from "lucide-react"
 
@@ -72,7 +73,7 @@ function EasyWebinarWidget() {
   return (
     <div className="overflow-hidden rounded-xl bg-white">
       <div className="ew-wid" data-wid="Myi7qNEMlHjudDpq921wuw==" data-loaded="no" data-schloaded="no" />
-      <script src="https://app.easywebinar.com/widget/js/new/ew-script.js" />
+      <Script src="https://app.easywebinar.com/widget/js/new/ew-script.js" strategy="afterInteractive" />
     </div>
   )
 }
