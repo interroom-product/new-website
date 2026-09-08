@@ -118,7 +118,7 @@ export default function NextPlayPage() {
             </div>
           </div>
 
-          <aside id="register" className="h-fit rounded-3xl border border-white/10 bg-[#241f47]/95 p-5 shadow-2xl shadow-black/30 lg:sticky lg:top-6">
+          <aside id="register" className="order-first h-fit rounded-3xl border border-white/10 bg-[#241f47]/95 p-5 shadow-2xl shadow-black/30 lg:order-none lg:sticky lg:top-6">
             <p className="text-lg font-semibold">Save your seat</p>
             <p className="mt-1 text-sm text-[#b6abe0]">Wednesday, September 16 · 3:00 PM PST / 6:00 PM EST</p>
             <div className="my-5"><Countdown /></div>
