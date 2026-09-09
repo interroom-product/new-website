@@ -93,12 +93,14 @@ export default function NextPlayPage() {
       <section className="relative overflow-hidden bg-[#14102b] pb-20 pt-14 text-white sm:pb-24 sm:pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_83%_5%,rgba(124,58,237,.34),transparent_36%),radial-gradient(circle_at_4%_100%,rgba(55,48,110,.55),transparent_40%)]" />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[1.08fr_.92fr] lg:gap-16">
-          <div>
-            <div className="mb-6 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-2 rounded-full border border-red-300/30 bg-red-400/15 px-3 py-1.5 text-xs font-semibold text-red-200"><span className="h-2 w-2 animate-pulse rounded-full bg-red-300" /> Live webinar</span>
-              <span className="rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs text-[#e7dffa]">Free 1-hour session</span>
+          <div className="order-3 lg:order-none">
+            <div className="hidden lg:block">
+              <div className="mb-6 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-2 rounded-full border border-red-300/30 bg-red-400/15 px-3 py-1.5 text-xs font-semibold text-red-200"><span className="h-2 w-2 animate-pulse rounded-full bg-red-300" /> Live webinar</span>
+                <span className="rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs text-[#e7dffa]">Free 1-hour session</span>
+              </div>
+              <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em] sm:text-6xl lg:text-7xl">Accelerate your job search.</h1>
             </div>
-            <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em] sm:text-6xl lg:text-7xl">Accelerate your job search.</h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#cbc0ec]">A free live session on anchoring yourself to a role the market will pay $150K and up for.</p>
             <div className="mt-9 flex flex-col gap-3">
               {[
@@ -118,7 +120,15 @@ export default function NextPlayPage() {
             </div>
           </div>
 
-          <aside id="register" className="order-first h-fit rounded-3xl border border-white/10 bg-[#241f47]/95 p-5 shadow-2xl shadow-black/30 lg:order-none lg:sticky lg:top-6">
+          <div className="order-first lg:hidden">
+            <div className="mb-6 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-red-300/30 bg-red-400/15 px-3 py-1.5 text-xs font-semibold text-red-200"><span className="h-2 w-2 animate-pulse rounded-full bg-red-300" /> Live webinar</span>
+              <span className="rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs text-[#e7dffa]">Free 1-hour session</span>
+            </div>
+            <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em]">Accelerate your job search.</h1>
+          </div>
+
+          <aside id="register" className="order-2 h-fit rounded-3xl border border-white/10 bg-[#241f47]/95 p-5 shadow-2xl shadow-black/30 lg:order-none lg:sticky lg:top-6">
             <p className="text-lg font-semibold">Save your seat</p>
             <p className="mt-1 text-sm text-[#b6abe0]">Wednesday, September 16 · 3:00 PM PST / 6:00 PM EST</p>
             <div className="my-5"><Countdown /></div>
