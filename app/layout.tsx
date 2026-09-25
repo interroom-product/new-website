@@ -4,10 +4,10 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "InterRoom",
-    template: "%s | InterRoom",
+    default: "Loloi Executive Headhunter Search",
+    template: "%s | Loloi Executive Search",
   },
-  description: "Your All-in-One Job Search Platform",
+  description: "An internal evaluation tool for Loloi's next three executive leaders.",
   generator: "v0.dev",
 }
 
