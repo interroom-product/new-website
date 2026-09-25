@@ -1,68 +1,48 @@
-'use client'
+import type { Metadata } from "next"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
+import Navbar from "@/components/navbar"
+import Hero from "@/components/hero"
+import LogoStrip from "@/components/logo-strip"
+import ServiceHub from "@/components/service-hub"
+import Comparison from "@/components/comparison"
+import Testimonials from "@/components/testimonials"
+import Faq from "@/components/faq"
+import Coaches from "@/components/coaches"
+import Footer from "@/components/footer"
+import FuturisticCalculator from "@/components/futuristic-calculator"
+import Link from "next/link"
 
-import { useEffect, useMemo, useState } from 'react'
-import { ArrowUpRight, ChevronRight, Menu, Moon, X, Sun, ExternalLink } from 'lucide-react'
-
-const firms = [
-  { id: 'kirk-palmer', name: 'Kirk Palmer', url: 'https://www.kirkpalmer.com', descriptor: 'New York/SF/London · Consumer specialist · Est. 1987' },
-  { id: 'herbert-mines', name: 'Herbert Mines', url: 'https://www.herbertmines.com', descriptor: 'New York · Consumer & retail exclusive · ~45 years' },
-  { id: 'spencer-stuart', name: 'Spencer Stuart', url: 'https://www.spencerstuart.com', descriptor: 'Global · Among largest Americas firms' },
-  { id: 'russell-reynolds', name: 'Russell Reynolds', url: 'https://www.russellreynolds.com', descriptor: 'Global · Among largest Americas firms' },
-  { id: 'jm-search', name: 'JM Search', url: 'https://jmsearch.com', descriptor: 'National · #11 Hunt Scanlon 2026 · #19 Forbes 2026' },
-]
-const modules = [
-  { id: 'overview', label: 'Overview', group: 'Overview', number: '01' },
-  { id: 'method', label: 'Method', group: 'Overview', number: '02' },
-  { id: 'shortlist', label: 'Shortlist', group: 'Overview', number: '03' },
-  ...firms.map((f, i) => ({ id: f.id, label: f.name, group: 'The firms', number: `0${i + 4}` })),
-  { id: 'evidence', label: 'Evidence', group: 'Appendix', number: '09' },
-  { id: 'scorecard', label: 'Scorecard', group: 'Appendix', number: '10' },
-  { id: 'alternates', label: 'Alternates', group: 'Appendix', number: '11' },
-  { id: 'recommendation', label: 'Recommendation', group: 'Appendix', number: '12' },
-]
-const LinkText = ({ href, children }: { href: string; children: React.ReactNode }) => <a href={href} target="_blank" rel="noreferrer" className="inline-link">{children}<ExternalLink size={12} /></a>
-const Card = ({ title, children, tone = '' }: { title: string; children: React.ReactNode; tone?: string }) => <article className={`card ${tone}`}><h3>{title}</h3>{children}</article>
-const Pill = ({ children, published = false }: { children: React.ReactNode; published?: boolean }) => <span className={`pill ${published ? 'published' : ''}`}>{published ? '◇ PUBLISHED' : '◆ VERIFIED'} {children}</span>
-
-export default function Home() {
-  const [active, setActive] = useState('overview')
-  const [drawer, setDrawer] = useState(false)
-  const [dark, setDark] = useState(false)
-
-  useEffect(() => {
-    const sync = () => setActive(window.location.hash.replace('#', '') || 'overview')
-    sync(); window.addEventListener('hashchange', sync); return () => window.removeEventListener('hashchange', sync)
-  }, [])
-  const select = (id: string) => { window.location.hash = id; setActive(id); setDrawer(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }
-  const currentIndex = modules.findIndex(m => m.id === active)
-  const next = modules[currentIndex + 1]
-  const navGroups = ['Overview', 'The firms', 'Appendix']
-
-  return <div className={dark ? 'app-shell dark' : 'app-shell'}>
-    <aside className={`sidebar ${drawer ? 'open' : ''}`}>
-      <div className="brand"><div className="wordmark">LOLOI</div><div className="brand-sub">Executive Headhunter<br />Search</div></div>
-      <nav aria-label="Search modules">{navGroups.map(group => <div className="nav-group" key={group}><div className="nav-label">{group}</div>{modules.filter(m => m.group === group).map(m => <button key={m.id} className={`nav-item ${active === m.id ? 'active' : ''}`} onClick={() => select(m.id)}><span className="nav-number">{m.number}</span><span>{m.label}</span>{active === m.id && <ChevronRight size={14} />}</button>)}</div>)}</nav>
-      <div className="sidebar-foot">Internal working document<br /><span>September 2026</span></div>
-    </aside>
-    {drawer && <button className="scrim" aria-label="Close menu" onClick={() => setDrawer(false)} />}
-    <main className="main-content">
-      <header className="topbar"><button className="menu-btn" onClick={() => setDrawer(true)} aria-label="Open navigation"><Menu /></button><div className="mobile-title">LOLOI / SEARCH</div><div className="top-actions"><span className="status-dot" /> Reference tool <button className="theme-btn" onClick={() => setDark(!dark)} aria-label="Toggle dark mode">{dark ? <Sun size={16} /> : <Moon size={16} />}</button></div></header>
-      <div className="content-wrap">{renderModule(active)}<div className="up-next">{next && <button onClick={() => select(next.id)}>Up next: <strong>{next.label}</strong> <ArrowUpRight size={15} /></button>}</div></div>
-    </main>
-  </div>
-
-  function renderModule(id: string) {
-    if (id === 'overview') return <Section eyebrow="Overview · 01" title="Choosing search partners for Loloi's next three leaders" intro="A deliberate shortlist of five retained executive search firms — with four more held in reserve — to recruit a President and two SVPs. Selected on evidence and category fit, not brand names."><div className="grid-2"><Card title="The mandate"><ul><li><strong>President</strong> — Dallas-based</li><li><strong>SVP Finance</strong> — Dallas preferred, remote possible</li><li><strong>SVP Inventory & Allocation</strong> — Dallas preferred, remote possible</li></ul><small>Loloi Rugs — family-owned home textiles, wholesale + ecommerce, Dallas HQ, ~720 employees, founded 2004.</small></Card><Card title="Why these searches are not ‘just consumer recruiting’"><ul><li>Large SKU counts & assortment complexity</li><li>Inventory planning & working-capital exposure</li><li>Global sourcing & supply chain</li><li>Wholesale AND retail/ecommerce dynamics</li><li>Founder / family / private-company dynamics</li></ul></Card></div><Callout title="The talent pool goes well beyond rugs">Furniture, home furnishings & décor, apparel, footwear, accessories, specialty retail and other inventory-intensive consumer businesses are the logical analogues.</Callout></Section>
-    if (id === 'method') return <Section eyebrow="Overview · 02" title="How we evaluated the market" intro="A weighted framework keeps category fit and functional relevance ahead of brand familiarity."><div className="method-layout"><div className="card factors">{[['Consumer / home / analogous-sector expertise',30],['Functional expertise',25],['Executive network & search horsepower',20],['Dallas / Texas capability',15],['Reputation & institutional credibility',10]].map(([label, value]) => <div className="factor" key={label as string}><div><span>{label}</span><strong>{value}%</strong></div><div className="progress"><i style={{ width: `${(value as number) * 3.33}%` }} /></div></div>)}</div><Card title="Two deliberate judgment calls"><ol><li>No simplistic 1–5 ranking — firms have different strengths, shown by role.</li><li>Public Google/Glassdoor reviews are not a proxy for search quality — reputation capped at ~10%.</li></ol></Card></div><Callout title="Evidence standard">Every named placement is tagged for how it was verified: third-party press / Hunt Scanlon, or the firm's own published portfolio. Unconfirmable claims were left out.</Callout><div className="legend"><Pill>confirmed via press / Hunt Scanlon / firm notice</Pill><Pill published>in firm's own portfolio, not independently confirmed</Pill></div></Section>
-    if (id === 'shortlist') return <Section eyebrow="Overview · 03" title="Five firms, two search models" intro="The shortlist balances global C-suite reach with specialist category depth."><div className="table-wrap"><table><thead><tr><th>Firm</th><th>Model</th><th>Why it made the shortlist</th><th>Strongest for</th></tr></thead><tbody>{[['Kirk Palmer','Specialist','Closest category overlap of anyone — including a rug-company CEO placement and dedicated planning/allocation practice','Inventory · President · Finance'],['Herbert Mines','Specialist','Consumer/retail-exclusive firm with direct Bob’s Discount Furniture & At Home evidence','President · Finance · Supply Chain'],['Spencer Stuart','Global','Elite C-suite network plus real home-furnishings CEO work and Dallas functional bench','President · Finance · Inventory'],['Russell Reynolds','Global','Elite network with an unusually relevant Dallas-based retail practice lead','President · all three'],['JM Search','Mid-market / PE','Strong growth-company platform with particularly deep CFO recruiting','Finance · President']].map((r, i) => <tr key={r[0]}><td><LinkText href={firms[i].url}>{r[0]}</LinkText></td><td><span className="model">{r[1]}</span></td><td>{r[2]}</td><td>{r[3]}</td></tr>)}</tbody></table></div><Callout title="The finding that's hard to ignore"><LinkText href="https://www.kirkpalmer.com">Kirk Palmer's published portfolio</LinkText> includes Ruggable, Rugs USA, At Home, Brown Jordan, Arhaus and Crate & Barrel (◇ PUBLISHED) — and it placed Ruggable's CEO (◆ VERIFIED).</Callout></Section>
-    if (firms.some(f => f.id === id)) return <FirmModule firm={firms.find(f => f.id === id)!} />
-    if (id === 'evidence') return <Section eyebrow="Appendix · 09" title="Comparable placement evidence" intro="The evidence that anchors the shortlist — and why each signal matters to Loloi."><div className="table-wrap"><table><thead><tr><th>Firm</th><th>Evidence</th><th>Why it matters to Loloi</th><th>Source</th></tr></thead><tbody>{[['Kirk Palmer','Ruggable — CEO (Nicole Otto)','Direct rug-category analogue','◆ VERIFIED'],['Kirk Palmer','Home portfolio: Rugs USA, At Home, Brown Jordan, Arhaus, Crate & Barrel','Deep home/furniture adjacency + planning/allocation practice','◇ PUBLISHED'],['Herbert Mines',"Bob's Discount Furniture — President & CEO",'Major furniture CEO placement','◆ VERIFIED'],['Herbert Mines','At Home — CCO → President & CCO','Sourcing + planning + supply chain + merchandising','◆ VERIFIED'],['Spencer Stuart','Mitchell Gold + Bob Williams — President & CEO','Direct home-furnishings CEO succession','◆ VERIFIED'],['Russell Reynolds','Neiman Marcus Group — CEO; Dallas retail practice lead','Top-end consumer reach + local network','◆ VERIFIED'],['JM Search','Dedicated Financial Officers practice; active CFO recruiter','Strongest finance network of the five','◆ VERIFIED']].map(r => <tr key={r[1]}>{r.map((c, i) => <td key={i}>{c}</td>)}</tr>)}</tbody></table></div><p className="footnote">Individual role-level placements listed in some firms' marketing were included only where independently confirmable.</p></Section>
-    if (id === 'scorecard') return <Section eyebrow="Appendix · 10" title="Weighted evaluation" intro="Our internal assessment framework — not third-party rankings."><div className="table-wrap"><table className="score"><thead><tr>{['Firm','Consumer/Home 30%','Functions 25%','Network 20%','Dallas 15%','Reputation 10%','Overall'].map(h => <th key={h}>{h}</th>)}</tr></thead><tbody>{[['Spencer Stuart','8.5','9.5','10.0','9.5','9.5','9.3'],['Russell Reynolds','8.0','9.0','10.0','10.0','9.0','9.1'],['Kirk Palmer','10.0','9.5','8.5','4.5','8.5','8.6'],['Herbert Mines','9.5','9.5','8.0','5.0','9.0','8.5'],['JM Search','7.0','9.5','8.5','5.5','9.0','7.9']].map(r => <tr key={r[0]}>{r.map((c,i) => <td className={i === 6 ? 'overall' : ''} key={i}>{c}</td>)}</tr>)}</tbody></table></div><Callout title="The real insight">Firms split into two groups: global search (Spencer Stuart, Russell Reynolds) and specialist/mid-market consumer (Kirk Palmer, Herbert Mines, JM Search). Interviewing across both models is a feature, not a compromise.</Callout></Section>
-    if (id === 'alternates') return <Section eyebrow="Appendix · 11" title="Evaluated & held in reserve" intro="Answers ‘did we look at Korn Ferry and the others?’ Yes."><div className="grid-2">{[['Korn Ferry','https://www.kornferry.com','#1 alternate',' #1 in the Americas by search revenue (◆) and #1 on Forbes’ list nearly every year.'],['Heidrick & Struggles','https://www.heidrick.com','', 'Genuinely elite, Consumer Markets practice, Dallas office. Less public home/furnishings evidence.'],['JRG Partners','https://www.jrgpartners.com','specialist wildcard','Publishes an on-point furniture/home-goods case study (◇ firm-published), pending independent validation.'],['Crist | Kolder Associates','https://www.cristkolder.com','', 'Well-regarded C-suite boutique, potentially excellent for SVP Finance specifically.']].map(a => <Card key={a[0]} title={a[2]}><h4><LinkText href={a[1]}>{a[0]}</LinkText></h4><p>{a[3]}</p></Card>)}</div></Section>
-    return <Section eyebrow="Appendix · 12" title="How to run the three searches" intro="Don't auto-assign one firm to all three seats — match each role to the firm whose network actually fits."><div className="grid-3">{[['President','Herbert Mines or Spencer Stuart','Russell Reynolds (Dallas), Korn Ferry'],['SVP Inventory & Allocation','Kirk Palmer','Spencer Stuart, Herbert Mines'],['SVP Finance','JM Search or Herbert Mines','Spencer Stuart, Crist | Kolder']].map(r => <Card key={r[0]} title={r[0]}><div className="lead">Lead: <strong>{r[1]}</strong></div><p>Also see: {r[2]}</p></Card>)}</div><Callout title="Vetting checklist at pitch"><ul className="checklist"><li>Track record & industry knowledge</li><li>Who actually does the work (confirm the named partner)</li><li>Off-limits / blockage and term</li><li>Research vs. networking balance</li><li>Process, timing & ethics</li><li>Fees & expenses</li></ul></Callout><div className="footer-links"><LinkText href="https://www.forbes.com/lists/best-executive-recruiting-firms/">Forbes 2026 Best Executive Recruiting Firms</LinkText><LinkText href="https://huntscanlon.com">Hunt Scanlon</LinkText></div><p className="footnote">Rankings, placements and personnel change over time and are drawn from public sources and firms' own materials. Validate current partner coverage, conflicts and fees directly with each firm before engaging.</p></Section>
-  }
+export const metadata: Metadata = {
+  title: "Your All-in-One Job Search Platform",
 }
 
-function Section({ eyebrow, title, intro, children }: { eyebrow: string; title: string; intro: string; children: React.ReactNode }) { return <section><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p className="intro">{intro}</p>{children}</section> }
-function Callout({ title, children }: { title: string; children: React.ReactNode }) { return <div className="callout"><div className="callout-mark">✦</div><div><h3>{title}</h3><p>{children}</p></div></div> }
-function FirmModule({ firm }: { firm: typeof firms[number] }) { const content: Record<string, { best: string; body: string; cards: [string, string, boolean][] }> = { 'kirk-palmer': { best: 'Best category fit — lead for SVP Inventory & Allocation', body: 'A specialist consumer firm — not a global generalist — concentrated on retail, luxury, fashion, home and PE-backed consumer brands. Runs dedicated Planning & Allocation and Operations & Supply Chain practices alongside CEO/GM and Finance.', cards: [['The single strongest Loloi analogue','Ruggable — Chief Executive Officer. KPA placed Nicole Otto as CEO of Ruggable in Feb 2025 — a rug company. She was previously Global Brand President of The North Face after 16+ years at Nike.',false],['Home/furnishings portfolio','Ruggable, Rugs USA, At Home, Brown Jordan, Arhaus, Crate & Barrel. Organized across CEO/GM, Merchandising & Product, Finance, Operations & Supply Chain, and Planning & Allocation.',true],['Also verified','Five Below — Chief Merchandising Officer; Holt Renfrew — President & CEO; Bare Necessities — President; BRUNT Workwear — CFO/COO.',false],['Consideration','The trade-off vs. Spencer/RRA is institutional scale and no Dallas office — not consumer credibility.',false]] }, 'herbert-mines': { best: 'Best home-retail evidence — strong for President & Finance', body: 'A retained firm working exclusively in retail and consumer-facing businesses — CEO, President/COO, CFO/Finance, merchandising, sourcing/supply chain and retail operations — naming privately held/founder-family companies among its clients.', cards: [["Bob's Discount Furniture",'Bill Barton — President & CEO. HMA placed Barton to lead this major furniture/home retailer, which subsequently went public.',false],['At Home','Aaron Rose — CCO, elevated to President & CCO. Placed Jan 2025, later promoted. Remit spans merchandising, sourcing, planning, store operations and supply chain.',false],['Finance & broader work','Lumber Liquidators — CFO; leadership at Sprouts Farmers Market, Vera Bradley and other consumer brands.',false],['Consideration','Much smaller than the global firms — more senior attention, but less global infrastructure. No dedicated Dallas office.',false]] }, 'spencer-stuart': { best: 'Global horsepower + real home-furnishings CEO work', body: "Scale doesn't guarantee fit — but Spencer pairs an elite global C-suite network with documented home-furnishings CEO work and a Dallas functional bench.", cards: [['Mitchell Gold + Bob Williams','Allison O’Connor — President & CEO. Spencer ran the CEO search for this upscale home-furnishings maker.',false],['Dallas functional bench','A Dallas presence with Supply Chain & Operations and Financial Officer practices.',false],['Quality signal','Spencer reports close to two-thirds of assignments come from repeat clients — a stronger signal than public reviews.',false]] }, 'russell-reynolds': { best: 'Best Dallas + consumer + global-network intersection', body: 'RRA is where geography and consumer expertise meet most cleanly for the President search.', cards: [['The reason RRA is here','Brent Laffere — Americas Retail Practice Lead. Leads retail/consumer recruiting across merchandising, operations, supply chain, finance and digital.',false],['Network & track record','One of the largest retained-search networks in the Americas; placed the CEO of Neiman Marcus Group (◆).',false],['Honest gap','Public evidence of named furniture/home placements is thinner than KPA or HMA. Pitch is Dallas + elite network + cross-functional reach.',false]] }, 'jm-search': { best: 'Best specialist option for the SVP Finance search', body: 'A substantial U.S. retained firm built for middle-market, growth and PE-backed companies.', cards: [['Finance is the differentiator','Dedicated Financial Officers practice; one of the most active CFO recruiters in the market.',false],['Functional breadth','Retail practice recruits CEO, President, CFO, Chief Supply Chain Officer/Head of Sourcing, COO and Chief Merchandising Officer.',true],['Multi-role partner model','Often expands from one search into several for the same client.',false],['Consideration','Less public home/furniture/rug evidence than KPA, HMA or Spencer.',false]] } }; const data = content[firm.id]; return <Section eyebrow={`The firms · ${firm.name}`} title={firm.name} intro={data.best}><div className="firm-meta"><LinkText href={firm.url}>{firm.url.replace('https://www.','')}</LinkText><span>{firm.descriptor}</span></div><p className="firm-body">{data.body}</p><div className="grid-2">{data.cards.map(c => <Card key={c[0]} title={c[0]}><p>{c[1]}</p>{c[2] && <Pill published>firm portfolio</Pill>}</Card>)}</div></Section> }
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <Hero />
+      <LogoStrip />
+      <FuturisticCalculator />
+      <ServiceHub />
+      <Comparison />
+      <Coaches />
+      <Testimonials />
+      <Faq />
+      <section className="py-20 px-4 bg-gradient-to-r from-violet-50 to-violet-100">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to transform your job search?</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto mb-8">
+            Join thousands of professionals who&apos;ve accelerated their careers with InterRoom&apos;s personalized approach.
+          </p>
+          <Link href="/survey">
+            <Button size="lg" className="bg-violet-600 hover:bg-violet-700">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  )
+}
