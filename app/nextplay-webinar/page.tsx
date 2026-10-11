@@ -3,13 +3,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import Script from "next/script"
-import { useEffect, useState } from "react"
 import { ArrowRight, Check, Crosshair, LockKeyhole, TrendingUp } from "lucide-react"
 
 const ashHeadshot =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-31%20at%2020.41.36%20%281%29-UWNSVfiQfrVRwKqdBBPL8aWaDoUGwG.jpeg"
-const targetTime = new Date("2026-09-16T22:00:00Z").getTime()
-
 const logos = [
   ["Meta", "/images/logos/meta-logo.svg"],
   ["Uber", "/images/logos/uber-logo.svg"],
@@ -43,32 +40,6 @@ const testimonials = [
   ["/images/testimonials/jared.jpeg", "/images/logos/intercom-logo.svg", "Jared Malakouti", "Senior Product Manager at Intercom", "I took a shot since they don't get paid until you do. After 6 weeks I landed the exact role I'd been looking for. My only regret is not starting sooner."],
 ]
 
-function Countdown() {
-  const [left, setLeft] = useState(targetTime - Date.now())
-
-  useEffect(() => {
-    const timer = window.setInterval(() => setLeft(Math.max(0, targetTime - Date.now())), 1000)
-    return () => window.clearInterval(timer)
-  }, [])
-
-  const days = Math.floor(left / 86400000)
-  const hours = Math.floor((left % 86400000) / 3600000)
-  const minutes = Math.floor((left % 3600000) / 60000)
-  const seconds = Math.floor((left % 60000) / 1000)
-  const values = [[days, "DAYS"], [hours, "HRS"], [minutes, "MIN"], [seconds, "SEC"]]
-
-  return (
-    <div className="grid grid-cols-4 gap-2" aria-label="Countdown to the webinar">
-      {values.map(([value, label]) => (
-        <div key={label} className="rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 text-center">
-          <div className="font-mono text-2xl font-semibold leading-none text-white">{String(value).padStart(2, "0")}</div>
-          <div className="mt-2 text-[10px] tracking-[0.18em] text-[#aaa0d0]">{label}</div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
 function EasyWebinarWidget() {
   return (
     <div className="overflow-hidden rounded-xl bg-white">
@@ -86,7 +57,6 @@ export default function NextPlayPage() {
           <Link href="/" className="flex items-center gap-3" aria-label="InterRoom home">
             <Image src="/interroom-logo.png" alt="InterRoom" width={150} height={38} className="h-9 w-auto brightness-0 invert" />
           </Link>
-          <p className="hidden text-sm text-[#c7bcea] sm:block">Live Wednesday, September 16 at 3:00 PM PST / 6:00 PM EST</p>
         </div>
       </div>
 
@@ -99,7 +69,7 @@ export default function NextPlayPage() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-red-300/30 bg-red-400/15 px-3 py-1.5 text-xs font-semibold text-red-200"><span className="h-2 w-2 animate-pulse rounded-full bg-red-300" /> Live webinar</span>
                 <span className="rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs text-[#e7dffa]">Free 1-hour session</span>
               </div>
-              <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em] sm:text-6xl lg:text-7xl">Accelerate your job search.</h1>
+              <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">Accelerate your job search.</h1>
             </div>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#cbc0ec]">A free live session on anchoring yourself to a role the market will pay $150K and up for.</p>
             <div className="mt-9 flex flex-col gap-3">
@@ -125,13 +95,11 @@ export default function NextPlayPage() {
               <span className="inline-flex items-center gap-2 rounded-full border border-red-300/30 bg-red-400/15 px-3 py-1.5 text-xs font-semibold text-red-200"><span className="h-2 w-2 animate-pulse rounded-full bg-red-300" /> Live webinar</span>
               <span className="rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs text-[#e7dffa]">Free 1-hour session</span>
             </div>
-            <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em]">Accelerate your job search.</h1>
+            <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-[-0.045em] text-white">Accelerate your job search.</h1>
           </div>
 
           <aside id="register" className="order-2 h-fit rounded-3xl border border-white/10 bg-[#241f47]/95 p-5 shadow-2xl shadow-black/30 lg:order-none lg:sticky lg:top-6">
             <p className="text-lg font-semibold">Save your seat</p>
-            <p className="mt-1 text-sm text-[#b6abe0]">Wednesday, September 16 · 3:00 PM PST / 6:00 PM EST</p>
-            <div className="my-5"><Countdown /></div>
             <EasyWebinarWidget />
             <p className="mt-4 text-center text-xs text-[#8e82bd]">Register once and also get our <strong className="text-[#c6baec]">Job Search Accelerator Guide</strong>, free.</p>
           </aside>
@@ -155,7 +123,7 @@ export default function NextPlayPage() {
 
       <section className="bg-[#fafaf9] px-5 py-20 sm:px-8 sm:py-24"><div className="mx-auto grid max-w-6xl items-center gap-10 rounded-3xl border border-white/10 bg-[#14102b] p-8 text-white shadow-xl sm:p-12 lg:grid-cols-[1.25fr_.75fr]"><div><span className="rounded-full border border-[#ad88fd]/40 bg-[#ad88fd]/15 px-3 py-1.5 text-xs font-semibold text-[#ad88fd]">Free for everyone who registers</span><h2 className="mt-6 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">The Job Search Accelerator Guide</h2><p className="mt-4 max-w-xl text-[16px] leading-8 text-[#c7bcea]">Register and get our self-serve guide free. It walks you through the same positioning work covered live, so you can start applying it right away, whether or not you can make the session in person.</p></div><div className="rounded-2xl border border-white/10 bg-[#211c40] p-8 text-center"><p className="text-sm text-[#9e93cc] line-through">$99 value</p><p className="mt-1 text-4xl font-semibold">Free</p><p className="mt-1 text-sm text-[#ad88fd]">Job Search Accelerator Guide</p></div></div></section>
 
-      <section className="bg-[#14102b] px-5 py-20 text-center text-white sm:px-8 sm:py-24"><h2 className="mx-auto max-w-2xl text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Save your seat for Wednesday, September 16</h2><p className="mx-auto mt-4 max-w-xl text-lg text-[#c7bcea]">Free. Live. One hour. Bring your resume and LinkedIn questions.</p><div className="mx-auto mt-9 max-w-[460px] rounded-3xl border border-white/10 bg-[#241f47] p-5 text-left"><p className="text-lg font-semibold">Register now</p><p className="mt-1 text-sm text-[#b6abe0]">3:00 PM PST / 6:00 PM EST</p><div className="mt-5"><EasyWebinarWidget /></div><p className="mt-4 text-center text-xs text-[#8e82bd]">Includes your free copy of the <strong className="text-[#c6baec]">Job Search Accelerator Guide</strong>.</p></div></section>
+      <section className="bg-[#14102b] px-5 py-20 text-center text-white sm:px-8 sm:py-24"><h2 className="mx-auto max-w-2xl text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Join the live session</h2><p className="mx-auto mt-4 max-w-xl text-lg text-[#c7bcea]">Free. Live. One hour. Bring your resume and LinkedIn questions.</p><div className="mx-auto mt-9 max-w-[460px] rounded-3xl border border-white/10 bg-[#241f47] p-5 text-left"><p className="text-lg font-semibold">Register now</p><div className="mt-5"><EasyWebinarWidget /></div><p className="mt-4 text-center text-xs text-[#8e82bd]">Includes your free copy of the <strong className="text-[#c6baec]">Job Search Accelerator Guide</strong>.</p></div></section>
 
       <footer className="border-t border-white/10 bg-[#14102b] px-5 py-7 text-center text-xs text-[#7e72ab]">© 2026 InterRoom. All rights reserved. · interroom.me</footer>
     </main>
